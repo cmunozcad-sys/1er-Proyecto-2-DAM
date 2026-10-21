@@ -1,0 +1,244 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cometa",
+    "categoria": "correr",
+    "precio": 69.99,
+    "descripcion": "Ligera y con amortiguación equilibrada para entrenar a diario. El modelo base más pedido para clubes de atletismo.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "negro",
+      "blanco",
+      "azul"
+    ],
+    "destacado": true
+  },
+  {
+    "id": 2,
+    "nombre": "Relámpago",
+    "categoria": "correr",
+    "precio": 119.99,
+    "descripcion": "Placa de rigidez y espuma reactiva para competir en asfalto, de 10 km a maratón.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "negro",
+      "naranja"
+    ],
+    "destacado": true
+  },
+  {
+    "id": 3,
+    "nombre": "Impulso",
+    "categoria": "correr",
+    "precio": 49.99,
+    "descripcion": "Nuestra zapatilla de running más asequible. Ideal para empezar a correr.",
+    "imagen": "",
+    "tallas": [
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "gris",
+      "blanco"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 4,
+    "nombre": "Lince",
+    "categoria": "correr",
+    "precio": 84.99,
+    "descripcion": "Suela con tacos de 4 mm y puntera reforzada para correr por caminos y montaña.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "verde",
+      "negro"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 5,
+    "nombre": "Ráfaga",
+    "categoria": "correr",
+    "precio": 74.99,
+    "descripcion": "Malla transpirable y amortiguación extra para tiradas largas en verano.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "blanco",
+      "celeste"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 6,
+    "nombre": "Guepardo",
+    "categoria": "correr",
+    "precio": 89.99,
+    "descripcion": "Muy ligera y de perfil bajo, pensada para series y entrenamientos de velocidad.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "amarillo",
+      "negro"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 7,
+    "nombre": "Bólido",
+    "categoria": "correr",
+    "precio": 59.99,
+    "descripcion": "Cómoda y resistente, para rodajes suaves y uso diario.",
+    "imagen": "",
+    "tallas": [
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "negro",
+      "gris"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 8,
+    "nombre": "Centella",
+    "categoria": "correr",
+    "precio": 94.99,
+    "descripcion": "Clavos intercambiables para pista de atletismo.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "rojo",
+      "blanco"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 9,
+    "nombre": "Destello",
+    "categoria": "correr",
+    "precio": 79.99,
+    "descripcion": "Detalles reflectantes en toda la zapatilla para correr de noche con seguridad.",
+    "imagen": "",
+    "tallas": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "colores": [
+      "negro",
+      "plata"
+    ],
+    "destacado": false
+  },
+  {
+    "id": 10,
+    "nombre": "Chispa",
+    "categoria": "correr",
+    "precio": 39.99,
+    "descripcion": "Versión infantil de la Cometa, ligera y con cierre de velcro.",
+    "imagen": "",
+    "tallas": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "colores": [
+      "azul",
+      "naranja"
+    ],
+    "destacado": false
+  }
+]
