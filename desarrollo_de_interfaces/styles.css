@@ -61,7 +61,7 @@ body{
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-
+    list-style: none;
 }
 
 .lateral__raya{
