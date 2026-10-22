@@ -478,5 +478,244 @@
             "rojo"
         ],
         "destacado": false
+    },
+    {
+        "id": 21,
+        "nombre": "Furia FG",
+        "categoria": "futbol",
+        "precio": 89.99,
+        "descripcion": "Bota de tacos para césped natural con empeine fino para un mejor toque de balón.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "negro",
+            "blanco"
+        ],
+        "destacado": true
+    },
+    {
+        "id": 22,
+        "nombre": "Huracán AG",
+        "categoria": "futbol",
+        "precio": 74.99,
+        "descripcion": "Tacos cortos para césped artificial. El modelo más pedido por los clubes de fútbol base.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "rojo",
+            "negro"
+        ],
+        "destacado": true
+    },
+    {
+        "id": 23,
+        "nombre": "Remolino IC",
+        "categoria": "futbol",
+        "precio": 59.99,
+        "descripcion": "Suela lisa de goma para fútbol sala y pista cubierta.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "azul",
+            "blanco"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 24,
+        "nombre": "Tornado TF",
+        "categoria": "futbol",
+        "precio": 54.99,
+        "descripcion": "Suela multitaco para entrenar en tierra y césped artificial.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "negro",
+            "amarillo"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 25,
+        "nombre": "Campeón Élite",
+        "categoria": "futbol",
+        "precio": 119.99,
+        "descripcion": "Bota de competición ultraligera con tacos de aluminio para césped natural.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "dorado",
+            "negro"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 26,
+        "nombre": "Mago 10",
+        "categoria": "futbol",
+        "precio": 94.99,
+        "descripcion": "Empeine texturizado para mejorar el control del balón y el pase.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "blanco",
+            "azul"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 27,
+        "nombre": "Rayo X",
+        "categoria": "futbol",
+        "precio": 99.99,
+        "descripcion": "Ligera y de perfil bajo, pensada para jugadores rápidos.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "naranja",
+            "negro"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 28,
+        "nombre": "Pantera GK",
+        "categoria": "futbol",
+        "precio": 84.99,
+        "descripcion": "Diseñada para porteros, con suela de mayor agarre lateral.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "verde",
+            "negro"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 29,
+        "nombre": "Capitán 82",
+        "categoria": "futbol",
+        "precio": 69.99,
+        "descripcion": "Bota de piel de diseño clásico, cómoda desde el primer día.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "negro",
+            "blanco"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 30,
+        "nombre": "Cachorro Jr",
+        "categoria": "futbol",
+        "precio": 39.99,
+        "descripcion": "Bota infantil para escuelas de fútbol, con tacos para césped artificial.",
+        "imagen": "",
+        "tallas": [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+        ],
+        "colores": [
+            "azul",
+            "amarillo"
+        ],
+        "destacado": false
     }
 ]
