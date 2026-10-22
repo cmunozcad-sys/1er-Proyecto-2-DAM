@@ -717,5 +717,244 @@
             "amarillo"
         ],
         "destacado": false
+    },
+    {
+        "id": 31,
+        "nombre": "Cóndor 1",
+        "categoria": "baloncesto",
+        "precio": 99.99,
+        "descripcion": "Caña alta con sujeción de tobillo y buena amortiguación en los saltos.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "negro",
+            "rojo"
+        ],
+        "destacado": true
+    },
+    {
+        "id": 32,
+        "nombre": "Jaguar Low",
+        "categoria": "baloncesto",
+        "precio": 84.99,
+        "descripcion": "Caña baja, más ligera, para jugadores rápidos.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "blanco",
+            "gris"
+        ],
+        "destacado": true
+    },
+    {
+        "id": 33,
+        "nombre": "Trueno Pro",
+        "categoria": "baloncesto",
+        "precio": 119.99,
+        "descripcion": "Nuestro modelo de gama alta, con máxima amortiguación y estabilidad.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "negro",
+            "dorado"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 34,
+        "nombre": "Vértigo Street",
+        "categoria": "baloncesto",
+        "precio": 59.99,
+        "descripcion": "Pensada para jugar en pistas exteriores, con suela más resistente.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "blanco",
+            "azul"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 35,
+        "nombre": "Ciclón Mid",
+        "categoria": "baloncesto",
+        "precio": 79.99,
+        "descripcion": "Caña media, equilibrio entre sujeción y libertad de movimiento.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "gris",
+            "negro"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 36,
+        "nombre": "Saeta 3",
+        "categoria": "baloncesto",
+        "precio": 94.99,
+        "descripcion": "Suela de gran agarre para cambios de dirección rápidos. Pensada para bases.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "blanco",
+            "morado"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 37,
+        "nombre": "Gigante XL",
+        "categoria": "baloncesto",
+        "precio": 109.99,
+        "descripcion": "Refuerzos laterales y amortiguación extra para pívots.",
+        "imagen": "",
+        "tallas": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ],
+        "colores": [
+            "negro",
+            "verde"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 38,
+        "nombre": "Leyenda 92",
+        "categoria": "baloncesto",
+        "precio": 74.99,
+        "descripcion": "Diseño retro de piel inspirado en el baloncesto de los años 90.",
+        "imagen": "",
+        "tallas": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+        ],
+        "colores": [
+            "blanco",
+            "verde"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 39,
+        "nombre": "Amazona W",
+        "categoria": "baloncesto",
+        "precio": 89.99,
+        "descripcion": "Horma diseñada para el pie femenino, ligera y estable.",
+        "imagen": "",
+        "tallas": [
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45
+        ],
+        "colores": [
+            "blanco",
+            "rosa"
+        ],
+        "destacado": false
+    },
+    {
+        "id": 40,
+        "nombre": "Canguro Jr",
+        "categoria": "baloncesto",
+        "precio": 44.99,
+        "descripcion": "Versión infantil de la Cóndor 1, con cierre de velcro.",
+        "imagen": "",
+        "tallas": [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+        ],
+        "colores": [
+            "rojo",
+            "negro"
+        ],
+        "destacado": false
     }
 ]
