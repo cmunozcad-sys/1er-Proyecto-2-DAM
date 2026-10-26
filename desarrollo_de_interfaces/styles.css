@@ -13,12 +13,27 @@ body{
     color: var(--color-secundario);
     font-family: 'Montserrat', sans-serif;
 }
-
 .header__container{
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--color-secundario);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-principal);
+    transition: background-color 0.3s;
 }
+
+.header__container--scroll{
+    background-color: color-mix(var(--color-principal) 60%, transparent);
+    backdrop-filter: blur(8px);
+}
+
+.header__nav{
+    display: flex;
+    margin-left: auto;
+    margin-right: 2%;
+}
+
 
 .header__img{
     width: 130px;
@@ -29,12 +44,6 @@ body{
 .header__title{
     font-size: 50px;
     margin-left:2% ;
-}
-
-.header__nav{
-    display: flex;
-    margin-left: 30%;
-    
 }
 
 .header__link{
@@ -52,6 +61,24 @@ body{
     background-color: var(--color-secundario);
     color: var(--color-principal);
 }
+.lateral__panel{
+    position: fixed;
+    top: 131px;
+    left: 0px;
+    width: 300px;
+    bottom: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 9;
+    background-color: var(--color-principal);
+    border-right: 1px solid var(--color-secundario);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.4s ease-out, visibility 0.4s;
+}
 
 .lateral{
     margin-left: 2%;
@@ -68,23 +95,6 @@ body{
     width: 30px;
     height: 2px;
     background-color: var(--color-secundario);
-}
-
-.lateral__panel{
-    position: fixed;
-    top: 131px;
-    left: 0px;
-    width: 300px;
-    bottom: 0;
-    padding: 30px;
-    background-color: var(--color-principal);
-    border-right: 1px solid var(--color-secundario);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transform: translateX(-100%);
-    visibility: hidden;
-    transition: transform 0.4s ease-out, visibility 0.4s;
 }
 
 .lateral__titulo{
@@ -205,6 +215,59 @@ body{
     color: var(--color-principal);
 }
 
+.div__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 100%;
+    background-image: url(img/cristiano_con_botas.png);
+    background-repeat: cover;
+    background-position: center;
+}
+.destacado{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    background-image: linear-gradient(to top, var(--color-principal), transparent 50%), url(img/cristiano_con_botas.png);
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.destacado__contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.destacado__etiqueta{
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-secundario);
+}
+
+.destacado__titulo{
+    margin: 0;
+    font-size: 48px;
+    color: var(--color-terciario);
+}
+
+.boton--comprar{
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton--comprar:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--color-secundario);
+}
 @media (max-width: 800px){
     .inicio{
         grid-template-columns: 1fr;
@@ -218,5 +281,12 @@ body{
 
     .inicio__datos{
         gap: 25px;
+    }
+        .destacado{
+        aspect-ratio: 3 / 4;
+    }
+
+    .destacado__titulo{
+        font-size: 30px;
     }
 }
