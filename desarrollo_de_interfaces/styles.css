@@ -3,6 +3,7 @@
 :root{
     --color-principal: black;
     --color-secundario: rgb(219, 219, 219);
+    --color-terciario : white; 
     --alto-header: 130px; 
 }
 
@@ -112,4 +113,110 @@ body{
 .lateral__check:checked ~ .lateral__panel{
     transform: translateX(0);
     visibility: visible;
+}
+
+.inicio{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 5%;
+}
+
+.inicio__etiqueta{
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.inicio__titulo{
+    margin: 15px 0;
+    font-size: 60px;
+}
+
+.inicio__descripcion{
+    margin: 0 0 35px;
+    font-size: 18px;
+    max-width: 500px;
+}
+
+.inicio__botones{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.inicio__datos{
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.inicio__dato{
+    margin: 0;
+    color: gray;
+}
+
+.inicio__dato strong{
+    display: block;
+    font-size: 28px;
+    color: var(--color-secundario);
+}
+
+.inicio__imagen{
+    background-color: var(--color-terciario);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.inicio__imagen img{
+    width: 100%;
+    display: block;
+}
+
+.boton{
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--color-secundario);
+}
+
+.boton--principal{
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.boton--principal:hover{
+    background-color: transparent;
+    color: var(--color-secundario);
+}
+
+.boton--secundario{
+    color: var(--color-secundario);
+}
+
+.boton--secundario:hover{
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+@media (max-width: 800px){
+    .inicio{
+        grid-template-columns: 1fr;
+        padding: 40px 5%;
+        gap: 40px;
+    }
+
+    .inicio__titulo{
+        font-size: 40px;
+    }
+
+    .inicio__datos{
+        gap: 25px;
+    }
 }
