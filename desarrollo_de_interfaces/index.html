@@ -10,38 +10,55 @@
 
 <body>
     <header class="header__container">
-        <div class="lateral">
-            <input type="checkbox" id="menu" class="lateral__check">
+        <div class="header__izquierda">
+            <div class="lateral">
+                <input type="checkbox" id="menu" class="lateral__check">
 
-            <label for="menu" class="lateral__boton" aria-label="Abrir menú de categorías">
-                <span class="lateral__raya"></span>
-                <span class="lateral__raya"></span>
-                <span class="lateral__raya"></span>
-            </label>
+                <label for="menu" class="lateral__boton" aria-label="Abrir menú de categorías">
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                </label>
 
-            <nav class="lateral__panel">
-                <p class="lateral__titulo">Categorías</p>
-                <a class="lateral__link" href="">Inicio</a>
-                <a class="lateral__link" href="">Zapatillas de correr</a>
-                <a class="lateral__link" href="">Botas</a>
-                <a class="lateral__link" href="">Fútbol</a>
-                <a class="lateral__link" href="">Baloncesto</a>
-                <a class="lateral__link" href="">Custom</a>
-            </nav>
+                <nav class="lateral__panel">
+                    <p class="lateral__titulo">Categorías</p>
+                    <a class="lateral__link" href="">Inicio</a>
+                    <a class="lateral__link" href="">Zapatillas de correr</a>
+                    <a class="lateral__link" href="">Botas</a>
+                    <a class="lateral__link" href="">Fútbol</a>
+                    <a class="lateral__link" href="">Baloncesto</a>
+                    <a class="lateral__link" href="">Custom</a>
+                </nav>
+            </div>
+
+            <a class="header__marca" href="#inicio">
+                <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
+            </a>
         </div>
 
-        <img class="header__img" src="img/logo_proyecto.png" alt="">
-        <h1 class="header__title">DACA</h1>
         <nav class="header__nav">
-            <a class="header__link" href="#">Inicio</a>
-            <a class="header__link" href="#">Catálogo</a>
-            <a class="header__link" href="#">Detalle</a>
-            <a class="header__link" href="#">Custom</a>
-            <a class="header__link" href="#">Contacto</a>
+            <a class="header__link" href="#inicio">INICIO</a>
+            <a class="header__link" href="#catalogo">CATÁLOGO</a>
+            <a class="header__link" href="#detalle">DETALLE</a>
+            <a class="header__link" href="#custom">CUSTOM</a>
+            <a class="header__link" href="#contacto">CONTACT</a>
         </nav>
+
+        <div class="header__acciones">
+            <a class="header__icono" href="#" aria-label="Buscar">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+            </a>
+            <a class="header__icono" href="#" aria-label="Mi cuenta">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+            </a>
+            <a class="header__icono" href="#comprar" aria-label="Carrito">
+                <svg class="header__svg" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+                <span class="header__contador">0</span>
+            </a>
+        </div>
     </header>
 
-    <main>
+    <main class="contenido">
         <section class="inicio" id="inicio">
             <div class="inicio__texto">
                 <p class="inicio__etiqueta">Nueva colección 2026</p>
@@ -66,13 +83,13 @@
         </section>
         <section class="destacado" id="destacado">
             <div class="destacado__contenido">
-                <p class="destacado__etiqueta">Edición Pantera</p>
-                <h2 class="destacado__titulo">Velocidad de depredador</h2>
+                <p class="destacado__etiqueta">Edición limitada</p>
+                <h2 class="destacado__titulo">PANTERA-GK</h2>
                 <a class="boton boton--principal boton--comprar" href="" data-producto="28">Comprar ahora</a>
             </div>
         </section>
     </main>
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
