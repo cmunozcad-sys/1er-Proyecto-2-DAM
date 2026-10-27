@@ -19,8 +19,7 @@
         ],
         "colores": [
             "negro",
-            "blanco",
-            "azul"
+            "blanco"
         ],
         "destacado": true
     },
@@ -117,7 +116,7 @@
         ],
         "colores": [
             "blanco",
-            "celeste"
+            "azul"
         ],
         "destacado": false
     },
@@ -140,8 +139,8 @@
             46
         ],
         "colores": [
-            "amarillo",
-            "negro"
+            "negro",
+            "amarillo"
         ],
         "destacado": false
     },
@@ -260,8 +259,8 @@
             46
         ],
         "colores": [
-            "marrón",
-            "verde"
+            "verde",
+            "marrón"
         ],
         "destacado": true
     },
@@ -382,7 +381,7 @@
         ],
         "colores": [
             "negro",
-            "verde"
+            "azul"
         ],
         "destacado": false
     },
@@ -453,7 +452,8 @@
         ],
         "colores": [
             "blanco",
-            "gris"
+            "gris",
+            "azul"
         ],
         "destacado": false
     },
@@ -500,7 +500,7 @@
         ],
         "colores": [
             "negro",
-            "blanco"
+            "azul"
         ],
         "destacado": true
     },
@@ -547,8 +547,8 @@
             46
         ],
         "colores": [
-            "azul",
-            "blanco"
+            "negro",
+            "azul"
         ],
         "destacado": false
     },
@@ -572,7 +572,7 @@
         ],
         "colores": [
             "negro",
-            "amarillo"
+            "naranja"
         ],
         "destacado": false
     },
@@ -595,8 +595,8 @@
             46
         ],
         "colores": [
-            "dorado",
-            "negro"
+            "negro",
+            "dorado"
         ],
         "destacado": false
     },
@@ -643,8 +643,8 @@
             46
         ],
         "colores": [
-            "naranja",
-            "negro"
+            "negro",
+            "azul"
         ],
         "destacado": false
     },
@@ -667,8 +667,8 @@
             46
         ],
         "colores": [
-            "verde",
-            "negro"
+            "negro",
+            "verde"
         ],
         "destacado": false
     },
@@ -692,7 +692,7 @@
         ],
         "colores": [
             "negro",
-            "blanco"
+            "dorado"
         ],
         "destacado": false
     },
@@ -714,8 +714,8 @@
             37
         ],
         "colores": [
-            "azul",
-            "amarillo"
+            "negro",
+            "azul"
         ],
         "destacado": false
     },
@@ -810,6 +810,7 @@
             46
         ],
         "colores": [
+            "negro",
             "blanco",
             "azul"
         ],
@@ -834,8 +835,8 @@
             47
         ],
         "colores": [
-            "gris",
-            "negro"
+            "negro",
+            "azul"
         ],
         "destacado": false
     },
@@ -883,7 +884,7 @@
         ],
         "colores": [
             "negro",
-            "verde"
+            "gris"
         ],
         "destacado": false
     },
@@ -930,7 +931,7 @@
             45
         ],
         "colores": [
-            "blanco",
+            "negro",
             "rosa"
         ],
         "destacado": false
