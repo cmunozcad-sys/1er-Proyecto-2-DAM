@@ -346,6 +346,51 @@ body{
     background-repeat: no-repeat;
 }
 
+.separador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 70px 5%;
+}
+
+.separador::before,
+.separador::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #333;
+}
+
+.separador__texto{
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.detalle{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    min-height: 320px;
+    background-image: linear-gradient(to bottom, var(--color-principal), transparent 25%, transparent 60%, var(--color-principal)), url(img/pared_zapatillas.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.detalle__boton{
+    margin-bottom: 40px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.detalle__boton:hover{
+    transform: translateY(-3px);
+}
+
 .catalogo__cabecera{
     display: flex;
     justify-content: space-between;
