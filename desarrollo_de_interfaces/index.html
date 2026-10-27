@@ -183,7 +183,6 @@
             </div>
         </section>
 
-
         <section class="colaboracion" id="colaboracion" role="img" aria-label="Próxima colaboración con Nike"></section>
 
         <div class="separador">
@@ -192,6 +191,53 @@
 
         <section class="detalle" id="detalle" aria-label="Pared con todos los modelos de la tienda">
             <a class="boton boton--principal detalle__boton" href="#catalogo">Ver detalles</a>
+        </section>
+
+        <section class="custom" id="custom">
+            <div class="custom__recuadro">
+                <p class="custom__etiqueta">CUSTOM</p>
+                <h2 class="custom__titulo">Personaliza tus zapatillas</h2>
+
+                <form class="custom__formulario">
+                    <div class="custom__filtros">
+                        <div class="custom__campo">
+                            <label class="custom__label" for="custom-modelo">Modelo</label>
+                            <select class="custom__input" id="custom-modelo" name="modelo" required>
+                                <option value="">Selecciona un modelo</option>
+                            </select>
+                        </div>
+
+                        <div class="custom__campo">
+                            <label class="custom__label" for="custom-color">Color</label>
+                            <input class="custom__input custom__input--color" type="color" id="custom-color" name="color">
+                        </div>
+
+                        <div class="custom__campo">
+                            <label class="custom__label" for="custom-talla">Talla</label>
+                            <select class="custom__input" id="custom-talla" name="talla" required disabled>
+                                <option value="">Elige primero un modelo</option>
+                            </select>
+                        </div>
+
+                        <div class="custom__campo">
+                            <label class="custom__label" for="custom-cantidad">Cantidad</label>
+                            <input class="custom__input" type="number" id="custom-cantidad" name="cantidad" min="1" value="1" required>
+                        </div>
+
+                        <div class="custom__campo custom__campo--completo">
+                            <label class="custom__label" for="custom-texto">Texto bordado (opcional)</label>
+                            <input class="custom__input" type="text" id="custom-texto" name="texto" maxlength="40" placeholder="Máximo 40 caracteres">
+                        </div>
+                    </div>
+
+                    <div class="custom__pie">
+                        <p class="custom__precio">Precio total <strong class="custom__total">0,00 €</strong></p>
+                        <button class="boton boton--principal custom__enviar">Enviar solicitud</button>
+                    </div>
+
+                    <p class="custom__mensaje"></p>
+                </form>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>

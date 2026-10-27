@@ -552,6 +552,120 @@ body{
     transition: background-color 0.3s, color 0.3s;
 }
 
+.custom{
+    padding: 100px 5%;
+}
+
+.custom__recuadro{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #333;
+    border-radius: 20px;
+}
+
+.custom__etiqueta{
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: gray;
+}
+
+.custom__titulo{
+    margin: 15px 0 30px;
+    font-size: 36px;
+    color: var(--color-terciario);
+}
+
+.custom__filtros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+
+.custom__campo{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.custom__campo--completo{
+    grid-column: 1 / -1;
+}
+
+.custom__label{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.custom__input{
+    padding: 12px 15px;
+    background-color: var(--color-principal);
+    border: 1px solid gray;
+    border-radius: 6px;
+    color: var(--color-secundario);
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.custom__input:hover,
+.custom__input:focus{
+    border-color: var(--color-terciario);
+    outline: none;
+}
+
+.custom__input:disabled{
+    border-color: #333;
+    color: gray;
+    cursor: not-allowed;
+}
+
+.custom__input--color{
+    width: 100%;
+    height: 46px;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.custom__pie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+}
+
+.custom__precio{
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.custom__total{
+    display: block;
+    margin-top: 6px;
+    font-size: 28px;
+    color: var(--color-terciario);
+}
+
+.custom__enviar{
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom__mensaje{
+    margin: 20px 0 0;
+    font-size: 14px;
+    color: var(--color-terciario);
+}
+
 @media (max-width: 1024px){
     .catalogo__lista{
         grid-template-columns: repeat(2, 1fr);
@@ -600,5 +714,21 @@ body{
 
     .destacado__titulo{
         font-size: 30px;
+    }
+
+    .custom{
+        padding: 60px;
+    }
+
+    .custom__recuadro{
+        padding: 25px;
+    }
+
+    .custom__titulo{
+        font-size: 28px;
+    }
+
+    .custom__filtros{
+        grid-template-columns: 1fr;
     }
 }
