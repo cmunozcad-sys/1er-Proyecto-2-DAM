@@ -6,7 +6,6 @@
     --color-secundario: rgb(219, 219, 219);
     --color-terciario : white;
     --color-naranja: orange;
-    --alto-header: 130px;
 }
 
 html{
@@ -334,16 +333,6 @@ body{
     color: var(--color-principal);
 }
 
-.div__img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    width: 100%;
-    background-image: url(img/cristiano_con_botas.png);
-    background-repeat: cover;
-    background-position: center;
-}
 .destacado{
     display: flex;
     align-items: flex-end;
@@ -1096,7 +1085,103 @@ body{
 .ficha__boton{
     padding: 12px 30px;
     font-size: 13px;
+}
+
+.producto{
+    padding: 50px 5% 100px;
+}
+
+.producto__volver{
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    color: gray;
+    transition: color 0.3s;
+}
+
+.producto__volver:hover{
+    color: var(--color-terciario);
+}
+
+.producto__contenido{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.producto__imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: var(--color-terciario);
+    border-radius: 20px;
+}
+
+.producto__img{
+    width: 100%;
+    transition: transform 0.4s ease-out;
+}
+
+.producto__imagen:hover .producto__img{
+    transform: scale(1.06);
+}
+
+.producto__info{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.producto__nombre{
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-terciario);
+}
+
+.producto__precio{
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-terciario);
+}
+
+.producto__botones{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 22px;
+    border-top: 1px solid rgb(51, 51, 51);
+}
+
+.producto__botones .boton{
+    font-size: 14px;
     cursor: pointer;
+}
+
+.producto__radio{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.producto__talla{
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.producto__talla:hover{
+    border-color: var(--color-terciario);
+}
+
+.producto__radio:checked + .producto__talla{
+    background-color: var(--color-terciario);
+    border-color: var(--color-terciario);
+    color: var(--color-principal);
 }
 
 @media (max-width: 1024px){
@@ -1213,5 +1298,18 @@ body{
 
     .custom__tallas{
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .producto__contenido{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .producto__imagen{
+        padding: 25px;
+    }
+
+    .producto__nombre{
+        font-size: 32px;
     }
 }
