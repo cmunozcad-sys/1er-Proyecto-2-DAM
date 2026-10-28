@@ -202,41 +202,106 @@
             <div class="custom__recuadro">
                 <p class="custom__etiqueta">CUSTOM</p>
                 <h2 class="custom__titulo">Personaliza tus zapatillas</h2>
+                <p class="custom__descripcion">Diseñamos cualquier modelo del catálogo con los colores, el escudo y el
+                    nombre de tu club.</p>
+
+                <ol class="custom__pasos">
+                    <li class="custom__paso"><span class="custom__numero">01</span>Elige el modelo</li>
+                    <li class="custom__paso"><span class="custom__numero">02</span>Personalízalo</li>
+                    <li class="custom__paso"><span class="custom__numero">03</span>Envía la solicitud</li>
+                    <li class="custom__paso"><span class="custom__numero">04</span>Recibe el presupuesto</li>
+                    <li class="custom__paso"><span class="custom__numero">05</span>Fabricación y entrega</li>
+                </ol>
+
+                <div class="custom__datos">
+                    <p class="custom__dato">Plazo <strong>3-4 semanas</strong></p>
+                </div>
 
                 <form class="custom__formulario">
-                    <div class="custom__filtros">
-                        <div class="custom__campo">
-                            <label class="custom__label" for="custom-modelo">Modelo</label>
-                            <select class="custom__input" id="custom-modelo" name="modelo" required>
-                                <option value="">Selecciona un modelo</option>
-                            </select>
-                        </div>
+                    <fieldset class="custom__grupo">
+                        <legend class="custom__leyenda">Datos del club</legend>
+                        <div class="custom__filtros">
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-club">Nombre del club</label>
+                                <input class="custom__input" type="text" id="custom-club" name="club" required>
+                            </div>
 
-                        <div class="custom__campo">
-                            <label class="custom__label" for="custom-color">Color</label>
-                            <input class="custom__input custom__input--color" type="color" id="custom-color" name="color">
-                        </div>
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-contacto">Persona de contacto</label>
+                                <input class="custom__input" type="text" id="custom-contacto" name="contacto" required>
+                            </div>
 
-                        <div class="custom__campo">
-                            <label class="custom__label" for="custom-talla">Talla</label>
-                            <select class="custom__input" id="custom-talla" name="talla" required disabled>
-                                <option value="">Elige primero un modelo</option>
-                            </select>
-                        </div>
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-email">Email</label>
+                                <input class="custom__input" type="email" id="custom-email" name="email" required>
+                            </div>
 
-                        <div class="custom__campo">
-                            <label class="custom__label" for="custom-cantidad">Cantidad</label>
-                            <input class="custom__input" type="number" id="custom-cantidad" name="cantidad" min="1" value="1" required>
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-telefono">Teléfono</label>
+                                <input class="custom__input" type="tel" id="custom-telefono" name="telefono" required>
+                            </div>
                         </div>
+                    </fieldset>
 
-                        <div class="custom__campo custom__campo--completo">
-                            <label class="custom__label" for="custom-texto">Texto bordado (opcional)</label>
-                            <input class="custom__input" type="text" id="custom-texto" name="texto" maxlength="40" placeholder="Máximo 40 caracteres">
+                    <fieldset class="custom__grupo">
+                        <legend class="custom__leyenda">Modelo y personalización</legend>
+                        <div class="custom__filtros">
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-modelo">Modelo</label>
+                                <select class="custom__input" id="custom-modelo" name="modelo" required>
+                                    <option value="">Selecciona un modelo</option>
+                                </select>
+                            </div>
+
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-color">Color</label>
+                                <input class="custom__input custom__input--color" type="color" id="custom-color" name="color">
+                            </div>
+
+                            <div class="custom__campo custom__campo--completo">
+                                <label class="custom__label" for="custom-texto">Texto bordado (opcional)</label>
+                                <input class="custom__input" type="text" id="custom-texto" name="texto" maxlength="40" placeholder="Máximo 40 caracteres">
+                            </div>
+
+                            <label class="custom__check custom__campo--completo" for="custom-escudo">
+                                <input class="custom__casilla" type="checkbox" id="custom-escudo" name="escudo">
+                                Incluir el escudo del club
+                            </label>
                         </div>
-                    </div>
+                    </fieldset>
+
+                    <fieldset class="custom__grupo">
+                        <legend class="custom__leyenda">Tallas y cantidades</legend>
+                        <div class="custom__tallas">
+                            <p class="custom__aviso">Elige primero un modelo</p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="custom__grupo">
+                        <legend class="custom__leyenda">Entrega</legend>
+                        <div class="custom__filtros">
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-fecha">Fecha deseada</label>
+                                <input class="custom__input" type="date" id="custom-fecha" name="fecha">
+                            </div>
+
+                            <div class="custom__campo">
+                                <label class="custom__label" for="custom-observaciones">Observaciones</label>
+                                <textarea class="custom__input custom__input--area" id="custom-observaciones" name="observaciones"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <label class="custom__check" for="custom-privacidad">
+                        <input class="custom__casilla" type="checkbox" id="custom-privacidad" name="privacidad" required>
+                        He leído y acepto la política de privacidad
+                    </label>
 
                     <div class="custom__pie">
-                        <p class="custom__precio">Precio total <strong class="custom__total">0,00 €</strong></p>
+                        <p class="custom__precio">Precio orientativo
+                            <strong class="custom__total">0,00 €</strong>
+                            <span class="custom__pares">0 pares</span>
+                        </p>
                         <button class="boton boton--principal custom__enviar">Enviar solicitud</button>
                     </div>
 
