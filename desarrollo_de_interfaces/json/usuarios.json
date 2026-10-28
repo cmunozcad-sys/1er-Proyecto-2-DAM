@@ -1,0 +1,54 @@
+[
+    {
+        "id_usuario": 1,
+        "username": "admin",
+        "password": "admin1234",
+        "nombre_completo": "Administrador del sistema",
+        "rol": "Administrador",
+        "activo": true,
+        "permisos": [
+            "PEDIDO_VER",
+            "PEDIDO_CREAR",
+            "PEDIDO_EDITAR",
+            "PEDIDO_CONFIRMAR",
+            "PEDIDO_CANCELAR",
+            "STOCK_VER",
+            "INDICADORES_VER",
+            "EXPORTAR_CSV",
+            "AUDITORIA_VER",
+            "USUARIOS_GESTIONAR",
+            "USUARIOS_EXPORTAR"
+        ]
+    },
+    {
+        "id_usuario": 2,
+        "username": "comercial",
+        "password": "comercial1234",
+        "nombre_completo": "Usuario comercial de prueba",
+        "rol": "Comercial",
+        "activo": true,
+        "permisos": [
+            "PEDIDO_VER",
+            "PEDIDO_CREAR",
+            "PEDIDO_EDITAR",
+            "PEDIDO_CONFIRMAR",
+            "PEDIDO_CANCELAR",
+            "STOCK_VER",
+            "INDICADORES_VER",
+            "EXPORTAR_CSV"
+        ]
+    },
+    {
+        "id_usuario": 3,
+        "username": "almacen",
+        "password": "almacen1234",
+        "nombre_completo": "Usuario de almacén de prueba",
+        "rol": "Almacen",
+        "activo": true,
+        "permisos": [
+            "PEDIDO_VER",
+            "STOCK_VER",
+            "EXPORTAR_CSV"
+        ]
+    }
+]

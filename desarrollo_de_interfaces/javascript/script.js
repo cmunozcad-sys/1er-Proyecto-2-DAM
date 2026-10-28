@@ -88,7 +88,7 @@ function mostrarTallas() {
 
 async function cargarProductos() {
     try {
-        const respuesta = await fetch("productos.json");
+        const respuesta = await fetch("json/productos.json");
         productos = await respuesta.json();
         cargarModelos();
     } catch (error) {

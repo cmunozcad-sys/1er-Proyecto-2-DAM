@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header__container">
+        <div class="header__izquierda">
+            <div class="lateral">
+                <input type="checkbox" id="menu" class="lateral__check">
+
+                <label for="menu" class="lateral__boton" aria-label="Abrir menú de categorías">
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                </label>
+
+                <nav class="lateral__panel">
+                    <p class="lateral__titulo">Categorías</p>
+                    <a class="lateral__link" href="index.html">Inicio</a>
+                    <a class="lateral__link" href="detalle.html#correr">Zapatillas de correr</a>
+                    <a class="lateral__link" href="detalle.html#botas">Botas</a>
+                    <a class="lateral__link" href="detalle.html#futbol">Fútbol</a>
+                    <a class="lateral__link" href="detalle.html#baloncesto">Baloncesto</a>
+                    <a class="lateral__link" href="index.html#custom">Custom</a>
+                </nav>
+            </div>
+
+            <a class="header__marca" href="index.html">
+                <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
+            </a>
+        </div>
+
+        <nav class="header__nav">
+            <a class="boton boton--secundario header__boton" href="index.html">Inicio</a>
+            <a class="boton boton--secundario header__boton" href="detalle.html">Modelos</a>
+        </nav>
+
+        <div class="header__acciones">
+            <a class="header__icono" href="#" aria-label="Buscar">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+            </a>
+            <a class="header__icono" href="login.html" aria-label="Mi cuenta">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+            </a>
+            <a class="header__icono" href="#comprar" aria-label="Carrito">
+                <svg class="header__svg" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+                <span class="header__contador">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="contenido login">
+        <section class="login__recuadro">
+            <p class="login__etiqueta">Mi cuenta</p>
+            <h1 class="login__titulo">Inicia sesión</h1>
+            <p class="login__descripcion">Acceso para el equipo de la tienda: administración, comercial y almacén.</p>
+
+            <form class="login__formulario" novalidate>
+                <div class="custom__campo">
+                    <label class="custom__label" for="login-usuario">Usuario</label>
+                    <input class="custom__input" type="text" id="login-usuario" name="username" maxlength="40" autocomplete="username" placeholder="Tu nombre de usuario">
+                </div>
+
+                <div class="custom__campo">
+                    <label class="custom__label" for="login-password">Contraseña</label>
+                    <input class="custom__input" type="password" id="login-password" name="password" autocomplete="current-password" placeholder="Tu contraseña">
+                </div>
+
+                <label class="login__mostrar" for="login-mostrar">
+                    <input type="checkbox" id="login-mostrar"> Mostrar contraseña
+                </label>
+
+                <button class="boton boton--naranja login__boton" type="submit">Entrar</button>
+
+                <p class="login__mensaje"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="javascript/script.js"></script>
+    <script src="javascript/login.js"></script>
+</body>
+
+</html>
