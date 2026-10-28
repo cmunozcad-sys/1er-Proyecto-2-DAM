@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osezno</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Producto</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -22,23 +22,23 @@
 
                 <nav class="lateral__panel">
                     <p class="lateral__titulo">Categorías</p>
-                    <a class="lateral__link" href="../index.html">Inicio</a>
-                    <a class="lateral__link" href="../detalle.html#correr">Zapatillas de correr</a>
-                    <a class="lateral__link" href="../detalle.html#botas">Botas</a>
-                    <a class="lateral__link" href="../detalle.html#futbol">Fútbol</a>
-                    <a class="lateral__link" href="../detalle.html#baloncesto">Baloncesto</a>
-                    <a class="lateral__link" href="../index.html#custom">Custom</a>
+                    <a class="lateral__link" href="index.html">Inicio</a>
+                    <a class="lateral__link" href="detalle.html#correr">Zapatillas de correr</a>
+                    <a class="lateral__link" href="detalle.html#botas">Botas</a>
+                    <a class="lateral__link" href="detalle.html#futbol">Fútbol</a>
+                    <a class="lateral__link" href="detalle.html#baloncesto">Baloncesto</a>
+                    <a class="lateral__link" href="index.html#custom">Custom</a>
                 </nav>
             </div>
 
-            <a class="header__marca" href="../index.html">
-                <img class="header__img" src="../img/logo_proyecto.png" alt="Volver al inicio">
+            <a class="header__marca" href="index.html">
+                <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
             </a>
         </div>
 
         <nav class="header__nav">
-            <a class="boton boton--secundario header__boton" href="../index.html">Inicio</a>
-            <a class="boton boton--secundario header__boton" href="../detalle.html">Modelos</a>
+            <a class="boton boton--secundario header__boton" href="index.html">Inicio</a>
+            <a class="boton boton--secundario header__boton" href="detalle.html">Modelos</a>
         </nav>
 
         <div class="header__acciones">
@@ -57,60 +57,35 @@
 
     <main class="contenido">
         <section class="producto">
-            <a class="producto__volver" href="../detalle.html#producto-20">← Volver a todos los modelos</a>
+            <a class="producto__volver" href="detalle.html">← Volver a todos los modelos</a>
 
             <div class="producto__contenido">
                 <div class="producto__imagen">
-                    <img class="producto__img" src="../img/osezno.png" alt="Zapatilla Osezno en rosa, negro">
+                    <img class="producto__img" alt="">
                 </div>
 
                 <div class="producto__info">
-                    <p class="ficha__categoria">Botas · Ref. 020</p>
+                    <p class="ficha__categoria"></p>
                     <div class="ficha__cabecera">
-                        <h1 class="producto__nombre">Osezno</h1>
+                        <h1 class="producto__nombre"></h1>
+                        <span class="ficha__insignia" hidden>Más vendida</span>
                     </div>
-                    <p class="producto__precio">44,99 €</p>
-                    <p class="ficha__descripcion">Bota infantil de montaña, resistente y fácil de calzar.</p>
+                    <p class="producto__precio"></p>
+                    <p class="ficha__descripcion"></p>
 
                     <div>
                         <p class="ficha__titulo">Colores</p>
-                        <div class="tarjeta__colores">
-                            <span class="tarjeta__muestra tarjeta__muestra--rosa"></span>
-                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
-                            <span class="tarjeta__texto-colores">Rosa / Negro</span>
-                        </div>
+                        <div class="tarjeta__colores producto__colores"></div>
                     </div>
 
                     <div>
                         <p class="ficha__titulo">Tallas (EU)</p>
-                        <div class="ficha__tallas">
-                            <input class="producto__radio" type="radio" name="talla" id="talla-30" value="30">
-                            <label class="ficha__talla producto__talla" for="talla-30">30</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-31" value="31">
-                            <label class="ficha__talla producto__talla" for="talla-31">31</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-32" value="32">
-                            <label class="ficha__talla producto__talla" for="talla-32">32</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-33" value="33">
-                            <label class="ficha__talla producto__talla" for="talla-33">33</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-34" value="34">
-                            <label class="ficha__talla producto__talla" for="talla-34">34</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-35" value="35">
-                            <label class="ficha__talla producto__talla" for="talla-35">35</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-36" value="36">
-                            <label class="ficha__talla producto__talla" for="talla-36">36</label>
-                            <input class="producto__radio" type="radio" name="talla" id="talla-37" value="37">
-                            <label class="ficha__talla producto__talla" for="talla-37">37</label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="ficha__titulo">Características</p>
-                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                        <div class="ficha__tallas producto__tallas"></div>
                     </div>
 
                     <div class="producto__botones">
                         <button class="boton boton--naranja" type="button">Añadir al carrito</button>
-                        <a class="boton boton--secundario" href="../index.html#custom">Personalizar para mi club</a>
+                        <a class="boton boton--secundario" href="index.html#custom">Personalizar para mi club</a>
                     </div>
                 </div>
             </div>
@@ -120,8 +95,8 @@
     <footer class="footer" id="contacto">
         <div class="footer__superior">
             <div class="footer__columna">
-                <a class="header__marca" href="../index.html#inicio">
-                    <img class="header__img" src="../img/logo_proyecto.png" alt="Volver al inicio">
+                <a class="header__marca" href="index.html#inicio">
+                    <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
                 </a>
                 <p class="footer__texto">Zapatillas para correr, montaña, fútbol y baloncesto. Personalizadas con
                     los colores de tu club.</p>
@@ -140,10 +115,10 @@
 
             <nav class="footer__columna">
                 <p class="footer__titulo">Tienda</p>
-                <a class="footer__link" href="../index.html#inicio">Inicio</a>
-                <a class="footer__link" href="../index.html#catalogo">Catálogo</a>
-                <a class="footer__link" href="../detalle.html">Detalle</a>
-                <a class="footer__link" href="../index.html#custom">Custom</a>
+                <a class="footer__link" href="index.html#inicio">Inicio</a>
+                <a class="footer__link" href="index.html#catalogo">Catálogo</a>
+                <a class="footer__link" href="detalle.html">Detalle</a>
+                <a class="footer__link" href="index.html#custom">Custom</a>
             </nav>
 
             <div class="footer__columna">
@@ -172,8 +147,12 @@
         </div>
     </footer>
 
+<<<<<<< HEAD:desarrollo_de_interfaces/productos/producto-20.html
     <script src="../javascript/script.js"></script>
     <script src="../javascript/login.js"></script>
+=======
+    <script src="script.js"></script>
+>>>>>>> aea422cd21dbc62848b70ed2a73a329f3e9e5a72:desarrollo_de_interfaces/producto.html
 </body>
 
 </html>
