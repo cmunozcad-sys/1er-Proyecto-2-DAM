@@ -5,7 +5,7 @@
     --color-principal: black;
     --color-secundario: rgb(219, 219, 219);
     --color-terciario : white;
-    --color-naranja: #f25c19;
+    --color-naranja: orange;
     --alto-header: 130px;
 }
 
@@ -425,6 +425,24 @@ body{
     color: gray;
 }
 
+.separador--categoria{
+    padding: 90px 5% 50px;
+}
+
+.separador--categoria::before,
+.separador--categoria::after{
+    height: 2px;
+    background-color: var(--color-naranja);
+}
+
+.separador--categoria .separador__texto{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--color-terciario);
+}
+
 .detalle{
     display: flex;
     align-items: flex-end;
@@ -591,6 +609,14 @@ body{
 .tarjeta__muestra--marron{ background-color: #7a4e2d; }
 .tarjeta__muestra--azul{ background-color: #1f4fa3; }
 .tarjeta__muestra--dorado{ background-color: #c9a227; }
+.tarjeta__muestra--naranja{ background-color: var(--color-naranja); }
+.tarjeta__muestra--gris{ background-color: rgb(140, 140, 140); }
+.tarjeta__muestra--amarillo{ background-color: rgb(230, 190, 30); }
+.tarjeta__muestra--rojo{ background-color: rgb(200, 30, 40); }
+.tarjeta__muestra--plata{ background-color: rgb(192, 192, 192); }
+.tarjeta__muestra--arena{ background-color: rgb(210, 180, 140); }
+.tarjeta__muestra--morado{ background-color: rgb(110, 50, 160); }
+.tarjeta__muestra--rosa{ background-color: rgb(230, 120, 160); }
 
 .tarjeta__texto-colores{
     margin-left: 4px;
@@ -799,9 +825,173 @@ body{
     gap: 30px;
 }
 
+.header__boton{
+    padding: 10px 28px;
+    font-size: 13px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.fichas{
+    padding: 60px 5% 0;
+}
+
+.fichas__lista{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 5% 40px;
+}
+
+.ficha{
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+    padding: 25px;
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 20px;
+    transition: border-color 0.3s;
+}
+
+.ficha:hover{
+    border-color: rgb(128, 128, 128);
+}
+
+.ficha__imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-terciario);
+    border-radius: 14px;
+}
+
+.ficha__img{
+    width: 100%;
+    transition: transform 0.4s ease-out;
+}
+
+.ficha:hover .ficha__img{
+    transform: scale(1.06);
+}
+
+.ficha__info{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ficha__categoria{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgb(128, 128, 128);
+}
+
+.ficha__categoria::before{
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-naranja);
+}
+
+.ficha__cabecera{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ficha__nombre{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-terciario);
+}
+
+.ficha__insignia{
+    padding: 5px 12px;
+    border-radius: 30px;
+    background-color: var(--color-naranja);
+    color: var(--color-terciario);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ficha__descripcion{
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-secundario);
+}
+
+.ficha__titulo{
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(128, 128, 128);
+}
+
+.ficha__tallas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ficha__talla{
+    min-width: 36px;
+    padding: 6px 0;
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 6px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.ficha__texto{
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgb(128, 128, 128);
+}
+
+.ficha__pie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgb(51, 51, 51);
+}
+
+.ficha__precio{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-terciario);
+}
+
+.ficha__boton{
+    padding: 12px 30px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
 @media (max-width: 1024px){
     .catalogo__lista{
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fichas__lista{
+        grid-template-columns: 1fr;
     }
 
     .footer__superior{
@@ -829,6 +1019,19 @@ body{
     .footer__superior{
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .ficha{
+        grid-template-columns: 1fr;
+    }
+
+    .separador--categoria{
+        padding: 60px 5% 35px;
+    }
+
+    .separador--categoria .separador__texto{
+        font-size: 22px;
+        letter-spacing: 3px;
     }
 }
 

@@ -5,7 +5,7 @@
         "categoria": "correr",
         "precio": 69.99,
         "descripcion": "Ligera y con amortiguación equilibrada para entrenar a diario. El modelo base más pedido para clubes de atletismo.",
-        "imagen": "",
+        "imagen": "img/cometa.png",
         "tallas": [
             38,
             39,
@@ -29,7 +29,7 @@
         "categoria": "correr",
         "precio": 119.99,
         "descripcion": "Placa de rigidez y espuma reactiva para competir en asfalto, de 10 km a maratón.",
-        "imagen": "",
+        "imagen": "img/relampago.png",
         "tallas": [
             38,
             39,
@@ -53,7 +53,7 @@
         "categoria": "correr",
         "precio": 49.99,
         "descripcion": "Nuestra zapatilla de running más asequible. Ideal para empezar a correr.",
-        "imagen": "",
+        "imagen": "img/impulso.png",
         "tallas": [
             37,
             38,
@@ -78,7 +78,7 @@
         "categoria": "correr",
         "precio": 84.99,
         "descripcion": "Suela con tacos de 4 mm y puntera reforzada para correr por caminos y montaña.",
-        "imagen": "",
+        "imagen": "img/Lince.png",
         "tallas": [
             38,
             39,
@@ -102,7 +102,7 @@
         "categoria": "correr",
         "precio": 74.99,
         "descripcion": "Malla transpirable y amortiguación extra para tiradas largas en verano.",
-        "imagen": "",
+        "imagen": "img/rafaga.png",
         "tallas": [
             38,
             39,
@@ -126,7 +126,7 @@
         "categoria": "correr",
         "precio": 89.99,
         "descripcion": "Muy ligera y de perfil bajo, pensada para series y entrenamientos de velocidad.",
-        "imagen": "",
+        "imagen": "img/Guepardo.png",
         "tallas": [
             38,
             39,
@@ -150,7 +150,7 @@
         "categoria": "correr",
         "precio": 59.99,
         "descripcion": "Cómoda y resistente, para rodajes suaves y uso diario.",
-        "imagen": "",
+        "imagen": "img/bolido.png",
         "tallas": [
             37,
             38,
@@ -175,7 +175,7 @@
         "categoria": "correr",
         "precio": 94.99,
         "descripcion": "Clavos intercambiables para pista de atletismo.",
-        "imagen": "",
+        "imagen": "img/centella.png",
         "tallas": [
             38,
             39,
@@ -199,7 +199,7 @@
         "categoria": "correr",
         "precio": 79.99,
         "descripcion": "Detalles reflectantes en toda la zapatilla para correr de noche con seguridad.",
-        "imagen": "",
+        "imagen": "img/destello.png",
         "tallas": [
             38,
             39,
@@ -223,7 +223,7 @@
         "categoria": "correr",
         "precio": 39.99,
         "descripcion": "Versión infantil de la Cometa, ligera y con cierre de velcro.",
-        "imagen": "",
+        "imagen": "img/chispa.png",
         "tallas": [
             30,
             31,
@@ -246,7 +246,7 @@
         "categoria": "botas",
         "precio": 99.99,
         "descripcion": "Bota de montaña impermeable con suela de alto agarre para rutas exigentes.",
-        "imagen": "",
+        "imagen": "img/coloso.png",
         "tallas": [
             38,
             39,
@@ -270,7 +270,7 @@
         "categoria": "botas",
         "precio": 74.99,
         "descripcion": "Bota de caña media, resistente y versátil para el día a día y los días de frío.",
-        "imagen": "",
+        "imagen": "img/granito.png",
         "tallas": [
             37,
             38,
@@ -294,7 +294,7 @@
         "categoria": "botas",
         "precio": 119.99,
         "descripcion": "Bota técnica de caña alta con protección de tobillo para alta montaña.",
-        "imagen": "",
+        "imagen": "img/titan.png",
         "tallas": [
             38,
             39,
@@ -319,7 +319,7 @@
         "categoria": "botas",
         "precio": 64.99,
         "descripcion": "Bota con forro térmico de borreguito para mantener los pies calientes en invierno.",
-        "imagen": "",
+        "imagen": "img/volcan.png",
         "tallas": [
             37,
             38,
@@ -343,7 +343,7 @@
         "categoria": "botas",
         "precio": 79.99,
         "descripcion": "Bota ligera de senderismo para excursiones de un día.",
-        "imagen": "",
+        "imagen": "img/coyote.png",
         "tallas": [
             38,
             39,
@@ -367,7 +367,7 @@
         "categoria": "botas",
         "precio": 89.99,
         "descripcion": "Totalmente impermeable, con costuras selladas para lluvia y barro.",
-        "imagen": "",
+        "imagen": "img/tormenta.png",
         "tallas": [
             38,
             39,
@@ -391,7 +391,7 @@
         "categoria": "botas",
         "precio": 69.99,
         "descripcion": "Bota de montaña con refuerzos laterales, pensada para terrenos secos y pedregosos.",
-        "imagen": "",
+        "imagen": "img/escorpion.png",
         "tallas": [
             37,
             38,
@@ -415,7 +415,7 @@
         "categoria": "botas",
         "precio": 84.99,
         "descripcion": "Puntera reforzada y suela antideslizante para jornadas largas de trabajo.",
-        "imagen": "",
+        "imagen": "img/acero.png",
         "tallas": [
             38,
             39,
@@ -438,7 +438,7 @@
         "categoria": "botas",
         "precio": 109.99,
         "descripcion": "Aislamiento térmico y suela especial para nieve, pensada para temperaturas bajo cero.",
-        "imagen": "",
+        "imagen": "img/glaciar.png",
         "tallas": [
             38,
             39,
@@ -463,7 +463,7 @@
         "categoria": "botas",
         "precio": 44.99,
         "descripcion": "Bota infantil de montaña, resistente y fácil de calzar.",
-        "imagen": "",
+        "imagen": "img/osezno.png",
         "tallas": [
             30,
             31,
@@ -486,7 +486,7 @@
         "categoria": "futbol",
         "precio": 89.99,
         "descripcion": "Bota de tacos para césped natural con empeine fino para un mejor toque de balón.",
-        "imagen": "",
+        "imagen": "img/furia-fg.png",
         "tallas": [
             38,
             39,
@@ -510,7 +510,7 @@
         "categoria": "futbol",
         "precio": 74.99,
         "descripcion": "Tacos cortos para césped artificial. El modelo más pedido por los clubes de fútbol base.",
-        "imagen": "",
+        "imagen": "img/huracan-ag.png",
         "tallas": [
             38,
             39,
@@ -534,7 +534,7 @@
         "categoria": "futbol",
         "precio": 59.99,
         "descripcion": "Suela lisa de goma para fútbol sala y pista cubierta.",
-        "imagen": "",
+        "imagen": "img/remolino-ic.png",
         "tallas": [
             38,
             39,
@@ -558,7 +558,7 @@
         "categoria": "futbol",
         "precio": 54.99,
         "descripcion": "Suela multitaco para entrenar en tierra y césped artificial.",
-        "imagen": "",
+        "imagen": "img/tornado-tf.png",
         "tallas": [
             38,
             39,
@@ -582,7 +582,7 @@
         "categoria": "futbol",
         "precio": 119.99,
         "descripcion": "Bota de gama alta ultraligera, con acabados dorados y suela multitaco de máximo agarre.",
-        "imagen": "",
+        "imagen": "img/campeon-elite.png",
         "tallas": [
             38,
             39,
@@ -606,7 +606,7 @@
         "categoria": "futbol",
         "precio": 94.99,
         "descripcion": "Empeine texturizado para mejorar el control del balón y el pase.",
-        "imagen": "",
+        "imagen": "img/mago-10.png",
         "tallas": [
             38,
             39,
@@ -630,7 +630,7 @@
         "categoria": "futbol",
         "precio": 99.99,
         "descripcion": "Ligera y de perfil bajo, pensada para jugadores rápidos.",
-        "imagen": "",
+        "imagen": "img/rayo-x.png",
         "tallas": [
             38,
             39,
@@ -654,7 +654,7 @@
         "categoria": "futbol",
         "precio": 84.99,
         "descripcion": "Diseñada para porteros, con suela de mayor agarre lateral.",
-        "imagen": "",
+        "imagen": "img/pantera-gk.png",
         "tallas": [
             38,
             39,
@@ -678,7 +678,7 @@
         "categoria": "futbol",
         "precio": 69.99,
         "descripcion": "Bota de diseño elegante en negro y dorado, cómoda desde el primer día.",
-        "imagen": "",
+        "imagen": "img/capitan-82.png",
         "tallas": [
             38,
             39,
@@ -702,7 +702,7 @@
         "categoria": "futbol",
         "precio": 39.99,
         "descripcion": "Bota infantil para escuelas de fútbol, con tacos para césped artificial.",
-        "imagen": "",
+        "imagen": "img/cachorro-jr.png",
         "tallas": [
             30,
             31,
@@ -725,7 +725,7 @@
         "categoria": "baloncesto",
         "precio": 99.99,
         "descripcion": "Caña alta con sujeción de tobillo y buena amortiguación en los saltos.",
-        "imagen": "",
+        "imagen": "img/condor-1.png",
         "tallas": [
             39,
             40,
@@ -749,7 +749,7 @@
         "categoria": "baloncesto",
         "precio": 84.99,
         "descripcion": "Caña baja, más ligera, para jugadores rápidos.",
-        "imagen": "",
+        "imagen": "img/jaguar-low.png",
         "tallas": [
             39,
             40,
@@ -773,7 +773,7 @@
         "categoria": "baloncesto",
         "precio": 119.99,
         "descripcion": "Nuestro modelo de gama alta, con máxima amortiguación y estabilidad.",
-        "imagen": "",
+        "imagen": "img/trueno-pro.png",
         "tallas": [
             39,
             40,
@@ -797,7 +797,7 @@
         "categoria": "baloncesto",
         "precio": 59.99,
         "descripcion": "Pensada para jugar en pistas exteriores, con suela más resistente.",
-        "imagen": "",
+        "imagen": "img/vertigo-street.png",
         "tallas": [
             38,
             39,
@@ -822,7 +822,7 @@
         "categoria": "baloncesto",
         "precio": 79.99,
         "descripcion": "Caña media, equilibrio entre sujeción y libertad de movimiento.",
-        "imagen": "",
+        "imagen": "img/ciclon-mid.png",
         "tallas": [
             39,
             40,
@@ -846,7 +846,7 @@
         "categoria": "baloncesto",
         "precio": 94.99,
         "descripcion": "Suela de gran agarre para cambios de dirección rápidos. Pensada para bases.",
-        "imagen": "",
+        "imagen": "img/saeta-3.png",
         "tallas": [
             39,
             40,
@@ -870,7 +870,7 @@
         "categoria": "baloncesto",
         "precio": 109.99,
         "descripcion": "Refuerzos laterales y amortiguación extra para pívots.",
-        "imagen": "",
+        "imagen": "img/gigante-xl.png",
         "tallas": [
             39,
             40,
@@ -894,7 +894,7 @@
         "categoria": "baloncesto",
         "precio": 74.99,
         "descripcion": "Inspirada en el baloncesto de los años 90, con una estética atrevida en negro y morado.",
-        "imagen": "",
+        "imagen": "img/leyenda-92.png",
         "tallas": [
             38,
             39,
@@ -918,7 +918,7 @@
         "categoria": "baloncesto",
         "precio": 89.99,
         "descripcion": "Horma diseñada para el pie femenino, ligera y estable.",
-        "imagen": "",
+        "imagen": "img/amazona-w.png",
         "tallas": [
             37,
             38,
@@ -942,7 +942,7 @@
         "categoria": "baloncesto",
         "precio": 44.99,
         "descripcion": "Zapatilla infantil de baloncesto, ligera y con cierre de velcro.",
-        "imagen": "",
+        "imagen": "img/canguro-jr.png",
         "tallas": [
             30,
             31,

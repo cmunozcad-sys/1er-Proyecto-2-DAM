@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de modelos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header__container">
+        <div class="header__izquierda">
+            <div class="lateral">
+                <input type="checkbox" id="menu" class="lateral__check">
+
+                <label for="menu" class="lateral__boton" aria-label="Abrir menú de categorías">
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                    <span class="lateral__raya"></span>
+                </label>
+
+                <nav class="lateral__panel">
+                    <p class="lateral__titulo">Categorías</p>
+                    <a class="lateral__link" href="index.html">Inicio</a>
+                    <a class="lateral__link" href="#correr">Zapatillas de correr</a>
+                    <a class="lateral__link" href="#botas">Botas</a>
+                    <a class="lateral__link" href="#futbol">Fútbol</a>
+                    <a class="lateral__link" href="#baloncesto">Baloncesto</a>
+                    <a class="lateral__link" href="index.html#custom">Custom</a>
+                </nav>
+            </div>
+
+            <a class="header__marca" href="index.html">
+                <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
+            </a>
+        </div>
+
+        <nav class="header__nav">
+            <a class="boton boton--secundario header__boton" href="index.html">Inicio</a>
+        </nav>
+
+        <div class="header__acciones">
+            <a class="header__icono" href="#" aria-label="Buscar">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+            </a>
+            <a class="header__icono" href="#" aria-label="Mi cuenta">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+            </a>
+            <a class="header__icono" href="#comprar" aria-label="Carrito">
+                <svg class="header__svg" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+                <span class="header__contador">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="contenido">
+        <section class="fichas">
+            <div class="catalogo__cabecera">
+                <div>
+                    <p class="catalogo__etiqueta">Detalle</p>
+                    <h2 class="catalogo__titulo">Todos los modelos</h2>
+                </div>
+
+                <div class="catalogo__filtros">
+                    <a class="boton boton--secundario catalogo__filtro" href="#correr">CORRER</a>
+                    <a class="boton boton--secundario catalogo__filtro" href="#botas">BOTAS</a>
+                    <a class="boton boton--secundario catalogo__filtro" href="#futbol">FÚTBOL</a>
+                    <a class="boton boton--secundario catalogo__filtro" href="#baloncesto">BALONCESTO</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="separador separador--categoria" id="correr">
+            <p class="separador__texto">Correr</p>
+        </div>
+
+        <section class="fichas__lista">
+            <article class="ficha" id="producto-1">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/cometa.png" alt="Zapatilla Cometa, negro y blanco">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 001</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Cometa</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Ligera y con amortiguación equilibrada para entrenar a diario. El modelo base más pedido para clubes de atletismo.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__texto-colores">Negro / Blanco</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">69,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-2">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/relampago.png" alt="Zapatilla Relámpago, negro y naranja">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 002</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Relámpago</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Placa de rigidez y espuma reactiva para competir en asfalto, de 10 km a maratón.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--naranja"></span>
+                            <span class="tarjeta__texto-colores">Negro / Naranja</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">119,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-3">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/impulso.png" alt="Zapatilla Impulso, gris y blanco">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 003</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Impulso</h3>
+                    </div>
+                    <p class="ficha__descripcion">Nuestra zapatilla de running más asequible. Ideal para empezar a correr.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div clscriptrjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--gris"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__texto-colores">Gris / Blanco</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">49,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-4">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/Lince.png" alt="Zapatilla Lince, negro y naranja">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 004</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Lince</h3>
+                    </div>
+                    <p class="ficha__descripcion">Suela con tacos de 4 mm y puntera reforzada para correr por caminos y montaña.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--naranja"></span>
+                            <span class="tarjeta__texto-colores">Negro / Naranja</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">84,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-5">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/rafaga.png" alt="Zapatilla Ráfaga, blanco y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 005</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Ráfaga</h3>
+                    </div>
+                    <p class="ficha__descripcion">Malla transpirable y amortiguación extra para tiradas largas en verano.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Blanco / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">74,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-6">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/Guepardo.png" alt="Zapatilla Guepardo, negro y amarillo">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 006</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Guepardo</h3>
+                    </div>
+                    <p class="ficha__descripcion">Muy ligera y de perfil bajo, pensada para series y entrenamientos de velocidad.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--amarillo"></span>
+                            <span class="tarjeta__texto-colores">Negro / Amarillo</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">89,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-7">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/bolido.png" alt="Zapatilla Bólido, negro y gris">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 007</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Bólido</h3>
+                    </div>
+                    <p class="ficha__descripcion">Cómoda y resistente, para rodajes suaves y uso diario.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--gris"></span>
+                            <span class="tarjeta__texto-colores">Negro / Gris</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">59,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-8">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/centella.png" alt="Zapatilla Centella, rojo y blanco">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 008</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Centella</h3>
+                    </div>
+                    <p class="ficha__descripcion">Clavos intercambiables para pista de atletismo.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--rojo"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__texto-colores">Rojo / Blanco</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">94,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-9">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/destello.png" alt="Zapatilla Destello, negro y plata">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 009</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Destello</h3>
+                    </div>
+                    <p class="ficha__descripcion">Detalles reflectantes en toda la zapatilla para correr de noche con seguridad.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--plata"></span>
+                            <span class="tarjeta__texto-colores">Negro / Plata</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">79,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-10">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/chispa.png" alt="Zapatilla Chispa, negro y blanco">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Correr · Ref. 010</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Chispa</h3>
+                    </div>
+                    <p class="ficha__descripcion">Versión infantil de la Cometa, ligera y con cierre de velcro.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__texto-colores">Negro / Blanco</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">30</span>
+                            <span class="ficha__talla">31</span>
+                            <span class="ficha__talla">32</span>
+                            <span class="ficha__talla">33</span>
+                            <span class="ficha__talla">34</span>
+                            <span class="ficha__talla">35</span>
+                            <span class="ficha__talla">36</span>
+                            <span class="ficha__talla">37</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Espuma reactiva en toda la suela, malla transpirable y drop de 8 mm para un paso suave y rápido.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">39,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="separador separador--categoria" id="botas">
+            <p class="separador__texto">Botas</p>
+        </div>
+
+        <section class="fichas__lista">
+            <article class="ficha" id="producto-11">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/coloso.png" alt="Zapatilla Coloso, verde y marrón">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 011</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Coloso</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Bota de montaña impermeable con suela de alto agarre para rutas exigentes.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--verde"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--marron"></span>
+                            <span class="tarjeta__texto-colores">Verde / Marrón</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">99,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-12">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/granito.png" alt="Zapatilla Granito, gris y negro">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 012</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Granito</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Bota de caña media, resistente y versátil para el día a día y los días de frío.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--gris"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__texto-colores">Gris / Negro</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">74,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-13">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/titan.png" alt="Zapatilla Titán, marrón y negro y naranja">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 013</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Titán</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota técnica de caña alta con protección de tobillo para alta montaña.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--marron"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--naranja"></span>
+                            <span class="tarjeta__texto-colores">Marrón / Negro / Naranja</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">119,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-14">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/volcan.png" alt="Zapatilla Volcán, negro y rojo">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 014</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Volcán</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota con forro térmico de borreguito para mantener los pies calientes en invierno.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--rojo"></span>
+                            <span class="tarjeta__texto-colores">Negro / Rojo</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">64,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-15">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/coyote.png" alt="Zapatilla Coyote, arena y marrón">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 015</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Coyote</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota ligera de senderismo para excursiones de un día.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--arena"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--marron"></span>
+                            <span class="tarjeta__texto-colores">Arena / Marrón</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">79,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-16">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/tormenta.png" alt="Zapatilla Tormenta, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 016</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Tormenta</h3>
+                    </div>
+                    <p class="ficha__descripcion">Totalmente impermeable, con costuras selladas para lluvia y barro.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">89,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-17">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/escorpion.png" alt="Zapatilla Escorpión, negro y amarillo">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 017</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Escorpión</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota de montaña con refuerzos laterales, pensada para terrenos secos y pedregosos.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--amarillo"></span>
+                            <span class="tarjeta__texto-colores">Negro / Amarillo</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">69,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-18">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/acero.png" alt="Zapatilla Acero, negro">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 018</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Acero</h3>
+                    </div>
+                    <p class="ficha__descripcion">Puntera reforzada y suela antideslizante para jornadas largas de trabajo.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__texto-colores">Negro</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">84,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-19">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/glaciar.png" alt="Zapatilla Glaciar, blanco y gris y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 019</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Glaciar</h3>
+                    </div>
+                    <p class="ficha__descripcion">Aislamiento térmico y suela especial para nieve, pensada para temperaturas bajo cero.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--gris"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Blanco / Gris / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">109,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-20">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/osezno.png" alt="Zapatilla Osezno, rosa y negro">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Botas · Ref. 020</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Osezno</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota infantil de montaña, resistente y fácil de calzar.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--rosa"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__texto-colores">Rosa / Negro</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">30</span>
+                            <span class="ficha__talla">31</span>
+                            <span class="ficha__talla">32</span>
+                            <span class="ficha__talla">33</span>
+                            <span class="ficha__talla">34</span>
+                            <span class="ficha__talla">35</span>
+                            <span class="ficha__talla">36</span>
+                            <span class="ficha__talla">37</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Suela de goma con tacos de 5 mm, membrana impermeable y refuerzo en puntera y talón.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">44,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="separador separador--categoria" id="futbol">
+            <p class="separador__texto">Fútbol</p>
+        </div>
+
+        <section class="fichas__lista">
+            <article class="ficha" id="producto-21">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/furia-fg.png" alt="Zapatilla Furia FG, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 021</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Furia FG</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Bota de tacos para césped natural con empeine fino para un mejor toque de balón.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">89,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-22">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/huracan-ag.png" alt="Zapatilla Huracán AG, negro y verde">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 022</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Huracán AG</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Tacos cortos para césped artificial. El modelo más pedido por los clubes de fútbol base.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--verde"></span>
+                            <span class="tarjeta__texto-colores">Negro / Verde</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">74,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-23">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/remolino-ic.png" alt="Zapatilla Remolino IC, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 023</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Remolino IC</h3>
+                    </div>
+                    <p class="ficha__descripcion">Suela lisa de goma para fútbol sala y pista cubierta.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">59,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-24">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/tornado-tf.png" alt="Zapatilla Tornado TF, negro y naranja">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 024</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Tornado TF</h3>
+                    </div>
+                    <p class="ficha__descripcion">Suela multitaco para entrenar en tierra y césped artificial.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--naranja"></span>
+                            <span class="tarjeta__texto-colores">Negro / Naranja</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">54,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-25">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/campeon-elite.png" alt="Zapatilla Campeón Élite, negro y dorado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 025</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Campeón Élite</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota de gama alta ultraligera, con acabados dorados y suela multitaco de máximo agarre.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--dorado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Dorado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">119,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-26">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/mago-10.png" alt="Zapatilla Mago 10, negro y morado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 026</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Mago 10</h3>
+                    </div>
+                    <p class="ficha__descripcion">Empeine texturizado para mejorar el control del balón y el pase.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--morado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Morado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">94,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-27">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/rayo-x.png" alt="Zapatilla Rayo X, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 027</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Rayo X</h3>
+                    </div>
+                    <p class="ficha__descripcion">Ligera y de perfil bajo, pensada para jugadores rápidos.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">99,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-28">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/pantera-gk.png" alt="Zapatilla Pantera GK, negro y verde">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 028</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Pantera GK</h3>
+                    </div>
+                    <p class="ficha__descripcion">Diseñada para porteros, con suela de mayor agarre lateral.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--verde"></span>
+                            <span class="tarjeta__texto-colores">Negro / Verde</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">84,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-29">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/capitan-82.png" alt="Zapatilla Capitán 82, negro y dorado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 029</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Capitán 82</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota de diseño elegante en negro y dorado, cómoda desde el primer día.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--dorado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Dorado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">69,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-30">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/cachorro-jr.png" alt="Zapatilla Cachorro Jr, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Fútbol · Ref. 030</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Cachorro Jr</h3>
+                    </div>
+                    <p class="ficha__descripcion">Bota infantil para escuelas de fútbol, con tacos para césped artificial.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">30</span>
+                            <span class="ficha__talla">31</span>
+                            <span class="ficha__talla">32</span>
+                            <span class="ficha__talla">33</span>
+                            <span class="ficha__talla">34</span>
+                            <span class="ficha__talla">35</span>
+                            <span class="ficha__talla">36</span>
+                            <span class="ficha__talla">37</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Empeine sintético de tacto fino, placa ligera y tacos pensados para cada tipo de terreno.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">39,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="separador separador--categoria" id="baloncesto">
+            <p class="separador__texto">Baloncesto</p>
+        </div>
+
+        <section class="fichas__lista">
+            <article class="ficha" id="producto-31">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/condor-1.png" alt="Zapatilla Cóndor 1, negro y dorado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 031</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Cóndor 1</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Caña alta con sujeción de tobillo y buena amortiguación en los saltos.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--dorado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Dorado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">99,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-32">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/jaguar-low.png" alt="Zapatilla Jaguar Low, negro y verde">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 032</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Jaguar Low</h3>
+                        <span class="ficha__insignia">Más vendida</span>
+                    </div>
+                    <p class="ficha__descripcion">Caña baja, más ligera, para jugadores rápidos.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--verde"></span>
+                            <span class="tarjeta__texto-colores">Negro / Verde</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">84,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-33">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/trueno-pro.png" alt="Zapatilla Trueno Pro, negro y dorado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 033</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Trueno Pro</h3>
+                    </div>
+                    <p class="ficha__descripcion">Nuestro modelo de gama alta, con máxima amortiguación y estabilidad.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--dorado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Dorado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">119,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-34">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/vertigo-street.png" alt="Zapatilla Vértigo Street, negro y blanco y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 034</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Vértigo Street</h3>
+                    </div>
+                    <p class="ficha__descripcion">Pensada para jugar en pistas exteriores, con suela más resistente.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--blanco"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Blanco / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">59,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-35">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/ciclon-mid.png" alt="Zapatilla Ciclón Mid, negro y azul">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 035</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Ciclón Mid</h3>
+                    </div>
+                    <p class="ficha__descripcion">Caña media, equilibrio entre sujeción y libertad de movimiento.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">79,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-36">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/saeta-3.png" alt="Zapatilla Saeta 3, negro y rojo">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 036</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Saeta 3</h3>
+                    </div>
+                    <p class="ficha__descripcion">Suela de gran agarre para cambios de dirección rápidos. Pensada para bases.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--rojo"></span>
+                            <span class="tarjeta__texto-colores">Negro / Rojo</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">94,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-37">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/gigante-xl.png" alt="Zapatilla Gigante XL, negro y gris">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 037</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Gigante XL</h3>
+                    </div>
+                    <p class="ficha__descripcion">Refuerzos laterales y amortiguación extra para pívots.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--gris"></span>
+                            <span class="tarjeta__texto-colores">Negro / Gris</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                            <span class="ficha__talla">47</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">109,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-38">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/leyenda-92.png" alt="Zapatilla Leyenda 92, negro y morado">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 038</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Leyenda 92</h3>
+                    </div>
+                    <p class="ficha__descripcion">Inspirada en el baloncesto de los años 90, con una estética atrevida en negro y morado.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--morado"></span>
+                            <span class="tarjeta__texto-colores">Negro / Morado</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                            <span class="ficha__talla">46</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">74,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-39">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/amazona-w.png" alt="Zapatilla Amazona W, negro y rosa">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 039</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Amazona W</h3>
+                    </div>
+                    <p class="ficha__descripcion">Horma diseñada para el pie femenino, ligera y estable.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--rosa"></span>
+                            <span class="tarjeta__texto-colores">Negro / Rosa</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">37</span>
+                            <span class="ficha__talla">38</span>
+                            <span class="ficha__talla">39</span>
+                            <span class="ficha__talla">40</span>
+                            <span class="ficha__talla">41</span>
+                            <span class="ficha__talla">42</span>
+                            <span class="ficha__talla">43</span>
+                            <span class="ficha__talla">44</span>
+                            <span class="ficha__talla">45</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">89,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="ficha" id="producto-40">
+                <div class="ficha__imagen">
+                    <img class="ficha__img" src="img/canguro-jr.png" alt="Zapatilla Canguro Jr, negro y azul y amarillo">
+                </div>
+
+                <div class="ficha__info">
+                    <p class="ficha__categoria">Baloncesto · Ref. 040</p>
+                    <div class="ficha__cabecera">
+                        <h3 class="ficha__nombre">Canguro Jr</h3>
+                    </div>
+                    <p class="ficha__descripcion">Zapatilla infantil de baloncesto, ligera y con cierre de velcro.</p>
+
+                    <div>
+                        <p class="ficha__titulo">Colores</p>
+                        <div class="tarjeta__colores">
+                            <span class="tarjeta__muestra tarjeta__muestra--negro"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--azul"></span>
+                            <span class="tarjeta__muestra tarjeta__muestra--amarillo"></span>
+                            <span class="tarjeta__texto-colores">Negro / Azul / Amarillo</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Tallas (EU)</p>
+                        <div class="ficha__tallas">
+                            <span class="ficha__talla">30</span>
+                            <span class="ficha__talla">31</span>
+                            <span class="ficha__talla">32</span>
+                            <span class="ficha__talla">33</span>
+                            <span class="ficha__talla">34</span>
+                            <span class="ficha__talla">35</span>
+                            <span class="ficha__talla">36</span>
+                            <span class="ficha__talla">37</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="ficha__titulo">Características</p>
+                        <p class="ficha__texto">Caña con sujeción al tobillo, cámara de aire en el talón y suela de goma de alta tracción.</p>
+                    </div>
+
+                    <div class="ficha__pie">
+                        <p class="ficha__precio">44,99 €</p>
+                        <button class="boton boton--naranja ficha__boton" type="button">Comprar</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+        <div class="footer__superior">
+            <div class="footer__columna">
+                <a class="header__marca" href="index.html#inicio">
+                    <img class="header__img" src="img/logo_proyecto.png" alt="Volver al inicio">
+                </a>
+                <p class="footer__texto">Zapatillas para correr, montaña, fútbol y baloncesto. Personalizadas con
+                    los colores de tu club.</p>
+                <div class="footer__redes">
+                    <a class="header__icono" href="#" aria-label="Instagram">
+                        <svg class="header__svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.5"></circle></svg>
+                    </a>
+                    <a class="header__icono" href="#" aria-label="Facebook">
+                        <svg class="header__svg" viewBox="0 0 24 24"><path d="M15 3h-3a4 4 0 0 0-4 4v3H6v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a class="header__icono" href="#" aria-label="YouTube">
+                        <svg class="header__svg" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="footer__columna">
+                <p class="footer__titulo">Tienda</p>
+                <a class="footer__link" href="index.html#inicio">Inicio</a>
+                <a class="footer__link" href="index.html#catalogo">Catálogo</a>
+                <a class="footer__link" href="detalle.html">Detalle</a>
+                <a class="footer__link" href="index.html#custom">Custom</a>
+            </nav>
+
+            <div class="footer__columna">
+                <p class="footer__titulo">Contacto</p>
+                <a class="footer__link" >daca@gmail.com</a>
+                <a class="footer__link" >+34 671 13 31 88</a>
+                <p class="footer__texto">Xtart, Alcorcón</p>
+                <p class="footer__texto">Lunes a viernes, 9:00 - 18:00</p>
+            </div>
+
+            <form class="footer__columna">
+                <p class="footer__titulo">Newsletter</p>
+                <label class="footer__texto" for="footer-correo">Recibe las novedades y las ediciones limitadas antes que nadie.</label>
+                <input class="custom__input" type="email" id="footer-correo" name="correo" placeholder="Tu correo electrónico">
+                <button class="boton boton--principal footer__boton" type="button">Suscribirme</button>
+            </form>
+        </div>
+
+        <div class="footer__inferior">
+            <p class="footer__texto">2026 Todos los derechos reservados.</p>
+            <div class="footer__legal">
+                <a class="footer__link">Privacidad</a>
+                <a class="footer__link" >Cookies</a>
+                <a class="footer__link" >Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
