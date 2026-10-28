@@ -96,24 +96,26 @@ async function cargarProductos() {
     }
 }
 
-cargarProductos();
+if (formularioCustom) {
+    cargarProductos();
 
-selectModelo.addEventListener("change", () => {
-    mostrarTallas();
-    mostrarPrecio();
-});
-contenedorTallas.addEventListener("input", mostrarPrecio);
+    selectModelo.addEventListener("change", () => {
+        mostrarTallas();
+        mostrarPrecio();
+    });
+    contenedorTallas.addEventListener("input", mostrarPrecio);
 
-formularioCustom.addEventListener("submit", (evento) => {
-    evento.preventDefault();
+    formularioCustom.addEventListener("submit", (evento) => {
+        evento.preventDefault();
 
-    if (contarPares() === 0) {
-        mensaje.textContent = "Indica al menos un par en las tallas";
-        return;
-    }
+        if (contarPares() === 0) {
+            mensaje.textContent = "Indica al menos un par en las tallas";
+            return;
+        }
 
-    mensaje.textContent = "Solicitud enviada. Te enviaremos el presupuesto a " + inputEmail.value;
-    formularioCustom.reset();
-    mostrarTallas();
-    mostrarPrecio();
-});
+        mensaje.textContent = "Solicitud enviada. Te enviaremos el presupuesto a " + inputEmail.value;
+        formularioCustom.reset();
+        mostrarTallas();
+        mostrarPrecio();
+    });
+}
