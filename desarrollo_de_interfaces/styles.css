@@ -193,13 +193,13 @@ body{
 .inicio{
     display: flex;
     align-items: center;
-    min-height: calc(100vh - 76px);
+    aspect-ratio: 12 / 5;
     padding: 80px 5%;
     box-sizing: border-box;
     background-color: var(--color-principal);
     background-image: linear-gradient(to right, var(--color-principal) 15%, transparent 50%), linear-gradient(to top, var(--color-principal), transparent 15%), url(img/fondo_inicio.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 
@@ -752,6 +752,7 @@ body{
 
     .inicio{
         align-items: flex-end;
+        min-height: calc(100vh - 76px);
         padding: 40px 5%;
         background-image: linear-gradient(to top, var(--color-principal) 55%, transparent), url(img/fondo_inicio.jpg);
         background-size: cover, auto 50%;
