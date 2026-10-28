@@ -157,7 +157,7 @@ async function cargarProducto() {
     const id = Number(new URLSearchParams(location.search).get("id"));
 
     try {
-        const respuesta = await fetch("productos.json");
+        const respuesta = await fetch("json/productos.json");
         const lista = await respuesta.json();
         const producto = lista.find((producto) => producto.id === id);
 
