@@ -366,7 +366,7 @@ body{
     justify-content: center;
     width: 100%;
     min-height: 320px;
-    background-image: linear-gradient(to bottom, var(--color-principal), transparent 25%, transparent 60%, var(--color-principal)), url(img/pared_zapatillas.webp);
+    background-image: linear-gradient(to bottom, var(--color-principal), transparent 25%, transparent 60%, var(--color-principal)), url(img/pared_zapatillas.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
