@@ -11,6 +11,11 @@ BEGIN
         v_id_pedido := NEW.id_pedido;
     END IF;
 
+    -- Una línea no se puede mover a otro pedido
+    IF TG_OP = 'UPDATE' AND NEW.id_pedido <> OLD.id_pedido THEN
+        RAISE EXCEPTION 'No se puede mover una línea a otro pedido';
+    END IF;
+
     -- Comprobar que el pedido está en borrador
     SELECT estado INTO v_estado FROM pedido WHERE id_pedido = v_id_pedido;
     IF v_estado <> 'BORRADOR' THEN
@@ -44,6 +49,10 @@ BEGIN
 
     -- Confirmar: BORRADOR -> CONFIRMADO
     IF OLD.estado = 'BORRADOR' AND NEW.estado = 'CONFIRMADO' THEN
+
+        IF NOT EXISTS (SELECT 1 FROM linea_pedido WHERE id_pedido = NEW.id_pedido) THEN
+            RAISE EXCEPTION 'No se puede confirmar el pedido % porque no tiene líneas', NEW.ref_odoo;
+        END IF;
 
         IF EXISTS (
             SELECT 1
