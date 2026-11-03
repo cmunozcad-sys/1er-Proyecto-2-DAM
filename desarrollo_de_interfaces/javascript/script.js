@@ -4,13 +4,6 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("header__container--scroll", window.scrollY > 50);
 });
 
-const menu = document.querySelector(".lateral__check");
-const contenido = document.querySelector(".contenido");
-
-menu.addEventListener("change", () => {
-    contenido.classList.toggle("contenido--desplazado", menu.checked);
-});
-
 const formularioCustom = document.querySelector(".custom__formulario");
 const selectModelo = document.querySelector("#custom-modelo");
 const contenedorTallas = document.querySelector(".custom__tallas");
