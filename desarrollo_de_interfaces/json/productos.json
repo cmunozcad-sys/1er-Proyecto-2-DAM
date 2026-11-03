@@ -78,7 +78,7 @@
         "categoria": "correr",
         "precio": 84.99,
         "descripcion": "Suela con tacos de 4 mm y puntera reforzada para correr por caminos y montaña.",
-        "imagen": "img/Lince.png",
+        "imagen": "img/lince.png",
         "tallas": [
             38,
             39,
@@ -126,7 +126,7 @@
         "categoria": "correr",
         "precio": 89.99,
         "descripcion": "Muy ligera y de perfil bajo, pensada para series y entrenamientos de velocidad.",
-        "imagen": "img/Guepardo.png",
+        "imagen": "img/guepardo.png",
         "tallas": [
             38,
             39,
