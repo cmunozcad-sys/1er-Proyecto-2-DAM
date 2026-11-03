@@ -8,6 +8,7 @@ const formularioCustom = document.querySelector(".custom__formulario");
 const selectModelo = document.querySelector("#custom-modelo");
 const contenedorTallas = document.querySelector(".custom__tallas");
 const inputEmail = document.querySelector("#custom-email");
+const inputFecha = document.querySelector("#custom-fecha");
 const total = document.querySelector(".custom__total");
 const pares = document.querySelector(".custom__pares");
 const mensaje = document.querySelector(".custom__mensaje");
@@ -79,6 +80,14 @@ function mostrarTallas() {
     });
 }
 
+function limitarFecha() {
+    const hoy = new Date();
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoy.getDate()).padStart(2, "0");
+
+    inputFecha.min = `${hoy.getFullYear()}-${mes}-${dia}`;
+}
+
 async function cargarProductos() {
     try {
         const respuesta = await fetch("json/productos.json");
@@ -91,6 +100,7 @@ async function cargarProductos() {
 
 if (formularioCustom) {
     cargarProductos();
+    limitarFecha();
 
     selectModelo.addEventListener("change", () => {
         mostrarTallas();
