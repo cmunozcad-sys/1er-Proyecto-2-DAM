@@ -22,6 +22,7 @@ if (usuarioSesion) {
     enlaceCuenta.addEventListener("click", (evento) => {
         evento.preventDefault();
         desplegable.classList.toggle("cuenta--abierta");
+        document.querySelector(".carrito").classList.remove("carrito--abierto");
     });
 
     document.querySelector(".cuenta__salir").addEventListener("click", () => {

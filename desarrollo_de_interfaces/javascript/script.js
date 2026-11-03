@@ -144,6 +144,19 @@ function pintarProducto(producto) {
             <input class="producto__radio" type="radio" name="talla" id="talla-${talla}" value="${talla}">
             <label class="ficha__talla producto__talla" for="talla-${talla}">${talla}</label>`;
     });
+
+    document.querySelector(".producto__anadir").addEventListener("click", () => {
+        const tallaElegida = document.querySelector(".producto__radio:checked");
+        const mensajeProducto = document.querySelector(".producto__mensaje");
+
+        if (!tallaElegida) {
+            mensajeProducto.textContent = "Elige primero una talla";
+            return;
+        }
+
+        mensajeProducto.textContent = "";
+        anadirAlCarrito(producto, Number(tallaElegida.value));
+    });
 }
 
 async function cargarProducto() {
