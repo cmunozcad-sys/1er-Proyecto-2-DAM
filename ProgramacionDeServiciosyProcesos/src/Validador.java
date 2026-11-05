@@ -1,7 +1,9 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class Validador {
 
@@ -31,6 +33,25 @@ public class Validador {
 
         System.out.println("OK: formato correcto, " + (lineas.size() - 1) + " líneas de pedido");
         System.exit(0);
+    }
 
+    static String[] partir(String linea) {
+        List<String> columnas = new ArrayList<>();
+        StringBuilder actual = new StringBuilder();
+        boolean entreComillas = false;
+
+        for (char c : linea.toCharArray()) {
+            if (c == '"') {
+                entreComillas = !entreComillas;
+            } else if (c == ',' && !entreComillas) {
+                columnas.add(actual.toString().trim());
+                actual.setLength(0);
+            } else {
+                actual.append(c);
+            }
+        }
+        columnas.add(actual.toString().trim());
+
+        return columnas.toArray(new String[0]);
     }
 }
