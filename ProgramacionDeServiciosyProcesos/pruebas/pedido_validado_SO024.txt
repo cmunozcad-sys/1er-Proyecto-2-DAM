@@ -1,0 +1,11 @@
+OK
+SO024;Club Halcones
+Runner X;negro;Escudo club;38;3
+Runner X;negro;Escudo club;39;4
+Runner X;negro;Escudo club;40;6
+Runner X;negro;Escudo club;41;7
+Runner X;negro;Escudo club;42;7
+Runner X;negro;Escudo club;43;5
+Runner X;blanco;Escudo club;44;4
+Runner X;blanco;Escudo club;45;2
+Runner X;blanco;Escudo club;46;2
