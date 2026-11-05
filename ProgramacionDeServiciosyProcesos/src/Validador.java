@@ -5,11 +5,32 @@ import java.util.List;
 
 public class Validador {
 
+    static final String CABECERA =
+            "referencia,cliente,modelo,color,personalizacion,texto_bordado,logo_club,talla,cantidad";
+    static final int COLUMNAS = 9;
+
     public static void main(String[] args) throws IOException {
 
         List<String> lineas = Files.readAllLines(Path.of("datos/ficha_fabricacion.csv"));
 
-        System.out.println("Líneas leídas: " + lineas.size());
-        System.out.println("Cabecera: " + lineas.get(0));
+        if (lineas.isEmpty()) {
+            System.out.println("ERROR: el fichero está vacío");
+            System.exit(1);
+        }
+
+        String cabecera = lineas.get(0).replace("\"", "");
+        if (!cabecera.equals(CABECERA)) {
+            System.out.println("ERROR: la cabecera no es la esperada");
+            System.exit(1);
+        }
+
+        if (lineas.size() == 1) {
+            System.out.println("ERROR: el fichero no tiene líneas de pedido");
+            System.exit(1);
+        }
+
+        System.out.println("OK: formato correcto, " + (lineas.size() - 1) + " líneas de pedido");
+        System.exit(0);
+
     }
 }
