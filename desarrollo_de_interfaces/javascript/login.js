@@ -25,7 +25,13 @@ if (usuarioSesion) {
         document.querySelector(".carrito").classList.remove("carrito--abierto");
     });
 
-    document.querySelector(".cuenta__salir").addEventListener("click", () => {
+    document.querySelector(".cuenta__salir").addEventListener("click", async () => {
+        try {
+            await fetch("/api/logout", { method: "POST" });
+        } catch (error) {
+            console.error("No se pudo cerrar la sesión en el servidor:", error);
+        }
+
         localStorage.removeItem("usuario");
         window.location.reload();
     });
@@ -43,10 +49,21 @@ function mostrarMensaje(texto, tipo) {
 }
 
 async function comprobarUsuario(username, password) {
-    const respuesta = await fetch("json/usuarios.json");
-    const usuarios = await respuesta.json();
+    const respuesta = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username, password: password })
+    });
 
-    return usuarios.find((usuario) => usuario.username === username && usuario.password === password);
+    if (respuesta.status === 401) {
+        return null;
+    }
+
+    if (!respuesta.ok) {
+        throw new Error("La API ha respondido con el error " + respuesta.status);
+    }
+
+    return respuesta.json();
 }
 
 if (formularioLogin) {
