@@ -1163,6 +1163,9 @@ body{
 }
 
 @media (max-width: 800px){
+    .inicio{
+        aspect-ratio: auto;
+    }
     .header__nav{
         display: none;
     }
