@@ -1403,6 +1403,8 @@ body{
 .carrito{
     width: 340px;
     max-width: 94%;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
 }
 
 .carrito__lista{
@@ -1451,6 +1453,94 @@ body{
 
 .carrito__comprar[hidden]{
     display: none;
+}
+
+.carrito__formulario{
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.carrito__formulario--abierto{
+    display: flex;
+}
+
+.carrito__confirmar{
+    width: 100%;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.carrito__confirmar:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.carrito__mensaje{
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-naranja);
+}
+
+.carrito__quitar{
+    margin-left: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.carrito__quitar:hover{
+    color: var(--color-naranja);
+}
+
+.ficha__anadir{
+    padding: 12px 20px;
+    background: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.ficha__reponer{
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.ficha__reponer--abierta{
+    display: grid;
+}
+
+.ficha__reponer .custom__input{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ficha__guardar,
+.ficha__mensaje{
+    grid-column: 1 / -1;
+}
+
+.ficha__guardar{
+    padding: 12px 20px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ficha__guardar:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.ficha__mensaje{
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-naranja);
 }
 
 @media (max-width: 600px){

@@ -191,3 +191,79 @@ async function cargarProducto() {
 if (paginaProducto) {
     cargarProducto();
 }
+
+const listasFichas = document.querySelectorAll(".fichas__lista");
+
+function crearFicha(producto) {
+    const categoria = categorias.find((categoria) => categoria.clave === producto.categoria);
+    const referencia = String(producto.id).padStart(3, "0");
+    const nombresColores = producto.colores.map((color) => color.charAt(0).toUpperCase() + color.slice(1));
+    const muestras = producto.colores.map((color) => `<span class="tarjeta__muestra tarjeta__muestra--${color.replace("ó", "o")}"></span>`);
+    const tallas = producto.tallas.map((talla) => `<span class="ficha__talla">${talla}</span>`);
+    const insignia = producto.destacado ? '<span class="ficha__insignia">Más vendida</span>' : "";
+
+    return `
+        <article class="ficha" id="producto-${producto.id}">
+            <div class="ficha__imagen">
+                <img class="ficha__img" src="${producto.imagen}" alt="Zapatilla ${producto.nombre}, ${producto.colores.join(" y ")}">
+            </div>
+
+            <div class="ficha__info">
+                <p class="ficha__categoria">${categoria.nombre} · Ref. ${referencia}</p>
+                <div class="ficha__cabecera">
+                    <h3 class="ficha__nombre">${producto.nombre}</h3>
+                    ${insignia}
+                </div>
+                <p class="ficha__descripcion">${producto.descripcion}</p>
+
+                <div>
+                    <p class="ficha__titulo">Colores</p>
+                    <div class="tarjeta__colores">
+                        ${muestras.join("")}
+                        <span class="tarjeta__texto-colores">${nombresColores.join(" / ")}</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="ficha__titulo">Tallas (EU)</p>
+                    <div class="ficha__tallas">${tallas.join("")}</div>
+                </div>
+
+                <div class="ficha__pie">
+                    <p class="ficha__precio">${producto.precio.toFixed(2).replace(".", ",")} €</p>
+                    <a class="boton boton--naranja ficha__boton" href="producto.html?id=${producto.id}">Comprar</a>
+                </div>
+            </div>
+        </article>`;
+}
+
+function irAlEnlace() {
+    const destino = document.getElementById(location.hash.slice(1));
+
+    if (destino) {
+        destino.scrollIntoView();
+    }
+}
+
+async function cargarFichas() {
+    try {
+        const respuesta = await fetch("json/productos.json");
+        const lista = await respuesta.json();
+
+        listasFichas.forEach((listaFichas) => {
+            const deEstaCategoria = lista.filter((producto) => producto.categoria === listaFichas.dataset.categoria);
+            listaFichas.innerHTML = deEstaCategoria.map(crearFicha).join("");
+        });
+
+        irAlEnlace();
+    } catch (error) {
+        console.error("No se pudo cargar el catálogo:", error);
+        listasFichas[0].innerHTML = '<p class="ficha__texto">No se ha podido cargar el catálogo. Inténtalo más tarde.</p>';
+    }
+}
+
+let fichasCargadas;
+
+if (listasFichas.length > 0) {
+    fichasCargadas = cargarFichas();
+}
