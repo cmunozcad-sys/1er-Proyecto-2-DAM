@@ -1478,9 +1478,17 @@ body{
 }
 
 .carrito__mensaje{
-    margin: 0;
+    margin: 12px 0 0;
     font-size: 14px;
     color: var(--color-naranja);
+}
+
+.carrito__mensaje:empty{
+    display: none;
+}
+
+.carrito__enlace{
+    color: inherit;
 }
 
 .carrito__quitar{

@@ -26,8 +26,8 @@ iconoCarrito.insertAdjacentHTML("afterend", `
                 <input class="custom__input" type="text" id="carrito-direccion" name="direccion" maxlength="150" autocomplete="street-address" required>
             </div>
             <button class="boton boton--naranja carrito__confirmar">Confirmar compra</button>
-            <p class="carrito__mensaje"></p>
         </form>
+        <p class="carrito__mensaje"></p>
     </div>`);
 
 const desplegableCarrito = document.querySelector(".carrito");
@@ -66,6 +66,7 @@ function pintarCarrito() {
     contadorCarrito.textContent = unidades;
     totalCarrito.textContent = "Total: " + formatearPrecio(suma);
     totalCarrito.hidden = carrito.length === 0;
+    mensajeCompra.textContent = "";
 
     if (carrito.length === 0) {
         listaCarrito.innerHTML = '<p class="cuenta__dato">Tu carrito está vacío</p>';
@@ -127,6 +128,16 @@ iconoCarrito.addEventListener("click", (evento) => {
 });
 
 botonComprar.addEventListener("click", () => {
+    if (!usuarioSesion) {
+        mensajeCompra.innerHTML = '<a class="carrito__enlace" href="login.html">Inicia sesión</a> para comprar';
+        return;
+    }
+
+    if (!tienePermiso("PEDIDO_CREAR") || !tienePermiso("PEDIDO_CONFIRMAR")) {
+        mensajeCompra.textContent = "Tu usuario no tiene permiso para comprar";
+        return;
+    }
+
     formularioCompra.classList.add("carrito__formulario--abierto");
     botonComprar.hidden = true;
 });

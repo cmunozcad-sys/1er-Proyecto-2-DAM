@@ -88,6 +88,30 @@ function limitarFecha() {
     inputFecha.min = `${hoy.getFullYear()}-${mes}-${dia}`;
 }
 
+function leerSolicitudCustom() {
+    const tallas = [];
+
+    contenedorTallas.querySelectorAll("input").forEach((input) => {
+        if (Number(input.value) > 0) {
+            tallas.push({ talla: Number(input.name.replace("talla-", "")), cantidad: Number(input.value) });
+        }
+    });
+
+    return {
+        club: formularioCustom.club.value.trim(),
+        contacto: formularioCustom.contacto.value.trim(),
+        email: formularioCustom.email.value.trim(),
+        telefono: formularioCustom.telefono.value.trim(),
+        modelo: Number(selectModelo.value),
+        color: formularioCustom.color.value,
+        texto: formularioCustom.texto.value.trim(),
+        escudo: formularioCustom.escudo.checked,
+        fecha: inputFecha.value,
+        observaciones: formularioCustom.observaciones.value.trim(),
+        tallas: tallas
+    };
+}
+
 async function cargarProductos() {
     try {
         const respuesta = await fetch("json/productos.json");
@@ -108,7 +132,7 @@ if (formularioCustom) {
     });
     contenedorTallas.addEventListener("input", mostrarPrecio);
 
-    formularioCustom.addEventListener("submit", (evento) => {
+    formularioCustom.addEventListener("submit", async (evento) => {
         evento.preventDefault();
 
         if (contarPares() === 0) {
@@ -116,10 +140,33 @@ if (formularioCustom) {
             return;
         }
 
-        mensaje.textContent = "Solicitud enviada. Te enviaremos el presupuesto a " + inputEmail.value;
-        formularioCustom.reset();
-        mostrarTallas();
-        mostrarPrecio();
+        const botonEnviar = document.querySelector(".custom__enviar");
+        botonEnviar.disabled = true;
+        mensaje.textContent = "";
+
+        try {
+            const respuesta = await fetch("/api/pedidos/custom", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(leerSolicitudCustom())
+            });
+            const datos = await respuesta.json();
+
+            if (!respuesta.ok) {
+                mensaje.textContent = datos.error;
+                return;
+            }
+
+            mensaje.textContent = "Solicitud " + datos.referencia + " guardada. Te enviaremos el presupuesto a " + inputEmail.value;
+            formularioCustom.reset();
+            mostrarTallas();
+            mostrarPrecio();
+        } catch (error) {
+            console.error("No se pudo enviar la solicitud:", error);
+            mensaje.textContent = "No se ha podido conectar. Inténtalo más tarde";
+        } finally {
+            botonEnviar.disabled = false;
+        }
     });
 }
 

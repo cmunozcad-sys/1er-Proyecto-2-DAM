@@ -20,16 +20,12 @@ const consultaPermisos = `
       JOIN permiso p ON p.id_permiso = rp.id_permiso
      WHERE u.id_usuario = $1 AND u.activo AND p.codigo = ANY($2)`;
 
-function exigirPermisos(codigos, permitirSinSesion) {
+function exigirPermisos(codigos) {
     return async (peticion, respuesta, siguiente) => {
         const usuario = peticion.session.usuario;
 
         if (!usuario) {
-            if (permitirSinSesion) {
-                siguiente();
-            } else {
-                respuesta.status(401).json({ error: "Tu sesión ha caducado. Cierra sesión y vuelve a entrar" });
-            }
+            respuesta.status(401).json({ error: "Tienes que iniciar sesión. Si ya la tenías, ciérrala y vuelve a entrar" });
             return;
         }
 
@@ -51,10 +47,30 @@ function exigirPermisos(codigos, permitirSinSesion) {
 }
 
 async function identificarUsuario(conexion, peticion) {
-    const usuario = peticion.session.usuario;
-    const idUsuario = usuario ? String(usuario.id_usuario) : "";
+    await conexion.query("SELECT set_config('app.id_usuario', $1, true)", [String(peticion.session.usuario.id_usuario)]);
+}
 
-    await conexion.query("SELECT set_config('app.id_usuario', $1, true)", [idUsuario]);
+function validarCustom(solicitud, observaciones) {
+    if (!solicitud.club || !solicitud.contacto || !solicitud.email || !solicitud.telefono) {
+        return "Faltan los datos del club";
+    }
+    if (!Number.isInteger(solicitud.modelo)) {
+        return "Elige un modelo";
+    }
+    if (!/^#[0-9a-fA-F]{6}$/.test(solicitud.color)) {
+        return "El color no es válido";
+    }
+    if (solicitud.texto && solicitud.texto.length > 40) {
+        return "El texto bordado admite 40 caracteres como máximo";
+    }
+    if (observaciones.length > 300) {
+        return "Las observaciones son demasiado largas";
+    }
+    if (!Array.isArray(solicitud.tallas) || solicitud.tallas.length === 0
+        || !solicitud.tallas.every((linea) => Number.isInteger(linea.cantidad) && linea.cantidad > 0)) {
+        return "Indica al menos un par en las tallas";
+    }
+    return null;
 }
 
 const consultaLogin = `
@@ -69,13 +85,15 @@ const consultaLogin = `
 
 const insertarCliente = `
     INSERT INTO cliente (ref_odoo, nombre, tipo, email, telefono, direccion)
-    VALUES ($1, $2, 'PARTICULAR', $3, $4, $5)
+    VALUES ($1, $2, $6, $3, $4, $5)
     ON CONFLICT (email) DO UPDATE SET email = EXCLUDED.email
     RETURNING id_cliente`;
 
 const insertarLinea = `
-    INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario)
-    SELECT $1::int, s.id_variante, s.talla, $4::int, m.precio_base + v.precio_extra
+    INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario,
+                              personalizacion, texto_bordado, logo_club)
+    SELECT $1::int, s.id_variante, s.talla, $4::int, m.precio_base + v.precio_extra,
+           $5::varchar, $6::varchar, $7::boolean
       FROM stock s
       JOIN variante v ON v.id_variante = s.id_variante
       JOIN modelo m ON m.id_modelo = v.id_modelo
@@ -164,7 +182,64 @@ app.post("/api/stock", exigirPermisos(["STOCK_REPONER"], false), async (peticion
     }
 });
 
-app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"], true), async (peticion, respuesta) => {
+app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, respuesta) => {
+    const solicitud = peticion.body || {};
+    const contacto = "Contacto: " + solicitud.contacto;
+    const observaciones = solicitud.observaciones ? contacto + " | " + solicitud.observaciones : contacto;
+    const errorValidacion = validarCustom(solicitud, observaciones);
+
+    if (errorValidacion) {
+        respuesta.status(400).json({ error: errorValidacion });
+        return;
+    }
+
+    const referencia = "CUS-" + Date.now();
+    const conexion = await pool.connect();
+
+    try {
+        await conexion.query("BEGIN");
+        await identificarUsuario(conexion, peticion);
+
+        const nuevoCliente = await conexion.query(insertarCliente,
+            ["CLI-" + Date.now(), solicitud.club, solicitud.email, solicitud.telefono, null, "CLUB"]);
+
+        const nuevoPedido = await conexion.query(
+            `INSERT INTO pedido (ref_odoo, tipo, fecha_entrega_prevista, observaciones, id_cliente, id_usuario)
+             VALUES ($1, 'CUSTOM', $2, $3, $4, $5) RETURNING id_pedido`,
+            [referencia, solicitud.fecha || null, observaciones, nuevoCliente.rows[0].id_cliente, peticion.session.usuario.id_usuario]);
+        const idPedido = nuevoPedido.rows[0].id_pedido;
+
+        for (const linea of solicitud.tallas) {
+            const nuevaLinea = await conexion.query(insertarLinea,
+                [idPedido, solicitud.modelo, linea.talla, linea.cantidad,
+                    "Color: " + solicitud.color, solicitud.texto || null, Boolean(solicitud.escudo)]);
+
+            if (nuevaLinea.rowCount === 0) {
+                throw new Error("Modelo o talla inexistente");
+            }
+        }
+
+        const pedido = await conexion.query("SELECT total::float AS total FROM pedido WHERE id_pedido = $1", [idPedido]);
+
+        await conexion.query("COMMIT");
+        respuesta.status(201).json({ referencia: referencia, total: pedido.rows[0].total });
+    } catch (error) {
+        await conexion.query("ROLLBACK");
+        console.error(error.message);
+
+        if (error.code === "23514") {
+            respuesta.status(400).json({ error: "Revisa la fecha deseada: no puede ser anterior a hoy" });
+        } else if (error.message.includes("inexistente")) {
+            respuesta.status(400).json({ error: "Ese modelo o talla no está en la base de datos" });
+        } else {
+            respuesta.status(500).json({ error: "No se pudo guardar la solicitud" });
+        }
+    } finally {
+        conexion.release();
+    }
+});
+
+app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"]), async (peticion, respuesta) => {
     const { cliente, articulos } = peticion.body || {};
 
     if (!cliente || !cliente.nombre || !cliente.email || !cliente.telefono || !cliente.direccion
@@ -181,15 +256,16 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"], tr
         await identificarUsuario(conexion, peticion);
 
         const nuevoCliente = await conexion.query(insertarCliente,
-            ["CLI-" + Date.now(), cliente.nombre, cliente.email, cliente.telefono, cliente.direccion]);
+            ["CLI-" + Date.now(), cliente.nombre, cliente.email, cliente.telefono, cliente.direccion, "PARTICULAR"]);
 
         const nuevoPedido = await conexion.query(
-            "INSERT INTO pedido (ref_odoo, tipo, id_cliente) VALUES ($1, 'ESTANDAR', $2) RETURNING id_pedido",
-            [referencia, nuevoCliente.rows[0].id_cliente]);
+            "INSERT INTO pedido (ref_odoo, tipo, id_cliente, id_usuario) VALUES ($1, 'ESTANDAR', $2, $3) RETURNING id_pedido",
+            [referencia, nuevoCliente.rows[0].id_cliente, peticion.session.usuario.id_usuario]);
         const idPedido = nuevoPedido.rows[0].id_pedido;
 
         for (const articulo of articulos) {
-            const linea = await conexion.query(insertarLinea, [idPedido, articulo.id, articulo.talla, articulo.cantidad]);
+            const linea = await conexion.query(insertarLinea,
+                [idPedido, articulo.id, articulo.talla, articulo.cantidad, null, null, false]);
 
             if (linea.rowCount === 0) {
                 throw new Error("Stock insuficiente: no existe esa talla");

@@ -152,11 +152,6 @@ BEGIN;
 INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario)
 VALUES ((SELECT id_pedido FROM pedido WHERE ref_odoo = 'PED-0003'), 5, 43, 1, 74.99);
 
-UPDATE pedido
-SET total = (SELECT SUM(cantidad * precio_unitario) FROM linea_pedido
-             WHERE linea_pedido.id_pedido = pedido.id_pedido)
-WHERE ref_odoo = 'PED-0003';
-
 COMMIT;
 
 SELECT p.ref_odoo, SUM(l.cantidad) AS pares, p.total
