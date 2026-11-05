@@ -14,11 +14,12 @@ INSERT INTO permiso (codigo, descripcion) VALUES
 ('EXPORTAR_CSV', 'Exportar consultas a CSV'),
 ('AUDITORIA_VER', 'Consultar la tabla log_eventos'),
 ('USUARIOS_GESTIONAR', 'Crear, modificar y desactivar usuarios'),
-('USUARIOS_EXPORTAR', 'Exportar los usuarios a JSON');
+('USUARIOS_EXPORTAR', 'Exportar los usuarios a JSON'),
+('STOCK_REPONER', 'Añadir pares a las existencias');
 
 INSERT INTO rol_permiso (id_rol, id_permiso) VALUES
 (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
-(1, 7), (1, 8), (1, 9), (1, 10), (1, 11);
+(1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12);
 
 INSERT INTO rol_permiso (id_rol, id_permiso) VALUES
 (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8);

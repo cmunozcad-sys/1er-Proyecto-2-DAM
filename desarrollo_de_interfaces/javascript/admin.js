@@ -71,6 +71,6 @@ async function prepararFichasAdmin() {
     irAlEnlace();
 }
 
-if (usuarioSesion && usuarioSesion.rol === "Administrador") {
+if (tienePermiso("STOCK_REPONER")) {
     prepararFichasAdmin();
 }

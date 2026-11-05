@@ -13,24 +13,52 @@ app.use(session({
 }));
 app.use(express.static("web"));
 
-function exigirAdmin(peticion, respuesta, siguiente) {
+const consultaPermisos = `
+    SELECT count(*)::int AS concedidos
+      FROM usuario u
+      JOIN rol_permiso rp ON rp.id_rol = u.id_rol
+      JOIN permiso p ON p.id_permiso = rp.id_permiso
+     WHERE u.id_usuario = $1 AND u.activo AND p.codigo = ANY($2)`;
+
+function exigirPermisos(codigos, permitirSinSesion) {
+    return async (peticion, respuesta, siguiente) => {
+        const usuario = peticion.session.usuario;
+
+        if (!usuario) {
+            if (permitirSinSesion) {
+                siguiente();
+            } else {
+                respuesta.status(401).json({ error: "Tu sesión ha caducado. Cierra sesión y vuelve a entrar" });
+            }
+            return;
+        }
+
+        try {
+            const resultado = await pool.query(consultaPermisos, [usuario.id_usuario, codigos]);
+
+            if (resultado.rows[0].concedidos < codigos.length) {
+                respuesta.status(403).json({ error: "No tienes permiso para hacer esto" });
+                return;
+            }
+        } catch (error) {
+            console.error(error.message);
+            respuesta.status(500).json({ error: "No se pudieron comprobar los permisos" });
+            return;
+        }
+
+        siguiente();
+    };
+}
+
+async function identificarUsuario(conexion, peticion) {
     const usuario = peticion.session.usuario;
+    const idUsuario = usuario ? String(usuario.id_usuario) : "";
 
-    if (!usuario) {
-        respuesta.status(401).json({ error: "Tu sesión ha caducado. Cierra sesión y vuelve a entrar" });
-        return;
-    }
-
-    if (usuario.rol !== "Administrador") {
-        respuesta.status(403).json({ error: "Solo un administrador puede hacer esto" });
-        return;
-    }
-
-    siguiente();
+    await conexion.query("SELECT set_config('app.id_usuario', $1, true)", [idUsuario]);
 }
 
 const consultaLogin = `
-    SELECT u.username, u.nombre_completo, u.activo, r.nombre AS rol,
+    SELECT u.id_usuario, u.username, u.nombre_completo, u.activo, r.nombre AS rol,
            array_remove(array_agg(p.codigo), NULL) AS permisos
       FROM usuario u
       JOIN rol r ON r.id_rol = u.id_rol
@@ -55,14 +83,19 @@ const insertarLinea = `
      LIMIT 1`;
 
 const sumarStock = `
-    INSERT INTO stock (id_variante, talla, cantidad)
-    SELECT v.id_variante, $2::numeric, $3::int
-      FROM variante v
-     WHERE v.id_modelo = $1 AND v.activo
-     LIMIT 1
-    ON CONFLICT (id_variante, talla)
-    DO UPDATE SET cantidad = stock.cantidad + EXCLUDED.cantidad, ultima_actualizacion = now()
-    RETURNING cantidad`;
+    UPDATE stock
+       SET cantidad = cantidad + $3, ultima_actualizacion = now()
+     WHERE talla = $2
+       AND id_variante = (SELECT id_variante FROM variante
+                           WHERE id_modelo = $1 AND activo
+                           ORDER BY id_variante LIMIT 1)
+    RETURNING id_variante, cantidad`;
+
+const registrarReposicion = `
+    INSERT INTO log_eventos (tabla, operacion, registro_id, accion, resumen, id_usuario)
+    VALUES ('stock', 'UPDATE', $1, 'REPOSICION STOCK',
+            jsonb_build_object('talla', $2::numeric, 'anadidos', $3::int, 'total', $4::int),
+            NULLIF(current_setting('app.id_usuario', true), '')::INTEGER)`;
 
 app.post("/api/login", async (peticion, respuesta) => {
     const { username, password } = peticion.body || {};
@@ -78,7 +111,7 @@ app.post("/api/login", async (peticion, respuesta) => {
         const usuario = resultado.rows[0];
         if (usuario.activo) {
             await pool.query("UPDATE usuario SET ultimo_acceso = now() WHERE username = $1", [username]);
-            peticion.session.usuario = { username: usuario.username, rol: usuario.rol };
+            peticion.session.usuario = { id_usuario: usuario.id_usuario };
         }
 
         respuesta.json(usuario);
@@ -94,7 +127,7 @@ app.post("/api/logout", (peticion, respuesta) => {
     });
 });
 
-app.post("/api/stock", exigirAdmin, async (peticion, respuesta) => {
+app.post("/api/stock", exigirPermisos(["STOCK_REPONER"], false), async (peticion, respuesta) => {
     const { id, talla, cantidad } = peticion.body || {};
 
     if (!Number.isInteger(id) || !(talla >= 30 && talla <= 48)
@@ -103,22 +136,35 @@ app.post("/api/stock", exigirAdmin, async (peticion, respuesta) => {
         return;
     }
 
+    const conexion = await pool.connect();
+
     try {
-        const resultado = await pool.query(sumarStock, [id, talla, cantidad]);
+        await conexion.query("BEGIN");
+        await identificarUsuario(conexion, peticion);
+
+        const resultado = await conexion.query(sumarStock, [id, talla, cantidad]);
 
         if (resultado.rows.length === 0) {
-            respuesta.status(404).json({ error: "Esa zapatilla no está en la base de datos" });
+            await conexion.query("ROLLBACK");
+            respuesta.status(404).json({ error: "Esa zapatilla o talla no está en la base de datos" });
             return;
         }
 
-        respuesta.json({ cantidad: resultado.rows[0].cantidad });
+        const { id_variante, cantidad: total } = resultado.rows[0];
+        await conexion.query(registrarReposicion, [id_variante, talla, cantidad, total]);
+
+        await conexion.query("COMMIT");
+        respuesta.json({ cantidad: total });
     } catch (error) {
+        await conexion.query("ROLLBACK");
         console.error(error.message);
         respuesta.status(500).json({ error: "No se pudo añadir al stock" });
+    } finally {
+        conexion.release();
     }
 });
 
-app.post("/api/pedidos", async (peticion, respuesta) => {
+app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"], true), async (peticion, respuesta) => {
     const { cliente, articulos } = peticion.body || {};
 
     if (!cliente || !cliente.nombre || !cliente.email || !cliente.telefono || !cliente.direccion
@@ -132,6 +178,7 @@ app.post("/api/pedidos", async (peticion, respuesta) => {
 
     try {
         await conexion.query("BEGIN");
+        await identificarUsuario(conexion, peticion);
 
         const nuevoCliente = await conexion.query(insertarCliente,
             ["CLI-" + Date.now(), cliente.nombre, cliente.email, cliente.telefono, cliente.direccion]);
