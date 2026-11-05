@@ -31,7 +31,55 @@ public class Validador {
             System.exit(1);
         }
 
-        System.out.println("OK: formato correcto, " + (lineas.size() - 1) + " líneas de pedido");
+        int errores = 0;
+
+        for (int i = 1; i < lineas.size(); i++) {
+            int numeroLinea = i + 1;
+            String[] columnas = partir(lineas.get(i));
+
+            if (columnas.length != COLUMNAS) {
+                System.out.println("ERROR línea " + numeroLinea + ": tiene " + columnas.length
+                        + " columnas y debe tener " + COLUMNAS);
+                errores++;
+                continue;
+            }
+
+            if (columnas[0].isEmpty() || columnas[1].isEmpty() || columnas[2].isEmpty()) {
+                System.out.println("ERROR línea " + numeroLinea + ": falta la referencia, el cliente o el modelo");
+                errores++;
+            }
+
+            try {
+                double talla = Double.parseDouble(columnas[7]);
+                if (talla < 30 || talla > 48) {
+                    System.out.println("ERROR línea " + numeroLinea + ": la talla " + columnas[7]
+                            + " está fuera de rango (30-48)");
+                    errores++;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ERROR línea " + numeroLinea + ": la talla '" + columnas[7] + "' no es un número");
+                errores++;
+            }
+
+            try {
+                int cantidad = Integer.parseInt(columnas[8]);
+                if (cantidad <= 0) {
+                    System.out.println("ERROR línea " + numeroLinea + ": la cantidad debe ser mayor que 0");
+                    errores++;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ERROR línea " + numeroLinea + ": la cantidad '" + columnas[8]
+                        + "' no es un número entero");
+                errores++;
+            }
+        }
+
+        if (errores > 0) {
+            System.out.println("Validación fallida: " + errores + " error(es)");
+            System.exit(2);
+        }
+
+        System.out.println("OK: " + (lineas.size() - 1) + " líneas de pedido correctas");
         System.exit(0);
     }
 
