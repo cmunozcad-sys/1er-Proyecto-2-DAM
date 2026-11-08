@@ -12,9 +12,13 @@ public class Validador {
             "referencia,cliente,modelo,color,personalizacion,texto_bordado,logo_club,talla,cantidad";
     static final int COLUMNAS = 9;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         PrintStream salida = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+
+        if (args.length > 0 && args[0].equals("--bloquear")) {
+            Thread.sleep(60_000);
+        }
 
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         List<String> lineas = new ArrayList<>();
