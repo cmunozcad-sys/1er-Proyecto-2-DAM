@@ -57,6 +57,14 @@ COLUMNAS_BOOLEANAS = {
     "stock": [],
 }
 
+COLUMNAS_NUMERICAS = {
+    "clientes": [],
+    "modelos": ["precio_base"],
+    "pedidos": ["total"],
+    "lineas": ["talla", "cantidad", "precio_unitario"],
+    "stock": ["talla", "cantidad", "stock_minimo"],
+}
+
 ESTADOS_PEDIDO = ["BORRADOR", "CONFIRMADO", "CANCELADO"]
 ESTADOS_VENTA = ["CONFIRMADO"]
 TIPOS_PEDIDO = ["ESTANDAR", "CUSTOM"]
