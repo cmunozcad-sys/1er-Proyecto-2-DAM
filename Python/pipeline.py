@@ -118,35 +118,27 @@ def duplicados_clave(tabla, df, registro, regla="02"):
         return repetidos
 
     identicos = df.duplicated(keep="first")
-    marcar(tabla, df, identicos, regla, RECUPERABLE, "Fila repetida idéntica",
-           "Se conserva una sola copia", registro)
+    marcar(tabla, df, identicos, regla, RECUPERABLE, "Fila repetida idéntica", "Se conserva una sola copia", registro)
 
     conflictivos = repetidos & ~df.duplicated(keep=False)
-    marcar(tabla, df, conflictivos, regla, RECUPERABLE, "Clave repetida con datos distintos",
-           "Se rechazan todas las copias", registro)
+    marcar(tabla, df, conflictivos, regla, RECUPERABLE, "Clave repetida con datos distintos", "Se rechazan todas las copias", registro)
 
     return identicos | conflictivos
 
 
 def validar_clientes(df, registro):
     rechazar = duplicados_clave("clientes", df, registro)
-    rechazar |= marcar("clientes", df, df["id_cliente"].isna(), "09", RECUPERABLE,
-                       "Cliente sin identificador", "Registro rechazado", registro)
-    marcar("clientes", df, ~df["tipo"].isin(config.TIPOS_CLIENTE), "07", ADVERTENCIA,
-           f"Tipo de cliente fuera de {config.TIPOS_CLIENTE}", "Se conserva", registro)
-    marcar("clientes", df, df["fecha_alta"].isna(), "04", ADVERTENCIA,
-           "Fecha de alta nula o imposible", "Se conserva", registro)
+    rechazar |= marcar("clientes", df, df["id_cliente"].isna(), "09", RECUPERABLE, "Cliente sin identificador", "Registro rechazado", registro)
+    marcar("clientes", df, ~df["tipo"].isin(config.TIPOS_CLIENTE), "07", ADVERTENCIA, f"Tipo de cliente fuera de {config.TIPOS_CLIENTE}", "Se conserva", registro)
+    marcar("clientes", df, df["fecha_alta"].isna(), "04", ADVERTENCIA, "Fecha de alta nula o imposible", "Se conserva", registro)
     return df[~rechazar]
 
 
 def validar_modelos(df, registro):
     rechazar = duplicados_clave("modelos", df, registro)
-    rechazar |= marcar("modelos", df, df["id_modelo"].isna(), "09", RECUPERABLE,
-                       "Modelo sin identificador", "Registro rechazado", registro)
-    rechazar |= marcar("modelos", df, df["precio_base"].isna() | (df["precio_base"] <= 0), "06", RECUPERABLE,
-                       "Precio base nulo, no numérico o no positivo", "Registro rechazado", registro)
-    marcar("modelos", df, ~df["categoria"].isin(config.CATEGORIAS_MODELO), "07", ADVERTENCIA,
-           f"Categoría fuera de {config.CATEGORIAS_MODELO}", "Se conserva", registro)
+    rechazar |= marcar("modelos", df, df["id_modelo"].isna(), "09", RECUPERABLE, "Modelo sin identificador", "Registro rechazado", registro)
+    rechazar |= marcar("modelos", df, df["precio_base"].isna() | (df["precio_base"] <= 0), "06", RECUPERABLE, "Precio base nulo, no numérico o no positivo", "Registro rechazado", registro)
+    marcar("modelos", df, ~df["categoria"].isin(config.CATEGORIAS_MODELO), "07", ADVERTENCIA, f"Categoría fuera de {config.CATEGORIAS_MODELO}", "Se conserva", registro)
     return df[~rechazar]
 
 
@@ -165,82 +157,56 @@ def comprobar_referencia(tabla, df, pendiente, columnas, destino_csv, destino_va
     en_validos = existe_en(df, columnas, destino_valido)
     referencia = " y ".join(columnas)
 
-    no_existe = marcar(tabla, df, pendiente & con_valor & ~en_csv, "03", BLOQUEANTE,
-                       f"{referencia} no existe en {fichero}", "Registro rechazado", registro)
-    rechazada = marcar(tabla, df, pendiente & con_valor & en_csv & ~en_validos, "03", RECUPERABLE,
-                       f"{referencia} fue rechazado en {fichero}", "Registro rechazado", registro)
+    no_existe = marcar(tabla, df, pendiente & con_valor & ~en_csv, "03", BLOQUEANTE, f"{referencia} no existe en {fichero}", "Registro rechazado", registro)
+    rechazada = marcar(tabla, df, pendiente & con_valor & en_csv & ~en_validos, "03", RECUPERABLE, f"{referencia} fue rechazado en {fichero}", "Registro rechazado", registro)
     return no_existe | rechazada
 
 
 def validar_stock(df, modelos_csv, modelos, registro):
     rechazar = duplicados_clave("stock", df, registro, regla="11")
-    rechazar |= marcar("stock", df, ~talla_valida(df["talla"]), "08", RECUPERABLE,
-                       f"Talla fuera de {config.TALLA_MIN}-{config.TALLA_MAX}", "Registro rechazado", registro)
-    rechazar |= marcar("stock", df, df["cantidad"].isna() | (df["cantidad"] < 0), "11", RECUPERABLE,
-                       "Stock nulo o negativo", "Registro rechazado", registro)
-    rechazar |= marcar("stock", df, df["id_modelo"].isna(), "09", RECUPERABLE,
-                       "Stock sin modelo", "Registro rechazado", registro)
-    rechazar |= comprobar_referencia("stock", df, ~rechazar, ["id_modelo"], modelos_csv, modelos,
-                                     "modelos.csv", registro)
+    rechazar |= marcar("stock", df, ~talla_valida(df["talla"]), "08", RECUPERABLE, f"Talla fuera de {config.TALLA_MIN}-{config.TALLA_MAX}", "Registro rechazado", registro)
+    rechazar |= marcar("stock", df, df["cantidad"].isna() | (df["cantidad"] < 0), "11", RECUPERABLE, "Stock nulo o negativo", "Registro rechazado", registro)
+    rechazar |= marcar("stock", df, df["id_modelo"].isna(), "09", RECUPERABLE, "Stock sin modelo", "Registro rechazado", registro)
+    rechazar |= comprobar_referencia("stock", df, ~rechazar, ["id_modelo"], modelos_csv, modelos, "modelos.csv", registro)
     return df[~rechazar]
 
 
 def validar_pedidos(df, clientes_csv, clientes, registro, ahora):
     rechazar = duplicados_clave("pedidos", df, registro)
-    rechazar |= marcar("pedidos", df, df["fecha_pedido"].isna() | (df["fecha_pedido"] > ahora), "04", RECUPERABLE,
-                       "Fecha de pedido nula, imposible o futura", "Registro rechazado", registro)
-    rechazar |= marcar("pedidos", df, ~df["estado"].isin(config.ESTADOS_PEDIDO), "07", RECUPERABLE,
-                       f"Estado fuera de {config.ESTADOS_PEDIDO}", "Registro rechazado", registro)
-    rechazar |= marcar("pedidos", df, ~df["tipo"].isin(config.TIPOS_PEDIDO), "07", RECUPERABLE,
-                       f"Tipo fuera de {config.TIPOS_PEDIDO}", "Registro rechazado", registro)
-    rechazar |= marcar("pedidos", df, df["id_cliente"].isna(), "09", RECUPERABLE,
-                       "Pedido sin cliente", "Registro rechazado", registro)
-    rechazar |= comprobar_referencia("pedidos", df, ~rechazar, ["id_cliente"], clientes_csv, clientes,
-                                     "clientes.csv", registro)
+    rechazar |= marcar("pedidos", df, df["fecha_pedido"].isna() | (df["fecha_pedido"] > ahora), "04", RECUPERABLE, "Fecha de pedido nula, imposible o futura", "Registro rechazado", registro)
+    rechazar |= marcar("pedidos", df, ~df["estado"].isin(config.ESTADOS_PEDIDO), "07", RECUPERABLE, f"Estado fuera de {config.ESTADOS_PEDIDO}", "Registro rechazado", registro)
+    rechazar |= marcar("pedidos", df, ~df["tipo"].isin(config.TIPOS_PEDIDO), "07", RECUPERABLE, f"Tipo fuera de {config.TIPOS_PEDIDO}", "Registro rechazado", registro)
+    rechazar |= marcar("pedidos", df, df["id_cliente"].isna(), "09", RECUPERABLE, "Pedido sin cliente", "Registro rechazado", registro)
+    rechazar |= comprobar_referencia("pedidos", df, ~rechazar, ["id_cliente"], clientes_csv, clientes, "clientes.csv", registro)
 
-    marcar("pedidos", df, df["fecha_confirmacion"] < df["fecha_pedido"], "12", ADVERTENCIA,
-           "Confirmación anterior a la fecha de pedido", "Se conserva", registro)
-    marcar("pedidos", df, df["fecha_entrega_prevista"] < df["fecha_pedido"].dt.normalize(), "12", ADVERTENCIA,
-           "Entrega prevista anterior al pedido", "Se conserva", registro)
-    marcar("pedidos", df, (df["estado"] == "CANCELADO") & df["fecha_cancelacion"].isna(), "12", ADVERTENCIA,
-           "Pedido cancelado sin fecha de cancelación", "Se conserva", registro)
-    marcar("pedidos", df, (df["estado"] != "CANCELADO") & df["fecha_cancelacion"].notna(), "12", ADVERTENCIA,
-           "Fecha de cancelación en un pedido no cancelado", "Se conserva", registro)
-    marcar("pedidos", df, (df["estado"] == "CONFIRMADO") & df["fecha_confirmacion"].isna(), "12", ADVERTENCIA,
-           "Pedido confirmado sin fecha de confirmación", "Se conserva", registro)
+    marcar("pedidos", df, df["fecha_confirmacion"] < df["fecha_pedido"], "12", ADVERTENCIA, "Confirmación anterior a la fecha de pedido", "Se conserva", registro)
+    marcar("pedidos", df, df["fecha_entrega_prevista"] < df["fecha_pedido"].dt.normalize(), "12", ADVERTENCIA, "Entrega prevista anterior al pedido", "Se conserva", registro)
+    marcar("pedidos", df, (df["estado"] == "CANCELADO") & df["fecha_cancelacion"].isna(), "12", ADVERTENCIA, "Pedido cancelado sin fecha de cancelación", "Se conserva", registro)
+    marcar("pedidos", df, (df["estado"] != "CANCELADO") & df["fecha_cancelacion"].notna(), "12", ADVERTENCIA, "Fecha de cancelación en un pedido no cancelado", "Se conserva", registro)
+    marcar("pedidos", df, (df["estado"] == "CONFIRMADO") & df["fecha_confirmacion"].isna(), "12", ADVERTENCIA, "Pedido confirmado sin fecha de confirmación", "Se conserva", registro)
     return df[~rechazar]
 
 
 def validar_lineas(df, tablas, validas, registro):
     rechazar = duplicados_clave("lineas", df, registro)
-    rechazar |= marcar("lineas", df, df["cantidad"].isna() | (df["cantidad"] <= 0), "05", RECUPERABLE,
-                       "Cantidad nula, cero o negativa", "Registro rechazado", registro)
-    rechazar |= marcar("lineas", df, df["precio_unitario"].isna() | (df["precio_unitario"] < 0), "06", RECUPERABLE,
-                       "Precio unitario nulo, no numérico o negativo", "Registro rechazado", registro)
-    rechazar |= marcar("lineas", df, ~talla_valida(df["talla"]), "08", RECUPERABLE,
-                       f"Talla fuera de {config.TALLA_MIN}-{config.TALLA_MAX}", "Registro rechazado", registro)
-    rechazar |= marcar("lineas", df, df["id_pedido"].isna() | df["id_modelo"].isna(), "09", RECUPERABLE,
-                       "Línea sin pedido o sin modelo", "Registro rechazado", registro)
+    rechazar |= marcar("lineas", df, df["cantidad"].isna() | (df["cantidad"] <= 0), "05", RECUPERABLE, "Cantidad nula, cero o negativa", "Registro rechazado", registro)
+    rechazar |= marcar("lineas", df, df["precio_unitario"].isna() | (df["precio_unitario"] < 0), "06", RECUPERABLE, "Precio unitario nulo, no numérico o negativo", "Registro rechazado", registro)
+    rechazar |= marcar("lineas", df, ~talla_valida(df["talla"]), "08", RECUPERABLE, f"Talla fuera de {config.TALLA_MIN}-{config.TALLA_MAX}", "Registro rechazado", registro)
+    rechazar |= marcar("lineas", df, df["id_pedido"].isna() | df["id_modelo"].isna(), "09", RECUPERABLE, "Línea sin pedido o sin modelo", "Registro rechazado", registro)
 
-    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_pedido"], tablas["pedidos"],
-                                     validas["pedidos"], "pedidos.csv", registro)
-    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_modelo"], tablas["modelos"],
-                                     validas["modelos"], "modelos.csv", registro)
-    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_variante", "talla"], tablas["stock"],
-                                     validas["stock"], "stock.csv", registro)
+    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_pedido"], tablas["pedidos"], validas["pedidos"], "pedidos.csv", registro)
+    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_modelo"], tablas["modelos"], validas["modelos"], "modelos.csv", registro)
+    rechazar |= comprobar_referencia("lineas", df, ~rechazar, ["id_variante", "talla"], tablas["stock"], validas["stock"], "stock.csv", registro)
 
     variantes = validas["stock"][["id_variante", "talla", "id_modelo"]]
-    cruce = df.merge(variantes, on=["id_variante", "talla"], how="left", suffixes=("", "_stock"),
-                     validate="many_to_one")
+    cruce = df.merge(variantes, on=["id_variante", "talla"], how="left", suffixes=("", "_stock"), validate="many_to_one")
     cruce.index = df.index
     otro_modelo = cruce["id_modelo_stock"].notna() & (cruce["id_modelo"] != cruce["id_modelo_stock"])
-    marcar("lineas", df, ~rechazar & otro_modelo, "12", ADVERTENCIA,
-           "El modelo no coincide con el de la variante en stock", "Se conserva", registro)
+    marcar("lineas", df, ~rechazar & otro_modelo, "12", ADVERTENCIA, "El modelo no coincide con el de la variante en stock", "Se conserva", registro)
 
     aceptadas = df[~rechazar]
     repetidas = aceptadas.duplicated(subset=["id_pedido", "id_variante", "talla"], keep=False)
-    marcar("lineas", df, repetidas.reindex(df.index, fill_value=False), "10", ADVERTENCIA,
-           "Varias líneas con el mismo pedido, variante y talla", "Se conservan", registro)
+    marcar("lineas", df, repetidas.reindex(df.index, fill_value=False), "10", ADVERTENCIA, "Varias líneas con el mismo pedido, variante y talla", "Se conservan", registro)
     return df[~rechazar]
 
 
@@ -249,10 +215,8 @@ def comprobar_totales(pedidos, lineas, registro):
     calculado = pedidos["id_pedido"].map(importe).fillna(0).round(2)
     sin_lineas = ~pedidos["id_pedido"].isin(lineas["id_pedido"])
     distinto = ~sin_lineas & ((calculado - pedidos["total"]).abs() > 0.01)
-    marcar("pedidos", pedidos, distinto, "12", ADVERTENCIA,
-           "El total no coincide con la suma de sus líneas", "Se usa la suma de las líneas", registro)
-    marcar("pedidos", pedidos, sin_lineas, "12", ADVERTENCIA,
-           "Pedido sin líneas válidas", "Se conserva en actividad", registro)
+    marcar("pedidos", pedidos, distinto, "12", ADVERTENCIA, "El total no coincide con la suma de sus líneas", "Se usa la suma de las líneas", registro)
+    marcar("pedidos", pedidos, sin_lineas, "12", ADVERTENCIA, "Pedido sin líneas válidas", "Se conserva en actividad", registro)
 
 
 def resumen_calidad(tablas, validas, registro):
@@ -289,9 +253,93 @@ def validar_datos(tablas, registro):
 
     return validas, resumen_calidad(tablas, validas, registro)
 
+def unir(nombre, izquierda, derecha, clave, validacion, registro):
+    try:
+        cruce = izquierda.merge(derecha, on=clave, how="left", validate=validacion, indicator=True)
+    except pd.errors.MergeError as error:
+        registro.anadir(nombre, "-", "CRUCE", BLOQUEANTE,
+                        f"Cardinalidad incorrecta: {str(error).splitlines()[0]}", "Cruce abortado")
+        return None
+
+    if len(cruce) != len(izquierda):
+        registro.anadir(nombre, "-", "CRUCE", BLOQUEANTE,
+                        f"El cruce pasa de {len(izquierda)} a {len(cruce)} filas", "Cruce abortado")
+        return None
+
+    sin_pareja = int((cruce["_merge"] == "left_only").sum())
+    if sin_pareja:
+        registro.anadir(nombre, "-", "CRUCE", BLOQUEANTE,
+                        f"{sin_pareja} filas sin correspondencia en {clave}", "Cruce abortado")
+        return None
+
+    return cruce.drop(columns="_merge")
+
+
+def construir_lineas_enriquecidas(validas, registro):
+    pedidos = validas["pedidos"][["id_pedido", "tipo", "estado", "fecha_pedido", "fecha_confirmacion", "fecha_cancelacion", "id_cliente"]].rename(columns={"tipo": "tipo_pedido"})
+    clientes = validas["clientes"][["id_cliente", "tipo", "ciudad"]].rename(columns={"tipo": "tipo_cliente"})
+    modelos = validas["modelos"][["id_modelo", "nombre", "categoria", "precio_base"]].rename(
+        columns={"nombre": "modelo"})
+
+    df = unir("lineas-pedidos", validas["lineas"], pedidos, "id_pedido", "many_to_one", registro)
+    if df is None:
+        return None
+    df = unir("lineas-clientes", df, clientes, "id_cliente", "many_to_one", registro)
+    if df is None:
+        return None
+    df = unir("lineas-modelos", df, modelos, "id_modelo", "many_to_one", registro)
+    if df is None:
+        return None
+
+    df["importe_linea"] = (df["cantidad"] * df["precio_unitario"]).round(2)
+    df["es_venta"] = df["estado"].isin(config.ESTADOS_VENTA)
+    return df
+
+
+def construir_pedidos_unicos(lineas_enriquecidas, validas, registro):
+    por_pedido = lineas_enriquecidas.groupby("id_pedido").agg(
+        pares=("cantidad", "sum"),
+        importe=("importe_linea", "sum"),
+        num_lineas=("id_linea", "nunique"),
+        num_modelos=("id_modelo", "nunique"),
+    ).reset_index()
+
+    pedidos = validas["pedidos"].drop(columns=["ref_odoo", "total"]).rename(columns={"tipo": "tipo_pedido"})
+    clientes = validas["clientes"][["id_cliente", "tipo"]].rename(columns={"tipo": "tipo_cliente"})
+
+    df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro)
+    if df is None:
+        return None
+    df = unir("pedidos-clientes", df, clientes, "id_cliente", "many_to_one", registro)
+    if df is None:
+        return None
+
+    df[["pares", "num_lineas", "num_modelos"]] = df[["pares", "num_lineas", "num_modelos"]].fillna(0).astype(int)
+    df["importe"] = df["importe"].fillna(0).round(2)
+    df["es_venta"] = df["estado"].isin(config.ESTADOS_VENTA)
+
+    if round(df["importe"].sum(), 2) != round(lineas_enriquecidas["importe_linea"].sum(), 2):
+        registro.anadir("pedidos-unicos", "-", "CRUCE", BLOQUEANTE,
+                        "La suma de importes no coincide con la de las líneas", "Vista descartada")
+        return None
+    return df
+
+
+def integrar_datos(validas, registro):
+    if not validas:
+        return None, None
+
+    lineas_enriquecidas = construir_lineas_enriquecidas(validas, registro)
+    if lineas_enriquecidas is None:
+        return None, None
+
+    pedidos_unicos = construir_pedidos_unicos(lineas_enriquecidas, validas, registro)
+    return lineas_enriquecidas, pedidos_unicos
+
 if __name__ == "__main__":
     tablas, manifiesto, registro = cargar_datos(config.ENTRADA_REAL, "REAL")
     validas, resumen = validar_datos(tablas, registro)
+    df_lineas_enriquecidas, df_pedidos_unicos = integrar_datos(validas, registro)
     incidencias = registro.a_dataframe()
 
     print(resumen.to_string(index=False))
@@ -299,6 +347,11 @@ if __name__ == "__main__":
     print(f"Incidencias: {len(incidencias)} | Bloqueantes: {registro.hay_bloqueantes()}")
     if not incidencias.empty:
         print(incidencias.to_string(index=False))
+
+    if df_pedidos_unicos is not None:
+        print()
+        print(f"Líneas: {len(df_lineas_enriquecidas)} | Pedidos únicos: {len(df_pedidos_unicos)}")
+        print(df_pedidos_unicos[["id_pedido", "tipo_pedido", "estado", "num_lineas", "pares", "importe"]].to_string(index=False))
 
     carpeta = config.SALIDA / "real" / "csv"
     guardar_csv(manifiesto, carpeta / "manifiesto.csv")
