@@ -1,0 +1,33 @@
+==================================================
+FICHA DE TALLER - PEDIDO CUS-0001
+Cliente: Club Atletismo Halcones
+Total de pares: 40
+--------------------------------------------------
+Talla	Pares
+38	2
+39	4
+40	6
+41	8
+42	7
+43	6
+44	4
+45	2
+46	1
+--------------------------------------------------
+Variante: Cometa | negro y blanco | Colores del club: rojo y blanco | HALCONES
+Pares de esta variante: 40
+==================================================
+
+==================================================
+FICHA DE TALLER - PEDIDO CUS-0004
+Cliente: Club Monta?ero Cumbres
+Total de pares: 10
+--------------------------------------------------
+Talla	Pares
+40	3
+42	4
+44	3
+--------------------------------------------------
+Variante: Coloso | verde y marr?n | Logotipo de la secci?n de monta?a | CUMBRES
+Pares de esta variante: 10
+==================================================

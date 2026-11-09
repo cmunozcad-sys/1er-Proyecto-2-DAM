@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,6 +21,9 @@ public class Analizador {
 
     public static void main(String[] args) {
 
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+        System.setErr(new PrintStream(System.err, true, StandardCharsets.UTF_8));
+
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
 
         Map<String, String> clientes = new LinkedHashMap<>();
@@ -35,7 +39,7 @@ public class Analizador {
                 System.exit(ERROR_SIN_ENTRADA);
             }
 
-            if (!primera.replace("﻿", "").trim().equals("pedido válido")) {
+            if (!primera.replace("\uFEFF", "").trim().equals("pedido válido")) {
                 System.err.println("ERROR: el pedido no viene validado");
                 System.exit(ERROR_NO_VALIDADO);
             }
