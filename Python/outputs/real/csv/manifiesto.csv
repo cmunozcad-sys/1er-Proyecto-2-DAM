@@ -1,6 +1,6 @@
 tabla,fichero,fecha_analisis,filas,columnas,tamano_bytes,origen
-clientes,clientes.csv,2026-11-09 13:31:24,6,6,355,REAL
-modelos,modelos.csv,2026-11-09 13:31:24,40,7,2093,REAL
-pedidos,pedidos.csv,2026-11-09 13:31:24,12,10,1411,REAL
-lineas,lineas_pedido.csv,2026-11-09 13:31:24,41,10,2208,REAL
-stock,stock.csv,2026-11-09 13:31:24,358,7,22059,REAL
+clientes,clientes.csv,2026-11-09 18:40:41,6,6,355,REAL
+modelos,modelos.csv,2026-11-09 18:40:41,40,7,2093,REAL
+pedidos,pedidos.csv,2026-11-09 18:40:41,12,10,1411,REAL
+lineas,lineas_pedido.csv,2026-11-09 18:40:41,41,10,2208,REAL
+stock,stock.csv,2026-11-09 18:40:41,358,7,22059,REAL

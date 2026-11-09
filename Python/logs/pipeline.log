@@ -12,3 +12,10 @@
 2026-11-09 13:31:24 | INFO | lineas: 41 filas leídas
 2026-11-09 13:31:24 | INFO | stock: 358 filas leídas
 2026-11-09 13:31:24 | INFO | Fin de carga | incidencias=0
+2026-11-09 18:40:41 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-09 18:40:41 | INFO | clientes: 6 filas leídas
+2026-11-09 18:40:41 | INFO | modelos: 40 filas leídas
+2026-11-09 18:40:41 | INFO | pedidos: 12 filas leídas
+2026-11-09 18:40:41 | INFO | lineas: 41 filas leídas
+2026-11-09 18:40:41 | INFO | stock: 358 filas leídas
+2026-11-09 18:40:41 | INFO | Fin de carga | incidencias=0
