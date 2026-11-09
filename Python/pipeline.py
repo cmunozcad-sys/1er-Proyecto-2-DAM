@@ -17,8 +17,7 @@ def leer_tabla(tabla, carpeta, registro):
         return None, ruta
 
     try:
-        df = pd.read_csv(ruta, sep=config.SEPARADOR, encoding=config.CODIFICACION, dtype=str,
-                         keep_default_na=False, na_values=config.VALORES_NULOS)
+        df = pd.read_csv(ruta, sep=config.SEPARADOR, encoding=config.CODIFICACION, dtype=str, keep_default_na=False, na_values=config.VALORES_NULOS)
     except pd.errors.EmptyDataError:
         registro.anadir(tabla, "-", "01", BLOQUEANTE, "Fichero vacío", "Carga abortada")
         return None, ruta
