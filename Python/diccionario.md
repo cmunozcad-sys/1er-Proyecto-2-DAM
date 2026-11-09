@@ -13,7 +13,7 @@
 | Fecha y hora | `AAAA-MM-DD HH:MM:SS` (puede incluir microsegundos) |
 | Nulos | Texto `NULL` o celda vacía |
 | Booleanos | `True` / `False` |
-| Moneda | Euros (EUR), precios con IVA según la tienda |
+| Moneda | Euros (EUR), importes netos sin IVA (el IVA del 21 % se aplica después en la factura de Odoo) |
 
 Los identificadores (`id_*`) se leen como texto. No se usan en cálculos numéricos.
 
@@ -98,6 +98,6 @@ El stock es una foto del momento de la exportación, no un histórico de movimie
 
 - Venta válida: pedido con estado CONFIRMADO.
 - BORRADOR y CANCELADO cuentan en la actividad, no en las ventas.
-- Importe de línea = cantidad × precio_unitario.
+- Importe de línea = cantidad × precio_unitario (importe neto, sin IVA).
 - Un pedido con varias líneas cuenta como un solo pedido.
 - No existe coste unitario, así que no se calcula beneficio ni margen.
