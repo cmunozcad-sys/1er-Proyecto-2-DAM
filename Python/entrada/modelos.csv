@@ -1,0 +1,41 @@
+"id_modelo","ref_odoo","nombre","categoria","precio_base","personalizable","activo"
+1,"SF-001","Cometa","correr",69.99,True,True
+2,"SF-002","Relámpago","correr",119.99,True,True
+3,"SF-003","Impulso","correr",49.99,True,True
+4,"SF-004","Lince","correr",84.99,True,True
+5,"SF-005","Ráfaga","correr",74.99,True,True
+6,"SF-006","Guepardo","correr",89.99,True,True
+7,"SF-007","Bólido","correr",59.99,True,True
+8,"SF-008","Centella","correr",94.99,True,True
+9,"SF-009","Destello","correr",79.99,True,True
+10,"SF-010","Chispa","correr",39.99,True,True
+11,"SF-011","Coloso","botas",99.99,True,True
+12,"SF-012","Granito","botas",74.99,True,True
+13,"SF-013","Titán","botas",119.99,True,True
+14,"SF-014","Volcán","botas",64.99,True,True
+15,"SF-015","Coyote","botas",79.99,True,True
+16,"SF-016","Tormenta","botas",89.99,True,True
+17,"SF-017","Escorpión","botas",69.99,True,True
+18,"SF-018","Acero","botas",84.99,True,True
+19,"SF-019","Glaciar","botas",109.99,True,True
+20,"SF-020","Osezno","botas",44.99,True,True
+21,"SF-021","Furia FG","futbol",89.99,True,True
+22,"SF-022","Huracán AG","futbol",74.99,True,True
+23,"SF-023","Remolino IC","futbol",59.99,True,True
+24,"SF-024","Tornado TF","futbol",54.99,True,True
+25,"SF-025","Campeón Élite","futbol",119.99,True,True
+26,"SF-026","Mago 10","futbol",94.99,True,True
+27,"SF-027","Rayo X","futbol",99.99,True,True
+28,"SF-028","Pantera GK","futbol",84.99,True,True
+29,"SF-029","Capitán 82","futbol",69.99,True,True
+30,"SF-030","Cachorro Jr","futbol",39.99,True,True
+31,"SF-031","Cóndor 1","baloncesto",99.99,True,True
+32,"SF-032","Jaguar Low","baloncesto",84.99,True,True
+33,"SF-033","Trueno Pro","baloncesto",119.99,True,True
+34,"SF-034","Vértigo Street","baloncesto",59.99,True,True
+35,"SF-035","Ciclón Mid","baloncesto",79.99,True,True
+36,"SF-036","Saeta 3","baloncesto",94.99,True,True
+37,"SF-037","Gigante XL","baloncesto",109.99,True,True
+38,"SF-038","Leyenda 92","baloncesto",74.99,True,True
+39,"SF-039","Amazona W","baloncesto",89.99,True,True
+40,"SF-040","Canguro Jr","baloncesto",44.99,True,True
