@@ -157,7 +157,7 @@ if (formularioCustom) {
                 return;
             }
 
-            mensaje.textContent = "Solicitud " + datos.referencia + " guardada. Te enviaremos el presupuesto a " + inputEmail.value;
+            mensaje.textContent = "Solicitud " + datos.referencia + " guardada y pendiente de aprobación. Te enviaremos el presupuesto a " + inputEmail.value;
             formularioCustom.reset();
             mostrarTallas();
             mostrarPrecio();
@@ -309,8 +309,6 @@ async function cargarFichas() {
     }
 }
 
-let fichasCargadas;
-
 if (listasFichas.length > 0) {
-    fichasCargadas = cargarFichas();
+    cargarFichas();
 }

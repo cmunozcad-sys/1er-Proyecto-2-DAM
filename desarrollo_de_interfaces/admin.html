@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administración</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header__container">
+        <div class="header__izquierda">
+            <a class="header__marca" href="admin.html">
+                <img class="header__img" src="img/logo_proyecto.png" alt="Volver al panel">
+            </a>
+        </div>
+
+        <nav class="header__nav">
+            <a class="boton boton--secundario header__boton" href="index.html">Ver tienda</a>
+        </nav>
+
+        <div class="header__acciones">
+            <a class="header__icono" href="login.html" aria-label="Mi cuenta">
+                <svg class="header__svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="contenido panel">
+        <div class="catalogo__cabecera">
+            <div>
+                <p class="catalogo__etiqueta">Administración</p>
+                <h1 class="catalogo__titulo">Panel de control</h1>
+            </div>
+            <p class="panel__saludo"></p>
+        </div>
+
+        <section class="panel__resumen">
+            <article class="panel__tarjeta panel__tarjeta--borrador">
+                <p class="panel__texto">Pendientes</p>
+                <p class="panel__numero" data-estado="BORRADOR">0</p>
+            </article>
+            <article class="panel__tarjeta panel__tarjeta--confirmado">
+                <p class="panel__texto">Confirmados</p>
+                <p class="panel__numero" data-estado="CONFIRMADO">0</p>
+            </article>
+            <article class="panel__tarjeta panel__tarjeta--cancelado">
+                <p class="panel__texto">Cancelados</p>
+                <p class="panel__numero" data-estado="CANCELADO">0</p>
+            </article>
+        </section>
+
+        <div class="panel__contenido">
+            <section class="panel__seccion">
+                <div class="panel__cabecera">
+                    <h2 class="panel__subtitulo">Pedidos</h2>
+                    <button class="boton boton--secundario panel__actualizar" type="button">Actualizar</button>
+                </div>
+
+                <div class="catalogo__filtros">
+                    <button class="boton boton--principal catalogo__filtro panel__filtro" type="button" data-estado="BORRADOR">PENDIENTES</button>
+                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="CONFIRMADO">CONFIRMADOS</button>
+                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="CANCELADO">CANCELADOS</button>
+                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="TODOS">TODOS</button>
+                </div>
+
+                <p class="panel__mensaje panel__mensaje--pedidos"></p>
+
+                <div class="panel__tabla-contenedor">
+                    <table class="panel__tabla">
+                        <thead>
+                            <tr>
+                                <th class="panel__celda-titulo">Pedido</th>
+                                <th class="panel__celda-titulo">Cliente</th>
+                                <th class="panel__celda-titulo">Artículos</th>
+                                <th class="panel__celda-titulo">Total</th>
+                                <th class="panel__celda-titulo">Estado</th>
+                                <th class="panel__celda-titulo">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="panel__pedidos">
+                            <tr>
+                                <td class="panel__vacio" colspan="6">Cargando pedidos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="panel__seccion panel__seccion--lateral">
+                <h2 class="panel__subtitulo">Añadir zapatillas</h2>
+                <p class="panel__ayuda">Suma pares al stock de un modelo y talla.</p>
+
+                <form class="panel__reponer">
+                    <div class="custom__campo">
+                        <label class="custom__label" for="reponer-modelo">Modelo</label>
+                        <select class="custom__input" id="reponer-modelo" name="modelo" required>
+                            <option value="">Selecciona un modelo</option>
+                        </select>
+                    </div>
+
+                    <div class="custom__campo">
+                        <label class="custom__label" for="reponer-talla">Talla</label>
+                        <select class="custom__input" id="reponer-talla" name="talla" required>
+                            <option value="">Elige primero un modelo</option>
+                        </select>
+                    </div>
+
+                    <div class="custom__campo">
+                        <label class="custom__label" for="reponer-cantidad">Pares a añadir</label>
+                        <input class="custom__input" type="number" id="reponer-cantidad" name="cantidad" min="1" max="10000" value="1" required>
+                    </div>
+
+                    <button class="boton boton--naranja panel__guardar">Guardar</button>
+                    <p class="panel__mensaje panel__mensaje--reponer"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="javascript/script.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/admin.js"></script>
+</body>
+
+</html>

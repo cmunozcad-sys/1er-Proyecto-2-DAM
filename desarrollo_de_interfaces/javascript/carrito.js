@@ -133,7 +133,7 @@ botonComprar.addEventListener("click", () => {
         return;
     }
 
-    if (!tienePermiso("PEDIDO_CREAR") || !tienePermiso("PEDIDO_CONFIRMAR")) {
+    if (!tienePermiso("PEDIDO_CREAR")) {
         mensajeCompra.textContent = "Tu usuario no tiene permiso para comprar";
         return;
     }
@@ -177,7 +177,7 @@ formularioCompra.addEventListener("submit", async (evento) => {
         carrito = [];
         guardarCarrito();
         formularioCompra.reset();
-        listaCarrito.innerHTML = `<p class="cuenta__dato">¡Gracias por tu compra! Pedido <strong>${pedido.referencia}</strong> por ${formatearPrecio(pedido.total)}</p>`;
+        listaCarrito.innerHTML = `<p class="cuenta__dato">¡Gracias por tu compra! Pedido <strong>${pedido.referencia}</strong> por ${formatearPrecio(pedido.total)}. Queda pendiente de aprobación</p>`;
     } catch (error) {
         console.error("No se pudo guardar el pedido:", error);
         mensajeCompra.textContent = error instanceof TypeError ? "No se ha podido conectar. Inténtalo más tarde" : error.message;

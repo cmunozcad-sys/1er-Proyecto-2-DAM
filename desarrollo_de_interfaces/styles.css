@@ -6,6 +6,9 @@
     --color-secundario: rgb(219, 219, 219);
     --color-terciario : white;
     --color-naranja: orange;
+    --color-exito: rgb(110, 200, 120);
+    --color-error: rgb(240, 90, 90);
+    --color-borde: rgb(51, 51, 51);
 }
 
 html{
@@ -1509,52 +1512,281 @@ body{
     color: var(--color-naranja);
 }
 
-.ficha__anadir{
+.cuenta__panel{
+    display: block;
+    margin-top: 15px;
     padding: 12px 20px;
+    border-width: 1px;
+    font-size: 12px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.panel{
+    min-height: calc(100vh - 76px);
+    padding: 60px 5%;
+    box-sizing: border-box;
+}
+
+.panel .catalogo__cabecera{
+    margin-bottom: 40px;
+}
+
+.panel__saludo{
+    margin: 0;
+    font-size: 15px;
+    color: gray;
+}
+
+.panel__resumen{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.panel__tarjeta{
+    padding: 25px;
+    border: 1px solid var(--color-borde);
+    border-top: 3px solid var(--color-secundario);
+    border-radius: 14px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.panel__tarjeta:hover{
+    transform: translateY(-3px);
+}
+
+.panel__tarjeta--borrador{
+    border-top-color: var(--color-naranja);
+}
+
+.panel__tarjeta--confirmado{
+    border-top-color: var(--color-exito);
+}
+
+.panel__tarjeta--cancelado{
+    border-top-color: var(--color-error);
+}
+
+.panel__texto{
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.panel__numero{
+    margin: 10px 0 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-terciario);
+}
+
+.panel__contenido{
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: start;
+    gap: 30px;
+}
+
+.panel__seccion{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    border-radius: 20px;
+}
+
+.panel__seccion--lateral{
+    position: sticky;
+    top: 100px;
+    border-top: 3px solid var(--color-naranja);
+}
+
+.panel__cabecera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel__subtitulo{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: var(--color-terciario);
+}
+
+.panel__ayuda{
+    margin: -10px 0 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.panel__actualizar{
+    padding: 10px 18px;
     background: none;
-    font-size: 13px;
+    border-width: 1px;
+    font-size: 12px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.ficha__reponer{
-    display: none;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.ficha__reponer--abierta{
-    display: grid;
-}
-
-.ficha__reponer .custom__input{
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.ficha__guardar,
-.ficha__mensaje{
-    grid-column: 1 / -1;
-}
-
-.ficha__guardar{
-    padding: 12px 20px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.ficha__guardar:disabled{
-    opacity: 0.5;
-    cursor: wait;
-}
-
-.ficha__mensaje{
+.panel__mensaje{
     margin: 0;
     font-size: 14px;
     color: var(--color-naranja);
 }
 
+.panel__mensaje:empty{
+    display: none;
+}
+
+.panel__tabla-contenedor{
+    overflow-x: auto;
+}
+
+.panel__tabla{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.panel__celda-titulo{
+    padding: 0 12px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: left;
+    text-transform: uppercase;
+    color: gray;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.panel__fila{
+    transition: background-color 0.3s;
+}
+
+.panel__fila:hover{
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.panel__celda{
+    padding: 15px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.panel__celda strong{
+    color: var(--color-terciario);
+}
+
+.panel__celda--articulos{
+    min-width: 200px;
+    color: gray;
+}
+
+.panel__detalle{
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: gray;
+}
+
+.panel__estado{
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid currentColor;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.panel__estado--borrador{
+    color: var(--color-naranja);
+}
+
+.panel__estado--confirmado{
+    color: var(--color-exito);
+}
+
+.panel__estado--cancelado{
+    color: var(--color-error);
+}
+
+.panel__acciones{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.panel__accion{
+    padding: 8px 14px;
+    border-width: 1px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.panel__accion.boton--secundario{
+    background: none;
+}
+
+.panel__accion:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.panel__vacio{
+    padding: 30px 12px;
+    text-align: center;
+    color: gray;
+}
+
+.panel__reponer{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.panel__guardar{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.panel__guardar:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
+@media (max-width: 1024px){
+    .panel__contenido{
+        grid-template-columns: 1fr;
+    }
+
+    .panel__seccion--lateral{
+        position: static;
+    }
+}
+
 @media (max-width: 600px){
+    .panel{
+        padding: 40px 16px;
+    }
+
+    .panel__resumen{
+        grid-template-columns: 1fr;
+    }
+
+    .panel__seccion{
+        padding: 20px;
+    }
+
     .login{
         justify-content: center;
         padding: 40px 5%;

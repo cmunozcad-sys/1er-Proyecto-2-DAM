@@ -115,6 +115,19 @@ const registrarReposicion = `
             jsonb_build_object('talla', $2::numeric, 'anadidos', $3::int, 'total', $4::int),
             NULLIF(current_setting('app.id_usuario', true), '')::INTEGER)`;
 
+const consultaPedidos = `
+    SELECT p.id_pedido, p.ref_odoo AS referencia, p.tipo, p.estado,
+           to_char(p.fecha_pedido, 'DD/MM/YYYY HH24:MI') AS fecha,
+           p.total::float AS total, c.nombre AS cliente,
+           string_agg(m.nombre || ' · T' || l.talla::float || ' x' || l.cantidad, ', ' ORDER BY l.id_linea) AS articulos
+      FROM pedido p
+      JOIN cliente c ON c.id_cliente = p.id_cliente
+      LEFT JOIN linea_pedido l ON l.id_pedido = p.id_pedido
+      LEFT JOIN variante v ON v.id_variante = l.id_variante
+      LEFT JOIN modelo m ON m.id_modelo = v.id_modelo
+     GROUP BY p.id_pedido, c.nombre
+     ORDER BY p.fecha_pedido DESC`;
+
 app.post("/api/login", async (peticion, respuesta) => {
     const { username, password } = peticion.body || {};
 
@@ -239,7 +252,7 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
     }
 });
 
-app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"]), async (peticion, respuesta) => {
+app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, respuesta) => {
     const { cliente, articulos } = peticion.body || {};
 
     if (!cliente || !cliente.nombre || !cliente.email || !cliente.telefono || !cliente.direccion
@@ -272,24 +285,80 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR", "PEDIDO_CONFIRMAR"]), a
             }
         }
 
-        const confirmado = await conexion.query(
-            "UPDATE pedido SET estado = 'CONFIRMADO' WHERE id_pedido = $1 RETURNING total::float AS total",
-            [idPedido]);
+        const pedido = await conexion.query("SELECT total::float AS total FROM pedido WHERE id_pedido = $1", [idPedido]);
 
         await conexion.query("COMMIT");
-        respuesta.status(201).json({ referencia: referencia, total: confirmado.rows[0].total });
+        respuesta.status(201).json({ referencia: referencia, total: pedido.rows[0].total });
     } catch (error) {
         await conexion.query("ROLLBACK");
         console.error(error.message);
 
         if (error.message.includes("Stock insuficiente")) {
-            respuesta.status(409).json({ error: "No queda stock suficiente de algún artículo" });
+            respuesta.status(409).json({ error: "Alguno de los artículos ya no está disponible en esa talla" });
         } else {
             respuesta.status(500).json({ error: "No se pudo guardar el pedido" });
         }
     } finally {
         conexion.release();
     }
+});
+
+app.get("/api/pedidos", exigirPermisos(["PEDIDO_VER"]), async (peticion, respuesta) => {
+    try {
+        const resultado = await pool.query(consultaPedidos);
+        respuesta.json(resultado.rows);
+    } catch (error) {
+        console.error(error.message);
+        respuesta.status(500).json({ error: "No se pudieron cargar los pedidos" });
+    }
+});
+
+async function cambiarEstado(peticion, respuesta, estado) {
+    const id = Number(peticion.params.id);
+
+    if (!Number.isInteger(id)) {
+        respuesta.status(400).json({ error: "El pedido no es válido" });
+        return;
+    }
+
+    const conexion = await pool.connect();
+
+    try {
+        await conexion.query("BEGIN");
+        await identificarUsuario(conexion, peticion);
+
+        const resultado = await conexion.query(
+            "UPDATE pedido SET estado = $2 WHERE id_pedido = $1 AND estado = 'BORRADOR' RETURNING ref_odoo",
+            [id, estado]);
+
+        if (resultado.rows.length === 0) {
+            await conexion.query("ROLLBACK");
+            respuesta.status(409).json({ error: "Este pedido ya no está pendiente" });
+            return;
+        }
+
+        await conexion.query("COMMIT");
+        respuesta.json({ referencia: resultado.rows[0].ref_odoo, estado: estado });
+    } catch (error) {
+        await conexion.query("ROLLBACK");
+        console.error(error.message);
+
+        if (error.message.includes("Stock insuficiente")) {
+            respuesta.status(409).json({ error: "No hay stock suficiente para aprobar este pedido" });
+        } else {
+            respuesta.status(500).json({ error: "No se pudo cambiar el estado del pedido" });
+        }
+    } finally {
+        conexion.release();
+    }
+}
+
+app.post("/api/pedidos/:id/aprobar", exigirPermisos(["PEDIDO_CONFIRMAR"]), (peticion, respuesta) => {
+    cambiarEstado(peticion, respuesta, "CONFIRMADO");
+});
+
+app.post("/api/pedidos/:id/cancelar", exigirPermisos(["PEDIDO_CANCELAR"]), (peticion, respuesta) => {
+    cambiarEstado(peticion, respuesta, "CANCELADO");
 });
 
 app.listen(3000);

@@ -5,8 +5,16 @@ function tienePermiso(codigo) {
     return usuarioSesion !== null && usuarioSesion.permisos.includes(codigo);
 }
 
+function esAdmin(usuario) {
+    return usuario !== null && usuario.rol === "Administrador";
+}
+
 if (usuarioSesion) {
     enlaceCuenta.classList.add("header__icono--activo");
+
+    const enlacePanel = esAdmin(usuarioSesion)
+        ? '<a class="boton boton--secundario cuenta__panel" href="admin.html">Panel de administración</a>'
+        : "";
 
     enlaceCuenta.insertAdjacentHTML("afterend", `
         <div class="cuenta">
@@ -14,6 +22,7 @@ if (usuarioSesion) {
             <p class="cuenta__nombre">${usuarioSesion.nombre}</p>
             <p class="cuenta__dato">Usuario: <strong>${usuarioSesion.username}</strong></p>
             <p class="cuenta__dato">Rol: <strong>${usuarioSesion.rol}</strong></p>
+            ${enlacePanel}
             <button class="boton boton--naranja cuenta__salir" type="button">Cerrar sesión</button>
         </div>`);
 
@@ -22,7 +31,11 @@ if (usuarioSesion) {
     enlaceCuenta.addEventListener("click", (evento) => {
         evento.preventDefault();
         desplegable.classList.toggle("cuenta--abierta");
-        document.querySelector(".carrito").classList.remove("carrito--abierto");
+
+        const desplegableCarrito = document.querySelector(".carrito");
+        if (desplegableCarrito) {
+            desplegableCarrito.classList.remove("carrito--abierto");
+        }
     });
 
     document.querySelector(".cuenta__salir").addEventListener("click", async () => {
@@ -33,7 +46,7 @@ if (usuarioSesion) {
         }
 
         localStorage.removeItem("usuario");
-        window.location.reload();
+        window.location.href = "index.html";
     });
 }
 
@@ -68,7 +81,7 @@ async function comprobarUsuario(username, password) {
 
 if (formularioLogin) {
     if (usuarioSesion) {
-        window.location.href = "index.html";
+        window.location.href = esAdmin(usuarioSesion) ? "admin.html" : "index.html";
     }
 
     checkMostrar.addEventListener("change", () => {
@@ -110,7 +123,7 @@ if (formularioLogin) {
             mostrarMensaje("Bienvenido, " + usuario.nombre_completo, "exito");
 
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = esAdmin(usuario) ? "admin.html" : "index.html";
             }, 1500);
         } catch (error) {
             console.error("No se pudo comprobar el usuario:", error);
