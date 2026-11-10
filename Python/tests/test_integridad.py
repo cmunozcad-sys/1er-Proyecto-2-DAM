@@ -78,3 +78,18 @@ def test_csv_original_no_se_modifica(carpeta):
     ejecutar(carpeta)
 
     assert (carpeta / "pedidos.csv").read_bytes() == antes
+
+
+
+def test_pedido_sin_lineas_se_conserva(carpeta):
+    lineas = leer(carpeta, "lineas")
+    escribir(carpeta, "lineas", lineas[lineas["id_pedido"] != "2"])
+
+    tablas, manifiesto, registro = pipeline.cargar_datos(carpeta, "PRUEBA")
+    validas, resumen = pipeline.validar_datos(tablas, registro)
+    lineas, pedidos = pipeline.integrar_datos(validas, registro)
+
+    pedido = pedidos.set_index("id_pedido").loc["2"]
+    assert not registro.hay_bloqueantes()
+    assert pedido["pares"] == 0
+    assert pedido["importe"] == 0

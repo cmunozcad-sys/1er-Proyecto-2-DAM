@@ -1,0 +1,17 @@
+tabla,registro,regla,error_introducido
+pedidos,1,03,id_cliente inexistente (999)
+pedidos,2,04,fecha_pedido imposible (2026-13-45)
+pedidos,3,07,estado fuera de catálogo (ENVIADO)
+pedidos,4,07,tipo fuera de catálogo (MAYORISTA)
+pedidos,5,09,id_cliente vacío
+pedidos,6,12,total que no coincide con sus líneas
+pedidos,13,12,fecha de cancelación en un pedido confirmado
+lineas,501,03,id_pedido inexistente (99999)
+lineas,601,05,cantidad negativa (-3)
+lineas,701,06,precio_unitario no numérico (abc)
+lineas,801,08,talla fuera de rango (60)
+lineas,901,09,id_modelo vacío
+lineas,1001,02,id_linea duplicado con datos distintos
+lineas,6261,10,"línea repetida con el mismo pedido, variante y talla"
+stock,1-35.0,11,stock negativo (-4)
+stock,1-35.5,11,variante y talla duplicadas con distinta cantidad

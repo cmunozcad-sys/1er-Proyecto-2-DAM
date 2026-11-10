@@ -253,7 +253,7 @@ def validar_datos(tablas, registro):
 
     return validas, resumen_calidad(tablas, validas, registro)
 
-def unir(nombre, izquierda, derecha, clave, validacion, registro):
+def unir(nombre, izquierda, derecha, clave, validacion, registro, exigir_pareja=True):
     try:
         cruce = izquierda.merge(derecha, on=clave, how="left", validate=validacion, indicator=True)
     except pd.errors.MergeError as error:
@@ -267,7 +267,7 @@ def unir(nombre, izquierda, derecha, clave, validacion, registro):
         return None
 
     sin_pareja = int((cruce["_merge"] == "left_only").sum())
-    if sin_pareja:
+    if sin_pareja and exigir_pareja:
         registro.anadir(nombre, "-", "CRUCE", BLOQUEANTE,
                         f"{sin_pareja} filas sin correspondencia en {clave}", "Cruce abortado")
         return None
@@ -307,7 +307,7 @@ def construir_pedidos_unicos(lineas_enriquecidas, validas, registro):
     pedidos = validas["pedidos"].drop(columns=["ref_odoo", "total"]).rename(columns={"tipo": "tipo_pedido"})
     clientes = validas["clientes"][["id_cliente", "tipo"]].rename(columns={"tipo": "tipo_cliente"})
 
-    df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro)
+        df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro, exigir_pareja=False)
     if df is None:
         return None
     df = unir("pedidos-clientes", df, clientes, "id_cliente", "many_to_one", registro)
