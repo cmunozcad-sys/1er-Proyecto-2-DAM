@@ -1,8 +1,9 @@
+import pandas as pd
 import pytest
 
 import analiticas
+import config
 import pipeline
-
 
 @pytest.fixture
 def datos(carpeta):
@@ -55,3 +56,44 @@ def test_clasificacion_abc(datos):
     assert abc.loc["Cometa", "clase_abc"] == "A"
     assert abc.loc["Titan", "ingresos"] == 0
     assert abc["acumulado_pct"].iloc[-1] == 100
+
+
+
+def test_rfm_empates_reciben_la_misma_puntuacion(datos):
+    rfm = analiticas.clientes_rfm(datos)
+    assert len(rfm) == 1
+    assert rfm.loc[0, "frequency"] == 1
+    assert rfm.loc[0, "monetary"] == 350.00
+    puntos = analiticas.puntuar(pd.Series([1, 1, 1, 5]))
+    assert puntos.iloc[0] == puntos.iloc[1] == puntos.iloc[2]
+
+
+def test_cobertura_sin_demanda_es_nd(datos):
+    stock = analiticas.stock_cobertura(datos).set_index(["id_variante", "talla"])
+    fila = stock.loc[("2", 42.0)]
+    assert fila["demanda_reciente"] == 0
+    assert fila["cobertura_texto"] == "N/D"
+    assert fila["alerta"] == "BAJO MÍNIMO"
+
+
+def test_anomalias_no_eliminan_registros(datos):
+    antes = len(datos["pedidos"])
+    resultado = analiticas.anomalias(datos)
+    assert len(datos["pedidos"]) == antes
+    assert (resultado["decision"] == "Se conserva y se marca").all()
+
+
+def test_margen_no_calculable_sin_coste(datos):
+    margen = analiticas.margen(datos)
+    assert margen["margen"].isna().all()
+    assert margen["estado"].str.startswith("NO CALCULABLE").all()
+
+
+def test_reconciliacion_detecta_diferencias(datos, carpeta):
+    referencia = pd.DataFrame({"indicador": ["pedidos_totales", "ingresos_validos"], "valor_sql": [2, 999.99]})
+    referencia.to_csv(carpeta / config.FICHERO_REFERENCIA_SQL, index=False)
+
+    estados = analiticas.reconciliacion_sql(datos, carpeta).set_index("indicador")["estado"]
+    assert estados["pedidos_totales"] == "OK"
+    assert estados["ingresos_validos"] == "DIFERENCIA"
+    assert estados["lineas_totales"] == "SIN REFERENCIA"

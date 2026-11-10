@@ -299,3 +299,201 @@ def calcular_kpis(datos):
     ]
     df = pd.DataFrame(filas, columns=["kpi", "valor", "unidad", "formula", "denominador"])
     return con_metadatos(df, "kpis", datos, datos.get("filtros", {}), len(pedidos), "calcular_kpis")
+
+def puntuar(serie, invertir=False):
+    if serie.empty:
+        return serie
+    posicion = serie.rank(method="average", pct=True)
+    puntos = np.ceil(posicion * 5).clip(1, 5).astype(int)
+    return 6 - puntos if invertir else puntos
+
+
+def segmento_rfm(fila):
+    r, f = fila["r"], fila["f"]
+    if r >= 4 and f >= 4:
+        return "Campeones"
+    if f >= 4:
+        return "Leales"
+    if r <= 2 and f >= 3:
+        return "En riesgo"
+    if r >= 4 and f <= 2:
+        return "Nuevos"
+    if r <= 2 and f <= 2:
+        return "Perdidos"
+    return "Potenciales"
+
+
+def clientes_rfm(datos):
+    pedidos, _ = ventas(datos)
+    df = pedidos.groupby("id_cliente").agg(
+        tipo_cliente=("tipo_cliente", "first"),
+        ultima_compra=("fecha_pedido", "max"),
+        frequency=("id_pedido", "nunique"),
+        monetary=("importe", "sum"),
+    ).reset_index()
+    df["recency_dias"] = (datos["fecha_corte"] - df["ultima_compra"]).dt.days
+    df["monetary"] = df["monetary"].round(2)
+
+    df["r"] = puntuar(df["recency_dias"], invertir=True)
+    df["f"] = puntuar(df["frequency"])
+    df["m"] = puntuar(df["monetary"])
+    df["puntuacion_rfm"] = df["r"].astype(str) + df["f"].astype(str) + df["m"].astype(str)
+    df["segmento"] = df.apply(segmento_rfm, axis=1) if not df.empty else []
+    df = df.merge(variables_cliente(datos), on="id_cliente", how="left", validate="one_to_one")
+    df = df.sort_values("monetary", ascending=False).reset_index(drop=True)
+    return con_metadatos(df, "06_clientes_rfm", datos, datos.get("filtros", {}), len(pedidos), "clientes_rfm")
+
+
+def cohortes(datos):
+    pedidos, _ = ventas(datos)
+    meses = pedidos.assign(mes=pedidos["fecha_pedido"].dt.to_period("M"))[["id_cliente", "mes"]].drop_duplicates()
+    meses["cohorte"] = meses.groupby("id_cliente")["mes"].transform("min")
+    meses["meses_desde_alta"] = (meses["mes"] - meses["cohorte"]).apply(lambda d: d.n)
+
+    activos = meses.pivot_table(index="cohorte", columns="meses_desde_alta", values="id_cliente", aggfunc="nunique",
+                                fill_value=0)
+    tamano = activos[0] if 0 in activos.columns else pd.Series(dtype=int)
+    df = (activos.div(tamano, axis=0) * 100).round(1)
+    df.columns = [f"mes_{c}" for c in df.columns]
+    df.insert(0, "clientes", tamano)
+    df = df.reset_index()
+    df["cohorte"] = df["cohorte"].astype(str)
+    return con_metadatos(df, "07_cohortes", datos, datos.get("filtros", {}), len(pedidos), "cohortes")
+
+
+ORDEN_ALERTAS = ["BAJO MÍNIMO", "RIESGO DE ROTURA", "DESCATALOGADO CON STOCK", "SIN DEMANDA", "DESCATALOGADO", "OK"]
+
+
+def alerta_stock(fila):
+    if not fila["modelo_activo"]:
+        return "DESCATALOGADO CON STOCK" if fila["stock"] > 0 else "DESCATALOGADO"
+    if fila["stock"] < fila["stock_minimo"]:
+        return "BAJO MÍNIMO"
+    if pd.notna(fila["cobertura_dias"]) and fila["cobertura_dias"] < config.DIAS_COBERTURA_RIESGO:
+        return "RIESGO DE ROTURA"
+    if fila["demanda_reciente"] == 0 and fila["stock"] > 0:
+        return "SIN DEMANDA"
+    return "OK"
+
+
+def stock_cobertura(datos):
+    _, lineas = ventas(datos)
+    inicio = datos["fecha_corte"] - pd.Timedelta(days=config.DIAS_DEMANDA_RECIENTE)
+    recientes = lineas[lineas["fecha_pedido"] >= inicio]
+    demanda = recientes.groupby(["id_variante", "talla"])["cantidad"].sum().rename("demanda_reciente")
+
+    modelos = datos["modelos"][["id_modelo", "nombre", "activo"]].rename(
+        columns={"nombre": "modelo", "activo": "modelo_activo"})
+    df = datos["stock"].rename(columns={"cantidad": "stock"}).merge(modelos, on="id_modelo", how="left", validate="many_to_one")
+    df = df.merge(demanda.reset_index(), on=["id_variante", "talla"], how="left", validate="one_to_one")
+    df["demanda_reciente"] = df["demanda_reciente"].fillna(0).astype(int)
+    df["demanda_diaria"] = (df["demanda_reciente"] / config.DIAS_DEMANDA_RECIENTE).round(3)
+    df["cobertura_dias"] = (df["stock"] / df["demanda_diaria"].replace(0, np.nan)).round(1)
+    df["alerta"] = df.apply(alerta_stock, axis=1)
+    df["cobertura_texto"] = df["cobertura_dias"].map(lambda d: "N/D" if pd.isna(d) else f"{d:g}")
+
+    columnas = ["id_modelo", "modelo", "id_variante", "color", "talla", "stock", "stock_minimo", "demanda_reciente",
+                "demanda_diaria", "cobertura_dias", "cobertura_texto", "alerta", "ultima_actualizacion"]
+    df["alerta"] = pd.Categorical(df["alerta"], categories=ORDEN_ALERTAS, ordered=True)
+    df = df[columnas].sort_values(["alerta", "cobertura_dias"]).reset_index(drop=True)
+    df["alerta"] = df["alerta"].astype(str)
+    return con_metadatos(df, "08_stock_cobertura", datos, {}, len(datos["stock"]), "stock_cobertura")
+
+
+def calidad_datos(resumen, incidencias):
+    conteo = incidencias.pivot_table(index="tabla", columns="gravedad", values="regla", aggfunc="count", fill_value=0)
+    df = resumen.merge(conteo, left_on="tabla", right_index=True, how="left")
+    for gravedad in ("BLOQUEANTE", "RECUPERABLE", "ADVERTENCIA"):
+        df[gravedad.lower()] = df[gravedad].fillna(0).astype(int) if gravedad in df else 0
+    df["estado"] = np.where(df["bloqueante"] > 0, "BLOQUEADO",
+                            np.where(df["filas_rechazadas"] > 0, "CON RECHAZOS", "CORRECTO"))
+    return df[["tabla", "filas_entrada", "filas_validas", "filas_rechazadas", "porcentaje_calidad", "bloqueante", "recuperable", "advertencia", "estado"]]
+
+
+def incidencias_por_regla(incidencias):
+    return incidencias.groupby(["regla", "gravedad", "tabla", "descripcion"]).size().rename(
+        "registros").reset_index().sort_values(["regla", "tabla"])
+
+
+def limites_iqr(serie):
+    q1, q3 = serie.quantile(0.25), serie.quantile(0.75)
+    rango = q3 - q1
+    return q1 - config.FACTOR_IQR * rango, q3 + config.FACTOR_IQR * rango
+
+
+def explicar_pedido(fila):
+    if fila["tipo_pedido"] == "CUSTOM" and fila["tipo_cliente"] in ("CLUB", "EQUIPO"):
+        return "Pedido Custom de club o equipo: volumen grande esperable"
+    return "Revisar con negocio"
+
+
+def anomalias(datos):
+    pedidos, lineas = ventas(datos)
+    filas = []
+
+    for variable in ("importe", "pares"):
+        if len(pedidos) < 4:
+            break
+        inferior, superior = limites_iqr(pedidos[variable])
+        atipicos = pedidos[(pedidos[variable] < inferior) | (pedidos[variable] > superior)]
+        for _, fila in atipicos.iterrows():
+            filas.append({"nivel": "pedido", "registro": fila["id_pedido"], "variable": variable, "valor": fila[variable], "limite_inferior": round(inferior, 2), "limite_superior": round(superior, 2), "explicacion": explicar_pedido(fila)})
+
+    for id_modelo, grupo in lineas.groupby("id_modelo"):
+        if len(grupo) < 4:
+            continue
+        inferior, superior = limites_iqr(grupo["precio_unitario"])
+        atipicos = grupo[(grupo["precio_unitario"] < inferior) | (grupo["precio_unitario"] > superior)]
+        for _, fila in atipicos.iterrows():
+            explicacion = ("Recargo de personalización" if fila["personalizada"] else "Precio distinto al habitual del modelo: posible promoción")
+            filas.append({"nivel": "linea", "registro": fila["id_linea"], "variable": f"precio_unitario ({fila['modelo']})", "valor": fila["precio_unitario"], "limite_inferior": round(inferior, 2), "limite_superior": round(superior, 2), "explicacion": explicacion})
+
+    columnas = ["nivel", "registro", "variable", "valor", "limite_inferior", "limite_superior", "explicacion"]
+    df = pd.DataFrame(filas, columns=columnas)
+    df["decision"] = "Se conserva y se marca"
+    return con_metadatos(df, "10_anomalias", datos, datos.get("filtros", {}), len(lineas), "anomalias")
+
+
+def margen(datos):
+    _, lineas = ventas(datos)
+    df = ranking(lineas, "id_modelo", "modelo")[["id_modelo", "modelo", "ingresos", "pares"]]
+    df["coste"] = "NO DISPONIBLE"
+    df["margen"] = np.nan
+    df["estado"] = "NO CALCULABLE: el contrato de datos no incluye coste unitario"
+    return con_metadatos(df, "11_margen", datos, datos.get("filtros", {}), len(lineas), "margen")
+
+
+def indicadores_conciliacion(datos):
+    pedidos, lineas = datos["pedidos"], datos["lineas"]
+    venta, lineas_venta = ventas(datos)
+    del_mes = venta[venta["fecha_pedido"].dt.to_period("M").astype(str) == config.MES_CONCILIACION]
+    de_talla = lineas_venta[lineas_venta["talla"] == config.TALLA_CONCILIACION]
+    return {
+        "pedidos_totales": len(pedidos),
+        "lineas_totales": len(lineas),
+        "pedidos_confirmados": len(venta),
+        "pares_vendidos": int(venta["pares"].sum()),
+        "ingresos_validos": round(venta["importe"].sum(), 2),
+        f"ingresos_{config.MES_CONCILIACION}": round(del_mes["importe"].sum(), 2),
+        f"pares_talla_{config.TALLA_CONCILIACION}": int(de_talla["cantidad"].sum()),
+    }
+
+
+def reconciliacion_sql(datos, carpeta):
+    ruta = carpeta / config.FICHERO_REFERENCIA_SQL
+    referencia = {}
+    if ruta.exists():
+        tabla = pd.read_csv(ruta, dtype={"indicador": str})
+        referencia = dict(zip(tabla["indicador"], tabla["valor_sql"]))
+
+    filas = []
+    for indicador, valor in indicadores_conciliacion(datos).items():
+        sql = referencia.get(indicador)
+        if sql is None:
+            estado, diferencia = "SIN REFERENCIA", np.nan
+        else:
+            diferencia = round(valor - float(sql), 2)
+            estado = "OK" if abs(diferencia) < 0.01 else "DIFERENCIA"
+        filas.append({"indicador": indicador, "valor_python": valor, "valor_sql": sql, "diferencia": diferencia, "estado": estado})
+    df = pd.DataFrame(filas)
+    return con_metadatos(df, "12_reconciliacion_sql", datos, {}, len(datos["pedidos"]), "reconciliacion_sql")

@@ -26,8 +26,7 @@ COLUMNAS_OBLIGATORIAS = {
     "modelos": ["id_modelo", "ref_odoo", "nombre", "categoria", "precio_base", "personalizable", "activo"],
     "pedidos": ["id_pedido", "ref_odoo", "tipo", "estado", "fecha_pedido", "fecha_entrega_prevista",
                 "fecha_confirmacion", "fecha_cancelacion", "total", "id_cliente"],
-    "lineas": ["id_linea", "id_pedido", "id_variante", "id_modelo", "color", "talla", "cantidad",
-               "precio_unitario", "logo_club", "personalizada"],
+    "lineas": ["id_linea", "id_pedido", "id_variante", "id_modelo", "color", "talla", "cantidad", "precio_unitario", "logo_club", "personalizada"],
     "stock": ["id_variante", "id_modelo", "color", "talla", "cantidad", "stock_minimo", "ultima_actualizacion"],
 }
 
@@ -77,6 +76,13 @@ TALLA_MAX = 48
 DIAS_DEMANDA_RECIENTE = 28
 UMBRAL_ABC_A = 0.80
 UMBRAL_ABC_B = 0.95
+
+DIAS_COBERTURA_RIESGO = 14
+FACTOR_IQR = 1.5
+
+FICHERO_REFERENCIA_SQL = "referencia_sql.csv"
+MES_CONCILIACION = "2026-10"
+TALLA_CONCILIACION = 42
 
 SEMILLA = 42
 MESES_PRUEBA = 3
