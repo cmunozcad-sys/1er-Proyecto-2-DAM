@@ -1,0 +1,17 @@
+id_modelo,ref_odoo,nombre,categoria,precio_base,personalizable,activo
+1,SF-001,Cometa,correr,69.99,False,True
+2,SF-002,Relámpago,correr,119.99,False,True
+3,SF-003,Impulso,correr,49.99,False,False
+4,SF-004,Lince,correr,84.99,False,True
+5,SF-005,Nova Run,correr,99.99,False,True
+6,SF-006,Titán,botas,99.99,True,True
+7,SF-007,Granito,botas,89.99,True,True
+8,SF-008,Ventisca,botas,114.99,True,True
+9,SF-009,Pantera GK,futbol,79.99,True,True
+10,SF-010,Furia FG,futbol,109.99,True,True
+11,SF-011,Saeta 3,futbol,64.99,True,True
+12,SF-012,Halcón SG,futbol,94.99,True,True
+13,SF-013,Coloso,baloncesto,129.99,True,True
+14,SF-014,Rayo X,baloncesto,94.99,True,True
+15,SF-015,Ciclón Mid,baloncesto,74.99,True,True
+16,SF-016,Vértigo,baloncesto,89.99,True,True
