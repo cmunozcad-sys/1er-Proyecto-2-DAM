@@ -296,18 +296,22 @@ def construir_lineas_enriquecidas(validas, registro):
     return df
 
 
-def construir_pedidos_unicos(lineas_enriquecidas, validas, registro):
-    por_pedido = lineas_enriquecidas.groupby("id_pedido").agg(
+def resumir_por_pedido(lineas):
+    return lineas.groupby("id_pedido").agg(
         pares=("cantidad", "sum"),
         importe=("importe_linea", "sum"),
         num_lineas=("id_linea", "nunique"),
         num_modelos=("id_modelo", "nunique"),
     ).reset_index()
 
+
+def construir_pedidos_unicos(lineas_enriquecidas, validas, registro):
+    por_pedido = resumir_por_pedido(lineas_enriquecidas)
+
     pedidos = validas["pedidos"].drop(columns=["ref_odoo", "total"]).rename(columns={"tipo": "tipo_pedido"})
     clientes = validas["clientes"][["id_cliente", "tipo"]].rename(columns={"tipo": "tipo_cliente"})
 
-        df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro, exigir_pareja=False)
+    df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro, exigir_pareja=False)
     if df is None:
         return None
     df = unir("pedidos-clientes", df, clientes, "id_cliente", "many_to_one", registro)

@@ -84,7 +84,7 @@ def anadir_calendario(df, fecha_corte):
     df["anio"] = fecha.dt.year
     df["mes"] = fecha.dt.month
     df["trimestre"] = fecha.dt.quarter
-    df["dia_semana"] = fecha.dt.dayofweek
+    df["dia_semana"] = fecha.dt.day_of_week
     df["periodo"] = fecha.dt.to_period("M").astype(str)
     df["antiguedad_dias"] = (fecha_corte - fecha).dt.days
     return df
