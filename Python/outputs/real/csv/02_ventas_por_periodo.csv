@@ -1,0 +1,4 @@
+mes,ingresos,pares,pedidos,ticket_medio,variacion_mensual_pct,media_movil_3_previos,variacion_interanual_pct,mes_completo
+2026-09,1849.76,24,3,616.59,,,,True
+2026-10,3219.53,47,2,1609.76,74.05,,,True
+2026-11,0.0,0,0,,-100.0,,,False

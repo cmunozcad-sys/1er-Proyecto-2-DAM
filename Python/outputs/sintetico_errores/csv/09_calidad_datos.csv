@@ -1,0 +1,6 @@
+tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,bloqueante,recuperable,advertencia,estado
+clientes,60,60,0,100.0,0,0,0,CORRECTO
+modelos,16,16,0,100.0,0,0,0,CORRECTO
+pedidos,1883,1878,5,99.73,1,4,11,BLOQUEADO
+lineas,6262,6237,25,99.6,1,24,3,BLOQUEADO
+stock,495,492,3,99.39,0,3,0,CON RECHAZOS

@@ -1,0 +1,3 @@
+tipo_pedido,pedidos_totales,pedidos_venta,pedidos_cancelados,pares,ingresos,tasa_cancelacion_pct,ticket_medio,precio_medio_par,peso_pedidos_venta_pct,peso_pares_pct,peso_ingresos_pct
+ESTANDAR,7,3,1,21,1269.79,14.29,423.26,60.47,60.0,29.58,25.05
+CUSTOM,5,2,2,50,3799.5,40.0,1899.75,75.99,40.0,70.42,74.95

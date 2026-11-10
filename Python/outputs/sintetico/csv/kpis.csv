@@ -1,0 +1,17 @@
+kpi,valor,unidad,formula,denominador
+pedidos_totales,1883.0,pedidos,nº de pedidos únicos en cualquier estado,-
+pedidos_confirmados,1576.0,pedidos,estado = CONFIRMADO,-
+pedidos_pendientes,125.0,pedidos,estado = BORRADOR,-
+pedidos_cancelados,182.0,pedidos,estado = CANCELADO,-
+tasa_cancelacion_pct,9.67,%,cancelados / pedidos totales,pedidos totales
+pares_vendidos,21802.0,pares,Σ cantidad de líneas de pedidos de venta,-
+ingresos_validos,2198400.81,EUR,Σ cantidad × precio_unitario de pedidos de venta,-
+ticket_medio,1394.92,EUR,ingresos / pedidos de venta,pedidos de venta
+pares_por_pedido,13.83,pares,pares / pedidos de venta,pedidos de venta
+precio_medio_par,100.83,EUR,ingresos / pares vendidos,pares vendidos
+peso_custom_pedidos_pct,35.91,%,pedidos Custom de venta / pedidos de venta,pedidos de venta
+peso_custom_pares_pct,88.37,%,pares Custom / pares vendidos,pares vendidos
+peso_custom_ingresos_pct,89.86,%,ingresos Custom / ingresos válidos,ingresos válidos
+clientes_compradores,59.0,clientes,clientes distintos con algún pedido de venta,-
+pareto_top20_modelos_pct,41.14,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos
+pareto_top20_clientes_pct,60.34,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos

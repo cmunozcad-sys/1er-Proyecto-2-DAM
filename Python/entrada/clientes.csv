@@ -1,7 +1,7 @@
-"id_cliente","ref_odoo","tipo","ciudad","activo","fecha_alta"
-1,"CLI-001","CLUB","Madrid",True,"2026-11-03"
-2,"CLI-002","CLUB","Madrid",True,"2026-11-03"
-3,"CLI-003","CLUB","Getafe",True,"2026-11-03"
-4,"CLI-004","CLUB","Segovia",True,"2026-11-03"
-5,"CLI-005","EMPRESA","Toledo",True,"2026-11-03"
-6,"CLI-006","PARTICULAR","Madrid",True,"2026-11-03"
+id_cliente,ref_odoo,tipo,ciudad,activo,fecha_alta
+1,CLI-001,CLUB,Madrid,t,2026-11-03
+2,CLI-002,CLUB,Madrid,t,2026-11-03
+3,CLI-003,CLUB,Getafe,t,2026-11-03
+4,CLI-004,CLUB,Segovia,t,2026-11-03
+5,CLI-005,EMPRESA,Toledo,t,2026-11-03
+6,CLI-006,PARTICULAR,Madrid,t,2026-11-03

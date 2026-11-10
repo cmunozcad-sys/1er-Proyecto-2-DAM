@@ -1,0 +1,3 @@
+nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision
+pedido,1,importe,2799.6,-450.02,1869.86,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
+pedido,1,pares,40.0,-2.0,22.0,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca

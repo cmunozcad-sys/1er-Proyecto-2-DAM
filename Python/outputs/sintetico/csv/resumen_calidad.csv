@@ -1,0 +1,6 @@
+tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,incidencias,bloqueantes
+clientes,60,60,0,100.0,0,0
+modelos,16,16,0,100.0,0,0
+pedidos,1883,1883,0,100.0,0,0
+lineas,6260,6260,0,100.0,0,0
+stock,494,494,0,100.0,0,0

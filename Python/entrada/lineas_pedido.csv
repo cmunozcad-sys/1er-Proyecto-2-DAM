@@ -1,42 +1,42 @@
-"id_linea","id_pedido","id_variante","id_modelo","color","talla","cantidad","precio_unitario","logo_club","personalizada"
-1,1,1,1,"negro y blanco",38.0,2,69.99,True,True
-2,1,1,1,"negro y blanco",39.0,4,69.99,True,True
-3,1,1,1,"negro y blanco",40.0,6,69.99,True,True
-4,1,1,1,"negro y blanco",41.0,8,69.99,True,True
-5,1,1,1,"negro y blanco",42.0,7,69.99,True,True
-6,1,1,1,"negro y blanco",43.0,6,69.99,True,True
-7,1,1,1,"negro y blanco",44.0,4,69.99,True,True
-8,1,1,1,"negro y blanco",45.0,2,69.99,True,True
-9,1,1,1,"negro y blanco",46.0,1,69.99,True,True
-10,2,30,30,"negro y azul",31.0,3,39.99,True,True
-11,2,30,30,"negro y azul",32.0,5,39.99,True,True
-12,2,30,30,"negro y azul",33.0,6,39.99,True,True
-13,2,30,30,"negro y azul",34.0,4,39.99,True,True
-14,3,31,31,"negro y dorado",43.0,2,99.99,True,True
-15,3,31,31,"negro y dorado",44.0,3,99.99,True,True
-16,3,31,31,"negro y dorado",45.0,3,99.99,True,True
-17,3,31,31,"negro y dorado",46.0,2,99.99,True,True
-18,4,11,11,"verde y marrón",40.0,3,99.99,True,True
-19,4,11,11,"verde y marrón",42.0,4,99.99,True,True
-20,4,11,11,"verde y marrón",44.0,3,99.99,True,True
-21,5,2,2,"negro y naranja",41.0,1,119.99,False,False
-22,6,3,3,"gris y blanco",40.0,4,49.99,False,False
-23,6,3,3,"gris y blanco",42.0,4,49.99,False,False
-24,6,7,7,"negro y gris",41.0,3,59.99,False,False
-25,6,12,12,"gris y negro",43.0,2,74.99,False,False
-26,7,5,5,"blanco y azul",42.0,2,74.99,False,False
-27,8,9,9,"negro y plata",39.0,1,79.99,False,False
-28,9,23,23,"negro y azul",39.0,2,59.99,False,False
-29,9,23,23,"negro y azul",40.0,3,59.99,False,False
-30,9,23,23,"negro y azul",41.0,2,59.99,False,False
-31,10,18,18,"negro",42.0,5,84.99,False,False
-32,10,18,18,"negro",43.0,5,84.99,False,False
-33,7,5,5,"blanco y azul",43.0,1,74.99,False,False
-37,13,1,1,"negro y blanco",38.0,4,69.99,True,True
-38,13,1,1,"negro y blanco",39.0,6,69.99,True,True
-39,13,1,1,"negro y blanco",40.0,8,69.99,True,True
-40,13,1,1,"negro y blanco",41.0,8,69.99,True,True
-41,13,1,1,"negro y blanco",42.0,6,69.99,True,True
-42,13,1,1,"negro y blanco",43.0,4,69.99,True,True
-43,13,1,1,"negro y blanco",44.0,4,69.99,True,True
-44,14,19,19,"blanco, gris y azul",42.0,5,109.99,False,False
+id_linea,id_pedido,id_variante,id_modelo,color,talla,cantidad,precio_unitario,logo_club,personalizada
+1,1,1,1,negro y blanco,38.0,2,69.99,t,t
+2,1,1,1,negro y blanco,39.0,4,69.99,t,t
+3,1,1,1,negro y blanco,40.0,6,69.99,t,t
+4,1,1,1,negro y blanco,41.0,8,69.99,t,t
+5,1,1,1,negro y blanco,42.0,7,69.99,t,t
+6,1,1,1,negro y blanco,43.0,6,69.99,t,t
+7,1,1,1,negro y blanco,44.0,4,69.99,t,t
+8,1,1,1,negro y blanco,45.0,2,69.99,t,t
+9,1,1,1,negro y blanco,46.0,1,69.99,t,t
+10,2,30,30,negro y azul,31.0,3,39.99,t,t
+11,2,30,30,negro y azul,32.0,5,39.99,t,t
+12,2,30,30,negro y azul,33.0,6,39.99,t,t
+13,2,30,30,negro y azul,34.0,4,39.99,t,t
+14,3,31,31,negro y dorado,43.0,2,99.99,t,t
+15,3,31,31,negro y dorado,44.0,3,99.99,t,t
+16,3,31,31,negro y dorado,45.0,3,99.99,t,t
+17,3,31,31,negro y dorado,46.0,2,99.99,t,t
+18,4,11,11,verde y marrón,40.0,3,99.99,t,t
+19,4,11,11,verde y marrón,42.0,4,99.99,t,t
+20,4,11,11,verde y marrón,44.0,3,99.99,t,t
+21,5,2,2,negro y naranja,41.0,1,119.99,f,f
+22,6,3,3,gris y blanco,40.0,4,49.99,f,f
+23,6,3,3,gris y blanco,42.0,4,49.99,f,f
+24,6,7,7,negro y gris,41.0,3,59.99,f,f
+25,6,12,12,gris y negro,43.0,2,74.99,f,f
+26,7,5,5,blanco y azul,42.0,2,74.99,f,f
+27,8,9,9,negro y plata,39.0,1,79.99,f,f
+28,9,23,23,negro y azul,39.0,2,59.99,f,f
+29,9,23,23,negro y azul,40.0,3,59.99,f,f
+30,9,23,23,negro y azul,41.0,2,59.99,f,f
+31,10,18,18,negro,42.0,5,84.99,f,f
+32,10,18,18,negro,43.0,5,84.99,f,f
+33,7,5,5,blanco y azul,43.0,1,74.99,f,f
+37,13,1,1,negro y blanco,38.0,4,69.99,t,t
+38,13,1,1,negro y blanco,39.0,6,69.99,t,t
+39,13,1,1,negro y blanco,40.0,8,69.99,t,t
+40,13,1,1,negro y blanco,41.0,8,69.99,t,t
+41,13,1,1,negro y blanco,42.0,6,69.99,t,t
+42,13,1,1,negro y blanco,43.0,4,69.99,t,t
+43,13,1,1,negro y blanco,44.0,4,69.99,t,t
+44,14,19,19,"blanco, gris y azul",42.0,5,109.99,f,f
