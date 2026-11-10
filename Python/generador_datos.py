@@ -1,3 +1,15 @@
+"""Genera un histórico SINTÉTICO de Sneaker Factory para pruebas de ciencia de datos.
+
+Hipótesis de simulación (no representan la demanda real):
+- 24 meses consecutivos con crecimiento suave y estacionalidad por categoría: fútbol y botas suben en septiembre-octubre y enero, correr en primavera y baloncesto en otoño.
+- Campañas: Black Friday concentra pedidos en la última semana de noviembre con descuento en pedidos estándar, y las rebajas de enero bajan el precio la primera quincena. En enero de cada año los precios suben un 3 %.
+- Ciclo de vida: algunos modelos se lanzan a mitad del periodo y otro se retira del catálogo.
+- Clientes: parte de la cartera existe desde el inicio y el resto se da de alta de forma escalonada; algunos clientes dejan de comprar (abandono).
+- La popularidad de los modelos y el volumen de compra de los clientes no es uniforme: unos pocos concentran gran parte de las ventas.
+- Los clubes y equipos hacen sobre todo pedidos Custom de muchos pares en varias tallas, con recargo por personalización; los particulares, pedidos estándar de uno o dos pares. De forma ocasional hay pedidos de club muy grandes, legítimos, que sirven para estudiar atípicos.
+- Las tallas siguen una distribución centrada en la 41; los modelos de correr tienen también medias tallas.
+- Los pedidos de las últimas semanas tienen más borradores pendientes.
+"""
 import argparse
 
 import numpy as np
