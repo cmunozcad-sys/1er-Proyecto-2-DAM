@@ -1,0 +1,20 @@
+[theme]
+base = "dark"
+primaryColor = "rgb(255, 165, 0)"
+backgroundColor = "rgb(10, 10, 12)"
+secondaryBackgroundColor = "rgb(22, 22, 26)"
+textColor = "rgb(235, 235, 240)"
+borderColor = "rgb(51, 51, 51)"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap, sans-serif"
+headingFont = "Montserrat:https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap, sans-serif"
+baseRadius = "10px"
+showWidgetBorder = true
+
+[theme.sidebar]
+backgroundColor = "rgb(16, 16, 20)"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
