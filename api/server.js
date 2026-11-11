@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const pool = require("./db");
+const sincronizador = require("./sincronizador");
 
 const app = express();
 
@@ -361,4 +362,4 @@ app.post("/api/pedidos/:id/cancelar", exigirPermisos(["PEDIDO_CANCELAR"]), (peti
     cambiarEstado(peticion, respuesta, "CANCELADO");
 });
 
-app.listen(3000);
+app.listen(3000, () => sincronizador.arrancar());
