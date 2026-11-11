@@ -1,6 +1,7 @@
 id_cliente,tipo_cliente,ultima_compra,frequency,monetary,recency_dias,r,f,m,puntuacion_rfm,segmento,frecuencia_cliente,porcentaje_custom,intervalo_medio_dias
-1,CLUB,2026-10-01 10:00:00,1,2799.6,33,4,3,5,435,Potenciales,1,100.0,
-4,CLUB,2026-09-25 09:15:00,1,999.9,39,3,3,4,334,Potenciales,1,100.0,
-5,EMPRESA,2026-09-18 11:00:00,1,729.87,46,2,3,3,233,En riesgo,1,0.0,
-2,CLUB,2026-10-08 10:30:00,1,419.93,26,5,3,2,532,Potenciales,1,0.0,
-6,PARTICULAR,2026-09-05 18:20:00,1,119.99,59,1,3,1,131,En riesgo,1,0.0,
+1,CLUB,2026-10-01 10:00:00,1,2799.6,33.0,4.0,3.0,5.0,435,Potenciales,1.0,100.0,
+4,CLUB,2026-09-25 09:15:00,1,999.9,39.0,3.0,3.0,4.0,334,Potenciales,1.0,100.0,
+5,EMPRESA,2026-09-18 11:00:00,1,729.87,46.0,2.0,3.0,3.0,233,En riesgo,1.0,0.0,
+2,CLUB,2026-10-08 10:30:00,1,419.93,26.0,5.0,3.0,2.0,532,Potenciales,1.0,0.0,
+6,PARTICULAR,2026-09-05 18:20:00,1,119.99,59.0,1.0,3.0,1.0,131,En riesgo,1.0,0.0,
+3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,

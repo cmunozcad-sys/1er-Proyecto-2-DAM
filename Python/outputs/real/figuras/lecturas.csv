@@ -5,5 +5,5 @@ figura,lectura
 04_histograma_importe_pedido.png,La media (1.014 €) es mayor que la mediana (730 €) porque unos pocos pedidos grandes estiran la distribución hacia la derecha; la mediana representa mejor el pedido típico.
 05_boxplot_pares_por_tipo.png,"Mediana de pares por pedido: ESTANDAR 7, CUSTOM 25. Los puntos sueltos son atípicos según la regla IQR; se conservan, no se borran automáticamente."
 06_mapa_calor_modelo_talla.png,"La talla 41 concentra de media la mayor parte de los pares. Cada fila suma 100 %, así que se comparan tallas dentro de un modelo, no volúmenes entre modelos."
-07_dispersion_clientes_rfm.png,Hay muy pocos clientes o todos tienen el mismo número de pedidos: no se puede calcular una correlación fiable.
+07_dispersion_clientes_rfm.png,Correlación entre pedidos y gasto: 0.40 (de -1 a 1). Los puntos alejados de la nube son clientes que gastan mucho con pocos pedidos o al revés.
 08_comparativa_custom_estandar.png,"Los pedidos Custom son el 40.0 % de los pedidos y aportan el 75.0 % de los ingresos. Son menos pedidos, pero de mayor importe."

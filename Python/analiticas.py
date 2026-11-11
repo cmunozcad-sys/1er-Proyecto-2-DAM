@@ -4,6 +4,9 @@ import pandas as pd
 import config
 from pipeline import resumir_por_pedido
 
+
+KPIS_COMPARABLES = ["ingresos_validos", "pares_vendidos", "pedidos_confirmados", "ticket_medio"]
+
 FILTROS_VACIOS = {
     "fecha_desde": None,
     "fecha_hasta": None,
@@ -340,6 +343,11 @@ def clientes_rfm(datos):
     df["puntuacion_rfm"] = df["r"].astype(str) + df["f"].astype(str) + df["m"].astype(str)
     df["segmento"] = df.apply(segmento_rfm, axis=1) if not df.empty else []
     df = df.merge(variables_cliente(datos), on="id_cliente", how="left", validate="one_to_one")
+
+    sin_compras = datos["clientes"][~datos["clientes"]["id_cliente"].isin(df["id_cliente"])]
+    if not sin_compras.empty:
+        extra = pd.DataFrame({"id_cliente": sin_compras["id_cliente"], "tipo_cliente": sin_compras["tipo"], "frequency": 0, "monetary": 0.0, "segmento": "Sin compras válidas"})
+        df = pd.concat([df, extra], ignore_index=True)
     df = df.sort_values("monetary", ascending=False).reset_index(drop=True)
     return con_metadatos(df, "06_clientes_rfm", datos, datos.get("filtros", {}), len(pedidos), "clientes_rfm")
 
@@ -389,11 +397,13 @@ def stock_cobertura(datos):
     df["demanda_reciente"] = df["demanda_reciente"].fillna(0).astype(int)
     df["demanda_diaria"] = (df["demanda_reciente"] / config.DIAS_DEMANDA_RECIENTE).round(3)
     df["cobertura_dias"] = (df["stock"] / df["demanda_diaria"].replace(0, np.nan)).round(1)
+    df["cobertura_semanas"] = (df["cobertura_dias"] / 7).round(1)
     df["alerta"] = df.apply(alerta_stock, axis=1)
-    df["cobertura_texto"] = df["cobertura_dias"].map(lambda d: "N/D" if pd.isna(d) else f"{d:g}")
+    df["cobertura_texto"] = df["cobertura_semanas"].map(lambda s: "N/D" if pd.isna(s) else f"{s:g} semanas")
 
     columnas = ["id_modelo", "modelo", "id_variante", "color", "talla", "stock", "stock_minimo", "demanda_reciente",
-                "demanda_diaria", "cobertura_dias", "cobertura_texto", "alerta", "ultima_actualizacion"]
+                "demanda_diaria", "cobertura_dias", "cobertura_semanas", "cobertura_texto", "alerta",
+                "ultima_actualizacion"]
     df["alerta"] = pd.Categorical(df["alerta"], categories=ORDEN_ALERTAS, ordered=True)
     df = df[columnas].sort_values(["alerta", "cobertura_dias"]).reset_index(drop=True)
     df["alerta"] = df["alerta"].astype(str)
@@ -497,3 +507,153 @@ def reconciliacion_sql(datos, carpeta):
         filas.append({"indicador": indicador, "valor_python": valor, "valor_sql": sql, "diferencia": diferencia, "estado": estado})
     df = pd.DataFrame(filas)
     return con_metadatos(df, "12_reconciliacion_sql", datos, {}, len(datos["pedidos"]), "reconciliacion_sql")
+
+def describir(serie):
+    serie = serie.dropna()
+    if serie.empty:
+        return {}
+    moda = serie.mode()
+    q1, q3 = serie.quantile(0.25), serie.quantile(0.75)
+    media, mediana = serie.mean(), serie.median()
+    return {
+        "n": len(serie),
+        "media": round(media, 2),
+        "mediana": round(mediana, 2),
+        "moda": round(moda.iloc[0], 2) if len(moda) < len(serie) else np.nan,
+        "desviacion": round(serie.std(), 2) if len(serie) > 1 else np.nan,
+        "minimo": round(serie.min(), 2),
+        "p25": round(q1, 2),
+        "p75": round(q3, 2),
+        "p90": round(serie.quantile(0.90), 2),
+        "maximo": round(serie.max(), 2),
+        "iqr": round(q3 - q1, 2),
+        "representativo": "mediana" if mediana and abs(media - mediana) / abs(mediana) > 0.2 else "media",
+    }
+
+
+def estadisticos(datos):
+    pedidos, _ = ventas(datos)
+    variables = {"importe": "EUR por pedido", "pares": "pares por pedido", "precio_medio_par": "EUR por par"}
+    filas = []
+    for variable, unidad in variables.items():
+        grupos = [("TODOS", pedidos)] + [(tipo, pedidos[pedidos["tipo_pedido"] == tipo]) for tipo in config.TIPOS_PEDIDO]
+        for grupo, df in grupos:
+            resumen = describir(df[variable])
+            if resumen:
+                filas.append({"variable": variable, "unidad": unidad, "grupo": grupo, **resumen})
+    df = pd.DataFrame(filas)
+    return con_metadatos(df, "estadisticos", datos, datos.get("filtros", {}), len(pedidos), "estadisticos")
+
+
+def bootstrap_diferencia(a, b, estadistico, semilla=config.SEMILLA, repeticiones=config.REPETICIONES_BOOTSTRAP):
+    rng = np.random.default_rng(semilla)
+    a, b = np.asarray(a, dtype=float), np.asarray(b, dtype=float)
+    diferencias = np.empty(repeticiones)
+    for i in range(repeticiones):
+        diferencias[i] = estadistico(rng.choice(a, len(a))) - estadistico(rng.choice(b, len(b)))
+    return np.percentile(diferencias, [2.5, 97.5])
+
+
+def contrastar(hipotesis, metrica, grupo_a, a, grupo_b, b, estadistico, sentido="mayor"):
+    fila = {"hipotesis": hipotesis, "metrica": metrica, "grupo_a": grupo_a, "n_a": len(a), "grupo_b": grupo_b,
+            "n_b": len(b)}
+    if min(len(a), len(b)) < config.MUESTRA_MINIMA:
+        return {**fila, "valor_a": np.nan, "valor_b": np.nan, "diferencia": np.nan, "ic95_inferior": np.nan,
+                "ic95_superior": np.nan, "conclusion": "EVIDENCIA INSUFICIENTE",
+                "explicacion": f"Hacen falta al menos {config.MUESTRA_MINIMA} casos en cada grupo."}
+
+    valor_a, valor_b = estadistico(np.asarray(a, dtype=float)), estadistico(np.asarray(b, dtype=float))
+    inferior, superior = bootstrap_diferencia(a, b, estadistico)
+    if inferior > 0 if sentido == "mayor" else superior < 0:
+        conclusion = "APOYADA"
+        explicacion = "El intervalo del 95 % no incluye el 0: la diferencia es consistente en los remuestreos."
+    elif inferior <= 0 <= superior:
+        conclusion = "EVIDENCIA INSUFICIENTE"
+        explicacion = "El intervalo del 95 % incluye el 0: la diferencia podría deberse al azar."
+    else:
+        conclusion = "NO APOYADA"
+        explicacion = "La diferencia va en sentido contrario al planteado."
+    return {**fila, "valor_a": round(valor_a, 4), "valor_b": round(valor_b, 4),
+            "diferencia": round(valor_a - valor_b, 4), "ic95_inferior": round(inferior, 4),
+            "ic95_superior": round(superior, 4), "conclusion": conclusion, "explicacion": explicacion}
+
+
+def hipotesis(datos):
+    pedidos = datos["pedidos"]
+    venta, _ = ventas(datos)
+    cerrados = pedidos[pedidos["estado"] != "BORRADOR"]
+
+    custom = venta.loc[venta["tipo_pedido"] == "CUSTOM", "importe"]
+    estandar = venta.loc[venta["tipo_pedido"] == "ESTANDAR", "importe"]
+    h1 = contrastar("H1. La mediana del importe de un pedido Custom es mayor que la de un pedido estándar",
+                    "mediana del importe por pedido (EUR)", "CUSTOM", custom, "ESTANDAR", estandar, np.median)
+
+    cancelado = cerrados["estado"] == "CANCELADO"
+    h2 = contrastar("H2. Los pedidos Custom se cancelan con más frecuencia que los estándar",
+                    "proporción de cancelados entre pedidos cerrados",
+                    "CUSTOM", cancelado[cerrados["tipo_pedido"] == "CUSTOM"].astype(float),
+                    "ESTANDAR", cancelado[cerrados["tipo_pedido"] == "ESTANDAR"].astype(float), np.mean)
+
+    meses = ventas_por_periodo(datos)
+    completos = meses[meses["mes_completo"]].tail(3)
+    anteriores = meses[meses["mes"].isin((pd.PeriodIndex(completos["mes"], freq="M") - 12).astype(str))]
+    actual = venta[venta["periodo"].isin(completos["mes"])]["importe"]
+    previo = venta[venta["periodo"].isin(anteriores["mes"])]["importe"]
+    if len(anteriores) < len(completos) or len(completos) < 3:
+        previo = previo.iloc[:0]
+    h3 = contrastar("H3. El importe medio por pedido de los últimos 3 meses supera al de los mismos meses del año "
+                    "anterior", "media del importe por pedido (EUR)", "últimos 3 meses", actual,
+                    "mismos meses año anterior", previo, np.mean)
+
+    df = pd.DataFrame([h1, h2, h3])
+    return con_metadatos(df, "hipotesis", datos, datos.get("filtros", {}), len(pedidos), "hipotesis")
+
+
+def limitaciones(datos):
+    venta, _ = ventas(datos)
+    meses = datos["pedidos"]["periodo"].nunique()
+    filas = [
+        "Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.",
+        "No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.",
+        "El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.",
+    ]
+    if datos["origen"] != "REAL":
+        filas.append("Los datos son SINTÉTICOS: sirven para probar los métodos, no son evidencia de clientes reales.")
+    if len(venta) < 30:
+        filas.append(f"Con solo {len(venta)} pedidos de venta no se pueden generalizar tendencias ni comparar grupos " "con fiabilidad.")
+    if meses < 13:
+        filas.append(f"Con {meses} meses de histórico no se puede medir estacionalidad ni comparar con el año anterior.")
+    df = pd.DataFrame({"no_puede_afirmarse": filas})
+    return con_metadatos(df, "limitaciones", datos, datos.get("filtros", {}), len(venta), "limitaciones")
+
+
+def ventana_actual(datos, filtros):
+    if filtros.get("fecha_desde") is not None and filtros.get("fecha_hasta") is not None:
+        return pd.Timestamp(filtros["fecha_desde"]), pd.Timestamp(filtros["fecha_hasta"])
+    meses = ventas_por_periodo(datos)
+    completos = meses[meses["mes_completo"]]
+    ultimo = pd.Period(completos["mes"].iloc[-1] if not completos.empty else meses["mes"].iloc[-1], freq="M")
+    return ultimo.start_time, ultimo.end_time.normalize()
+
+
+def comparar_periodo_anterior(datos, filtros=None):
+    filtros = {**FILTROS_VACIOS, **(filtros or {})}
+    desde, hasta = ventana_actual(datos, filtros)
+    meses_completos = desde.is_month_start and (hasta + pd.Timedelta(days=1)).is_month_start
+    if meses_completos:
+        meses = (hasta.to_period("M") - desde.to_period("M")).n + 1
+        previo_desde = desde - pd.DateOffset(months=meses)
+        previo_hasta = desde - pd.Timedelta(days=1)
+    else:
+        previo_hasta = desde - pd.Timedelta(days=1)
+        previo_desde = previo_hasta - pd.Timedelta(days=(hasta - desde).days)
+
+    actual = calcular_kpis(aplicar_filtros(datos, {**filtros, "fecha_desde": desde, "fecha_hasta": hasta}))
+    anterior = calcular_kpis(aplicar_filtros(datos, {**filtros, "fecha_desde": previo_desde, "fecha_hasta": previo_hasta}))
+    df = actual[["kpi", "valor", "unidad"]].rename(columns={"valor": "actual"}).merge(
+        anterior[["kpi", "valor"]].rename(columns={"valor": "anterior"}), on="kpi", validate="one_to_one")
+    df = df[df["kpi"].isin(KPIS_COMPARABLES)].reset_index(drop=True)
+    df["variacion_pct"] = ((df["actual"] - df["anterior"]) / df["anterior"].replace(0, np.nan) * 100).round(2)
+    df["periodo_actual"] = f"{desde:%Y-%m-%d} a {hasta:%Y-%m-%d}"
+    df["periodo_anterior"] = f"{previo_desde:%Y-%m-%d} a {previo_hasta:%Y-%m-%d}"
+    return con_metadatos(df, "comparacion_periodo_anterior", datos, filtros, len(datos["pedidos"]), "comparar_periodo_anterior")
