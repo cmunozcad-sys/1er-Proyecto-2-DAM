@@ -32,6 +32,10 @@ def calcular_resultados(datos, carpeta_entrada):
         "11_margen": analiticas.margen(datos),
         "12_reconciliacion_sql": analiticas.reconciliacion_sql(datos, carpeta_entrada),
         "kpis": analiticas.calcular_kpis(datos),
+        "comparacion_periodo_anterior": analiticas.comparar_periodo_anterior(datos),
+        "estadisticos": analiticas.estadisticos(datos),
+        "hipotesis": analiticas.hipotesis(datos),
+        "limitaciones": analiticas.limitaciones(datos),
         "demanda_modelo_mes": analiticas.demanda_modelo_mes(datos),
         "catalogo_variables": analiticas.catalogo_variables(),
     }
@@ -64,6 +68,11 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
 
     datos = analiticas.aplicar_filtros(analiticas.preparar_datos(validas, lineas, pedidos, origen))
     resultados = calcular_resultados(datos, carpeta_entrada)
+
+    clusters = analiticas.clustering_clientes(datos)
+    for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
+        resultados[f"clusters_{nombre}"] = clusters[nombre]
+    resultados["clusters_estado"] = pd.DataFrame({"estado": [clusters["estado"]]})
 
     indice = []
     for nombre, df in resultados.items():

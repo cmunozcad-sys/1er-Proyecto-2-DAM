@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -59,11 +60,15 @@ def test_clasificacion_abc(datos):
 
 
 
-def test_rfm_empates_reciben_la_misma_puntuacion(datos):
-    rfm = analiticas.clientes_rfm(datos)
-    assert len(rfm) == 1
-    assert rfm.loc[0, "frequency"] == 1
-    assert rfm.loc[0, "monetary"] == 350.00
+def test_rfm_una_fila_por_cliente_y_sin_compras_explicito(datos):
+    rfm = analiticas.clientes_rfm(datos).set_index("id_cliente")
+    assert len(rfm) == 2
+    assert rfm.loc["1", "frequency"] == 1
+    assert rfm.loc["1", "monetary"] == 350.00
+    assert rfm.loc["2", "segmento"] == "Sin compras válidas"
+
+
+def test_rfm_empates_reciben_la_misma_puntuacion():
     puntos = analiticas.puntuar(pd.Series([1, 1, 1, 5]))
     assert puntos.iloc[0] == puntos.iloc[1] == puntos.iloc[2]
 
@@ -97,3 +102,32 @@ def test_reconciliacion_detecta_diferencias(datos, carpeta):
     assert estados["pedidos_totales"] == "OK"
     assert estados["ingresos_validos"] == "DIFERENCIA"
     assert estados["lineas_totales"] == "SIN REFERENCIA"
+
+
+
+def test_bootstrap_reproducible_con_semilla():
+    a, b = [10, 12, 15, 20, 22], [5, 6, 8, 9, 11]
+    primero = analiticas.bootstrap_diferencia(a, b, np.median)
+    segundo = analiticas.bootstrap_diferencia(a, b, np.median)
+    assert (primero == segundo).all()
+    assert primero[0] <= primero[1]
+
+
+def test_hipotesis_con_poca_muestra_es_insuficiente(datos):
+    resultado = analiticas.hipotesis(datos)
+    assert len(resultado) == 3
+    assert (resultado["conclusion"] == "EVIDENCIA INSUFICIENTE").all()
+
+
+def test_comparacion_periodo_anterior(datos):
+    filtros = {"fecha_desde": "2026-10-01", "fecha_hasta": "2026-10-31"}
+    tabla = analiticas.comparar_periodo_anterior(datos, filtros).set_index("kpi")
+    assert tabla.loc["ingresos_validos", "actual"] == 350.00
+    assert tabla.loc["ingresos_validos", "anterior"] == 0
+    assert tabla.loc["ingresos_validos", "periodo_anterior"] == "2026-09-01 a 2026-09-30"
+
+
+def test_periodo_anterior_de_igual_duracion_en_dias(datos):
+    filtros = {"fecha_desde": "2026-10-01", "fecha_hasta": "2026-10-10"}
+    tabla = analiticas.comparar_periodo_anterior(datos, filtros).set_index("kpi")
+    assert tabla.loc["ingresos_validos", "periodo_anterior"] == "2026-09-21 a 2026-09-30"

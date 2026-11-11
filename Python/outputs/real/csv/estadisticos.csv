@@ -1,0 +1,10 @@
+variable,unidad,grupo,n,media,mediana,moda,desviacion,minimo,p25,p75,p90,maximo,iqr,representativo
+importe,EUR por pedido,TODOS,5,1013.86,729.87,,1051.36,119.99,419.93,999.9,2079.72,2799.6,579.97,mediana
+importe,EUR por pedido,ESTANDAR,3,423.26,419.93,,304.95,119.99,269.96,574.9,667.88,729.87,304.94,media
+importe,EUR por pedido,CUSTOM,2,1899.75,1899.75,,1272.58,999.9,1449.82,2349.68,2619.63,2799.6,899.85,media
+pares,pares por pedido,TODOS,5,14.2,10.0,,15.09,1.0,7.0,13.0,29.2,40.0,6.0,mediana
+pares,pares por pedido,ESTANDAR,3,7.0,7.0,,6.0,1.0,4.0,10.0,11.8,13.0,6.0,media
+pares,pares por pedido,CUSTOM,2,25.0,25.0,,21.21,10.0,17.5,32.5,37.0,40.0,15.0,media
+precio_medio_par,EUR por par,TODOS,5,81.22,69.99,,27.66,56.14,59.99,99.99,111.99,119.99,40.0,media
+precio_medio_par,EUR por par,ESTANDAR,3,78.71,59.99,,35.8,56.14,58.06,89.99,107.99,119.99,31.92,mediana
+precio_medio_par,EUR por par,CUSTOM,2,84.99,84.99,,21.21,69.99,77.49,92.49,96.99,99.99,15.0,media
