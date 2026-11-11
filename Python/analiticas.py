@@ -397,6 +397,7 @@ def stock_cobertura(datos):
     modelos = datos["modelos"][["id_modelo", "nombre", "activo"]].rename(
         columns={"nombre": "modelo", "activo": "modelo_activo"})
     df = datos["stock"].rename(columns={"cantidad": "stock"}).merge(modelos, on="id_modelo", how="left", validate="many_to_one")
+    df["modelo_activo"] = df["modelo_activo"].fillna(True).astype(bool)
     df = df.merge(demanda.reset_index(), on=["id_variante", "talla"], how="left", validate="one_to_one")
     df["demanda_reciente"] = df["demanda_reciente"].fillna(0).astype(int)
     df["demanda_diaria"] = (df["demanda_reciente"] / config.DIAS_DEMANDA_RECIENTE).round(3)
