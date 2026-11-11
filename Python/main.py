@@ -7,6 +7,7 @@ import pandas as pd
 import analiticas
 import config
 import pipeline
+import prediccion
 import visualizaciones
 from utils.trazas import crear_logger, guardar_csv
 
@@ -73,6 +74,10 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
     for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
         resultados[f"clusters_{nombre}"] = clusters[nombre]
     resultados["clusters_estado"] = pd.DataFrame({"estado": [clusters["estado"]]})
+    predicho = prediccion.evaluar_prediccion(datos)
+    for nombre in ("metricas", "por_modelo", "serie", "detalle"):
+        resultados[f"prediccion_{nombre}"] = predicho[nombre]
+    resultados["prediccion_estado"] = pd.DataFrame({"estado": [predicho["estado"]]})
 
     indice = []
     for nombre, df in resultados.items():
@@ -82,6 +87,9 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
 
     if figuras:
         visualizaciones.guardar_figuras(datos, carpeta_salida / "figuras")
+        if not predicho["serie"].empty:
+            figura = prediccion.figura_real_vs_prediccion(predicho, datos)
+            figura.savefig(carpeta_salida / "figuras" / "09_real_frente_prediccion.png", bbox_inches="tight")
 
     duracion = time.perf_counter() - inicio
     logger.info(f"Ejecución correcta | origen={origen} | resultados={len(resultados)} | duracion={duracion:.2f}s")

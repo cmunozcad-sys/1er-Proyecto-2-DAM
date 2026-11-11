@@ -23,3 +23,8 @@ clusters_perfil.csv,5,SINTETICO,2026-11-01,clustering_clientes
 clusters_asignacion.csv,59,SINTETICO,2026-11-01,clustering_clientes
 clusters_comparacion_rfm.csv,5,SINTETICO,2026-11-01,clustering_clientes
 clusters_estado.csv,1,SINTETICO,2026-11-01,clusters_estado
+prediccion_metricas.csv,2,SINTETICO,2026-11-01,prediccion_metricas
+prediccion_por_modelo.csv,16,SINTETICO,2026-11-01,prediccion_por_modelo
+prediccion_serie.csv,21,SINTETICO,2026-11-01,prediccion_serie
+prediccion_detalle.csv,48,SINTETICO,2026-11-01,prediccion_detalle
+prediccion_estado.csv,1,SINTETICO,2026-11-01,prediccion_estado

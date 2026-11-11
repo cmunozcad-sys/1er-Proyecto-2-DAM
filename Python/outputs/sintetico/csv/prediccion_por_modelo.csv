@@ -1,0 +1,17 @@
+id_modelo,modelo,unidades_reales,mae_baseline,mae_modelo,mejor
+9,Pantera GK,461.0,125.33,124.2,modelo
+14,Rayo X,472.0,63.67,96.67,baseline
+13,Coloso,401.0,167.67,90.9,modelo
+11,Saeta 3,349.0,128.67,87.47,modelo
+8,Ventisca,340.0,61.33,75.53,baseline
+7,Granito,195.0,106.33,61.03,modelo
+2,Relámpago,219.0,95.0,48.83,modelo
+4,Lince,75.0,27.0,39.2,baseline
+5,Nova Run,265.0,43.67,37.87,modelo
+16,Vértigo,205.0,73.0,37.43,modelo
+15,Ciclón Mid,40.0,11.33,25.6,baseline
+1,Cometa,180.0,49.0,25.33,modelo
+12,Halcón SG,42.0,10.33,25.27,baseline
+3,Impulso,0.0,0.0,22.9,baseline
+10,Furia FG,111.0,51.33,20.1,modelo
+6,Titán,139.0,16.33,15.37,modelo

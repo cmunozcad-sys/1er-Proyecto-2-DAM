@@ -1,0 +1,2 @@
+estado
+"CALCULADO con datos SINTETICO: entrenamiento 2025-02 a 2026-07 (267 filas), prueba 2026-08 a 2026-10 (48 filas). El modelo mejora al baseline: MAE 52.1 frente a 64.4 pares por modelo y mes. Mayor error: Pantera GK (MAE 124.2)."

@@ -388,3 +388,450 @@
 2026-11-11 16:49:56 | INFO | lineas: 3 filas leídas
 2026-11-11 16:49:56 | INFO | stock: 3 filas leídas
 2026-11-11 16:49:56 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:27 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_cancelados_fuera_de_venta0
+2026-11-11 16:53:27 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:27 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:27 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:27 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:27 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:27 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:28 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_ticket_divide_entre_pedid0
+2026-11-11 16:53:28 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:28 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:28 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:28 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:28 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_filtro_no_aplicado_no_res0
+2026-11-11 16:53:28 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:28 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:28 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:28 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:28 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_filtro_por_talla_recalcul0
+2026-11-11 16:53:28 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:28 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:28 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:28 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:28 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_kpis_y_ventas_mensuales_c0
+2026-11-11 16:53:28 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:28 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:28 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:28 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:28 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_clasificacion_abc0
+2026-11-11 16:53:28 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:28 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:28 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:28 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:28 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:29 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_rfm_empates_reciben_la_mi0
+2026-11-11 16:53:29 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:29 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:29 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:29 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:29 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_cobertura_sin_demanda_es_0
+2026-11-11 16:53:29 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:29 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:29 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:29 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:29 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_anomalias_no_eliminan_reg0
+2026-11-11 16:53:29 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:29 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:29 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:29 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:29 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_margen_no_calculable_sin_0
+2026-11-11 16:53:29 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:29 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:29 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:29 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:29 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:29 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_reconciliacion_detecta_di0
+2026-11-11 16:53:29 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:29 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_datos_correctos_sin_incid0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_ruta_inexistente0\no_existe
+2026-11-11 16:53:30 | ERROR | clientes: carga abortada
+2026-11-11 16:53:30 | ERROR | modelos: carga abortada
+2026-11-11 16:53:30 | ERROR | pedidos: carga abortada
+2026-11-11 16:53:30 | ERROR | lineas: carga abortada
+2026-11-11 16:53:30 | ERROR | stock: carga abortada
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=5
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_csv_vacio0
+2026-11-11 16:53:30 | ERROR | clientes: carga abortada
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_columna_ausente0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | ERROR | lineas: carga abortada
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_fecha_corrupta0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_id_huerfano0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_id_duplicado0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 3 filas leídas
+2026-11-11 16:53:30 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:30 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:30 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:30 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_cantidad_negativa0
+2026-11-11 16:53:30 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:30 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:30 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:31 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_cardinalidad_del_merge0
+2026-11-11 16:53:31 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:31 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:31 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_pedido_multilinea_cuenta_0
+2026-11-11 16:53:31 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:31 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:31 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_csv_original_no_se_modifi0
+2026-11-11 16:53:31 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:31 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:31 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_pedido_sin_lineas_se_cons0
+2026-11-11 16:53:31 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:31 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 2 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:31 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_ejecucion_completa_guarda0
+2026-11-11 16:53:31 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:31 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:31 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:31 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:31 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:34 | INFO | Ejecución correcta | origen=PRUEBA | resultados=20 | duracion=2.56s
+2026-11-11 16:53:34 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_bloqueante_no_publica_res0
+2026-11-11 16:53:34 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:34 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:34 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:34 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:34 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:34 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:34 | ERROR | Ejecución bloqueada | origen=PRUEBA | no se publican resultados
+2026-11-11 16:53:34 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_pocos_meses_no_se_predice0
+2026-11-11 16:53:34 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:34 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:34 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:34 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:34 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:34 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:37 | INFO | Inicio de carga | origen=SINTETICO | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\sintetico0
+2026-11-11 16:53:37 | INFO | clientes: 60 filas leídas
+2026-11-11 16:53:37 | INFO | modelos: 16 filas leídas
+2026-11-11 16:53:37 | INFO | pedidos: 1883 filas leídas
+2026-11-11 16:53:37 | INFO | lineas: 6260 filas leídas
+2026-11-11 16:53:37 | INFO | stock: 494 filas leídas
+2026-11-11 16:53:37 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:52 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-13\test_se_generan_las_ocho_figur0
+2026-11-11 16:53:52 | INFO | clientes: 2 filas leídas
+2026-11-11 16:53:52 | INFO | modelos: 2 filas leídas
+2026-11-11 16:53:52 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:53:52 | INFO | lineas: 3 filas leídas
+2026-11-11 16:53:52 | INFO | stock: 3 filas leídas
+2026-11-11 16:53:52 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:53:57 | INFO | Inicio de carga | origen=SINTETICO | carpeta=C:\Users\0602d\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\datos_sinteticos\normal
+2026-11-11 16:53:57 | INFO | clientes: 60 filas leídas
+2026-11-11 16:53:57 | INFO | modelos: 16 filas leídas
+2026-11-11 16:53:57 | INFO | pedidos: 1883 filas leídas
+2026-11-11 16:53:57 | INFO | lineas: 6260 filas leídas
+2026-11-11 16:53:57 | INFO | stock: 494 filas leídas
+2026-11-11 16:53:57 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:54:01 | INFO | Ejecución correcta | origen=SINTETICO | resultados=20 | duracion=3.73s
+2026-11-11 16:56:17 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_cancelados_fuera_de_venta0
+2026-11-11 16:56:17 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:17 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:17 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:17 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:17 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_ticket_divide_entre_pedid0
+2026-11-11 16:56:17 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:17 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:17 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:17 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:17 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_filtro_no_aplicado_no_res0
+2026-11-11 16:56:17 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:17 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:17 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:17 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:17 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_filtro_por_talla_recalcul0
+2026-11-11 16:56:17 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:17 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:17 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:17 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:17 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:18 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_kpis_y_ventas_mensuales_c0
+2026-11-11 16:56:18 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:18 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:18 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:18 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:18 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_clasificacion_abc0
+2026-11-11 16:56:18 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:18 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:18 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:18 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:18 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_rfm_una_fila_por_cliente_0
+2026-11-11 16:56:18 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:18 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:18 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:18 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:18 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_cobertura_sin_demanda_es_0
+2026-11-11 16:56:18 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:18 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:18 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:18 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:18 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_anomalias_no_eliminan_reg0
+2026-11-11 16:56:18 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:18 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:18 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:18 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:18 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:19 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_margen_no_calculable_sin_0
+2026-11-11 16:56:19 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:19 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:19 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:19 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:19 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_reconciliacion_detecta_di0
+2026-11-11 16:56:19 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:19 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:19 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:19 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:19 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_hipotesis_con_poca_muestr0
+2026-11-11 16:56:19 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:19 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:19 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:19 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:19 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_comparacion_periodo_anter0
+2026-11-11 16:56:19 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:19 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:19 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:19 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:19 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_periodo_anterior_de_igual0
+2026-11-11 16:56:20 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_datos_correctos_sin_incid0
+2026-11-11 16:56:20 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_ruta_inexistente0\no_existe
+2026-11-11 16:56:20 | ERROR | clientes: carga abortada
+2026-11-11 16:56:20 | ERROR | modelos: carga abortada
+2026-11-11 16:56:20 | ERROR | pedidos: carga abortada
+2026-11-11 16:56:20 | ERROR | lineas: carga abortada
+2026-11-11 16:56:20 | ERROR | stock: carga abortada
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=5
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_csv_vacio0
+2026-11-11 16:56:20 | ERROR | clientes: carga abortada
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_columna_ausente0
+2026-11-11 16:56:20 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | ERROR | lineas: carga abortada
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_fecha_corrupta0
+2026-11-11 16:56:20 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=1
+2026-11-11 16:56:20 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_pocos_clientes_no_se_agru0
+2026-11-11 16:56:20 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:20 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:20 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:20 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:20 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:23 | INFO | Inicio de carga | origen=SINTETICO | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_clustering_con_historico_0
+2026-11-11 16:56:23 | INFO | clientes: 60 filas leídas
+2026-11-11 16:56:23 | INFO | modelos: 16 filas leídas
+2026-11-11 16:56:23 | INFO | pedidos: 1883 filas leídas
+2026-11-11 16:56:23 | INFO | lineas: 6260 filas leídas
+2026-11-11 16:56:23 | INFO | stock: 494 filas leídas
+2026-11-11 16:56:23 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_id_huerfano0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_id_duplicado0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 3 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_cantidad_negativa0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_cardinalidad_del_merge0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_pedido_multilinea_cuenta_0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:24 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_csv_original_no_se_modifi0
+2026-11-11 16:56:24 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:24 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:24 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:24 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:24 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:25 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_pedido_sin_lineas_se_cons0
+2026-11-11 16:56:25 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:25 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:25 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:25 | INFO | lineas: 2 filas leídas
+2026-11-11 16:56:25 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:25 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:25 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_ejecucion_completa_guarda0
+2026-11-11 16:56:25 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:25 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:25 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:25 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:25 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:25 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:27 | INFO | Ejecución correcta | origen=PRUEBA | resultados=29 | duracion=2.18s
+2026-11-11 16:56:27 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_bloqueante_no_publica_res0
+2026-11-11 16:56:27 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:27 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:27 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:27 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:27 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:27 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:27 | ERROR | Ejecución bloqueada | origen=PRUEBA | no se publican resultados
+2026-11-11 16:56:27 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_pocos_meses_no_se_predice0
+2026-11-11 16:56:27 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:27 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:27 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:27 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:27 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:27 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:30 | INFO | Inicio de carga | origen=SINTETICO | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\sintetico0
+2026-11-11 16:56:30 | INFO | clientes: 60 filas leídas
+2026-11-11 16:56:30 | INFO | modelos: 16 filas leídas
+2026-11-11 16:56:30 | INFO | pedidos: 1883 filas leídas
+2026-11-11 16:56:30 | INFO | lineas: 6260 filas leídas
+2026-11-11 16:56:30 | INFO | stock: 494 filas leídas
+2026-11-11 16:56:30 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:44 | INFO | Inicio de carga | origen=PRUEBA | carpeta=C:\Users\0602d\AppData\Local\Temp\pytest-of-0602d\pytest-14\test_se_generan_las_ocho_figur0
+2026-11-11 16:56:44 | INFO | clientes: 2 filas leídas
+2026-11-11 16:56:44 | INFO | modelos: 2 filas leídas
+2026-11-11 16:56:44 | INFO | pedidos: 2 filas leídas
+2026-11-11 16:56:44 | INFO | lineas: 3 filas leídas
+2026-11-11 16:56:44 | INFO | stock: 3 filas leídas
+2026-11-11 16:56:44 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:49 | INFO | Inicio de carga | origen=SINTETICO | carpeta=C:\Users\0602d\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\datos_sinteticos\normal
+2026-11-11 16:56:49 | INFO | clientes: 60 filas leídas
+2026-11-11 16:56:49 | INFO | modelos: 16 filas leídas
+2026-11-11 16:56:49 | INFO | pedidos: 1883 filas leídas
+2026-11-11 16:56:49 | INFO | lineas: 6260 filas leídas
+2026-11-11 16:56:49 | INFO | stock: 494 filas leídas
+2026-11-11 16:56:49 | INFO | Fin de carga | incidencias=0
+2026-11-11 16:56:54 | INFO | Ejecución correcta | origen=SINTETICO | resultados=29 | duracion=4.66s
