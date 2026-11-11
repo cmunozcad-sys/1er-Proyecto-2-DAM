@@ -69,6 +69,11 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
     datos = analiticas.aplicar_filtros(analiticas.preparar_datos(validas, lineas, pedidos, origen))
     resultados = calcular_resultados(datos, carpeta_entrada)
 
+    clusters = analiticas.clustering_clientes(datos)
+    for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
+        resultados[f"clusters_{nombre}"] = clusters[nombre]
+    resultados["clusters_estado"] = pd.DataFrame({"estado": [clusters["estado"]]})
+
     indice = []
     for nombre, df in resultados.items():
         guardar_csv(df, carpeta_csv / f"{nombre}.csv")

@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
+
 import config
 from pipeline import resumir_por_pedido
 
@@ -657,3 +661,79 @@ def comparar_periodo_anterior(datos, filtros=None):
     df["periodo_actual"] = f"{desde:%Y-%m-%d} a {hasta:%Y-%m-%d}"
     df["periodo_anterior"] = f"{previo_desde:%Y-%m-%d} a {previo_hasta:%Y-%m-%d}"
     return con_metadatos(df, "comparacion_periodo_anterior", datos, filtros, len(datos["pedidos"]), "comparar_periodo_anterior")
+
+VARIABLES_CLUSTER = ["recency_dias", "frequency", "monetary", "porcentaje_custom"]
+
+
+def nombrar_cluster(centro):
+    if centro["recency_dias"] > 0.5:
+        return "Inactivos o en riesgo"
+    if centro["monetary"] > 0.5 and centro["frequency"] > 0.5:
+        return "Grandes cuentas recurrentes"
+    if centro["frequency"] > 0.5:
+        return "Compradores frecuentes de estándar"
+    if centro["porcentaje_custom"] > 0.5:
+        return "Compradores de personalización"
+    if centro["monetary"] < 0 and centro["frequency"] < 0:
+        return "Ocasionales de bajo gasto"
+    return "Regulares"
+
+
+def clustering_clientes(datos):
+    rfm = clientes_rfm(datos)
+    compradores = rfm[rfm["frequency"] > 0].dropna(subset=VARIABLES_CLUSTER).reset_index(drop=True)
+    vacio = {"evaluacion": pd.DataFrame(), "perfil": pd.DataFrame(), "asignacion": pd.DataFrame(), "comparacion_rfm": pd.DataFrame()}
+
+    if len(compradores) < config.MINIMO_CLIENTES_CLUSTER:
+        estado = (f"NO CALCULABLE: hay {len(compradores)} clientes con compras y hacen falta al menos " f"{config.MINIMO_CLIENTES_CLUSTER}. Usar el histórico sintético para demostrar el método.")
+        return {**vacio, "estado": estado}
+
+    variables = compradores[VARIABLES_CLUSTER].copy()
+    variables["frequency"] = np.log1p(variables["frequency"])
+    variables["monetary"] = np.log1p(variables["monetary"])
+    escaladas = StandardScaler().fit_transform(variables)
+
+    evaluacion = []
+    for k in config.VALORES_K:
+        if k >= len(compradores):
+            continue
+        modelo = KMeans(n_clusters=k, n_init=10, random_state=config.SEMILLA).fit(escaladas)
+        evaluacion.append({"k": k, "silhouette": round(silhouette_score(escaladas, modelo.labels_), 4), "inercia": round(modelo.inertia_, 2)})
+    evaluacion = pd.DataFrame(evaluacion)
+    mejor_k = int(evaluacion.loc[evaluacion["silhouette"].idxmax(), "k"])
+    evaluacion["elegido"] = evaluacion["k"] == mejor_k
+
+    modelo = KMeans(n_clusters=mejor_k, n_init=10, random_state=config.SEMILLA).fit(escaladas)
+    compradores["cluster"] = modelo.labels_
+    centros = pd.DataFrame(modelo.cluster_centers_, columns=VARIABLES_CLUSTER)
+    nombres = {}
+    for cluster, centro in centros.iterrows():
+        nombre = nombrar_cluster(centro)
+        repetidos = sum(1 for n in nombres.values() if n.startswith(nombre))
+        nombres[cluster] = nombre if not repetidos else f"{nombre} {repetidos + 1}"
+    compradores["nombre_cluster"] = compradores["cluster"].map(nombres)
+
+    total_ingresos = compradores["monetary"].sum()
+    perfil = compradores.groupby(["cluster", "nombre_cluster"]).agg(
+        clientes=("id_cliente", "count"),
+        recency_media_dias=("recency_dias", "mean"),
+        pedidos_medios=("frequency", "mean"),
+        gasto_medio=("monetary", "mean"),
+        gasto_mediano=("monetary", "median"),
+        porcentaje_custom_medio=("porcentaje_custom", "mean"),
+        ingresos=("monetary", "sum"),
+    ).reset_index()
+    perfil["peso_clientes_pct"] = (perfil["clientes"] / len(compradores) * 100).round(2)
+    perfil["peso_ingresos_pct"] = (perfil["ingresos"] / total_ingresos * 100).round(2)
+    perfil = perfil.round(2)
+
+    comparacion = pd.crosstab(compradores["nombre_cluster"], compradores["segmento"])
+    comparacion = comparacion.reset_index().rename(columns={"nombre_cluster": "cluster"})
+
+    asignacion = compradores[["id_cliente", "tipo_cliente", "cluster", "nombre_cluster", "segmento"] + VARIABLES_CLUSTER]
+    estado = (f"CALCULADO con {len(compradores)} clientes y k = {mejor_k} (mayor silhouette). " "Un clúster es un grupo matemático de clientes parecidos en estas 4 variables; no equivale " "automáticamente a un segmento comercial.")
+
+    resultado = {"evaluacion": evaluacion, "perfil": perfil, "asignacion": asignacion, "comparacion_rfm": comparacion, "estado": estado}
+    for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
+        con_metadatos(resultado[nombre], f"clusters_{nombre}", datos, datos.get("filtros", {}), len(compradores), "clustering_clientes")
+    return resultado

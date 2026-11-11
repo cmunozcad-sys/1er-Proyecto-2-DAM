@@ -1,0 +1,5 @@
+kpi,actual,unidad,anterior,variacion_pct,periodo_actual,periodo_anterior
+pedidos_confirmados,80.0,pedidos,92.0,-13.04,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
+pares_vendidos,1093.0,pares,1338.0,-18.31,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
+ingresos_validos,120396.07,EUR,133147.62,-9.58,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
+ticket_medio,1504.95,EUR,1447.26,3.99,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
