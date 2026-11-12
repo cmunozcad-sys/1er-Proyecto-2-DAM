@@ -1,9 +1,0 @@
-figura,lectura
-01_serie_ingresos_mensuales.png,"El mes con más ingresos fue 2026-10 con 2.800 €. La línea discontinua usa solo meses anteriores, sin incluir el propio mes."
-02_ranking_modelos_pares.png,"Cometa es el modelo con más pares vendidos (40). El color indica la clase ABC calculada por ingresos, no por pares."
-03_pareto_ingresos_modelos.png,2 de 2 modelos con ventas generan hasta el 80% de los ingresos (clase A): son los que no deben quedarse sin stock.
-04_histograma_importe_pedido.png,Media (1.900 €) y mediana (1.900 €) están próximas: la distribución es simétrica.
-05_boxplot_pares_por_tipo.png,"Mediana de pares por pedido: CUSTOM 25. Los puntos sueltos son atípicos según la regla IQR; se conservan, no se borran automáticamente."
-06_mapa_calor_modelo_talla.png,"La talla 42 concentra de media la mayor parte de los pares. Cada fila suma 100 %, así que se comparan tallas dentro de un modelo, no volúmenes entre modelos."
-07_dispersion_clientes_rfm.png,Correlación entre pedidos y gasto: 0.86 (de -1 a 1). Los puntos alejados de la nube son clientes que gastan mucho con pocos pedidos o al revés.
-08_comparativa_custom_estandar.png,Los pedidos Custom son el 100.0 % de los pedidos y aportan el 100.0 % de los ingresos.

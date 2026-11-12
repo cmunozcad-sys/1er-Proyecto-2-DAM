@@ -1,7 +1,0 @@
-variable,unidad,grupo,n,media,mediana,moda,desviacion,minimo,p25,p75,p90,maximo,iqr,representativo,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-importe,EUR por pedido,TODOS,2,1899.75,1899.75,,1272.58,999.9,1449.82,2349.68,2619.63,2799.6,899.85,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos
-importe,EUR por pedido,CUSTOM,2,1899.75,1899.75,,1272.58,999.9,1449.82,2349.68,2619.63,2799.6,899.85,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos
-pares,pares por pedido,TODOS,2,25.0,25.0,,21.21,10.0,17.5,32.5,37.0,40.0,15.0,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos
-pares,pares por pedido,CUSTOM,2,25.0,25.0,,21.21,10.0,17.5,32.5,37.0,40.0,15.0,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos
-precio_medio_par,EUR por par,TODOS,2,84.99,84.99,,21.21,69.99,77.49,92.49,96.99,99.99,15.0,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos
-precio_medio_par,EUR por par,CUSTOM,2,84.99,84.99,,21.21,69.99,77.49,92.49,96.99,99.99,15.0,media,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,estadisticos

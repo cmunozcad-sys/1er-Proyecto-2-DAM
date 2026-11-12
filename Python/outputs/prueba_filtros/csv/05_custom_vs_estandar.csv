@@ -1,3 +1,0 @@
-tipo_pedido,pedidos_totales,pedidos_venta,pedidos_cancelados,pares,ingresos,tasa_cancelacion_pct,ticket_medio,precio_medio_par,peso_pedidos_venta_pct,peso_pares_pct,peso_ingresos_pct,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-ESTANDAR,0,0,0,0,0.0,,,,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,custom_vs_estandar
-CUSTOM,2,2,0,50,3799.5,0.0,1899.75,75.99,100.0,100.0,100.0,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,custom_vs_estandar

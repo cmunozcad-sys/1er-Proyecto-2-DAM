@@ -1,7 +1,0 @@
-id_cliente,tipo_cliente,ultima_compra,frequency,monetary,recency_dias,r,f,m,puntuacion_rfm,segmento,frecuencia_cliente,porcentaje_custom,intervalo_medio_dias,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-1,CLUB,2026-10-01 10:00:00,1,2799.6,33.0,3.0,4.0,5.0,345,Leales,1.0,100.0,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm
-4,CLUB,2026-09-25 09:15:00,1,999.9,39.0,1.0,4.0,3.0,143,Leales,1.0,100.0,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm
-2,CLUB,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm
-3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm
-5,EMPRESA,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm
-6,PARTICULAR,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,clientes_rfm

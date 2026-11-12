@@ -1,2 +1,0 @@
-estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-NO CALCULABLE: hay 2 clientes con compras y hacen falta al menos 20. Usar el histórico sintético para demostrar el método.,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,1,clustering_clientes
