@@ -339,12 +339,14 @@ Además de los datos reales, hay un **histórico sintético** para demostrar los
 | `visualizaciones.py` | Gráficos PNG. |
 | `generador_datos.py` | Genera el histórico sintético y la copia con errores. |
 | `app_dashboard.py`, `dashboard/` | Dashboard con Streamlit. |
+| `refresco.py` | Ciclo de refresco del dashboard: comprueba los CSV, los valida, recalcula y decide el estado. |
 | `.streamlit/config.toml` | Tema visual del dashboard. |
 | `config.py` | Rutas, reglas de negocio y parámetros. |
 | `utils/trazas.py` | Registro de incidencias y log. |
 | `entrada/` | CSV exportados de la base de datos y `referencia_sql.csv`. |
 | `datos_sinteticos/` | Histórico sintético (`normal/`) y copia con errores (`con_errores/`). |
 | `outputs/` | Resultados en CSV y gráficos, por modo. |
+| `logs/` | `pipeline.log` (carga y validación) y `refresco.log` (una línea por cada ciclo del dashboard). |
 | `tests/` | Tests con pytest. |
 | `diccionario.md` | Descripción de los CSV de entrada y de las reglas de negocio. |
 | `requirements.txt` | Librerías necesarias. |
@@ -423,7 +425,8 @@ Todo se ejecuta desde la carpeta `Python/` con el entorno virtual activado.
 
 - **Resultados:** se guardan en `outputs/<modo>/csv/` y `outputs/<modo>/figuras/`. Las incidencias se registran en `logs/pipeline.log`.
 - **Conciliación:** en modo `real`, `12_reconciliacion_sql.csv` compara los indicadores de Python con los de SQL. Si todos salen `OK`, los datos cuadran.
-- **Datos reales insuficientes:** con los datos reales, la predicción de demanda y el clustering salen como `NO CALCULABLE`, porque hay pocos meses y pocos clientes. Para verlos funcionar, usa el modo `sintetico`.
+- **Linaje:** cada CSV de resultados lleva al final las columnas `linaje_origen`, `linaje_fecha_corte`, `linaje_ejecucion`, `linaje_filtros`, `linaje_filas_origen` y `linaje_funcion`. Las descargas del dashboard también.
+- **Datos reales insuficientes:** con los datos reales, la predicción de demanda, el clustering y las cohortes salen como `NO CALCULABLE`, porque hay pocos meses y pocos clientes. Para verlos funcionar, usa el modo `sintetico`.
 
 **Dashboard:**
 
@@ -438,6 +441,25 @@ Se abre en el navegador, en <http://localhost:8501>. En la barra lateral se elig
 - Almacén;
 - Calidad y auditoría;
 - Modelos predictivos.
+
+**Refresco automático**
+
+Cada 60 segundos el dashboard vuelve a leer los CSV, los valida y recalcula todos los resultados, aunque no hayan cambiado. El botón **Actualizar ahora** lanza el mismo ciclo al momento. Los filtros y la vista elegida se mantienen.
+
+La barra de estado muestra la última comprobación, la última actualización válida, las filas válidas, el origen (`ACC · REAL` o `SINTÉTICO · LABORATORIO`), el tiempo de proceso y el estado:
+
+| Estado | Significado |
+|---|---|
+| `correcto` | Los CSV han cambiado y se han publicado resultados nuevos. |
+| `sin cambios` | Los CSV son los mismos; se han recalculado y los valores no varían. |
+| `datos inválidos` | Falta una columna, hay una clave huérfana u otra incidencia bloqueante. |
+| `error de carga` | Falta un CSV o no se ha podido leer. |
+
+Cada ciclo deja una línea en `logs/refresco.log`.
+
+**Probar con datos nuevos:** insertar un pedido en PostgreSQL no cambia nada por sí solo. Hay que volver a exportar los CSV con `exportar_csv.sql` y, en el siguiente ciclo (o al pulsar **Actualizar ahora**), el dashboard muestra los nuevos pedidos, pares e ingresos.
+
+**Si un CSV llega mal:** el dashboard no publica resultados de ese ciclo, muestra las incidencias y sigue enseñando el último resultado válido con el rótulo `DESACTUALIZADO · datos de <hora>`. Para recuperarlo, corrige el CSV o vuelve a exportarlo. En el siguiente ciclo se recupera solo, sin reiniciar la app.
 
 Para pararlo, pulsa `Ctrl + C` en la terminal.
 
