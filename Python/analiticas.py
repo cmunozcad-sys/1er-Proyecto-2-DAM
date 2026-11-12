@@ -250,6 +250,77 @@ def matriz_modelo_talla(datos, proporcion=False):
     return con_metadatos(df, nombre, datos, datos.get("filtros", {}), len(lineas), "matriz_modelo_talla")
 
 
+MESES_DEL_ANIO = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def matriz_modelo_mes(datos):
+    demanda = demanda_modelo_mes(datos)
+    demanda["modelo"] = demanda["id_modelo"].map(datos["modelos"].set_index("id_modelo")["nombre"])
+    df = demanda.pivot_table(index="modelo", columns="mes", values="unidades_modelo_mes", aggfunc="sum", fill_value=0)
+    df = df[df.sum(axis=1) > 0]
+    df.columns.name = None
+    df = df.reset_index()
+    return con_metadatos(df, "13_matriz_modelo_mes", datos, datos.get("filtros", {}), len(demanda), "matriz_modelo_mes")
+
+
+def productos_estacionales(datos):
+    demanda = demanda_modelo_mes(datos)
+    demanda = demanda[pd.PeriodIndex(demanda["mes"], freq="M").end_time < datos["fecha_corte"]]
+    demanda = demanda[demanda.groupby("id_modelo")["unidades_modelo_mes"].cumsum() > 0]
+    meses = demanda.groupby("id_modelo")["mes"].nunique()
+    validos = meses[meses >= config.MESES_MINIMOS_ESTACIONALIDAD].index
+    if validos.empty:
+        df = con_metadatos(pd.DataFrame(), "14_productos_estacionales", datos, datos.get("filtros", {}), len(demanda), "productos_estacionales")
+        df.attrs["estado"] = (f"NO CALCULABLE: ningún modelo tiene {config.MESES_MINIMOS_ESTACIONALIDAD} meses completos desde su primera venta. " "Usar el histórico sintético para demostrar el método.")
+        return df
+
+    demanda = demanda[demanda["id_modelo"].isin(validos)]
+    media_mes = demanda.pivot_table(index="id_modelo", columns="mes_del_anio", values="unidades_modelo_mes", aggfunc="mean")
+    indice = media_mes.div(media_mes.mean(axis=1), axis=0)
+
+    df = pd.DataFrame({
+        "modelo": indice.index.map(datos["modelos"].set_index("id_modelo")["nombre"]),
+        "meses_historico": meses[indice.index],
+        "mes_pico": [MESES_DEL_ANIO[m - 1] for m in indice.idxmax(axis=1)],
+        "indice_pico": indice.max(axis=1).round(2),
+        "mes_valle": [MESES_DEL_ANIO[m - 1] for m in indice.idxmin(axis=1)],
+        "indice_valle": indice.min(axis=1).round(2),
+    }, index=indice.index)
+    df["es_estacional"] = df["indice_pico"] >= config.UMBRAL_ESTACIONALIDAD
+    indice.columns = [MESES_DEL_ANIO[m - 1] for m in indice.columns]
+    df = df.join(indice.round(2)).sort_values("indice_pico", ascending=False).reset_index()
+
+    df = con_metadatos(df, "14_productos_estacionales", datos, datos.get("filtros", {}), len(demanda), "productos_estacionales")
+    df.attrs["estado"] = (f"CALCULADO con {len(df)} modelos: {int(df['es_estacional'].sum())} son estacionales " f"(su mes pico vende al menos {config.UMBRAL_ESTACIONALIDAD} veces su media mensual).")
+    return df
+
+
+def cambios_mezcla_tallas(datos):
+    _, lineas = ventas(datos)
+    completos = [m for m in sorted(lineas["periodo"].unique()) if pd.Period(m, freq="M").end_time < datos["fecha_corte"]]
+    n = config.MESES_MEZCLA_TALLAS
+    if len(completos) < 2 * n:
+        df = con_metadatos(pd.DataFrame(), "15_cambios_mezcla_tallas", datos, datos.get("filtros", {}), len(lineas), "cambios_mezcla_tallas")
+        df.attrs["estado"] = (f"NO CALCULABLE: hay {len(completos)} meses completos con ventas y hacen falta {2 * n} " f"para comparar los últimos {n} con los {n} anteriores.")
+        return df
+
+    anteriores, recientes = completos[-2 * n:-n], completos[-n:]
+
+    def reparto(periodos):
+        pares = lineas[lineas["periodo"].isin(periodos)].groupby("talla")["cantidad"].sum()
+        return pares / pares.sum() * 100
+
+    df = pd.DataFrame({"pct_anterior": reparto(anteriores), "pct_reciente": reparto(recientes)}).fillna(0).round(2)
+    df["diferencia_puntos"] = (df["pct_reciente"] - df["pct_anterior"]).round(2)
+    df["cambio"] = np.where(df["diferencia_puntos"] >= config.UMBRAL_CAMBIO_TALLA, "SUBE", np.where(df["diferencia_puntos"] <= -config.UMBRAL_CAMBIO_TALLA, "BAJA", "ESTABLE"))
+    df.index.name = "talla"
+    df = df.reset_index()
+
+    df = con_metadatos(df, "15_cambios_mezcla_tallas", datos, datos.get("filtros", {}), len(lineas), "cambios_mezcla_tallas")
+    df.attrs["estado"] = (f"CALCULADO: {anteriores[0]} a {anteriores[-1]} frente a {recientes[0]} a {recientes[-1]}. " f"{int((df['cambio'] != 'ESTABLE').sum())} tallas cambian {config.UMBRAL_CAMBIO_TALLA} puntos o más.")
+    return df
+
+
 def custom_vs_estandar(datos):
     pedidos = datos["pedidos"]
     filas = []

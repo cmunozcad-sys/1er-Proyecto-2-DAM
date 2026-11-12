@@ -35,6 +35,9 @@ def calcular_resultados(datos, completos, carpeta_entrada):
         "10_anomalias": analiticas.anomalias(datos),
         "11_margen": analiticas.margen(datos),
         "12_reconciliacion_sql": analiticas.reconciliacion_sql(completos, carpeta_entrada),
+        "13_matriz_modelo_mes": analiticas.matriz_modelo_mes(datos),
+        "14_productos_estacionales": analiticas.productos_estacionales(datos),
+        "15_cambios_mezcla_tallas": analiticas.cambios_mezcla_tallas(datos),
         "kpis": analiticas.calcular_kpis(datos),
         "comparacion_periodo_anterior": analiticas.comparar_periodo_anterior(datos),
         "estadisticos": analiticas.estadisticos(datos),
@@ -98,6 +101,8 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
     if fase in ("descriptivo", "completo"):
         resultados.update(calcular_resultados(datos, completos, carpeta_entrada))
         resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
+        resultados["estacionales_estado"] = tabla_estado(resultados["14_productos_estacionales"].attrs["estado"], "estacionales_estado", datos, "productos_estacionales")
+        resultados["mezcla_tallas_estado"] = tabla_estado(resultados["15_cambios_mezcla_tallas"].attrs["estado"], "mezcla_tallas_estado", datos, "cambios_mezcla_tallas")
 
     if fase in ("segmentacion", "completo"):
         if "06_clientes_rfm" not in resultados:

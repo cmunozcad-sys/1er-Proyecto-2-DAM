@@ -413,7 +413,7 @@ Cada paso, con su PID, su código y su duración, queda registrado en `salida/pr
 
 Análisis de los datos de ventas:
 - **Pipeline**: carga los CSV exportados de la base de datos, los valida (claves, tipos, fechas, rangos y relaciones entre tablas) y registra cada incidencia con su gravedad.
-- **Analítica**: KPIs de ventas, clasificación ABC de modelos, matriz modelo × talla, Custom frente a estándar, segmentación RFM de clientes, cohortes, cobertura de stock, anomalías, estadísticos y contraste de hipótesis.
+- **Analítica**: KPIs de ventas, clasificación ABC de modelos, matriz modelo × talla, matriz modelo × mes, productos estacionales, cambios en la mezcla de tallas, Custom frente a estándar, segmentación RFM de clientes, cohortes, cobertura de stock, anomalías, estadísticos y contraste de hipótesis.
 - **Modelos**: clustering de clientes (K-means) y predicción de demanda (RandomForest comparado con un baseline).
 - **Conciliación**: compara los indicadores calculados en Python con los calculados en SQL.
 - **Salidas**: gráficos, un **dashboard interactivo** con Streamlit y tests automáticos.
@@ -424,7 +424,7 @@ Análisis de los datos de ventas:
 |---|---|
 | `main.py` | Análisis por consola: carga, valida, aplica los filtros, calcula todo o solo una fase (`--fase`) y guarda los resultados. |
 | `pipeline.py` | Carga, validación e integración de los CSV. |
-| `analiticas.py` | Cálculos: filtros, KPIs, ABC, RFM, cohortes, stock, anomalías, hipótesis, clustering y conciliación con SQL. |
+| `analiticas.py` | Cálculos: filtros, KPIs, ABC, matrices modelo × talla y modelo × mes, estacionalidad, mezcla de tallas, RFM, cohortes, stock, anomalías, hipótesis, clustering y conciliación con SQL. |
 | `prediccion.py` | Predicción de demanda por modelo y mes. |
 | `visualizaciones.py` | Gráficos PNG. |
 | `generador_datos.py` | Genera el histórico sintético y la copia con errores. |
@@ -438,7 +438,7 @@ Análisis de los datos de ventas:
 | `datos_sinteticos/` | Histórico sintético (`normal/`) y copia con errores (`con_errores/`). |
 | `outputs/` | Resultados en CSV y gráficos, por modo. |
 | `logs/` | `pipeline.log` (carga, validación y ejecuciones de `main.py`) y `refresco.log` (una línea por cada ciclo del dashboard). |
-| `tests/` | 58 tests con pytest, entre ellos `test_refresco.py` (ciclo de refresco) y `test_main.py` (consola). Ver [Tests](#tests). |
+| `tests/` | 63 tests con pytest, entre ellos `test_refresco.py` (ciclo de refresco) y `test_main.py` (consola). Ver [Tests](#tests). |
 | `diccionario.md` | Descripción de los CSV de entrada y de las reglas de negocio. |
 | `requirements.txt` | Librerías necesarias. |
 
@@ -567,7 +567,7 @@ Con `--fase` se ejecuta solo una parte del análisis. La calidad se ejecuta siem
 | Fase | Qué genera |
 |---|---|
 | `calidad` | Carga y validación, y los CSV de calidad: `manifiesto`, `resumen_calidad`, `incidencias`, `09_calidad_datos` y `09_incidencias_por_regla`. Termina ahí. |
-| `descriptivo` | Calidad, más los KPIs y los análisis descriptivos (ventas por mes, ABC, matriz modelo × talla, Custom frente a estándar, RFM, cohortes, stock, anomalías, margen, conciliación, estadísticos, hipótesis…) y los gráficos. |
+| `descriptivo` | Calidad, más los KPIs y los análisis descriptivos (ventas por mes, ABC, matriz modelo × talla, matriz modelo × mes, productos estacionales, cambios en la mezcla de tallas, Custom frente a estándar, RFM, cohortes, stock, anomalías, margen, conciliación, estadísticos, hipótesis…) y los gráficos. |
 | `segmentacion` | Calidad, más `06_clientes_rfm` y los `clusters_*`. |
 | `prediccion` | Calidad, más `demanda_modelo_mes`, los `prediccion_*` y la figura `09_real_frente_prediccion.png`. |
 | `completo` | Todo lo anterior. Es la opción por defecto: sin `--fase`, `main.py` funciona como siempre. |
@@ -577,7 +577,7 @@ Ejemplos ejecutados:
 | Comando | Resultado |
 |---|---|
 | `python main.py --modo real --fase calidad` | Exit 0. Solo los 5 CSV de calidad, sin gráficos. |
-| `python main.py --modo real --fase descriptivo --sin-figuras --tipo CUSTOM` | Exit 0. 26 CSV; los KPIs de los pedidos Custom: 50 pares y 3.799,50 €. |
+| `python main.py --modo real --fase descriptivo --sin-figuras --tipo CUSTOM` | Exit 0. 31 CSV; los KPIs de los pedidos Custom: 50 pares y 3.799,50 €. |
 | `python main.py --modo sintetico --fase segmentacion --sin-figuras` | Exit 0. 12 CSV: `CALCULADO con 59 clientes y k = 5 (mayor silhouette)…` |
 | `python main.py --modo sintetico --fase prediccion --desde 2025-01-01` | Exit 0. 12 CSV y la figura de predicción: `entrenamiento 2025-04 a 2026-07 (239 filas), prueba 2026-08 a 2026-10 (48 filas). El modelo mejora al baseline: MAE 52.9 frente a 64.4…` |
 | `python main.py --modo errores --fase calidad` | Exit 1. Los 5 CSV de calidad con las incidencias, y el aviso de incidencias bloqueantes. |
@@ -594,7 +594,12 @@ Si algo falla, `main.py` lo explica sin mostrar errores de Python:
 - **Resultados:** se guardan en `<salida>/csv/` y `<salida>/figuras/`. `indice_resultados.csv` lista los ficheros de resultados con sus filas y la función que los genera.
 - **Conciliación:** en modo `real`, `12_reconciliacion_sql.csv` compara los indicadores de Python con los de SQL. Si todos salen `OK`, los datos cuadran.
 - **Linaje:** cada CSV de resultados lleva al final las columnas `linaje_origen`, `linaje_fecha_corte`, `linaje_ejecucion`, `linaje_filtros`, `linaje_filas_origen` y `linaje_funcion`. Las descargas del dashboard también.
-- **Datos reales insuficientes:** con los datos reales, la predicción de demanda, el clustering y las cohortes salen como `NO CALCULABLE`, porque hay pocos meses y pocos clientes. Para verlos funcionar, usa el modo `sintetico`.
+- **Estacionalidad y mezcla de tallas:**
+  - `13_matriz_modelo_mes.csv` tiene un modelo por fila, un mes por columna y los pares vendidos en cada celda.
+  - `14_productos_estacionales.csv` calcula, para cada modelo, un índice por mes del año: la media de ese mes entre la media de todos los meses. Por ejemplo, `oct = 1.45` significa que en octubre vende un 45 % más que en un mes normal. Un modelo es estacional si su mes pico llega a `UMBRAL_ESTACIONALIDAD` (1.3). Solo se calcula para los modelos con al menos 12 meses completos desde su primera venta.
+  - `15_cambios_mezcla_tallas.csv` compara el % de pares de cada talla en los últimos 6 meses completos con los 6 anteriores. Marca `SUBE` o `BAJA` si la talla cambia `UMBRAL_CAMBIO_TALLA` puntos (2) o más, y `ESTABLE` si no.
+  - `estacionales_estado.csv` y `mezcla_tallas_estado.csv` dicen si se han podido calcular.
+- **Datos reales insuficientes:** con los datos reales, la predicción de demanda, el clustering, las cohortes, los productos estacionales y los cambios en la mezcla de tallas salen como `NO CALCULABLE`, porque hay pocos meses y pocos clientes. Para verlos funcionar, usa el modo `sintetico`.
 
 #### Filtros
 
@@ -708,13 +713,14 @@ Las líneas con `origen=PRUEBA` las generan los tests.
 python -m pytest tests -v
 ```
 
-Hay 58 tests:
+Hay 63 tests:
 
 | Archivo | Tests | Qué comprueba |
 |---|---|---|
 | `test_carga.py` | 5 | Lectura de los CSV: datos correctos, ruta inexistente, CSV vacío, columna ausente y fecha corrupta. |
 | `test_integridad.py` | 7 | Claves huérfanas o duplicadas, cantidades negativas, cardinalidad de los cruces, pedidos con varias líneas o sin líneas, y que el CSV original no se modifica. |
 | `test_calculos.py` | 16 | KPIs, filtros, ventas por mes, ABC, RFM, cobertura de stock, anomalías, margen, conciliación con SQL, bootstrap, hipótesis y comparación con el periodo anterior. |
+| `test_estacionalidad.py` | 5 | Matriz modelo × mes, productos estacionales y cambios en la mezcla de tallas: con pocos meses no se calculan; con el histórico sintético, los índices tienen media 1 y los % de tallas suman 100. |
 | `test_clustering.py` | 2 | Con pocos clientes no se agrupa; con el histórico sintético sí. |
 | `test_prediccion.py` | 5 | Predicción de demanda: separación temporal, baseline y formato del resultado. |
 | `test_visualizaciones.py` | 1 | Se generan las ocho figuras. |
