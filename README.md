@@ -72,7 +72,7 @@ Los triggers automatizan tres cosas:
    ```sql
    CREATE DATABASE sneaker_factory;
    ```
-3. Conéctate a `sneaker_factory` y ejecuta los scripts **en este orden**:
+3. En pgAdmin, selecciona la base de datos `sneaker_factory` y abre el **Query Tool**. Ejecuta los scripts **uno a uno y en este orden**: abre cada archivo, ejecútalo y comprueba que termina sin errores antes de pasar al siguiente.
 
    | Orden | Script |
    |---|---|
@@ -81,22 +81,13 @@ Los triggers automatizan tres cosas:
    | 3 | `triggers.sql` |
    | 4 | `integracion_odoo.sql` |
 
-   Desde la terminal, en la raíz del proyecto (si `psql` no está en el PATH, usa su ruta completa: `"C:\Program Files\PostgreSQL\18\bin\psql.exe"`):
-   ```bash
-   psql -U postgres -d sneaker_factory -f acceso_a_datos/creacion_tablas_daca.sql
-   psql -U postgres -d sneaker_factory -f acceso_a_datos/carga_de_datos.sql
-   psql -U postgres -d sneaker_factory -f acceso_a_datos/triggers.sql
-   psql -U postgres -d sneaker_factory -f acceso_a_datos/integracion_odoo.sql
-   ```
-   También puedes abrirlos uno a uno en el **Query Tool de pgAdmin** y ejecutarlos.
-
 **Por qué este orden:**
 - Los triggers van **después** de la carga. El trigger de importes no deja añadir líneas a un pedido que no esté en `BORRADOR`, y la carga inserta pedidos ya confirmados con sus líneas.
 - `integracion_odoo.sql` marca como `SINCRONIZADO` todos los pedidos que existen al ejecutarlo, que son los de la carga de datos. Así no se envían a Odoo todos de golpe ni se duplican; solo se envían los pedidos nuevos que se confirmen después. Este script solo se puede ejecutar una vez: si las columnas ya existen, falla. Para volver a empezar, ejecuta de nuevo los cuatro scripts desde el primero.
 
 ### Cómo ejecutarlo
 
-- **Consultas y pruebas:** ejecuta `consultas.sql` o `pruebas.sql` igual que los anteriores. Algunas pruebas de transacciones están pensadas para fallar a propósito, para comprobar los triggers.
+- **Consultas y pruebas:** abre `consultas.sql` o `pruebas.sql` en el Query Tool de pgAdmin y ejecútalos. Algunas pruebas de transacciones están pensadas para fallar a propósito, para comprobar los triggers.
 - **Exportar a CSV para Python:** se explica en [Python · Análisis de datos](#exportar-los-csv-de-la-base-de-datos).
 
 ---
@@ -215,7 +206,7 @@ Cuando un pedido de la web pasa a `CONFIRMADO`, la API lo envía a Odoo como pre
 1. **Arranca la máquina virtual de Odoo** en VirtualBox, con el adaptador de red en **modo puente**.
 2. **Mira la IP de la máquina virtual.** Con el modo puente, la IP cambia según la red a la que esté conectado el ordenador. Ejecuta en el Ubuntu de la VM:
    ```bash
-   ip a
+   hostname -I
    ```
    Pon esa IP en `ODOO_URL` de tu `.env`, con el puerto 8069. Por ejemplo, `http://IP_DE_LA_VM:8069`.
 3. **Crea tu clave API en Odoo:** avatar del usuario → **Mis preferencias** → **Seguridad de la cuenta** → **Nueva clave API**. Ponla en `ODOO_API_KEY` y el usuario en `ODOO_USER`. Cada persona usa la suya.
