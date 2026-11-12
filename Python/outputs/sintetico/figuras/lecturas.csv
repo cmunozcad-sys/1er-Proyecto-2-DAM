@@ -1,9 +1,9 @@
 figura,lectura
-01_serie_ingresos_mensuales.png,"El mes con más ingresos fue 2025-11 con 165.755 €. La línea discontinua usa solo meses anteriores, sin incluir el propio mes."
-02_ranking_modelos_pares.png,"Saeta 3 es el modelo con más pares vendidos (2988). El color indica la clase ABC calculada por ingresos, no por pares."
-03_pareto_ingresos_modelos.png,10 de 16 modelos con ventas generan hasta el 80% de los ingresos (clase A): son los que no deben quedarse sin stock.
-04_histograma_importe_pedido.png,La media (1.395 €) es mayor que la mediana (320 €) porque unos pocos pedidos grandes estiran la distribución hacia la derecha; la mediana representa mejor el pedido típico.
-05_boxplot_pares_por_tipo.png,"Mediana de pares por pedido: ESTANDAR 2, CUSTOM 33. Los puntos sueltos son atípicos según la regla IQR; se conservan, no se borran automáticamente."
-06_mapa_calor_modelo_talla.png,"La talla 40 concentra de media la mayor parte de los pares. Cada fila suma 100 %, así que se comparan tallas dentro de un modelo, no volúmenes entre modelos."
-07_dispersion_clientes_rfm.png,Correlación entre pedidos y gasto: 0.57 (de -1 a 1). Los puntos alejados de la nube son clientes que gastan mucho con pocos pedidos o al revés.
-08_comparativa_custom_estandar.png,"Los pedidos Custom son el 35.9 % de los pedidos y aportan el 89.9 % de los ingresos. Son menos pedidos, pero de mayor importe."
+01_serie_ingresos_mensuales.png,"El mes con más ingresos fue 2025-11 con 39.855 €. La línea discontinua usa solo meses anteriores, sin incluir el propio mes."
+02_ranking_modelos_pares.png,"Vértigo es el modelo con más pares vendidos (240). El color indica la clase ABC calculada por ingresos, no por pares."
+03_pareto_ingresos_modelos.png,8 de 15 modelos con ventas generan hasta el 80% de los ingresos (clase A): son los que no deben quedarse sin stock.
+04_histograma_importe_pedido.png,La media (499 €) es mayor que la mediana (252 €) porque unos pocos pedidos grandes estiran la distribución hacia la derecha; la mediana representa mejor el pedido típico.
+05_boxplot_pares_por_tipo.png,"Mediana de pares por pedido: ESTANDAR 1, CUSTOM 9. Los puntos sueltos son atípicos según la regla IQR; se conservan, no se borran automáticamente."
+06_mapa_calor_modelo_talla.png,"La talla 42 concentra de media la mayor parte de los pares. Cada fila suma 100 %, así que se comparan tallas dentro de un modelo, no volúmenes entre modelos."
+07_dispersion_clientes_rfm.png,Correlación entre pedidos y gasto: 0.74 (de -1 a 1). Los puntos alejados de la nube son clientes que gastan mucho con pocos pedidos o al revés.
+08_comparativa_custom_estandar.png,"Los pedidos Custom son el 48.4 % de los pedidos y aportan el 87.2 % de los ingresos. Son menos pedidos, pero de mayor importe."

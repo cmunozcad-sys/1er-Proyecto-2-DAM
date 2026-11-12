@@ -1,0 +1,17 @@
+kpi,valor,unidad,formula,denominador,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedidos_totales,2.0,pedidos,nº de pedidos únicos en cualquier estado,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pedidos_confirmados,2.0,pedidos,estado = CONFIRMADO,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pedidos_pendientes,0.0,pedidos,estado = BORRADOR,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pedidos_cancelados,0.0,pedidos,estado = CANCELADO,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+tasa_cancelacion_pct,0.0,%,cancelados / pedidos totales,pedidos totales,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pares_vendidos,50.0,pares,Σ cantidad de líneas de pedidos de venta,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+ingresos_validos,3799.5,EUR,Σ cantidad × precio_unitario de pedidos de venta,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+ticket_medio,1899.75,EUR,ingresos / pedidos de venta,pedidos de venta,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pares_por_pedido,25.0,pares,pares / pedidos de venta,pedidos de venta,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+precio_medio_par,75.99,EUR,ingresos / pares vendidos,pares vendidos,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+peso_custom_pedidos_pct,100.0,%,pedidos Custom de venta / pedidos de venta,pedidos de venta,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+peso_custom_pares_pct,100.0,%,pares Custom / pares vendidos,pares vendidos,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+peso_custom_ingresos_pct,100.0,%,ingresos Custom / ingresos válidos,ingresos válidos,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+clientes_compradores,2.0,clientes,clientes distintos con algún pedido de venta,-,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pareto_top20_modelos_pct,73.68,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis
+pareto_top20_clientes_pct,73.68,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,2,calcular_kpis

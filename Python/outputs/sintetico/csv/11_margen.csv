@@ -1,17 +1,16 @@
 id_modelo,modelo,ingresos,pares,coste,margen,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-13,Coloso,253614.19,1833,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-2,Relámpago,230481.06,1801,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-11,Saeta 3,221349.49,2988,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-14,Rayo X,198971.37,1905,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-9,Pantera GK,174630.19,1965,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-16,Vértigo,167564.51,1706,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-5,Nova Run,164010.87,1490,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-7,Granito,124448.22,1270,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-10,Furia FG,118764.34,1004,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-6,Titán,111082.25,1029,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-1,Cometa,103918.65,1321,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-8,Ventisca,103742.79,821,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-4,Lince,81554.86,873,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-12,Halcón SG,61759.74,601,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-3,Impulso,42201.39,715,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
-15,Ciclón Mid,40306.89,480,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,margen
+16,Vértigo,23529.12,240,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+13,Coloso,20670.4,153,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+9,Pantera GK,15356.27,175,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+11,Saeta 3,14865.06,204,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+14,Rayo X,13706.21,133,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+7,Granito,10321.54,106,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+2,Relámpago,8640.24,69,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+6,Titán,7806.57,73,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+1,Cometa,6599.85,83,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+12,Halcón SG,4337.46,43,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+5,Nova Run,4230.66,40,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+10,Furia FG,3693.28,32,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+4,Lince,3507.38,38,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+15,Ciclón Mid,3235.59,39,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen
+3,Impulso,2724.38,46,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",373,margen

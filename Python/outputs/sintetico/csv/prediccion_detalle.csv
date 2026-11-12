@@ -1,49 +1,46 @@
 mes,id_modelo,modelo,real,baseline,prediccion,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-2026-08,1,Cometa,88,10.0,56.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,10,Furia FG,45,163.0,60.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,11,Saeta 3,49,43.0,46.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,12,Halcón SG,1,1.0,30.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,13,Coloso,256,28.0,60.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,14,Rayo X,49,73.0,65.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,15,Ciclón Mid,6,0.0,29.3,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,16,Vértigo,60,7.0,59.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,2,Relámpago,147,18.0,65.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,3,Impulso,0,0.0,21.6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,4,Lince,3,18.0,52.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,5,Nova Run,131,90.0,102.6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,6,Titán,30,44.0,50.3,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,7,Granito,4,44.0,40.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,8,Ventisca,24,55.0,42.1,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-08,9,Pantera GK,170,125.0,46.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,1,Cometa,73,88.0,66.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,10,Furia FG,25,45.0,58.3,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,11,Saeta 3,243,49.0,64.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,12,Halcón SG,9,1.0,33.3,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,13,Coloso,42,256.0,85.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,14,Rayo X,207,49.0,70.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,15,Ciclón Mid,4,6.0,51.1,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,16,Vértigo,13,60.0,50.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,2,Relámpago,21,147.0,72.3,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,3,Impulso,0,0.0,23.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,4,Lince,3,3.0,36.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,5,Nova Run,93,131.0,103.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,6,Titán,44,30.0,48.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,7,Granito,158,4.0,38.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,8,Ventisca,139,24.0,53.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-09,9,Pantera GK,264,170.0,73.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,1,Cometa,19,73.0,56.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,10,Furia FG,41,25.0,52.1,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,11,Saeta 3,57,243.0,138.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,12,Halcón SG,32,9.0,53.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,13,Coloso,103,42.0,69.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,14,Rayo X,216,207.0,78.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,15,Ciclón Mid,30,4.0,36.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,16,Vértigo,132,13.0,57.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,2,Relámpago,51,21.0,64.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,3,Impulso,0,0.0,23.6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,4,Lince,69,3.0,34.6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,5,Nova Run,41,93.0,115.4,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,6,Titán,65,44.0,43.9,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,7,Granito,33,158.0,60.6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,8,Ventisca,177,139.0,54.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
-2026-10,9,Pantera GK,27,264.0,85.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-08,1,Cometa,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,10,Furia FG,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,11,Saeta 3,0,0.0,5.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,12,Halcón SG,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,13,Coloso,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,14,Rayo X,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,15,Ciclón Mid,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,16,Vértigo,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,2,Relámpago,0,0.0,5.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,3,Impulso,0,0.0,5.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,4,Lince,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,5,Nova Run,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,6,Titán,0,0.0,5.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,7,Granito,0,0.0,5.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-08,9,Pantera GK,0,0.0,4.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,1,Cometa,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,10,Furia FG,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,11,Saeta 3,0,0.0,8.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,12,Halcón SG,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,13,Coloso,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,14,Rayo X,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,15,Ciclón Mid,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,16,Vértigo,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,2,Relámpago,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,3,Impulso,0,0.0,8.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,4,Lince,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,5,Nova Run,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,6,Titán,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,7,Granito,0,0.0,8.0,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-09,9,Pantera GK,0,0.0,7.9,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,1,Cometa,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,10,Furia FG,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,11,Saeta 3,0,0.0,7.3,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,12,Halcón SG,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,13,Coloso,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,14,Rayo X,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,15,Ciclón Mid,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,16,Vértigo,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,2,Relámpago,0,0.0,7.3,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,3,Impulso,0,0.0,7.3,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,4,Lince,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,5,Nova Run,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,6,Titán,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,7,Granito,0,0.0,7.3,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion
+2026-10,9,Pantera GK,0,0.0,7.2,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",209,evaluar_prediccion

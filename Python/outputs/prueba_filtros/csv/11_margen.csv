@@ -1,0 +1,3 @@
+id_modelo,modelo,ingresos,pares,coste,margen,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+1,Cometa,2799.6,40,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,12,margen
+11,Coloso,999.9,10,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,12,margen

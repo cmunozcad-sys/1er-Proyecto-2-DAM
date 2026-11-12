@@ -1,6 +1,6 @@
 tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,bloqueante,recuperable,advertencia,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-clientes,60,60,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 09:58:26,sin filtros,8713,calidad_datos
-modelos,16,16,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 09:58:26,sin filtros,8713,calidad_datos
-pedidos,1883,1883,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 09:58:26,sin filtros,8713,calidad_datos
-lineas,6260,6260,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 09:58:26,sin filtros,8713,calidad_datos
-stock,494,494,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 09:58:26,sin filtros,8713,calidad_datos
+clientes,60,60,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 10:47:26,sin filtros,8713,calidad_datos
+modelos,16,16,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 10:47:26,sin filtros,8713,calidad_datos
+pedidos,1883,1883,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 10:47:26,sin filtros,8713,calidad_datos
+lineas,6260,6260,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 10:47:26,sin filtros,8713,calidad_datos
+stock,494,494,0,100.0,0,0,0,CORRECTO,SINTETICO,-,2026-11-12 10:47:26,sin filtros,8713,calidad_datos

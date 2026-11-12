@@ -1,6 +1,6 @@
 tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,bloqueante,recuperable,advertencia,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-clientes,6,6,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 09:58:14,sin filtros,457,calidad_datos
-modelos,40,40,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 09:58:14,sin filtros,457,calidad_datos
-pedidos,12,12,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 09:58:14,sin filtros,457,calidad_datos
-lineas,41,41,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 09:58:14,sin filtros,457,calidad_datos
-stock,358,358,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 09:58:14,sin filtros,457,calidad_datos
+clientes,6,6,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 10:47:42,sin filtros,457,calidad_datos
+modelos,40,40,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 10:47:42,sin filtros,457,calidad_datos
+pedidos,12,12,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 10:47:42,sin filtros,457,calidad_datos
+lineas,41,41,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 10:47:42,sin filtros,457,calidad_datos
+stock,358,358,0,100.0,0,0,0,CORRECTO,REAL,-,2026-11-12 10:47:42,sin filtros,457,calidad_datos

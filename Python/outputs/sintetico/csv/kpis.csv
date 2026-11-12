@@ -1,17 +1,17 @@
 kpi,valor,unidad,formula,denominador,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-pedidos_totales,1883.0,pedidos,nº de pedidos únicos en cualquier estado,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pedidos_confirmados,1576.0,pedidos,estado = CONFIRMADO,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pedidos_pendientes,125.0,pedidos,estado = BORRADOR,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pedidos_cancelados,182.0,pedidos,estado = CANCELADO,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-tasa_cancelacion_pct,9.67,%,cancelados / pedidos totales,pedidos totales,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pares_vendidos,21802.0,pares,Σ cantidad de líneas de pedidos de venta,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-ingresos_validos,2198400.81,EUR,Σ cantidad × precio_unitario de pedidos de venta,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-ticket_medio,1394.92,EUR,ingresos / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pares_por_pedido,13.83,pares,pares / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-precio_medio_par,100.83,EUR,ingresos / pares vendidos,pares vendidos,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-peso_custom_pedidos_pct,35.91,%,pedidos Custom de venta / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-peso_custom_pares_pct,88.37,%,pares Custom / pares vendidos,pares vendidos,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-peso_custom_ingresos_pct,89.86,%,ingresos Custom / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-clientes_compradores,59.0,clientes,clientes distintos con algún pedido de venta,-,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pareto_top20_modelos_pct,41.14,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
-pareto_top20_clientes_pct,60.34,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,calcular_kpis
+pedidos_totales,334.0,pedidos,nº de pedidos únicos en cualquier estado,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pedidos_confirmados,287.0,pedidos,estado = CONFIRMADO,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pedidos_pendientes,18.0,pedidos,estado = BORRADOR,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pedidos_cancelados,29.0,pedidos,estado = CANCELADO,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+tasa_cancelacion_pct,8.68,%,cancelados / pedidos totales,pedidos totales,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pares_vendidos,1474.0,pares,Σ cantidad de líneas de pedidos de venta,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+ingresos_validos,143224.01,EUR,Σ cantidad × precio_unitario de pedidos de venta,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+ticket_medio,499.04,EUR,ingresos / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pares_por_pedido,5.14,pares,pares / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+precio_medio_par,97.17,EUR,ingresos / pares vendidos,pares vendidos,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+peso_custom_pedidos_pct,48.43,%,pedidos Custom de venta / pedidos de venta,pedidos de venta,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+peso_custom_pares_pct,85.89,%,pares Custom / pares vendidos,pares vendidos,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+peso_custom_ingresos_pct,87.24,%,ingresos Custom / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+clientes_compradores,44.0,clientes,clientes distintos con algún pedido de venta,-,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pareto_top20_modelos_pct,41.58,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis
+pareto_top20_clientes_pct,60.94,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",334,calcular_kpis

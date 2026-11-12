@@ -1,5 +1,6 @@
 no_puede_afirmarse,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
-No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
-El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
-"Los datos son SINTÉTICOS: sirven para probar los métodos, no son evidencia de clientes reales.",SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
+Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,limitaciones
+No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,limitaciones
+El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,limitaciones
+"Los datos son SINTÉTICOS: sirven para probar los métodos, no son evidencia de clientes reales.",SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,limitaciones
+Con 7 meses de histórico no se puede medir estacionalidad ni comparar con el año anterior.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,limitaciones

@@ -1,0 +1,8 @@
+indicador,valor_python,valor_sql,diferencia,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedidos_totales,12.0,12.0,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+lineas_totales,41.0,41.0,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+pedidos_confirmados,5.0,5.0,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+pares_vendidos,71.0,71.0,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+ingresos_validos,5069.29,5069.29,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+ingresos_2026-10,3219.53,3219.53,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql
+pares_talla_42,15.0,15.0,0.0,OK,REAL,2026-11-04,2026-11-12 10:55:15,sin filtros,12,reconciliacion_sql

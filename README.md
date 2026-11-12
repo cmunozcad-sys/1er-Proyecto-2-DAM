@@ -356,7 +356,7 @@ Además de los datos reales, hay un **histórico sintético** para demostrar los
 | Aplicación | Versión |
 |---|---|
 | Python | 3.14 (3.14.7) |
-| pandas | 3.1 (mínimo 2.2) |
+| pandas | 2.3.3 (entre 2.3.3 y 3.0, sin incluir la 3) |
 | numpy | 2.5 (mínimo 1.26) |
 | matplotlib | 3.11 (mínimo 3.9) |
 | scikit-learn | 1.9 (mínimo 1.4) |

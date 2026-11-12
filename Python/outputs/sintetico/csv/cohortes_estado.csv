@@ -1,2 +1,2 @@
 estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-CALCULADO con 59 clientes en 24 meses.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1,cohortes
+CALCULADO con 44 clientes en 7 meses.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",1,cohortes

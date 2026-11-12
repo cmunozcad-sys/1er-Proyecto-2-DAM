@@ -1,2 +1,2 @@
 estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-CALCULADO con 59 clientes y k = 5 (mayor silhouette). Un clúster es un grupo matemático de clientes parecidos en estas 4 variables; no equivale automáticamente a un segmento comercial.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1,clustering_clientes
+CALCULADO con 44 clientes y k = 2 (mayor silhouette). Un clúster es un grupo matemático de clientes parecidos en estas 4 variables; no equivale automáticamente a un segmento comercial.,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",1,clustering_clientes

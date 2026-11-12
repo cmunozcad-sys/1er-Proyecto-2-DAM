@@ -1,6 +1,6 @@
 tabla,fichero,fecha_analisis,filas,columnas,tamano_bytes,origen,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-clientes,clientes.csv,2026-11-12 09:58:13,6,6,277,REAL,REAL,-,2026-11-12 09:58:14,sin filtros,457,cargar_datos
-modelos,modelos.csv,2026-11-12 09:58:13,40,7,1599,REAL,REAL,-,2026-11-12 09:58:14,sin filtros,457,cargar_datos
-pedidos,pedidos.csv,2026-11-12 09:58:13,12,10,1189,REAL,REAL,-,2026-11-12 09:58:14,sin filtros,457,cargar_datos
-lineas,lineas_pedido.csv,2026-11-12 09:58:14,41,10,1834,REAL,REAL,-,2026-11-12 09:58:14,sin filtros,457,cargar_datos
-stock,stock.csv,2026-11-12 09:58:14,358,7,20683,REAL,REAL,-,2026-11-12 09:58:14,sin filtros,457,cargar_datos
+clientes,clientes.csv,2026-11-12 10:47:42,6,6,277,REAL,REAL,-,2026-11-12 10:47:42,sin filtros,457,cargar_datos
+modelos,modelos.csv,2026-11-12 10:47:42,40,7,1599,REAL,REAL,-,2026-11-12 10:47:42,sin filtros,457,cargar_datos
+pedidos,pedidos.csv,2026-11-12 10:47:42,12,10,1189,REAL,REAL,-,2026-11-12 10:47:42,sin filtros,457,cargar_datos
+lineas,lineas_pedido.csv,2026-11-12 10:47:42,41,10,1834,REAL,REAL,-,2026-11-12 10:47:42,sin filtros,457,cargar_datos
+stock,stock.csv,2026-11-12 10:47:42,358,7,20683,REAL,REAL,-,2026-11-12 10:47:42,sin filtros,457,cargar_datos

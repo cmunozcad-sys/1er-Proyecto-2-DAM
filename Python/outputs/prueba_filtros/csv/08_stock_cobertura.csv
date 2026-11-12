@@ -1,0 +1,359 @@
+id_modelo,modelo,id_variante,color,talla,stock,stock_minimo,demanda_reciente,demanda_diaria,cobertura_dias,cobertura_semanas,cobertura_texto,alerta,ultima_actualizacion,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+19,Glaciar,19,"blanco, gris y azul",38.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",39.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",40.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",41.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",42.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",43.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",44.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",45.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+19,Glaciar,19,"blanco, gris y azul",46.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,38.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,39.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,40.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,41.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,42.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,43.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,44.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,45.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+25,Campeón Élite,25,negro y dorado,46.0,3,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,39.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,40.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,41.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,42.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,43.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,44.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,45.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,46.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+33,Trueno Pro,33,negro y dorado,47.0,4,5,0,0.0,,,N/D,BAJO MÍNIMO,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,38.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,39.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,40.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,41.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,42.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,43.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,44.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 15:03:36.174058,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,45.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+1,Cometa,1,negro y blanco,46.0,30,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+2,Relámpago,2,negro y naranja,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+3,Impulso,3,gris y blanco,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+4,Lince,4,negro y naranja,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+5,Ráfaga,5,blanco y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+6,Guepardo,6,negro y amarillo,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+7,Bólido,7,negro y gris,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+8,Centella,8,rojo y blanco,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+9,Destello,9,negro y plata,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,30.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,31.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,32.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,33.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,34.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,35.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,36.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+10,Chispa,10,negro y blanco,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+11,Coloso,11,verde y marrón,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+12,Granito,12,gris y negro,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+13,Titán,13,"marrón, negro y naranja",46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+14,Volcán,14,negro y rojo,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+15,Coyote,15,arena y marrón,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+16,Tormenta,16,negro y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+17,Escorpión,17,negro y amarillo,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+18,Acero,18,negro,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,30.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,31.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,32.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,33.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,34.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,35.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,36.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+20,Osezno,20,rosa y negro,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+21,Furia FG,21,negro y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+22,Huracán AG,22,negro y verde,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+23,Remolino IC,23,negro y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+24,Tornado TF,24,negro y naranja,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+26,Mago 10,26,negro y morado,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+27,Rayo X,27,negro y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+28,Pantera GK,28,negro y verde,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+29,Capitán 82,29,negro y dorado,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,30.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,31.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,32.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,33.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,34.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,35.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,36.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+30,Cachorro Jr,30,negro y azul,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+31,Cóndor 1,31,negro y dorado,47.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+32,Jaguar Low,32,negro y verde,47.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+34,Vértigo Street,34,"negro, blanco y azul",46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+35,Ciclón Mid,35,negro y azul,47.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+36,Saeta 3,36,negro y rojo,47.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+37,Gigante XL,37,negro y gris,47.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+38,Leyenda 92,38,negro y morado,46.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,38.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,39.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,40.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,41.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,42.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,43.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,44.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+39,Amazona W,39,negro y rosa,45.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",30.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",31.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",32.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",33.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",34.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",35.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",36.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura
+40,Canguro Jr,40,"negro, azul y amarillo",37.0,20,5,0,0.0,,,N/D,SIN DEMANDA,2026-11-03 14:34:14.339210,REAL,2026-11-04,2026-11-12 10:55:15,tipos=CUSTOM; estados=CONFIRMADO,358,stock_cobertura

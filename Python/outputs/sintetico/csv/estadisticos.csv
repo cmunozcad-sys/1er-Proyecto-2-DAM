@@ -1,10 +1,10 @@
 variable,unidad,grupo,n,media,mediana,moda,desviacion,minimo,p25,p75,p90,maximo,iqr,representativo,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-importe,EUR por pedido,TODOS,1576,1394.92,319.97,99.99,1916.97,45.94,169.88,2541.58,4157.56,18380.6,2371.7,mediana,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-importe,EUR por pedido,ESTANDAR,1010,220.7,199.98,99.99,120.8,45.94,116.5,300.95,389.96,659.94,184.45,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-importe,EUR por pedido,CUSTOM,566,3490.26,3295.7,2682.99,1831.62,639.6,2347.28,4271.66,5395.62,18380.6,1924.38,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-pares,pares por pedido,TODOS,1576,13.83,4.0,1.0,17.96,1.0,2.0,25.0,41.0,147.0,23.0,mediana,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-pares,pares por pedido,ESTANDAR,1010,2.51,2.0,1.0,1.26,1.0,1.0,3.0,4.0,6.0,2.0,mediana,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-pares,pares por pedido,CUSTOM,566,34.04,33.0,21.0,16.07,8.0,23.0,42.0,50.0,147.0,19.0,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-precio_medio_par,EUR por par,TODOS,1576,92.97,91.99,99.37,20.26,39.99,77.66,104.99,121.99,141.99,27.33,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-precio_medio_par,EUR por par,ESTANDAR,1010,87.55,87.37,99.99,17.54,39.99,76.0,98.9,109.99,129.99,22.9,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
-precio_medio_par,EUR por par,CUSTOM,566,102.66,101.99,99.37,21.16,59.12,87.09,118.79,131.99,141.99,31.7,media,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,estadisticos
+importe,EUR por pedido,TODOS,287,499.04,252.4,63.1,506.81,47.32,93.44,829.93,1255.24,2918.16,736.5,mediana,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+importe,EUR por pedido,ESTANDAR,148,123.46,95.86,63.1,65.39,47.32,77.66,169.88,237.36,339.76,92.22,mediana,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+importe,EUR por pedido,CUSTOM,139,898.93,872.64,1093.07,464.13,159.9,545.08,1176.74,1494.87,2918.16,631.66,media,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+pares,pares por pedido,TODOS,287,5.14,3.0,1.0,4.82,1.0,1.0,9.0,12.0,28.0,8.0,mediana,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+pares,pares por pedido,ESTANDAR,148,1.41,1.0,1.0,0.63,1.0,1.0,2.0,2.0,4.0,1.0,mediana,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+pares,pares por pedido,CUSTOM,139,9.11,9.0,10.0,4.12,2.0,6.0,11.0,14.0,28.0,5.0,media,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+precio_medio_par,EUR por par,TODOS,287,91.92,89.66,99.37,21.11,47.32,77.66,104.22,126.2,138.2,26.56,media,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+precio_medio_par,EUR por par,ESTANDAR,148,86.62,87.37,87.37,20.62,47.32,72.81,97.08,119.41,126.2,24.27,media,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos
+precio_medio_par,EUR por par,CUSTOM,139,97.55,99.37,99.37,20.21,60.53,79.95,104.22,128.5,138.2,24.27,media,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",287,estadisticos

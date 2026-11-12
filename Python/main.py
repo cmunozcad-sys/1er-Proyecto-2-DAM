@@ -10,6 +10,7 @@ import pipeline
 import prediccion
 import visualizaciones
 from utils.trazas import con_linaje, crear_logger, guardar_csv
+from pathlib import Path
 
 MODOS = {
     "real": (config.ENTRADA_REAL, "REAL", "real"),
@@ -18,7 +19,7 @@ MODOS = {
 }
 
 
-def calcular_resultados(datos, carpeta_entrada):
+def calcular_resultados(datos, completos, carpeta_entrada):
     return {
         "01_pedidos_unicos": analiticas.pedidos_unicos(datos),
         "02_ventas_por_periodo": analiticas.ventas_por_periodo(datos),
@@ -31,7 +32,7 @@ def calcular_resultados(datos, carpeta_entrada):
         "08_stock_cobertura": analiticas.stock_cobertura(datos),
         "10_anomalias": analiticas.anomalias(datos),
         "11_margen": analiticas.margen(datos),
-        "12_reconciliacion_sql": analiticas.reconciliacion_sql(datos, carpeta_entrada),
+        "12_reconciliacion_sql": analiticas.reconciliacion_sql(completos, carpeta_entrada),
         "kpis": analiticas.calcular_kpis(datos),
         "comparacion_periodo_anterior": analiticas.comparar_periodo_anterior(datos),
         "estadisticos": analiticas.estadisticos(datos),
@@ -46,7 +47,7 @@ def tabla_estado(estado, nombre, datos, funcion):
     return analiticas.con_metadatos(pd.DataFrame({"estado": [estado]}), nombre, datos, datos.get("filtros", {}), 1, funcion)
 
 
-def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
+def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None):
     logger = crear_logger("pipeline", config.LOGS / "pipeline.log")
     inicio = time.perf_counter()
     carpeta_csv = carpeta_salida / "csv"
@@ -78,8 +79,9 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
         print(f"Revisa {carpeta_csv / 'incidencias.csv'}")
         return False
 
-    datos = analiticas.aplicar_filtros(analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"]))
-    resultados = calcular_resultados(datos, carpeta_entrada)
+    completos = analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"])
+    datos = analiticas.aplicar_filtros(completos, filtros)
+    resultados = calcular_resultados(datos, completos, carpeta_entrada)
     resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
 
     clusters = analiticas.clustering_clientes(datos)
@@ -115,12 +117,35 @@ def leer_argumentos():
     argumentos = argparse.ArgumentParser(description="Análisis de datos de Sneaker Factory")
     argumentos.add_argument("--modo", choices=MODOS, default="real",  help="real: CSV de Acceso a Datos · sintetico: histórico simulado · " "errores: copia sintética con errores introducidos")
     argumentos.add_argument("--sin-figuras", action="store_true", help="no genera los PNG")
+    argumentos.add_argument("--entrada", type=Path, help="carpeta con los CSV; por defecto la del modo")
+    argumentos.add_argument("--salida", type=Path, help="carpeta de resultados; por defecto outputs/<modo>")
+    argumentos.add_argument("--desde", help="fecha inicial AAAA-MM-DD")
+    argumentos.add_argument("--hasta", help="fecha final AAAA-MM-DD")
+    argumentos.add_argument("--modelo", type=int, nargs="+", default=[], help="id_modelo")
+    argumentos.add_argument("--talla", type=float, nargs="+", default=[])
+    argumentos.add_argument("--tipo", choices=config.TIPOS_PEDIDO, nargs="+", default=[])
+    argumentos.add_argument("--estado", choices=config.ESTADOS_PEDIDO, nargs="+", default=[])
+    argumentos.add_argument("--cliente", type=int, nargs="+", default=[], help="id_cliente")
     return argumentos.parse_args()
+
+def filtros_de(opciones):
+    return {
+        "fecha_desde": opciones.desde,
+        "fecha_hasta": opciones.hasta,
+        "modelos": opciones.modelo,
+        "tallas": opciones.talla,
+        "tipos": opciones.tipo,
+        "estados": opciones.estado,
+        "clientes": opciones.cliente,
+    }
 
 
 if __name__ == "__main__":
     opciones = leer_argumentos()
     carpeta, origen, subcarpeta = MODOS[opciones.modo]
-    print(f"Modo {opciones.modo.upper()} · datos {origen} · entrada {carpeta}\n")
-    correcto = ejecutar(carpeta, origen, config.SALIDA / subcarpeta, figuras=not opciones.sin_figuras)
+    carpeta = opciones.entrada or carpeta
+    salida = opciones.salida or config.SALIDA / subcarpeta
+    filtros = filtros_de(opciones)
+    print(f"Modo {opciones.modo.upper()} · datos {origen} · entrada {carpeta} · salida {salida}\n")
+    correcto = ejecutar(carpeta, origen, salida, figuras=not opciones.sin_figuras, filtros=filtros)
     sys.exit(0 if correcto else 1)

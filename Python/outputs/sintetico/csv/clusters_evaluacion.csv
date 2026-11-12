@@ -1,5 +1,5 @@
 k,silhouette,inercia,elegido,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-2,0.3167,162.41,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
-3,0.3336,113.98,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
-4,0.3534,83.57,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
-5,0.3597,68.21,True,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+2,0.3679,101.49,True,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",44,clustering_clientes
+3,0.3611,76.7,False,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",44,clustering_clientes
+4,0.3232,58.79,False,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",44,clustering_clientes
+5,0.3354,44.8,False,SINTETICO,2026-11-01,2026-11-12 10:47:26,"fecha_desde=2025-06-01; fecha_hasta=2025-12-31; tallas=42.0,43.0",44,clustering_clientes
