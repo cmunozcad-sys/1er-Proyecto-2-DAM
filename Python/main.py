@@ -18,6 +18,7 @@ MODOS = {
     "sintetico": (config.ENTRADA_SINTETICA, "SINTETICO", "sintetico"),
     "errores": (config.ENTRADA_SINTETICA_ERRORES, "SINTETICO", "sintetico_errores"),
 }
+FASES = ["calidad", "descriptivo", "segmentacion", "prediccion", "completo"]
 
 
 def calcular_resultados(datos, completos, carpeta_entrada):
@@ -48,7 +49,7 @@ def tabla_estado(estado, nombre, datos, funcion):
     return analiticas.con_metadatos(pd.DataFrame({"estado": [estado]}), nombre, datos, datos.get("filtros", {}), 1, funcion)
 
 
-def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None):
+def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None, fase="completo"):
     logger = crear_logger("pipeline", config.LOGS / "pipeline.log")
     inicio = time.perf_counter()
     carpeta_csv = carpeta_salida / "csv"
@@ -80,6 +81,12 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
         print(f"Revisa {carpeta_csv / 'incidencias.csv'}")
         return False
 
+    if fase == "calidad":
+        duracion = time.perf_counter() - inicio
+        logger.info(f"Ejecución correcta | origen={origen} | fase=calidad | resultados={len(calidad)} | duracion={duracion:.2f}s")
+        print(f"\nFase calidad: resultados guardados en {carpeta_csv} ({duracion:.1f} s)")
+        return True
+
     completos = analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"])
     datos = analiticas.aplicar_filtros(completos, filtros)
     if datos["pedidos"].empty:
@@ -87,17 +94,27 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
         print("\nNingún pedido cumple los filtros elegidos: no se publican KPIs ni gráficos. Prueba a quitar alguno.")
         return False
 
-    resultados = calcular_resultados(datos, completos, carpeta_entrada)
-    resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
+    resultados = {}
+    if fase in ("descriptivo", "completo"):
+        resultados.update(calcular_resultados(datos, completos, carpeta_entrada))
+        resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
 
-    clusters = analiticas.clustering_clientes(datos)
-    for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
-        resultados[f"clusters_{nombre}"] = clusters[nombre]
-    resultados["clusters_estado"] = tabla_estado(clusters["estado"], "clusters_estado", datos, "clustering_clientes")
-    predicho = prediccion.evaluar_prediccion(datos)
-    for nombre in ("metricas", "por_modelo", "serie", "detalle"):
-        resultados[f"prediccion_{nombre}"] = predicho[nombre]
-    resultados["prediccion_estado"] = tabla_estado(predicho["estado"], "prediccion_estado", datos, "evaluar_prediccion")
+    if fase in ("segmentacion", "completo"):
+        if "06_clientes_rfm" not in resultados:
+            resultados["06_clientes_rfm"] = analiticas.clientes_rfm(datos)
+        clusters = analiticas.clustering_clientes(datos)
+        for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
+            resultados[f"clusters_{nombre}"] = clusters[nombre]
+        resultados["clusters_estado"] = tabla_estado(clusters["estado"], "clusters_estado", datos, "clustering_clientes")
+
+    predicho = None
+    if fase in ("prediccion", "completo"):
+        if "demanda_modelo_mes" not in resultados:
+            resultados["demanda_modelo_mes"] = analiticas.demanda_modelo_mes(datos)
+        predicho = prediccion.evaluar_prediccion(datos)
+        for nombre in ("metricas", "por_modelo", "serie", "detalle"):
+            resultados[f"prediccion_{nombre}"] = predicho[nombre]
+        resultados["prediccion_estado"] = tabla_estado(predicho["estado"], "prediccion_estado", datos, "evaluar_prediccion")
 
     indice = []
     for nombre, df in resultados.items():
@@ -105,17 +122,23 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
         indice.append({"fichero": f"{nombre}.csv", "filas": len(df), "origen": origen, "fecha_corte": str(datos["fecha_corte"].date()), "funcion": df.attrs.get("funcion", nombre)})
     guardar_csv(pd.DataFrame(indice), carpeta_csv / "indice_resultados.csv")
 
-    if figuras:
+    if figuras and fase in ("descriptivo", "completo"):
         visualizaciones.guardar_figuras(datos, carpeta_salida / "figuras")
-        if not predicho["serie"].empty:
-            figura = prediccion.figura_real_vs_prediccion(predicho, datos)
-            figura.savefig(carpeta_salida / "figuras" / "09_real_frente_prediccion.png", bbox_inches="tight")
+    if figuras and predicho is not None and not predicho["serie"].empty:
+        (carpeta_salida / "figuras").mkdir(parents=True, exist_ok=True)
+        figura = prediccion.figura_real_vs_prediccion(predicho, datos)
+        figura.savefig(carpeta_salida / "figuras" / "09_real_frente_prediccion.png", bbox_inches="tight")
 
     duracion = time.perf_counter() - inicio
-    logger.info(f"Ejecución correcta | origen={origen} | resultados={len(resultados)} | duracion={duracion:.2f}s")
+    logger.info(f"Ejecución correcta | origen={origen} | fase={fase} | resultados={len(resultados)} | duracion={duracion:.2f}s")
 
-    print("\n" + resultados["kpis"][["kpi", "valor", "unidad"]].to_string(index=False))
-    print(f"\nResultados guardados en {carpeta_salida} ({duracion:.1f} s)")
+    if "kpis" in resultados:
+        print("\n" + resultados["kpis"][["kpi", "valor", "unidad"]].to_string(index=False))
+    for nombre in ("clusters_estado", "prediccion_estado"):
+        if nombre in resultados and fase != "completo":
+            print(f"\n{resultados[nombre]['estado'].iloc[0]}")
+    prefijo = "Resultados" if fase == "completo" else f"Fase {fase}: resultados"
+    print(f"\n{prefijo} guardados en {carpeta_salida} ({duracion:.1f} s)")
     return True
 
 
@@ -130,6 +153,7 @@ def fecha(texto):
 def leer_argumentos(argv=None):
     argumentos = argparse.ArgumentParser(description="Análisis de datos de Sneaker Factory")
     argumentos.add_argument("--modo", choices=MODOS, default="real",  help="real: CSV de Acceso a Datos · sintetico: histórico simulado · " "errores: copia sintética con errores introducidos")
+    argumentos.add_argument("--fase", choices=FASES, default="completo", help="calidad: solo carga y validación · descriptivo: KPIs, análisis y gráficos · segmentacion: RFM y clustering · prediccion: predicción de demanda · completo: todo (por defecto)")
     argumentos.add_argument("--sin-figuras", action="store_true", help="no genera los PNG")
     argumentos.add_argument("--entrada", type=Path, help="carpeta con los CSV; por defecto la del modo")
     argumentos.add_argument("--salida", type=Path, help="carpeta de resultados; por defecto outputs/<modo>")
@@ -160,6 +184,7 @@ if __name__ == "__main__":
     carpeta = opciones.entrada or carpeta
     salida = opciones.salida or config.SALIDA / subcarpeta
     filtros = filtros_de(opciones)
-    print(f"Modo {opciones.modo.upper()} · datos {origen} · entrada {carpeta} · salida {salida}\n")
-    correcto = ejecutar(carpeta, origen, salida, figuras=not opciones.sin_figuras, filtros=filtros)
+    fase = "" if opciones.fase == "completo" else f" · fase {opciones.fase}"
+    print(f"Modo {opciones.modo.upper()}{fase} · datos {origen} · entrada {carpeta} · salida {salida}\n")
+    correcto = ejecutar(carpeta, origen, salida, figuras=not opciones.sin_figuras, filtros=filtros, fase=opciones.fase)
     sys.exit(0 if correcto else 1)
