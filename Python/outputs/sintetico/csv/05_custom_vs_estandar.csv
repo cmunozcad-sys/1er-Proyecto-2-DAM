@@ -1,3 +1,3 @@
-tipo_pedido,pedidos_totales,pedidos_venta,pedidos_cancelados,pares,ingresos,tasa_cancelacion_pct,ticket_medio,precio_medio_par,peso_pedidos_venta_pct,peso_pares_pct,peso_ingresos_pct
-ESTANDAR,1180,1010,96,2536,222910.96,8.14,220.7,87.9,64.09,11.63,10.14
-CUSTOM,703,566,86,19266,1975489.85,12.23,3490.26,102.54,35.91,88.37,89.86
+tipo_pedido,pedidos_totales,pedidos_venta,pedidos_cancelados,pares,ingresos,tasa_cancelacion_pct,ticket_medio,precio_medio_par,peso_pedidos_venta_pct,peso_pares_pct,peso_ingresos_pct,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+ESTANDAR,1180,1010,96,2536,222910.96,8.14,220.7,87.9,64.09,11.63,10.14,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,custom_vs_estandar
+CUSTOM,703,566,86,19266,1975489.85,12.23,3490.26,102.54,35.91,88.37,89.86,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1883,custom_vs_estandar

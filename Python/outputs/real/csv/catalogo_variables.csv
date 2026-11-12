@@ -1,16 +1,16 @@
-variable,familia,unidad,nivel,disponible
-anio,Calendario,año,línea y pedido,Fecha del pedido
-mes,Calendario,mes (1-12),línea y pedido,Fecha del pedido
-trimestre,Calendario,trimestre (1-4),línea y pedido,Fecha del pedido
-dia_semana,Calendario,0 = lunes,línea y pedido,Fecha del pedido
-antiguedad_dias,Calendario,días,línea y pedido,Fecha de corte
-importe_linea,Economía,EUR,línea,Al registrar la línea
-ticket_pedido,Economía,EUR,pedido,Al cerrar el pedido
-precio_medio_par,Economía,EUR/par,pedido,Al cerrar el pedido
-frecuencia_cliente,Comportamiento,pedidos,cliente,Hasta la fecha de corte
-porcentaje_custom,Comportamiento,%,cliente,Hasta la fecha de corte
-intervalo_medio_dias,Comportamiento,días,cliente,Hasta la fecha de corte
-unidades_modelo_mes,Demanda,pares,modelo y mes,Al cerrar el mes
-demanda_mes_anterior,Demanda,pares,modelo y mes,Antes de empezar el mes
-media_3_meses_previos,Demanda,pares,modelo y mes,Antes de empezar el mes
-talla_mas_solicitada,Operaciones,talla EU,modelo,Hasta la fecha de corte
+variable,familia,unidad,nivel,disponible,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+anio,Calendario,año,línea y pedido,Fecha del pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+mes,Calendario,mes (1-12),línea y pedido,Fecha del pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+trimestre,Calendario,trimestre (1-4),línea y pedido,Fecha del pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+dia_semana,Calendario,0 = lunes,línea y pedido,Fecha del pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+antiguedad_dias,Calendario,días,línea y pedido,Fecha de corte,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+importe_linea,Economía,EUR,línea,Al registrar la línea,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+ticket_pedido,Economía,EUR,pedido,Al cerrar el pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+precio_medio_par,Economía,EUR/par,pedido,Al cerrar el pedido,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+frecuencia_cliente,Comportamiento,pedidos,cliente,Hasta la fecha de corte,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+porcentaje_custom,Comportamiento,%,cliente,Hasta la fecha de corte,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+intervalo_medio_dias,Comportamiento,días,cliente,Hasta la fecha de corte,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+unidades_modelo_mes,Demanda,pares,modelo y mes,Al cerrar el mes,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+demanda_mes_anterior,Demanda,pares,modelo y mes,Antes de empezar el mes,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+media_3_meses_previos,Demanda,pares,modelo y mes,Antes de empezar el mes,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables
+talla_mas_solicitada,Operaciones,talla EU,modelo,Hasta la fecha de corte,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,0,catalogo_variables

@@ -1,6 +1,6 @@
-cluster,nombre_cluster,clientes,recency_media_dias,pedidos_medios,gasto_medio,gasto_mediano,porcentaje_custom_medio,ingresos,peso_clientes_pct,peso_ingresos_pct
-0,Compradores frecuentes de estándar,5,12.0,96.0,37871.54,30077.66,7.21,189357.71,8.47,8.61
-1,Ocasionales de bajo gasto,12,49.42,15.0,7847.29,6648.32,9.83,94167.49,20.34,4.28
-2,Compradores de personalización,20,66.45,9.4,21162.51,22221.26,65.75,423250.29,33.9,19.25
-3,Inactivos o en riesgo,8,439.0,15.12,13195.2,9027.2,20.81,105561.62,13.56,4.8
-4,Grandes cuentas recurrentes,14,20.86,43.36,99004.55,72040.8,60.88,1386063.7,23.73,63.05
+cluster,nombre_cluster,clientes,recency_media_dias,pedidos_medios,gasto_medio,gasto_mediano,porcentaje_custom_medio,ingresos,peso_clientes_pct,peso_ingresos_pct,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+0,Compradores frecuentes de estándar,5,12.0,96.0,37871.54,30077.66,7.21,189357.71,8.47,8.61,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+1,Ocasionales de bajo gasto,12,49.42,15.0,7847.29,6648.32,9.83,94167.49,20.34,4.28,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+2,Compradores de personalización,20,66.45,9.4,21162.51,22221.26,65.75,423250.29,33.9,19.25,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+3,Inactivos o en riesgo,8,439.0,15.12,13195.2,9027.2,20.81,105561.62,13.56,4.8,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+4,Grandes cuentas recurrentes,14,20.86,43.36,99004.55,72040.8,60.88,1386063.7,23.73,63.05,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes

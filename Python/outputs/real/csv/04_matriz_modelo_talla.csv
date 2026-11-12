@@ -1,8 +1,8 @@
-modelo,38,39,40,41,42,43,44,45,46
-Bólido,0,0,0,3,0,0,0,0,0
-Coloso,0,0,3,0,4,0,3,0,0
-Cometa,2,4,6,8,7,6,4,2,1
-Granito,0,0,0,0,0,2,0,0,0
-Impulso,0,0,4,0,4,0,0,0,0
-Relámpago,0,0,0,1,0,0,0,0,0
-Remolino IC,0,2,3,2,0,0,0,0,0
+modelo,38,39,40,41,42,43,44,45,46,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+Bólido,0,0,0,3,0,0,0,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Coloso,0,0,3,0,4,0,3,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Cometa,2,4,6,8,7,6,4,2,1,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Granito,0,0,0,0,0,2,0,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Impulso,0,0,4,0,4,0,0,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Relámpago,0,0,0,1,0,0,0,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+Remolino IC,0,2,3,2,0,0,0,0,0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla

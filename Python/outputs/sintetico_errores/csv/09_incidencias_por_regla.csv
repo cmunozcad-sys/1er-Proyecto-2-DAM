@@ -1,21 +1,21 @@
-regla,gravedad,tabla,descripcion,registros
-02,RECUPERABLE,lineas,Clave repetida con datos distintos,2
-03,BLOQUEANTE,lineas,id_pedido no existe en pedidos.csv,1
-03,RECUPERABLE,lineas,id_pedido fue rechazado en pedidos.csv,17
-03,RECUPERABLE,lineas,id_variante y talla fue rechazado en stock.csv,1
-03,BLOQUEANTE,pedidos,id_cliente no existe en clientes.csv,1
-04,RECUPERABLE,pedidos,"Fecha de pedido nula, imposible o futura",1
-05,RECUPERABLE,lineas,"Cantidad nula, cero o negativa",1
-06,RECUPERABLE,lineas,"Precio unitario nulo, no numérico o negativo",1
-07,RECUPERABLE,pedidos,"Estado fuera de ['BORRADOR', 'CONFIRMADO', 'CANCELADO']",1
-07,RECUPERABLE,pedidos,"Tipo fuera de ['ESTANDAR', 'CUSTOM']",1
-08,RECUPERABLE,lineas,Talla fuera de 30-48,1
-09,RECUPERABLE,lineas,Línea sin pedido o sin modelo,1
-09,RECUPERABLE,pedidos,Pedido sin cliente,1
-10,ADVERTENCIA,lineas,"Varias líneas con el mismo pedido, variante y talla",2
-11,RECUPERABLE,stock,Clave repetida con datos distintos,2
-11,RECUPERABLE,stock,Stock nulo o negativo,1
-12,ADVERTENCIA,pedidos,El total no coincide con la suma de sus líneas,9
-12,ADVERTENCIA,pedidos,Fecha de cancelación en un pedido no cancelado,1
-CONV,ADVERTENCIA,lineas,precio_unitario: no se pudo convertir 'abc',1
-CONV,ADVERTENCIA,pedidos,fecha_pedido: no se pudo convertir '2026-13-45',1
+regla,gravedad,tabla,descripcion,registros,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+02,RECUPERABLE,lineas,Clave repetida con datos distintos,2,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+03,BLOQUEANTE,lineas,id_pedido no existe en pedidos.csv,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+03,RECUPERABLE,lineas,id_pedido fue rechazado en pedidos.csv,17,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+03,RECUPERABLE,lineas,id_variante y talla fue rechazado en stock.csv,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+03,BLOQUEANTE,pedidos,id_cliente no existe en clientes.csv,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+04,RECUPERABLE,pedidos,"Fecha de pedido nula, imposible o futura",1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+05,RECUPERABLE,lineas,"Cantidad nula, cero o negativa",1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+06,RECUPERABLE,lineas,"Precio unitario nulo, no numérico o negativo",1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+07,RECUPERABLE,pedidos,"Estado fuera de ['BORRADOR', 'CONFIRMADO', 'CANCELADO']",1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+07,RECUPERABLE,pedidos,"Tipo fuera de ['ESTANDAR', 'CUSTOM']",1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+08,RECUPERABLE,lineas,Talla fuera de 30-48,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+09,RECUPERABLE,lineas,Línea sin pedido o sin modelo,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+09,RECUPERABLE,pedidos,Pedido sin cliente,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+10,ADVERTENCIA,lineas,"Varias líneas con el mismo pedido, variante y talla",2,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+11,RECUPERABLE,stock,Clave repetida con datos distintos,2,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+11,RECUPERABLE,stock,Stock nulo o negativo,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+12,ADVERTENCIA,pedidos,El total no coincide con la suma de sus líneas,9,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+12,ADVERTENCIA,pedidos,Fecha de cancelación en un pedido no cancelado,1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+CONV,ADVERTENCIA,lineas,precio_unitario: no se pudo convertir 'abc',1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla
+CONV,ADVERTENCIA,pedidos,fecha_pedido: no se pudo convertir '2026-13-45',1,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,incidencias_por_regla

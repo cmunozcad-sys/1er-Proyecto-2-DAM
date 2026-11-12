@@ -1,41 +1,41 @@
-id_modelo,modelo,ingresos,pares,pedidos,ranking_euros,ranking_pares,peso_pct,acumulado_pct,clase_abc
-1,Cometa,2799.6,40,1,1,1,55.23,55.23,A
-11,Coloso,999.9,10,1,2,2,19.72,74.95,A
-23,Remolino IC,419.93,7,1,3,4,8.28,83.23,A
-3,Impulso,399.92,8,1,4,3,7.89,91.12,B
-7,Bólido,179.97,3,1,5,5,3.55,94.67,B
-12,Granito,149.98,2,1,6,6,2.96,97.63,B
-2,Relámpago,119.99,1,1,7,7,2.37,100.0,C
-4,Lince,0.0,0,0,8,8,0.0,100.0,C
-5,Ráfaga,0.0,0,0,9,8,0.0,100.0,C
-6,Guepardo,0.0,0,0,10,8,0.0,100.0,C
-8,Centella,0.0,0,0,11,8,0.0,100.0,C
-9,Destello,0.0,0,0,12,8,0.0,100.0,C
-10,Chispa,0.0,0,0,13,8,0.0,100.0,C
-13,Titán,0.0,0,0,14,8,0.0,100.0,C
-14,Volcán,0.0,0,0,15,8,0.0,100.0,C
-15,Coyote,0.0,0,0,16,8,0.0,100.0,C
-16,Tormenta,0.0,0,0,17,8,0.0,100.0,C
-17,Escorpión,0.0,0,0,18,8,0.0,100.0,C
-18,Acero,0.0,0,0,19,8,0.0,100.0,C
-19,Glaciar,0.0,0,0,20,8,0.0,100.0,C
-20,Osezno,0.0,0,0,21,8,0.0,100.0,C
-21,Furia FG,0.0,0,0,22,8,0.0,100.0,C
-22,Huracán AG,0.0,0,0,23,8,0.0,100.0,C
-24,Tornado TF,0.0,0,0,24,8,0.0,100.0,C
-25,Campeón Élite,0.0,0,0,25,8,0.0,100.0,C
-26,Mago 10,0.0,0,0,26,8,0.0,100.0,C
-27,Rayo X,0.0,0,0,27,8,0.0,100.0,C
-28,Pantera GK,0.0,0,0,28,8,0.0,100.0,C
-29,Capitán 82,0.0,0,0,29,8,0.0,100.0,C
-30,Cachorro Jr,0.0,0,0,30,8,0.0,100.0,C
-31,Cóndor 1,0.0,0,0,31,8,0.0,100.0,C
-32,Jaguar Low,0.0,0,0,32,8,0.0,100.0,C
-33,Trueno Pro,0.0,0,0,33,8,0.0,100.0,C
-34,Vértigo Street,0.0,0,0,34,8,0.0,100.0,C
-35,Ciclón Mid,0.0,0,0,35,8,0.0,100.0,C
-36,Saeta 3,0.0,0,0,36,8,0.0,100.0,C
-37,Gigante XL,0.0,0,0,37,8,0.0,100.0,C
-38,Leyenda 92,0.0,0,0,38,8,0.0,100.0,C
-39,Amazona W,0.0,0,0,39,8,0.0,100.0,C
-40,Canguro Jr,0.0,0,0,40,8,0.0,100.0,C
+id_modelo,modelo,ingresos,pares,pedidos,ranking_euros,ranking_pares,peso_pct,acumulado_pct,clase_abc,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+1,Cometa,2799.6,40,1,1,1,55.23,55.23,A,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+11,Coloso,999.9,10,1,2,2,19.72,74.95,A,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+23,Remolino IC,419.93,7,1,3,4,8.28,83.23,A,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+3,Impulso,399.92,8,1,4,3,7.89,91.12,B,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+7,Bólido,179.97,3,1,5,5,3.55,94.67,B,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+12,Granito,149.98,2,1,6,6,2.96,97.63,B,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+2,Relámpago,119.99,1,1,7,7,2.37,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+4,Lince,0.0,0,0,8,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+5,Ráfaga,0.0,0,0,9,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+6,Guepardo,0.0,0,0,10,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+8,Centella,0.0,0,0,11,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+9,Destello,0.0,0,0,12,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+10,Chispa,0.0,0,0,13,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+13,Titán,0.0,0,0,14,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+14,Volcán,0.0,0,0,15,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+15,Coyote,0.0,0,0,16,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+16,Tormenta,0.0,0,0,17,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+17,Escorpión,0.0,0,0,18,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+18,Acero,0.0,0,0,19,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+19,Glaciar,0.0,0,0,20,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+20,Osezno,0.0,0,0,21,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+21,Furia FG,0.0,0,0,22,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+22,Huracán AG,0.0,0,0,23,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+24,Tornado TF,0.0,0,0,24,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+25,Campeón Élite,0.0,0,0,25,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+26,Mago 10,0.0,0,0,26,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+27,Rayo X,0.0,0,0,27,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+28,Pantera GK,0.0,0,0,28,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+29,Capitán 82,0.0,0,0,29,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+30,Cachorro Jr,0.0,0,0,30,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+31,Cóndor 1,0.0,0,0,31,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+32,Jaguar Low,0.0,0,0,32,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+33,Trueno Pro,0.0,0,0,33,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+34,Vértigo Street,0.0,0,0,34,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+35,Ciclón Mid,0.0,0,0,35,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+36,Saeta 3,0.0,0,0,36,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+37,Gigante XL,0.0,0,0,37,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+38,Leyenda 92,0.0,0,0,38,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+39,Amazona W,0.0,0,0,39,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc
+40,Canguro Jr,0.0,0,0,40,8,0.0,100.0,C,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,modelos_abc

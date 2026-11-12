@@ -1,8 +1,8 @@
-id_modelo,modelo,ingresos,pares,coste,margen,estado
-1,Cometa,2799.6,40,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-11,Coloso,999.9,10,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-23,Remolino IC,419.93,7,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-3,Impulso,399.92,8,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-7,Bólido,179.97,3,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-12,Granito,149.98,2,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
-2,Relámpago,119.99,1,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario
+id_modelo,modelo,ingresos,pares,coste,margen,estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+1,Cometa,2799.6,40,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+11,Coloso,999.9,10,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+23,Remolino IC,419.93,7,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+3,Impulso,399.92,8,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+7,Bólido,179.97,3,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+12,Granito,149.98,2,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen
+2,Relámpago,119.99,1,NO DISPONIBLE,,NO CALCULABLE: el contrato de datos no incluye coste unitario,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,margen

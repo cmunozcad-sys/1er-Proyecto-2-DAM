@@ -1,60 +1,60 @@
-id_cliente,tipo_cliente,cluster,nombre_cluster,segmento,recency_dias,frequency,monetary,porcentaje_custom
-36,EQUIPO,4,Grandes cuentas recurrentes,Campeones,6.0,90,206459.38,66.67
-24,CLUB,4,Grandes cuentas recurrentes,Campeones,0.0,89,182305.2,59.55
-12,CLUB,4,Grandes cuentas recurrentes,Campeones,0.0,57,158934.76,68.42
-49,CLUB,4,Grandes cuentas recurrentes,Campeones,4.0,62,146195.72,64.52
-15,CLUB,4,Grandes cuentas recurrentes,Campeones,9.0,57,144815.88,71.93
-23,CLUB,4,Grandes cuentas recurrentes,Leales,26.0,48,105898.93,64.58
-26,EQUIPO,4,Grandes cuentas recurrentes,Campeones,24.0,39,74580.27,48.72
-3,CLUB,4,Grandes cuentas recurrentes,Leales,42.0,22,69501.33,68.18
-38,CLUB,4,Grandes cuentas recurrentes,Campeones,16.0,30,67657.76,60.0
-9,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,5.0,210,65966.94,3.81
-46,EQUIPO,4,Grandes cuentas recurrentes,Leales,80.0,21,52282.17,57.14
-7,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,3.0,124,51854.9,7.26
-32,EQUIPO,4,Grandes cuentas recurrentes,Campeones,11.0,26,49754.04,46.15
-8,EQUIPO,4,Grandes cuentas recurrentes,Leales,30.0,22,48098.49,68.18
-16,CLUB,3,Inactivos o en riesgo,En riesgo,490.0,18,47096.02,66.67
-33,CLUB,4,Grandes cuentas recurrentes,Campeones,6.0,24,42017.39,58.33
-1,CLUB,4,Grandes cuentas recurrentes,Leales,38.0,20,37562.38,50.0
-35,CLUB,2,Compradores de personalización,En riesgo,56.0,14,35814.12,71.43
-34,EQUIPO,2,Compradores de personalización,Potenciales,35.0,16,35710.61,62.5
-2,EQUIPO,2,Compradores de personalización,Potenciales,33.0,10,33698.79,70.0
-5,EQUIPO,2,Compradores de personalización,Potenciales,10.0,13,32446.47,61.54
-21,EQUIPO,2,Compradores de personalización,En riesgo,41.0,16,31266.68,62.5
-28,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,0.0,60,30077.66,6.67
-18,PARTICULAR,0,Compradores frecuentes de estándar,Leales,41.0,49,27640.33,10.2
-30,EMPRESA,2,Compradores de personalización,Nuevos,3.0,12,25279.59,41.67
-11,EQUIPO,2,Compradores de personalización,Perdidos,75.0,12,24817.05,58.33
-14,CLUB,2,Compradores de personalización,Perdidos,428.0,9,24523.8,100.0
-39,CLUB,2,Compradores de personalización,Potenciales,38.0,13,23423.01,53.85
-41,CLUB,2,Compradores de personalización,Perdidos,237.0,7,23397.23,85.71
-40,CLUB,2,Compradores de personalización,Potenciales,26.0,13,21045.29,46.15
-50,CLUB,2,Compradores de personalización,Nuevos,0.0,11,19847.52,63.64
-27,EMPRESA,3,Inactivos o en riesgo,En riesgo,341.0,16,19052.02,31.25
-29,EMPRESA,1,Ocasionales de bajo gasto,Potenciales,28.0,14,18332.08,28.57
-52,EQUIPO,2,Compradores de personalización,Perdidos,134.0,4,15414.72,100.0
-53,CLUB,2,Compradores de personalización,Perdidos,60.0,9,15321.61,44.44
-43,EMPRESA,2,Compradores de personalización,Perdidos,40.0,8,15052.12,50.0
-59,EQUIPO,2,Compradores de personalización,Nuevos,4.0,5,14064.71,60.0
-25,PARTICULAR,1,Ocasionales de bajo gasto,En riesgo,197.0,16,14015.07,12.5
-48,CLUB,2,Compradores de personalización,Nuevos,6.0,6,14013.62,83.33
-4,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,11.0,37,13817.88,8.11
-13,PARTICULAR,1,Ocasionales de bajo gasto,Leales,50.0,26,13085.78,7.69
-31,EMPRESA,3,Inactivos o en riesgo,Perdidos,504.0,7,11618.98,42.86
-47,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,30.0,19,10885.98,10.53
-6,PARTICULAR,3,Inactivos o en riesgo,Leales,398.0,21,9295.19,9.52
-55,CLUB,2,Compradores de personalización,Perdidos,52.0,4,8968.22,50.0
-19,PARTICULAR,3,Inactivos o en riesgo,Leales,337.0,27,8759.21,3.7
-45,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,28.0,12,8173.97,8.33
-42,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,12.0,19,6886.56,5.26
-37,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,18.0,13,6410.08,7.69
-17,PARTICULAR,1,Ocasionales de bajo gasto,Leales,28.0,25,6139.99,4.0
-57,EQUIPO,2,Compradores de personalización,Nuevos,21.0,4,5593.49,50.0
-22,EMPRESA,3,Inactivos o en riesgo,Perdidos,550.0,8,4640.9,12.5
-44,PARTICULAR,3,Inactivos o en riesgo,En riesgo,310.0,19,3948.6,0.0
-56,PARTICULAR,1,Ocasionales de bajo gasto,Nuevos,2.0,12,3844.54,8.33
-58,EQUIPO,2,Compradores de personalización,Potenciales,30.0,2,3551.64,100.0
-10,PARTICULAR,1,Ocasionales de bajo gasto,En riesgo,135.0,13,2428.86,0.0
-54,EMPRESA,1,Ocasionales de bajo gasto,Nuevos,13.0,4,2199.77,25.0
-51,PARTICULAR,1,Ocasionales de bajo gasto,Perdidos,52.0,7,1764.81,0.0
-20,PARTICULAR,3,Inactivos o en riesgo,Perdidos,582.0,5,1150.7,0.0
+id_cliente,tipo_cliente,cluster,nombre_cluster,segmento,recency_dias,frequency,monetary,porcentaje_custom,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+36,EQUIPO,4,Grandes cuentas recurrentes,Campeones,6.0,90,206459.38,66.67,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+24,CLUB,4,Grandes cuentas recurrentes,Campeones,0.0,89,182305.2,59.55,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+12,CLUB,4,Grandes cuentas recurrentes,Campeones,0.0,57,158934.76,68.42,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+49,CLUB,4,Grandes cuentas recurrentes,Campeones,4.0,62,146195.72,64.52,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+15,CLUB,4,Grandes cuentas recurrentes,Campeones,9.0,57,144815.88,71.93,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+23,CLUB,4,Grandes cuentas recurrentes,Leales,26.0,48,105898.93,64.58,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+26,EQUIPO,4,Grandes cuentas recurrentes,Campeones,24.0,39,74580.27,48.72,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+3,CLUB,4,Grandes cuentas recurrentes,Leales,42.0,22,69501.33,68.18,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+38,CLUB,4,Grandes cuentas recurrentes,Campeones,16.0,30,67657.76,60.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+9,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,5.0,210,65966.94,3.81,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+46,EQUIPO,4,Grandes cuentas recurrentes,Leales,80.0,21,52282.17,57.14,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+7,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,3.0,124,51854.9,7.26,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+32,EQUIPO,4,Grandes cuentas recurrentes,Campeones,11.0,26,49754.04,46.15,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+8,EQUIPO,4,Grandes cuentas recurrentes,Leales,30.0,22,48098.49,68.18,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+16,CLUB,3,Inactivos o en riesgo,En riesgo,490.0,18,47096.02,66.67,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+33,CLUB,4,Grandes cuentas recurrentes,Campeones,6.0,24,42017.39,58.33,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+1,CLUB,4,Grandes cuentas recurrentes,Leales,38.0,20,37562.38,50.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+35,CLUB,2,Compradores de personalización,En riesgo,56.0,14,35814.12,71.43,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+34,EQUIPO,2,Compradores de personalización,Potenciales,35.0,16,35710.61,62.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+2,EQUIPO,2,Compradores de personalización,Potenciales,33.0,10,33698.79,70.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+5,EQUIPO,2,Compradores de personalización,Potenciales,10.0,13,32446.47,61.54,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+21,EQUIPO,2,Compradores de personalización,En riesgo,41.0,16,31266.68,62.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+28,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,0.0,60,30077.66,6.67,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+18,PARTICULAR,0,Compradores frecuentes de estándar,Leales,41.0,49,27640.33,10.2,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+30,EMPRESA,2,Compradores de personalización,Nuevos,3.0,12,25279.59,41.67,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+11,EQUIPO,2,Compradores de personalización,Perdidos,75.0,12,24817.05,58.33,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+14,CLUB,2,Compradores de personalización,Perdidos,428.0,9,24523.8,100.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+39,CLUB,2,Compradores de personalización,Potenciales,38.0,13,23423.01,53.85,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+41,CLUB,2,Compradores de personalización,Perdidos,237.0,7,23397.23,85.71,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+40,CLUB,2,Compradores de personalización,Potenciales,26.0,13,21045.29,46.15,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+50,CLUB,2,Compradores de personalización,Nuevos,0.0,11,19847.52,63.64,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+27,EMPRESA,3,Inactivos o en riesgo,En riesgo,341.0,16,19052.02,31.25,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+29,EMPRESA,1,Ocasionales de bajo gasto,Potenciales,28.0,14,18332.08,28.57,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+52,EQUIPO,2,Compradores de personalización,Perdidos,134.0,4,15414.72,100.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+53,CLUB,2,Compradores de personalización,Perdidos,60.0,9,15321.61,44.44,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+43,EMPRESA,2,Compradores de personalización,Perdidos,40.0,8,15052.12,50.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+59,EQUIPO,2,Compradores de personalización,Nuevos,4.0,5,14064.71,60.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+25,PARTICULAR,1,Ocasionales de bajo gasto,En riesgo,197.0,16,14015.07,12.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+48,CLUB,2,Compradores de personalización,Nuevos,6.0,6,14013.62,83.33,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+4,PARTICULAR,0,Compradores frecuentes de estándar,Campeones,11.0,37,13817.88,8.11,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+13,PARTICULAR,1,Ocasionales de bajo gasto,Leales,50.0,26,13085.78,7.69,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+31,EMPRESA,3,Inactivos o en riesgo,Perdidos,504.0,7,11618.98,42.86,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+47,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,30.0,19,10885.98,10.53,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+6,PARTICULAR,3,Inactivos o en riesgo,Leales,398.0,21,9295.19,9.52,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+55,CLUB,2,Compradores de personalización,Perdidos,52.0,4,8968.22,50.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+19,PARTICULAR,3,Inactivos o en riesgo,Leales,337.0,27,8759.21,3.7,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+45,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,28.0,12,8173.97,8.33,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+42,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,12.0,19,6886.56,5.26,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+37,PARTICULAR,1,Ocasionales de bajo gasto,Potenciales,18.0,13,6410.08,7.69,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+17,PARTICULAR,1,Ocasionales de bajo gasto,Leales,28.0,25,6139.99,4.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+57,EQUIPO,2,Compradores de personalización,Nuevos,21.0,4,5593.49,50.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+22,EMPRESA,3,Inactivos o en riesgo,Perdidos,550.0,8,4640.9,12.5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+44,PARTICULAR,3,Inactivos o en riesgo,En riesgo,310.0,19,3948.6,0.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+56,PARTICULAR,1,Ocasionales de bajo gasto,Nuevos,2.0,12,3844.54,8.33,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+58,EQUIPO,2,Compradores de personalización,Potenciales,30.0,2,3551.64,100.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+10,PARTICULAR,1,Ocasionales de bajo gasto,En riesgo,135.0,13,2428.86,0.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+54,EMPRESA,1,Ocasionales de bajo gasto,Nuevos,13.0,4,2199.77,25.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+51,PARTICULAR,1,Ocasionales de bajo gasto,Perdidos,52.0,7,1764.81,0.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+20,PARTICULAR,3,Inactivos o en riesgo,Perdidos,582.0,5,1150.7,0.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes

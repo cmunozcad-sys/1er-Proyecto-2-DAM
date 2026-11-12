@@ -1,5 +1,5 @@
-kpi,actual,unidad,anterior,variacion_pct,periodo_actual,periodo_anterior
-pedidos_confirmados,2.0,pedidos,3.0,-33.33,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
-pares_vendidos,47.0,pares,24.0,95.83,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
-ingresos_validos,3219.53,EUR,1849.76,74.05,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
-ticket_medio,1609.76,EUR,616.59,161.07,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30
+kpi,actual,unidad,anterior,variacion_pct,periodo_actual,periodo_anterior,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedidos_confirmados,2.0,pedidos,3.0,-33.33,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,12,comparar_periodo_anterior
+pares_vendidos,47.0,pares,24.0,95.83,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,12,comparar_periodo_anterior
+ingresos_validos,3219.53,EUR,1849.76,74.05,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,12,comparar_periodo_anterior
+ticket_medio,1609.76,EUR,616.59,161.07,2026-10-01 a 2026-10-31,2026-09-01 a 2026-09-30,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,12,comparar_periodo_anterior

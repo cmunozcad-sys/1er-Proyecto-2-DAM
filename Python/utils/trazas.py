@@ -60,6 +60,29 @@ class RegistroIncidencias:
         return pd.DataFrame(self.incidencias, columns=columnas)
 
 
+def texto_filtros(filtros):
+    if not filtros:
+        return "sin filtros"
+    partes = []
+    for nombre, valor in filtros.items():
+        if isinstance(valor, (list, tuple)):
+            valor = ",".join(str(v) for v in valor)
+        partes.append(f"{nombre}={valor}")
+    return "; ".join(partes)
+
+
+def con_linaje(df):
+    meta = df.attrs
+    return df.assign(
+        linaje_origen=meta.get("origen", "-"),
+        linaje_fecha_corte=meta.get("fecha_corte", "-"),
+        linaje_ejecucion=meta.get("ejecucion", "-"),
+        linaje_filtros=texto_filtros(meta.get("filtros")),
+        linaje_filas_origen=meta.get("filas_origen", "-"),
+        linaje_funcion=meta.get("funcion", "-"),
+    )
+
+
 def guardar_csv(df, ruta):
     ruta = Path(ruta)
     ruta.parent.mkdir(parents=True, exist_ok=True)

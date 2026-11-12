@@ -1,48 +1,48 @@
-tabla,registro,regla,gravedad,descripcion,tratamiento
-pedidos,2,CONV,ADVERTENCIA,fecha_pedido: no se pudo convertir '2026-13-45',Valor tratado como nulo
-lineas,701,CONV,ADVERTENCIA,precio_unitario: no se pudo convertir 'abc',Valor tratado como nulo
-stock,1-35.5,11,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias
-stock,1-35.5,11,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias
-stock,1-35.0,11,RECUPERABLE,Stock nulo o negativo,Registro rechazado
-pedidos,2,04,RECUPERABLE,"Fecha de pedido nula, imposible o futura",Registro rechazado
-pedidos,3,07,RECUPERABLE,"Estado fuera de ['BORRADOR', 'CONFIRMADO', 'CANCELADO']",Registro rechazado
-pedidos,4,07,RECUPERABLE,"Tipo fuera de ['ESTANDAR', 'CUSTOM']",Registro rechazado
-pedidos,5,09,RECUPERABLE,Pedido sin cliente,Registro rechazado
-pedidos,1,03,BLOQUEANTE,id_cliente no existe en clientes.csv,Registro rechazado
-pedidos,13,12,ADVERTENCIA,Fecha de cancelación en un pedido no cancelado,Se conserva
-lineas,1001,02,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias
-lineas,1001,02,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias
-lineas,601,05,RECUPERABLE,"Cantidad nula, cero o negativa",Registro rechazado
-lineas,701,06,RECUPERABLE,"Precio unitario nulo, no numérico o negativo",Registro rechazado
-lineas,801,08,RECUPERABLE,Talla fuera de 30-48,Registro rechazado
-lineas,901,09,RECUPERABLE,Línea sin pedido o sin modelo,Registro rechazado
-lineas,501,03,BLOQUEANTE,id_pedido no existe en pedidos.csv,Registro rechazado
-lineas,1,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,2,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,3,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,4,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,5,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,6,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,7,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,8,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,9,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,10,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,11,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,12,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,13,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,14,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,15,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,16,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,17,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado
-lineas,3752,03,RECUPERABLE,id_variante y talla fue rechazado en stock.csv,Registro rechazado
-lineas,1101,10,ADVERTENCIA,"Varias líneas con el mismo pedido, variante y talla",Se conservan
-lineas,6261,10,ADVERTENCIA,"Varias líneas con el mismo pedido, variante y talla",Se conservan
-pedidos,6,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,162,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,193,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,227,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,253,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,286,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,320,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,347,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
-pedidos,1160,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas
+tabla,registro,regla,gravedad,descripcion,tratamiento,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedidos,2,CONV,ADVERTENCIA,fecha_pedido: no se pudo convertir '2026-13-45',Valor tratado como nulo,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,701,CONV,ADVERTENCIA,precio_unitario: no se pudo convertir 'abc',Valor tratado como nulo,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+stock,1-35.5,11,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+stock,1-35.5,11,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+stock,1-35.0,11,RECUPERABLE,Stock nulo o negativo,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,2,04,RECUPERABLE,"Fecha de pedido nula, imposible o futura",Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,3,07,RECUPERABLE,"Estado fuera de ['BORRADOR', 'CONFIRMADO', 'CANCELADO']",Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,4,07,RECUPERABLE,"Tipo fuera de ['ESTANDAR', 'CUSTOM']",Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,5,09,RECUPERABLE,Pedido sin cliente,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,1,03,BLOQUEANTE,id_cliente no existe en clientes.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,13,12,ADVERTENCIA,Fecha de cancelación en un pedido no cancelado,Se conserva,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,1001,02,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,1001,02,RECUPERABLE,Clave repetida con datos distintos,Se rechazan todas las copias,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,601,05,RECUPERABLE,"Cantidad nula, cero o negativa",Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,701,06,RECUPERABLE,"Precio unitario nulo, no numérico o negativo",Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,801,08,RECUPERABLE,Talla fuera de 30-48,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,901,09,RECUPERABLE,Línea sin pedido o sin modelo,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,501,03,BLOQUEANTE,id_pedido no existe en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,1,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,2,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,3,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,4,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,5,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,6,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,7,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,8,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,9,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,10,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,11,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,12,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,13,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,14,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,15,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,16,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,17,03,RECUPERABLE,id_pedido fue rechazado en pedidos.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,3752,03,RECUPERABLE,id_variante y talla fue rechazado en stock.csv,Registro rechazado,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,1101,10,ADVERTENCIA,"Varias líneas con el mismo pedido, variante y talla",Se conservan,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+lineas,6261,10,ADVERTENCIA,"Varias líneas con el mismo pedido, variante y talla",Se conservan,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,6,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,162,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,193,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,227,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,253,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,286,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,320,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,347,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos
+pedidos,1160,12,ADVERTENCIA,El total no coincide con la suma de sus líneas,Se usa la suma de las líneas,SINTETICO,-,2026-11-12 09:58:51,sin filtros,8716,validar_datos

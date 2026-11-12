@@ -1,6 +1,6 @@
-cluster,Campeones,En riesgo,Leales,Nuevos,Perdidos,Potenciales
-Compradores de personalización,0,2,0,5,7,6
-Compradores frecuentes de estándar,4,0,1,0,0,0
-Grandes cuentas recurrentes,9,0,5,0,0,0
-Inactivos o en riesgo,0,3,2,0,3,0
-Ocasionales de bajo gasto,0,2,2,2,1,5
+cluster,Campeones,En riesgo,Leales,Nuevos,Perdidos,Potenciales,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+Compradores de personalización,0,2,0,5,7,6,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+Compradores frecuentes de estándar,4,0,1,0,0,0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+Grandes cuentas recurrentes,9,0,5,0,0,0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+Inactivos o en riesgo,0,3,2,0,3,0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+Ocasionales de bajo gasto,0,2,2,2,1,5,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes

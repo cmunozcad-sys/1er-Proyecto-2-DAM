@@ -1,6 +1,6 @@
-tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,incidencias,bloqueantes
-clientes,6,6,0,100.0,0,0
-modelos,40,40,0,100.0,0,0
-pedidos,12,12,0,100.0,0,0
-lineas,41,41,0,100.0,0,0
-stock,358,358,0,100.0,0,0
+tabla,filas_entrada,filas_validas,filas_rechazadas,porcentaje_calidad,incidencias,bloqueantes,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+clientes,6,6,0,100.0,0,0,REAL,-,2026-11-12 09:58:14,sin filtros,457,validar_datos
+modelos,40,40,0,100.0,0,0,REAL,-,2026-11-12 09:58:14,sin filtros,457,validar_datos
+pedidos,12,12,0,100.0,0,0,REAL,-,2026-11-12 09:58:14,sin filtros,457,validar_datos
+lineas,41,41,0,100.0,0,0,REAL,-,2026-11-12 09:58:14,sin filtros,457,validar_datos
+stock,358,358,0,100.0,0,0,REAL,-,2026-11-12 09:58:14,sin filtros,457,validar_datos

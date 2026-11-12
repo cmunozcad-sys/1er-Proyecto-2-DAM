@@ -27,10 +27,13 @@ def dividir(numerador, denominador):
 
 
 def con_metadatos(df, nombre, datos, filtros, filas_origen, funcion):
+    fecha_corte = datos.get("fecha_corte")
+    ejecucion = datos.get("ejecucion") or pd.Timestamp.now()
     df.attrs = {
         "nombre": nombre,
         "origen": datos["origen"],
-        "fecha_corte": str(datos["fecha_corte"].date()),
+        "fecha_corte": str(fecha_corte.date()) if fecha_corte is not None else "-",
+        "ejecucion": f"{ejecucion:%Y-%m-%d %H:%M:%S}",
         "filtros": {k: v for k, v in filtros.items() if v not in (None, [])},
         "filas_origen": int(filas_origen),
         "funcion": funcion,
@@ -39,11 +42,12 @@ def con_metadatos(df, nombre, datos, filtros, filas_origen, funcion):
     return df
 
 
-def preparar_datos(validas, lineas_enriquecidas, pedidos_unicos, origen):
+def preparar_datos(validas, lineas_enriquecidas, pedidos_unicos, origen, ejecucion=None):
     fecha_corte = pedidos_unicos["fecha_pedido"].max().normalize() + pd.Timedelta(days=1)
     return {
         "origen": origen,
         "fecha_corte": fecha_corte,
+        "ejecucion": pd.Timestamp(ejecucion) if ejecucion is not None else pd.Timestamp.now(),
         "lineas": anadir_calendario(lineas_enriquecidas, fecha_corte),
         "pedidos": anadir_variables_pedido(anadir_calendario(pedidos_unicos, fecha_corte)),
         "clientes": validas["clientes"],
@@ -359,6 +363,12 @@ def clientes_rfm(datos):
 def cohortes(datos):
     pedidos, _ = ventas(datos)
     meses = pedidos.assign(mes=pedidos["fecha_pedido"].dt.to_period("M"))[["id_cliente", "mes"]].drop_duplicates()
+    clientes, num_meses = meses["id_cliente"].nunique(), meses["mes"].nunique()
+    if clientes < config.MINIMO_CLIENTES_COHORTES or num_meses < config.MESES_MINIMOS_COHORTES:
+        df = con_metadatos(pd.DataFrame(), "07_cohortes", datos, datos.get("filtros", {}), len(pedidos), "cohortes")
+        df.attrs["estado"] = (f"NO CALCULABLE: hay {clientes} clientes con compras en {num_meses} meses y hacen falta al menos " f"{config.MINIMO_CLIENTES_COHORTES} clientes y {config.MESES_MINIMOS_COHORTES} meses. Usar el histórico sintético para demostrar el método.")
+        return df
+
     meses["cohorte"] = meses.groupby("id_cliente")["mes"].transform("min")
     meses["meses_desde_alta"] = (meses["mes"] - meses["cohorte"]).apply(lambda d: d.n)
 
@@ -370,7 +380,9 @@ def cohortes(datos):
     df.insert(0, "clientes", tamano)
     df = df.reset_index()
     df["cohorte"] = df["cohorte"].astype(str)
-    return con_metadatos(df, "07_cohortes", datos, datos.get("filtros", {}), len(pedidos), "cohortes")
+    df = con_metadatos(df, "07_cohortes", datos, datos.get("filtros", {}), len(pedidos), "cohortes")
+    df.attrs["estado"] = f"CALCULADO con {clientes} clientes en {num_meses} meses."
+    return df
 
 
 ORDEN_ALERTAS = ["BAJO MÍNIMO", "RIESGO DE ROTURA", "DESCATALOGADO CON STOCK", "SIN DEMANDA", "DESCATALOGADO", "OK"]
@@ -412,7 +424,7 @@ def stock_cobertura(datos):
     df["alerta"] = pd.Categorical(df["alerta"], categories=ORDEN_ALERTAS, ordered=True)
     df = df[columnas].sort_values(["alerta", "cobertura_dias"]).reset_index(drop=True)
     df["alerta"] = df["alerta"].astype(str)
-    return con_metadatos(df, "08_stock_cobertura", datos, {}, len(datos["stock"]), "stock_cobertura")
+    return con_metadatos(df, "08_stock_cobertura", datos, datos.get("filtros", {}), len(datos["stock"]), "stock_cobertura")
 
 
 def calidad_datos(resumen, incidencias):
@@ -684,6 +696,8 @@ def clustering_clientes(datos):
     rfm = clientes_rfm(datos)
     compradores = rfm[rfm["frequency"] > 0].dropna(subset=VARIABLES_CLUSTER).reset_index(drop=True)
     vacio = {"evaluacion": pd.DataFrame(), "perfil": pd.DataFrame(), "asignacion": pd.DataFrame(), "comparacion_rfm": pd.DataFrame()}
+    for nombre, df in vacio.items():
+        con_metadatos(df, f"clusters_{nombre}", datos, datos.get("filtros", {}), len(compradores), "clustering_clientes")
 
     if len(compradores) < config.MINIMO_CLIENTES_CLUSTER:
         estado = (f"NO CALCULABLE: hay {len(compradores)} clientes con compras y hacen falta al menos " f"{config.MINIMO_CLIENTES_CLUSTER}. Usar el histórico sintético para demostrar el método.")

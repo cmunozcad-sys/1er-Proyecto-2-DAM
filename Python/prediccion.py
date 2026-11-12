@@ -53,6 +53,13 @@ def errores(real, estimado):
     return mean_absolute_error(real, estimado), float(np.sqrt(mean_squared_error(real, estimado)))
 
 
+def con_metadatos(resultado, datos, filas_origen):
+    for nombre in ("metricas", "por_modelo", "serie", "detalle"):
+        analiticas.con_metadatos(resultado[nombre], f"prediccion_{nombre}", datos, datos.get("filtros", {}),
+                                 filas_origen, "evaluar_prediccion")
+    return resultado
+
+
 def evaluar_prediccion(datos):
     df = construir_dataset(datos)
     meses = df["mes"].nunique()
@@ -62,7 +69,7 @@ def evaluar_prediccion(datos):
     if meses < config.MESES_MINIMOS_PREDICCION:
         estado = (f"NO CALCULABLE: hay {meses} meses completos con demanda previa y hacen falta al menos "
                   f"{config.MESES_MINIMOS_PREDICCION}. Usar el histórico sintético para demostrar el método.")
-        return {**vacio, "estado": estado}
+        return con_metadatos({**vacio, "estado": estado}, datos, len(df))
 
     entrenamiento, prueba = separar_por_fecha(df)
     regresor = crear_regresor().fit(entrenamiento[PREDICTORES_NUMERICOS + PREDICTOR_MODELO],
@@ -111,7 +118,8 @@ def evaluar_prediccion(datos):
 
     detalle = prueba[["mes", "id_modelo", "modelo", OBJETIVO, "baseline", "prediccion"]].rename(
         columns={OBJETIVO: "real"})
-    return {"estado": estado, "metricas": metricas, "por_modelo": por_modelo, "serie": serie, "detalle": detalle}
+    return con_metadatos({"estado": estado, "metricas": metricas, "por_modelo": por_modelo, "serie": serie,
+                          "detalle": detalle}, datos, len(df))
 
 
 def figura_real_vs_prediccion(resultado, datos):

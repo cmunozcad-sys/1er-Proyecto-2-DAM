@@ -9,7 +9,7 @@ import config
 import pipeline
 import prediccion
 import visualizaciones
-from utils.trazas import crear_logger, guardar_csv
+from utils.trazas import con_linaje, crear_logger, guardar_csv
 
 MODOS = {
     "real": (config.ENTRADA_REAL, "REAL", "real"),
@@ -38,8 +38,12 @@ def calcular_resultados(datos, carpeta_entrada):
         "hipotesis": analiticas.hipotesis(datos),
         "limitaciones": analiticas.limitaciones(datos),
         "demanda_modelo_mes": analiticas.demanda_modelo_mes(datos),
-        "catalogo_variables": analiticas.catalogo_variables(),
+        "catalogo_variables": analiticas.con_metadatos(analiticas.catalogo_variables(), "catalogo_variables", datos, {}, 0, "catalogo_variables"),
     }
+
+
+def tabla_estado(estado, nombre, datos, funcion):
+    return analiticas.con_metadatos(pd.DataFrame({"estado": [estado]}), nombre, datos, datos.get("filtros", {}), 1, funcion)
 
 
 def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
@@ -52,11 +56,18 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
     lineas, pedidos = pipeline.integrar_datos(validas, registro)
     incidencias = registro.a_dataframe()
 
-    guardar_csv(manifiesto, carpeta_csv / "manifiesto.csv")
-    guardar_csv(resumen, carpeta_csv / "resumen_calidad.csv")
-    guardar_csv(incidencias, carpeta_csv / "incidencias.csv")
-    guardar_csv(analiticas.calidad_datos(resumen, incidencias), carpeta_csv / "09_calidad_datos.csv")
-    guardar_csv(analiticas.incidencias_por_regla(incidencias), carpeta_csv / "09_incidencias_por_regla.csv")
+    contexto = {"origen": origen, "fecha_corte": None, "ejecucion": pd.Timestamp.now()}
+    filas_entrada = int(resumen["filas_entrada"].sum())
+    calidad = {
+        "manifiesto": (manifiesto, "cargar_datos"),
+        "resumen_calidad": (resumen, "validar_datos"),
+        "incidencias": (incidencias, "validar_datos"),
+        "09_calidad_datos": (analiticas.calidad_datos(resumen, incidencias), "calidad_datos"),
+        "09_incidencias_por_regla": (analiticas.incidencias_por_regla(incidencias), "incidencias_por_regla"),
+    }
+    for nombre, (df, funcion) in calidad.items():
+        analiticas.con_metadatos(df, nombre, contexto, {}, filas_entrada, funcion)
+        guardar_csv(con_linaje(df), carpeta_csv / f"{nombre}.csv")
 
     print(resumen.to_string(index=False))
     print(f"\nIncidencias: {len(incidencias)}")
@@ -67,21 +78,22 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True):
         print(f"Revisa {carpeta_csv / 'incidencias.csv'}")
         return False
 
-    datos = analiticas.aplicar_filtros(analiticas.preparar_datos(validas, lineas, pedidos, origen))
+    datos = analiticas.aplicar_filtros(analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"]))
     resultados = calcular_resultados(datos, carpeta_entrada)
+    resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
 
     clusters = analiticas.clustering_clientes(datos)
     for nombre in ("evaluacion", "perfil", "asignacion", "comparacion_rfm"):
         resultados[f"clusters_{nombre}"] = clusters[nombre]
-    resultados["clusters_estado"] = pd.DataFrame({"estado": [clusters["estado"]]})
+    resultados["clusters_estado"] = tabla_estado(clusters["estado"], "clusters_estado", datos, "clustering_clientes")
     predicho = prediccion.evaluar_prediccion(datos)
     for nombre in ("metricas", "por_modelo", "serie", "detalle"):
         resultados[f"prediccion_{nombre}"] = predicho[nombre]
-    resultados["prediccion_estado"] = pd.DataFrame({"estado": [predicho["estado"]]})
+    resultados["prediccion_estado"] = tabla_estado(predicho["estado"], "prediccion_estado", datos, "evaluar_prediccion")
 
     indice = []
     for nombre, df in resultados.items():
-        guardar_csv(df, carpeta_csv / f"{nombre}.csv")
+        guardar_csv(con_linaje(df), carpeta_csv / f"{nombre}.csv")
         indice.append({"fichero": f"{nombre}.csv", "filas": len(df), "origen": origen, "fecha_corte": str(datos["fecha_corte"].date()), "funcion": df.attrs.get("funcion", nombre)})
     guardar_csv(pd.DataFrame(indice), carpeta_csv / "indice_resultados.csv")
 

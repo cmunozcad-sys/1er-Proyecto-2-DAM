@@ -1,3 +1,3 @@
-nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision
-pedido,1,importe,2799.6,-450.02,1869.86,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1,pares,40.0,-2.0,22.0,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
+nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedido,1,importe,2799.6,-450.02,1869.86,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,anomalias
+pedido,1,pares,40.0,-2.0,22.0,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,anomalias

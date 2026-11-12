@@ -1,22 +1,22 @@
-mes,real,baseline,prediccion,conjunto
-2025-02,641,,,entrenamiento
-2025-03,739,,,entrenamiento
-2025-04,631,,,entrenamiento
-2025-05,767,,,entrenamiento
-2025-06,722,,,entrenamiento
-2025-07,804,,,entrenamiento
-2025-08,532,,,entrenamiento
-2025-09,806,,,entrenamiento
-2025-10,950,,,entrenamiento
-2025-11,1755,,,entrenamiento
-2025-12,822,,,entrenamiento
-2026-01,1086,,,entrenamiento
-2026-02,1061,,,entrenamiento
-2026-03,978,,,entrenamiento
-2026-04,877,,,entrenamiento
-2026-05,1071,,,entrenamiento
-2026-06,748,,,entrenamiento
-2026-07,719,,,entrenamiento
-2026-08,1063,719.0,831.6999999999999,prueba
-2026-09,1338,1063.0,930.6999999999999,prueba
-2026-10,1093,1338.0,1026.9,prueba
+mes,real,baseline,prediccion,conjunto,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+2025-02,641,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-03,739,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-04,631,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-05,767,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-06,722,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-07,804,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-08,532,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-09,806,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-10,950,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-11,1755,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2025-12,822,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-01,1086,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-02,1061,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-03,978,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-04,877,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-05,1071,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-06,748,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-07,719,,,entrenamiento,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-08,1063,719.0,831.6999999999999,prueba,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-09,1338,1063.0,930.6999999999999,prueba,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+2026-10,1093,1338.0,1026.9,prueba,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion

@@ -1,7 +1,7 @@
-id_cliente,tipo_cliente,ultima_compra,frequency,monetary,recency_dias,r,f,m,puntuacion_rfm,segmento,frecuencia_cliente,porcentaje_custom,intervalo_medio_dias
-1,CLUB,2026-10-01 10:00:00,1,2799.6,33.0,4.0,3.0,5.0,435,Potenciales,1.0,100.0,
-4,CLUB,2026-09-25 09:15:00,1,999.9,39.0,3.0,3.0,4.0,334,Potenciales,1.0,100.0,
-5,EMPRESA,2026-09-18 11:00:00,1,729.87,46.0,2.0,3.0,3.0,233,En riesgo,1.0,0.0,
-2,CLUB,2026-10-08 10:30:00,1,419.93,26.0,5.0,3.0,2.0,532,Potenciales,1.0,0.0,
-6,PARTICULAR,2026-09-05 18:20:00,1,119.99,59.0,1.0,3.0,1.0,131,En riesgo,1.0,0.0,
-3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,
+id_cliente,tipo_cliente,ultima_compra,frequency,monetary,recency_dias,r,f,m,puntuacion_rfm,segmento,frecuencia_cliente,porcentaje_custom,intervalo_medio_dias,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+1,CLUB,2026-10-01 10:00:00,1,2799.6,33.0,4.0,3.0,5.0,435,Potenciales,1.0,100.0,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm
+4,CLUB,2026-09-25 09:15:00,1,999.9,39.0,3.0,3.0,4.0,334,Potenciales,1.0,100.0,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm
+5,EMPRESA,2026-09-18 11:00:00,1,729.87,46.0,2.0,3.0,3.0,233,En riesgo,1.0,0.0,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm
+2,CLUB,2026-10-08 10:30:00,1,419.93,26.0,5.0,3.0,2.0,532,Potenciales,1.0,0.0,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm
+6,PARTICULAR,2026-09-05 18:20:00,1,119.99,59.0,1.0,3.0,1.0,131,En riesgo,1.0,0.0,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm
+3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,5,clientes_rfm

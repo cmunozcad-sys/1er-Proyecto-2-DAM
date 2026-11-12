@@ -1,5 +1,5 @@
-no_puede_afirmarse
-Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.
-No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.
-El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.
-"Los datos son SINTÉTICOS: sirven para probar los métodos, no son evidencia de clientes reales."
+no_puede_afirmarse,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
+No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
+El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones
+"Los datos son SINTÉTICOS: sirven para probar los métodos, no son evidencia de clientes reales.",SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,1576,limitaciones

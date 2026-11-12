@@ -1,5 +1,5 @@
-k,silhouette,inercia,elegido
-2,0.3167,162.41,False
-3,0.3336,113.98,False
-4,0.3534,83.57,False
-5,0.3597,68.21,True
+k,silhouette,inercia,elegido,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+2,0.3167,162.41,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+3,0.3336,113.98,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+4,0.3534,83.57,False,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes
+5,0.3597,68.21,True,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,59,clustering_clientes

@@ -3,6 +3,7 @@ import streamlit as st
 
 import analiticas
 import config
+import refresco
 from dashboard import interfaz
 
 ETIQUETAS_KPI = {
@@ -13,6 +14,28 @@ ETIQUETAS_KPI = {
 }
 FORMATOS_KPI = {"ingresos_validos": interfaz.euros, "ticket_medio": interfaz.euros}
 ESTADO_CALIDAD = {"CORRECTO": "correcto", "CON RECHAZOS": "alerta", "BLOQUEADO": "error"}
+AVISO_REFRESCO = {refresco.CORRECTO: "info", refresco.SIN_CAMBIOS: "info", refresco.DATOS_INVALIDOS: "error",
+                  refresco.ERROR_CARGA: "error"}
+
+
+def barra_refresco(ultimo, valido):
+    actualizado = f"{valido['comprobado']:%d/%m/%Y %H:%M:%S}" if valido else "ninguna"
+    filas = interfaz.numero(valido["filas_validas"]) if valido else "0"
+    interfaz.aviso(f"Refresco cada {config.INTERVALO_REFRESCO} · estado: {ultimo['estado']}",
+                   f"Última comprobación {ultimo['comprobado']:%d/%m/%Y %H:%M:%S} · Última actualización válida "
+                   f"{actualizado} · {filas} filas válidas · {ultimo['procedencia']} · procesado en "
+                   f"{interfaz.numero(ultimo['duracion'], 2)} s", AVISO_REFRESCO[ultimo["estado"]])
+
+
+def ciclo_fallido(ultimo, valido):
+    interfaz.aviso("No se publican resultados de este ciclo",
+                   f"{ultimo['estado'].capitalize()}: {ultimo['explicacion']}. Revisa la tabla de incidencias.",
+                   "error")
+    st.dataframe(ultimo["incidencias"], width="stretch", hide_index=True)
+    if valido:
+        interfaz.aviso(f"DESACTUALIZADO · datos de {valido['comprobado']:%d/%m/%Y %H:%M:%S}",
+                       "Se sigue mostrando el último resultado válido. El panel se recupera solo en cuanto los CSV "
+                       "vuelvan a estar bien.", "error")
 
 
 def ver_datos(df, clave):
@@ -179,10 +202,14 @@ def clientes(datos, filtrados):
     interfaz.grafico(figura, "Clientes por pedidos y gasto")
 
     interfaz.seccion("Cohortes de compra", "% de clientes de cada mes de primera compra que vuelve a comprar.")
-    tabla = analiticas.cohortes(filtrados).set_index("cohorte")
-    interfaz.mapa_calor(tabla.drop(columns="clientes"), "Retención por cohorte", "Meses desde la primera compra",
-                        "% que compra")
-    ver_datos(tabla.reset_index(), "cohortes")
+    tabla = analiticas.cohortes(filtrados)
+    if tabla.empty:
+        interfaz.aviso("Cohortes no calculables", tabla.attrs["estado"], "atencion")
+    else:
+        tabla = tabla.set_index("cohorte")
+        interfaz.mapa_calor(tabla.drop(columns="clientes"), "Retención por cohorte", "Meses desde la primera compra",
+                            "% que compra")
+        ver_datos(tabla.reset_index(), "cohortes")
 
     interfaz.seccion("Agrupación automática (KMeans)", "Se calcula sobre todos los datos del origen, sin filtros.")
     agrupacion = analiticas.clustering_clientes(datos)
@@ -289,7 +316,7 @@ def calidad(carga, datos, carpeta):
                            "exportaron a la vez.", tipo)
         st.dataframe(conciliacion, width="stretch", hide_index=True)
 
-    interfaz.seccion("Ficheros leídos", f"Última ejecución válida: {carga['cargado']:%d/%m/%Y %H:%M:%S}.")
+    interfaz.seccion("Ficheros leídos", f"Última ejecución válida: {carga['comprobado']:%d/%m/%Y %H:%M:%S}.")
     st.dataframe(carga["manifiesto"], width="stretch", hide_index=True)
 
     interfaz.seccion("Lo que estos datos no permiten afirmar")

@@ -1,3 +1,3 @@
-modelo,descripcion,mae,rmse,mejora_mae_pct
-baseline,repite las unidades del mes anterior,64.38,92.64,0.0
-RandomForestRegressor,"300 árboles, profundidad máxima 6",52.11,72.22,19.06
+modelo,descripcion,mae,rmse,mejora_mae_pct,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+baseline,repite las unidades del mes anterior,64.38,92.64,0.0,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion
+RandomForestRegressor,"300 árboles, profundidad máxima 6",52.11,72.22,19.06,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,315,evaluar_prediccion

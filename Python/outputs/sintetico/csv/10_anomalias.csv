@@ -1,176 +1,176 @@
-nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision
-pedido,127,importe,10695.96,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,134,importe,6255.0,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca
-pedido,295,importe,7739.2,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,353,importe,7581.5,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,435,importe,18380.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,788,importe,6633.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,836,importe,15320.34,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,933,importe,6633.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1069,importe,14782.68,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1168,importe,6857.46,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca
-pedido,1199,importe,6495.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1206,importe,7111.44,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1211,importe,7241.49,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1295,importe,7099.5,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1510,importe,16834.62,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1573,importe,6335.52,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1601,importe,7241.49,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca
-pedido,1607,importe,8235.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1628,importe,6495.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1641,importe,7238.43,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1741,importe,12510.64,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1809,importe,7951.44,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1839,importe,6476.49,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,127,pares,146.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,435,pares,133.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,693,pares,61.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,836,pares,147.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1069,pares,132.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1510,pares,138.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-pedido,1741,pares,136.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca
-linea,149,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,176,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,216,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,234,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,198,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,220,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,259,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,262,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2871,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2885,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3038,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,177,precio_unitario (Halcón SG),67.15,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,215,precio_unitario (Halcón SG),67.15,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,454,precio_unitario (Halcón SG),73.78,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,511,precio_unitario (Halcón SG),73.78,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2843,precio_unitario (Halcón SG),69.17,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2996,precio_unitario (Halcón SG),69.17,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,153,precio_unitario (Coloso),91.9,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,256,precio_unitario (Coloso),91.9,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,479,precio_unitario (Coloso),100.96,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,489,precio_unitario (Coloso),100.96,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2825,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2845,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2883,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2888,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2944,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,187,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,219,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,242,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,272,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,278,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,281,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,282,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,492,precio_unitario (Rayo X),73.78,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,513,precio_unitario (Rayo X),73.78,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2878,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2879,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2884,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2893,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2895,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2935,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3014,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3015,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3365,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3424,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3463,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3490,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,178,precio_unitario (Ciclón Mid),53.01,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,263,precio_unitario (Ciclón Mid),53.01,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2941,precio_unitario (Ciclón Mid),54.6,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3395,precio_unitario (Ciclón Mid),59.99,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3427,precio_unitario (Ciclón Mid),59.99,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,134,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,154,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,210,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,467,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,482,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,506,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2877,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2903,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3031,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3366,precio_unitario (Vértigo),71.99,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3453,precio_unitario (Vértigo),71.99,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,136,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,199,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,203,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,209,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,213,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,241,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,481,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,483,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,494,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,514,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2824,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2846,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2876,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2945,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2998,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3361,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3362,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3396,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3412,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,151,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,240,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,258,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,268,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2870,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2889,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2904,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2936,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2942,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2943,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3008,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3016,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,280,precio_unitario (Titán),70.69,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2818,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2839,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2882,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2892,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2994,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3009,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,135,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,150,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,239,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,265,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,269,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2840,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2844,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2869,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2891,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2934,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2953,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,2967,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3007,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3755,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3889,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3949,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,3952,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4215,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4255,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4262,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4328,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4330,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4346,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4387,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4416,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4559,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4628,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,4641,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5071,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5161,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5279,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5297,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5366,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5367,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5440,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5536,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5537,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5541,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5593,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5686,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5746,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,5788,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,6118,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
-linea,6135,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca
+nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+pedido,127,importe,10695.96,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,134,importe,6255.0,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,295,importe,7739.2,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,353,importe,7581.5,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,435,importe,18380.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,788,importe,6633.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,836,importe,15320.34,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,933,importe,6633.6,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1069,importe,14782.68,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1168,importe,6857.46,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1199,importe,6495.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1206,importe,7111.44,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1211,importe,7241.49,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1295,importe,7099.5,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1510,importe,16834.62,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1573,importe,6335.52,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1601,importe,7241.49,-3387.67,6099.12,Revisar con negocio,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1607,importe,8235.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1628,importe,6495.42,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1641,importe,7238.43,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1741,importe,12510.64,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1809,importe,7951.44,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1839,importe,6476.49,-3387.67,6099.12,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,127,pares,146.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,435,pares,133.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,693,pares,61.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,836,pares,147.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1069,pares,132.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1510,pares,138.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+pedido,1741,pares,136.0,-32.5,59.5,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,149,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,176,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,216,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,234,precio_unitario (Cometa),49.48,49.95,97.95,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,198,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,220,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,259,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,262,precio_unitario (Furia FG),77.76,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2871,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2885,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3038,precio_unitario (Furia FG),80.09,83.99,144.79,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,177,precio_unitario (Halcón SG),67.15,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,215,precio_unitario (Halcón SG),67.15,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,454,precio_unitario (Halcón SG),73.78,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,511,precio_unitario (Halcón SG),73.78,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2843,precio_unitario (Halcón SG),69.17,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2996,precio_unitario (Halcón SG),69.17,74.22,122.22,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,153,precio_unitario (Coloso),91.9,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,256,precio_unitario (Coloso),91.9,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,479,precio_unitario (Coloso),100.96,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,489,precio_unitario (Coloso),100.96,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2825,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2845,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2883,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2888,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2944,precio_unitario (Coloso),94.65,102.51,165.68,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,187,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,219,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,242,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,272,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,278,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,281,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,282,precio_unitario (Rayo X),67.15,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,492,precio_unitario (Rayo X),73.78,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,513,precio_unitario (Rayo X),73.78,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2878,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2879,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2884,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2893,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2895,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2935,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3014,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3015,precio_unitario (Rayo X),69.17,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3365,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3424,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3463,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3490,precio_unitario (Rayo X),75.99,76.99,124.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,178,precio_unitario (Ciclón Mid),53.01,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,263,precio_unitario (Ciclón Mid),53.01,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2941,precio_unitario (Ciclón Mid),54.6,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3395,precio_unitario (Ciclón Mid),59.99,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3427,precio_unitario (Ciclón Mid),59.99,60.26,99.54,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,134,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,154,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,210,precio_unitario (Vértigo),63.62,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,467,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,482,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,506,precio_unitario (Vértigo),69.9,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2877,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2903,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3031,precio_unitario (Vértigo),65.53,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3366,precio_unitario (Vértigo),71.99,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3453,precio_unitario (Vértigo),71.99,75.92,113.44,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,136,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,199,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,203,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,209,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,213,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,241,precio_unitario (Relámpago),84.83,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,481,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,483,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,494,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,514,precio_unitario (Relámpago),93.2,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2824,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2846,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2876,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2945,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2998,precio_unitario (Relámpago),87.37,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3361,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3362,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3396,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3412,precio_unitario (Relámpago),95.99,101.99,149.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,151,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,240,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,258,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,268,precio_unitario (Lince),60.08,60.79,118.71,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2870,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2889,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2904,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2936,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2942,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2943,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3008,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3016,precio_unitario (Nova Run),72.81,81.99,129.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,280,precio_unitario (Titán),70.69,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2818,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2839,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2882,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2892,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2994,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3009,precio_unitario (Titán),72.81,79.08,127.08,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,135,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,150,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,239,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,265,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,269,precio_unitario (Granito),63.62,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2840,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2844,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2869,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2891,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2934,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2953,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,2967,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3007,precio_unitario (Granito),65.53,69.37,117.37,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3755,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3889,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3949,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,3952,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4215,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4255,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4262,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4328,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4330,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4346,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4387,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4416,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4559,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4628,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,4641,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5071,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5161,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5279,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5297,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5366,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5367,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5440,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5536,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5537,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5541,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5593,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5686,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5746,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,5788,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,6118,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
+linea,6135,precio_unitario (Ventisca),114.99,126.99,126.99,Precio distinto al habitual del modelo: posible promoción,Se conserva y se marca,SINTETICO,2026-11-01,2026-11-12 09:58:26,sin filtros,5127,anomalias
