@@ -1,6 +1,7 @@
 import argparse
 import sys
 import time
+from datetime import date
 
 import pandas as pd
 
@@ -81,6 +82,11 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
 
     completos = analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"])
     datos = analiticas.aplicar_filtros(completos, filtros)
+    if datos["pedidos"].empty:
+        logger.warning(f"Ejecución sin resultados | origen={origen} | ningún pedido cumple los filtros")
+        print("\nNingún pedido cumple los filtros elegidos: no se publican KPIs ni gráficos. Prueba a quitar alguno.")
+        return False
+
     resultados = calcular_resultados(datos, completos, carpeta_entrada)
     resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
 
@@ -113,20 +119,28 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
     return True
 
 
-def leer_argumentos():
+def fecha(texto):
+    try:
+        date.fromisoformat(texto)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"fecha no válida: '{texto}' (formato AAAA-MM-DD)")
+    return texto
+
+
+def leer_argumentos(argv=None):
     argumentos = argparse.ArgumentParser(description="Análisis de datos de Sneaker Factory")
     argumentos.add_argument("--modo", choices=MODOS, default="real",  help="real: CSV de Acceso a Datos · sintetico: histórico simulado · " "errores: copia sintética con errores introducidos")
     argumentos.add_argument("--sin-figuras", action="store_true", help="no genera los PNG")
     argumentos.add_argument("--entrada", type=Path, help="carpeta con los CSV; por defecto la del modo")
     argumentos.add_argument("--salida", type=Path, help="carpeta de resultados; por defecto outputs/<modo>")
-    argumentos.add_argument("--desde", help="fecha inicial AAAA-MM-DD")
-    argumentos.add_argument("--hasta", help="fecha final AAAA-MM-DD")
-    argumentos.add_argument("--modelo", type=int, nargs="+", default=[], help="id_modelo")
+    argumentos.add_argument("--desde", type=fecha, help="fecha inicial AAAA-MM-DD")
+    argumentos.add_argument("--hasta", type=fecha, help="fecha final AAAA-MM-DD")
+    argumentos.add_argument("--modelo", nargs="+", default=[], help="id_modelo")
     argumentos.add_argument("--talla", type=float, nargs="+", default=[])
     argumentos.add_argument("--tipo", choices=config.TIPOS_PEDIDO, nargs="+", default=[])
     argumentos.add_argument("--estado", choices=config.ESTADOS_PEDIDO, nargs="+", default=[])
-    argumentos.add_argument("--cliente", type=int, nargs="+", default=[], help="id_cliente")
-    return argumentos.parse_args()
+    argumentos.add_argument("--cliente", nargs="+", default=[], help="id_cliente")
+    return argumentos.parse_args(argv)
 
 def filtros_de(opciones):
     return {

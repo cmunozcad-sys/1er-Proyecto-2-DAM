@@ -28,3 +28,15 @@
 2026-11-12 10:55:49 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.18s | estado=correcto | anomalia=-
 2026-11-12 10:55:50 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.19s | estado=correcto | anomalia=-
 2026-11-12 10:55:50 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.19s | estado=correcto | anomalia=-
+2026-11-12 11:07:11 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.16s | estado=correcto | anomalia=-
+2026-11-12 11:07:12 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.16s | estado=sin cambios | anomalia=-
+2026-11-12 11:07:12 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.16s | estado=correcto | anomalia=-
+2026-11-12 11:07:12 | WARNING | origen=PRUEBA | filas clientes=0/2 modelos=0/2 pedidos=0/0 lineas=0/3 stock=0/3 | duracion=0.03s | estado=datos inválidos | anomalia=pedidos: Faltan columnas: id_cliente
+2026-11-12 11:07:12 | WARNING | origen=PRUEBA | filas clientes=0/2 modelos=0/2 pedidos=0/0 lineas=0/3 stock=0/3 | duracion=0.03s | estado=datos inválidos | anomalia=pedidos: Faltan columnas: id_cliente
+2026-11-12 11:07:12 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.18s | estado=correcto | anomalia=-
+2026-11-12 11:07:12 | WARNING | origen=PRUEBA | filas clientes=0/2 modelos=0/2 pedidos=0/2 lineas=0/3 stock=0/0 | duracion=0.03s | estado=error de carga | anomalia=No existe stock.csv
+2026-11-12 11:07:12 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.17s | estado=correcto | anomalia=-
+2026-11-12 11:07:12 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=3/3 lineas=5/5 stock=3/3 | duracion=0.16s | estado=correcto | anomalia=-
+2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.17s | estado=correcto | anomalia=-
+2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.16s | estado=correcto | anomalia=-
+2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.15s | estado=correcto | anomalia=-
