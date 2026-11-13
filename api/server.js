@@ -76,13 +76,13 @@ function validarCustom(solicitud, observaciones) {
 
 const consultaLogin = `
     SELECT u.id_usuario, u.username, u.nombre_completo, u.activo, r.nombre AS rol,
-           array_remove(array_agg(p.codigo), NULL) AS permisos
-      FROM usuario u
-      JOIN rol r ON r.id_rol = u.id_rol
-      LEFT JOIN rol_permiso rp ON rp.id_rol = r.id_rol
-      LEFT JOIN permiso p ON p.id_permiso = rp.id_permiso
-     WHERE u.username = $1 AND u.password_hash = crypt($2, u.password_hash)
-     GROUP BY u.id_usuario, r.nombre`;
+        array_remove(array_agg(p.codigo), NULL) AS permisos
+    FROM usuario u
+    JOIN rol r ON r.id_rol = u.id_rol
+    LEFT JOIN rol_permiso rp ON rp.id_rol = r.id_rol
+    LEFT JOIN permiso p ON p.id_permiso = rp.id_permiso
+    WHERE u.username = $1 AND u.password_hash = crypt($2, u.password_hash)
+    GROUP BY u.id_usuario, r.nombre`;
 
 const insertarCliente = `
     INSERT INTO cliente (ref_odoo, nombre, tipo, email, telefono, direccion)
@@ -92,22 +92,22 @@ const insertarCliente = `
 
 const insertarLinea = `
     INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario,
-                              personalizacion, texto_bordado, logo_club)
+                            personalizacion, texto_bordado, logo_club)
     SELECT $1::int, s.id_variante, s.talla, $4::int, m.precio_base + v.precio_extra,
-           $5::varchar, $6::varchar, $7::boolean
-      FROM stock s
-      JOIN variante v ON v.id_variante = s.id_variante
-      JOIN modelo m ON m.id_modelo = v.id_modelo
-     WHERE m.id_modelo = $2 AND s.talla = $3 AND m.activo AND v.activo
-     LIMIT 1`;
+        $5::varchar, $6::varchar, $7::boolean
+    FROM stock s
+    JOIN variante v ON v.id_variante = s.id_variante
+    JOIN modelo m ON m.id_modelo = v.id_modelo
+    WHERE m.id_modelo = $2 AND s.talla = $3 AND m.activo AND v.activo
+    LIMIT 1`;
 
 const sumarStock = `
     UPDATE stock
-       SET cantidad = cantidad + $3, ultima_actualizacion = now()
-     WHERE talla = $2
-       AND id_variante = (SELECT id_variante FROM variante
-                           WHERE id_modelo = $1 AND activo
-                           ORDER BY id_variante LIMIT 1)
+    SET cantidad = cantidad + $3, ultima_actualizacion = now()
+    WHERE talla = $2
+    AND id_variante = (SELECT id_variante FROM variante
+                        WHERE id_modelo = $1 AND activo
+                        ORDER BY id_variante LIMIT 1)
     RETURNING id_variante, cantidad`;
 
 const registrarReposicion = `
@@ -118,16 +118,16 @@ const registrarReposicion = `
 
 const consultaPedidos = `
     SELECT p.id_pedido, p.ref_odoo AS referencia, p.tipo, p.estado,
-           to_char(p.fecha_pedido, 'DD/MM/YYYY HH24:MI') AS fecha,
-           p.total::float AS total, c.nombre AS cliente,
-           string_agg(m.nombre || ' · T' || l.talla::float || ' x' || l.cantidad, ', ' ORDER BY l.id_linea) AS articulos
-      FROM pedido p
-      JOIN cliente c ON c.id_cliente = p.id_cliente
-      LEFT JOIN linea_pedido l ON l.id_pedido = p.id_pedido
-      LEFT JOIN variante v ON v.id_variante = l.id_variante
-      LEFT JOIN modelo m ON m.id_modelo = v.id_modelo
-     GROUP BY p.id_pedido, c.nombre
-     ORDER BY p.fecha_pedido DESC`;
+        to_char(p.fecha_pedido, 'DD/MM/YYYY HH24:MI') AS fecha,
+        p.total::float AS total, c.nombre AS cliente,
+        string_agg(m.nombre || ' · T' || l.talla::float || ' x' || l.cantidad, ', ' ORDER BY l.id_linea) AS articulos
+    FROM pedido p
+    JOIN cliente c ON c.id_cliente = p.id_cliente
+    LEFT JOIN linea_pedido l ON l.id_pedido = p.id_pedido
+    LEFT JOIN variante v ON v.id_variante = l.id_variante
+    LEFT JOIN modelo m ON m.id_modelo = v.id_modelo
+    GROUP BY p.id_pedido, c.nombre
+    ORDER BY p.fecha_pedido DESC`;
 
 app.post("/api/login", async (peticion, respuesta) => {
     const { username, password } = peticion.body || {};
@@ -219,7 +219,7 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
 
         const nuevoPedido = await conexion.query(
             `INSERT INTO pedido (ref_odoo, tipo, fecha_entrega_prevista, observaciones, id_cliente, id_usuario)
-             VALUES ($1, 'CUSTOM', $2, $3, $4, $5) RETURNING id_pedido`,
+            VALUES ($1, 'CUSTOM', $2, $3, $4, $5) RETURNING id_pedido`,
             [referencia, solicitud.fecha || null, observaciones, nuevoCliente.rows[0].id_cliente, peticion.session.usuario.id_usuario]);
         const idPedido = nuevoPedido.rows[0].id_pedido;
 
