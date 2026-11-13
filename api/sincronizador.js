@@ -5,23 +5,23 @@ const MAX_INTENTOS = 5;
 let trabajando = false;
 
 const consultaPendientes = `
-    SELECT p.id_pedido, p.ref_odoo, p.observaciones,
-           c.ref_odoo AS ref_cliente, c.nombre, c.email, c.telefono, c.direccion, c.tipo
-      FROM pedido p
-      JOIN cliente c ON c.id_cliente = p.id_cliente
-     WHERE p.estado = 'CONFIRMADO'
-       AND p.estado_odoo IN ('PENDIENTE', 'ERROR')
-       AND p.intentos_odoo < $1
-     ORDER BY p.id_pedido`;
+    SELECT p.id_pedido, p.ref_odoo, p.estado, p.observaciones,
+        c.ref_odoo AS ref_cliente, c.nombre, c.email, c.telefono, c.direccion, c.tipo
+    FROM pedido p
+    JOIN cliente c ON c.id_cliente = p.id_cliente
+    WHERE p.estado IN ('CONFIRMADO', 'CANCELADO')
+    AND p.estado_odoo IN ('PENDIENTE', 'ERROR')
+    AND p.intentos_odoo < $1
+    ORDER BY p.id_pedido`;
 
 const consultaLineas = `
     SELECT l.talla::float AS talla, l.cantidad, l.precio_unitario::float AS precio,
-           l.personalizacion, l.texto_bordado, m.ref_odoo AS ref_modelo, m.nombre AS modelo
-      FROM linea_pedido l
-      JOIN variante v ON v.id_variante = l.id_variante
-      JOIN modelo m ON m.id_modelo = v.id_modelo
-     WHERE l.id_pedido = $1
-     ORDER BY l.id_linea`;
+        l.personalizacion, l.texto_bordado, m.ref_odoo AS ref_modelo, m.nombre AS modelo
+    FROM linea_pedido l
+    JOIN variante v ON v.id_variante = l.id_variante
+    JOIN modelo m ON m.id_modelo = v.id_modelo
+    WHERE l.id_pedido = $1
+    ORDER BY l.id_linea`;
 
 async function buscarOCrearCliente(pedido) {
     let idCliente = await odoo.buscarUno("res.partner", [["ref", "=", pedido.ref_cliente]]);
@@ -72,13 +72,7 @@ function descripcionLinea(linea) {
     return partes.join(" | ");
 }
 
-async function enviarPedido(pedido) {
-    const existente = await odoo.buscarUno("sale.order", [["client_order_ref", "=", pedido.ref_odoo]]);
-
-    if (existente) {
-        return existente;
-    }
-
+async function crearPedido(pedido) {
     const idCliente = await buscarOCrearCliente(pedido);
     const lineas = (await pool.query(consultaLineas, [pedido.id_pedido])).rows;
     const lineasOdoo = [];
@@ -99,6 +93,30 @@ async function enviarPedido(pedido) {
         note: pedido.observaciones || "",
         order_line: lineasOdoo
     }]);
+}
+
+async function enviarPedido(pedido) {
+    const referencia = ["client_order_ref", "=", pedido.ref_odoo];
+    let idOdoo = await odoo.buscarUno("sale.order", [referencia]);
+
+    if (!idOdoo) {
+        idOdoo = await crearPedido(pedido);
+    }
+
+    if (pedido.estado === "CONFIRMADO") {
+        const sinConfirmar = await odoo.buscarUno("sale.order", [referencia, ["state", "in", ["draft", "sent"]]]);
+
+        if (sinConfirmar) {
+            await odoo.ejecutar("sale.order", "action_confirm", [[idOdoo]]);
+        }
+    } else {
+        const sinCancelar = await odoo.buscarUno("sale.order", [referencia, ["state", "!=", "cancel"]]);
+
+        if (sinCancelar) {
+            await odoo.ejecutar("sale.order", "action_cancel", [[idOdoo]], { context: { disable_cancel_warning: true } });
+        }
+    }
+    return idOdoo;
 }
 
 async function sincronizar() {
@@ -127,14 +145,14 @@ async function sincronizar() {
                 await pool.query(
                     `UPDATE pedido SET estado_odoo = 'SINCRONIZADO', odoo_id = $2, error_odoo = NULL,
                             intentos_odoo = intentos_odoo + 1
-                      WHERE id_pedido = $1`,
+                    WHERE id_pedido = $1`,
                     [pedido.id_pedido, idOdoo]);
                 console.log("Pedido " + pedido.ref_odoo + " enviado a Odoo (id " + idOdoo + ")");
             } catch (error) {
                 await pool.query(
                     `UPDATE pedido SET estado_odoo = 'ERROR', error_odoo = left($2, 300),
                             intentos_odoo = intentos_odoo + 1
-                      WHERE id_pedido = $1`,
+                    WHERE id_pedido = $1`,
                     [pedido.id_pedido, error.message]);
                 console.error("Pedido " + pedido.ref_odoo + " con error: " + error.message);
             }
