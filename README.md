@@ -1,4 +1,4 @@
-# Sneaker Factory · DACA
+# Sneaker Factory / DACA
 
 Proyecto Intermodular de 2º DAM. **DACA** es una marca de zapatillas personalizadas para clubes y equipos. El proyecto reúne el trabajo de varias asignaturas sobre el mismo negocio:
 
