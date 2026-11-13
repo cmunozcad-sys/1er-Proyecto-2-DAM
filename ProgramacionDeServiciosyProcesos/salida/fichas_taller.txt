@@ -20,7 +20,7 @@ Pares de esta variante: 40
 
 ==================================================
 FICHA DE TALLER - PEDIDO CUS-0004
-Cliente: Club Monta?ero Cumbres
+Cliente: Club Montañero Cumbres
 Total de pares: 10
 --------------------------------------------------
 Talla	Pares
@@ -28,6 +28,6 @@ Talla	Pares
 42	4
 44	3
 --------------------------------------------------
-Variante: Coloso | verde y marr?n | Logotipo de la secci?n de monta?a | CUMBRES
+Variante: Coloso | verde y marrón | Logotipo de la sección de montaña | CUMBRES
 Pares de esta variante: 10
 ==================================================

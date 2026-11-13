@@ -9,8 +9,8 @@ TALLA;CUS-0001;44;4
 TALLA;CUS-0001;45;2
 TALLA;CUS-0001;46;1
 VARIANTE;CUS-0001;Cometa | negro y blanco | Colores del club: rojo y blanco | HALCONES;40
-PEDIDO;CUS-0004;Club Monta�ero Cumbres;10
+PEDIDO;CUS-0004;Club Montañero Cumbres;10
 TALLA;CUS-0004;40;3
 TALLA;CUS-0004;42;4
 TALLA;CUS-0004;44;3
-VARIANTE;CUS-0004;Coloso | verde y marr�n | Logotipo de la secci�n de monta�a | CUMBRES;10
+VARIANTE;CUS-0004;Coloso | verde y marrón | Logotipo de la sección de montaña | CUMBRES;10
