@@ -17,6 +17,7 @@
         </div>
 
         <nav class="header__nav">
+            <a class="boton boton--secundario header__boton" href="usuarios.html">Usuarios</a>
             <a class="boton boton--secundario header__boton" href="index.html">Ver tienda</a>
         </nav>
 
@@ -51,6 +52,21 @@
             </article>
         </section>
 
+        <section class="panel__resumen">
+            <article class="panel__tarjeta">
+                <p class="panel__texto">Pedidos totales</p>
+                <p class="panel__numero" data-indicador="total_pedidos">0</p>
+            </article>
+            <article class="panel__tarjeta">
+                <p class="panel__texto">Pares solicitados</p>
+                <p class="panel__numero" data-indicador="pares_solicitados">0</p>
+            </article>
+            <article class="panel__tarjeta">
+                <p class="panel__texto">Ventas confirmadas</p>
+                <p class="panel__numero" data-indicador="importe_ventas">0</p>
+            </article>
+        </section>
+
         <div class="panel__contenido">
             <section class="panel__seccion">
                 <div class="panel__cabecera">
@@ -58,12 +74,38 @@
                     <button class="boton boton--secundario panel__actualizar" type="button">Actualizar</button>
                 </div>
 
-                <div class="catalogo__filtros">
-                    <button class="boton boton--principal catalogo__filtro panel__filtro" type="button" data-estado="BORRADOR">PENDIENTES</button>
-                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="CONFIRMADO">CONFIRMADOS</button>
-                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="CANCELADO">CANCELADOS</button>
-                    <button class="boton boton--secundario catalogo__filtro panel__filtro" type="button" data-estado="TODOS">TODOS</button>
-                </div>
+                <form class="panel__busqueda">
+                    <div class="custom__campo">
+                        <label class="custom__label" for="filtro-cliente">Cliente</label>
+                        <input class="custom__input" type="text" id="filtro-cliente" name="cliente" placeholder="Nombre del cliente">
+                    </div>
+
+                    <div class="custom__campo">
+                        <label class="custom__label" for="filtro-estado">Estado</label>
+                        <select class="custom__input" id="filtro-estado" name="estado">
+                            <option value="">Todos</option>
+                            <option value="BORRADOR">Pendientes</option>
+                            <option value="CONFIRMADO">Confirmados</option>
+                            <option value="CANCELADO">Cancelados</option>
+                        </select>
+                    </div>
+
+                    <div class="custom__campo">
+                        <label class="custom__label" for="filtro-desde">Desde</label>
+                        <input class="custom__input" type="date" id="filtro-desde" name="desde">
+                    </div>
+
+                    <div class="custom__campo">
+                        <label class="custom__label" for="filtro-hasta">Hasta</label>
+                        <input class="custom__input" type="date" id="filtro-hasta" name="hasta">
+                    </div>
+
+                    <div class="panel__botones-busqueda">
+                        <button class="boton boton--naranja panel__buscar">Buscar</button>
+                        <button class="boton boton--secundario panel__limpiar" type="button">Limpiar filtros</button>
+                        <button class="boton boton--secundario panel__exportar" type="button">Exportar CSV</button>
+                    </div>
+                </form>
 
                 <p class="panel__mensaje panel__mensaje--pedidos"></p>
 

@@ -12,9 +12,13 @@ function esAdmin(usuario) {
 if (usuarioSesion) {
     enlaceCuenta.classList.add("header__icono--activo");
 
-    const enlacePanel = esAdmin(usuarioSesion)
-        ? '<a class="boton boton--secundario cuenta__panel" href="admin.html">Panel de administración</a>'
+    const enlacePedidos = tienePermiso("PEDIDO_VER")
+        ? '<a class="boton boton--secundario cuenta__panel" href="admin.html">Panel de pedidos</a>'
         : "";
+    const enlaceUsuarios = tienePermiso("USUARIOS_GESTIONAR")
+        ? '<a class="boton boton--secundario cuenta__panel" href="usuarios.html">Gestión de usuarios</a>'
+        : "";
+    const enlacePanel = enlacePedidos + enlaceUsuarios;
 
     enlaceCuenta.insertAdjacentHTML("afterend", `
         <div class="cuenta">

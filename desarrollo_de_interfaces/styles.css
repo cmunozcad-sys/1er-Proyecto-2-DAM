@@ -1345,6 +1345,28 @@ body{
     color: rgb(110, 200, 120);
 }
 
+.login__pie{
+    margin: 25px 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: gray;
+}
+
+.login__enlace{
+    color: var(--color-naranja);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login__enlace:hover{
+    color: var(--color-terciario);
+}
+
+.registro__boton:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
 .header__icono--activo{
     color: var(--color-naranja);
 }
@@ -1637,6 +1659,16 @@ body{
     transition: background-color 0.3s, color 0.3s;
 }
 
+.panel__botones{
+    display: flex;
+    gap: 10px;
+}
+
+.panel__exportar:disabled{
+    opacity: 0.5;
+    cursor: wait;
+}
+
 .panel__mensaje{
     margin: 0;
     font-size: 14px;
@@ -1719,6 +1751,25 @@ body{
     color: var(--color-error);
 }
 
+.panel__estado--activo{
+    color: var(--color-exito);
+}
+
+.panel__estado--inactivo{
+    color: var(--color-error);
+}
+
+.panel__rol{
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.panel__rol:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .panel__acciones{
     display: flex;
     flex-direction: column;
@@ -1748,7 +1799,8 @@ body{
     color: gray;
 }
 
-.panel__reponer{
+.panel__reponer,
+.panel__formulario{
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -1764,7 +1816,26 @@ body{
     cursor: wait;
 }
 
+.panel__busqueda{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.panel__botones-busqueda{
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 @media (max-width: 1024px){
+    .panel__busqueda{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .panel__contenido{
         grid-template-columns: 1fr;
     }
@@ -1780,6 +1851,10 @@ body{
     }
 
     .panel__resumen{
+        grid-template-columns: 1fr;
+    }
+
+    .panel__busqueda{
         grid-template-columns: 1fr;
     }
 

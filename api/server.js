@@ -1,7 +1,58 @@
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const pool = require("./db");
 const sincronizador = require("./sincronizador");
+
+const archivoActividad = path.join(__dirname, "logs", "actividad_sneaker.txt");
+fs.mkdirSync(path.dirname(archivoActividad), { recursive: true });
+
+function registrarActividad(usuario, accion, resultado) {
+    const fecha = new Date().toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+    const linea = `${fecha} | ${usuario} | ${accion} | ${resultado}\n`;
+
+    try {
+        fs.appendFileSync(archivoActividad, linea);
+    } catch (error) {
+        console.error("No se pudo escribir en el log: " + error.message);
+    }
+}
+
+function usuarioDe(peticion) {
+    return peticion.session.usuario ? peticion.session.usuario.username : "anónimo";
+}
+
+const archivoUsuarios = path.join(__dirname, "exportaciones", "usuarios_sneaker.json");
+fs.mkdirSync(path.dirname(archivoUsuarios), { recursive: true });
+
+const consultaExportarUsuarios = `
+    SELECT u.id_usuario, u.username, u.nombre_completo, r.nombre AS rol, u.activo,
+        to_char(u.fecha_creacion, 'YYYY-MM-DD HH24:MI:SS') AS fecha_creacion,
+        to_char(u.ultimo_acceso, 'YYYY-MM-DD HH24:MI:SS') AS ultimo_acceso
+    FROM usuario u
+    JOIN rol r ON r.id_rol = u.id_rol
+    ORDER BY u.id_usuario`;
+
+async function exportarUsuarios(usuario, motivo) {
+    try {
+        const resultado = await pool.query(consultaExportarUsuarios);
+        const datos = {
+            generado: new Date().toLocaleString("es-ES", { timeZone: "Europe/Madrid" }),
+            motivo: motivo,
+            total: resultado.rows.length,
+            usuarios: resultado.rows
+        };
+
+        fs.writeFileSync(archivoUsuarios, JSON.stringify(datos, null, 4));
+        registrarActividad(usuario, "EXPORTAR USUARIOS", "OK - " + datos.total + " usuarios (" + motivo + ")");
+        return datos;
+    } catch (error) {
+        console.error("No se pudieron exportar los usuarios: " + error.message);
+        registrarActividad(usuario, "EXPORTAR USUARIOS", "ERROR - " + error.message);
+        return null;
+    }
+}
 
 const app = express();
 
@@ -16,16 +67,19 @@ app.use(express.static("web"));
 
 const consultaPermisos = `
     SELECT count(*)::int AS concedidos
-      FROM usuario u
-      JOIN rol_permiso rp ON rp.id_rol = u.id_rol
-      JOIN permiso p ON p.id_permiso = rp.id_permiso
-     WHERE u.id_usuario = $1 AND u.activo AND p.codigo = ANY($2)`;
+    FROM usuario u
+    JOIN rol_permiso rp ON rp.id_rol = u.id_rol
+    JOIN permiso p ON p.id_permiso = rp.id_permiso
+    WHERE u.id_usuario = $1 AND u.activo AND p.codigo = ANY($2)`;
 
 function exigirPermisos(codigos) {
     return async (peticion, respuesta, siguiente) => {
         const usuario = peticion.session.usuario;
 
+        const ruta = peticion.method + " " + peticion.originalUrl;
+
         if (!usuario) {
+            registrarActividad("anónimo", "PERMISO DENEGADO " + ruta, "SIN SESIÓN");
             respuesta.status(401).json({ error: "Tienes que iniciar sesión. Si ya la tenías, ciérrala y vuelve a entrar" });
             return;
         }
@@ -34,6 +88,7 @@ function exigirPermisos(codigos) {
             const resultado = await pool.query(consultaPermisos, [usuario.id_usuario, codigos]);
 
             if (resultado.rows[0].concedidos < codigos.length) {
+                registrarActividad(usuario.username, "PERMISO DENEGADO " + ruta, "FALTA " + codigos.join(", "));
                 respuesta.status(403).json({ error: "No tienes permiso para hacer esto" });
                 return;
             }
@@ -70,6 +125,19 @@ function validarCustom(solicitud, observaciones) {
     if (!Array.isArray(solicitud.tallas) || solicitud.tallas.length === 0
         || !solicitud.tallas.every((linea) => Number.isInteger(linea.cantidad) && linea.cantidad > 0)) {
         return "Indica al menos un par en las tallas";
+    }
+    return null;
+}
+
+function validarUsuario(usuario) {
+    if (!usuario.username || !/^[a-zA-Z0-9._-]{3,40}$/.test(usuario.username)) {
+        return "El usuario debe tener entre 3 y 40 letras, números, puntos o guiones";
+    }
+    if (!usuario.nombre_completo || usuario.nombre_completo.trim() === "" || usuario.nombre_completo.length > 100) {
+        return "Escribe el nombre completo (100 caracteres como máximo)";
+    }
+    if (!usuario.password || usuario.password.length < 8) {
+        return "La contraseña debe tener al menos 8 caracteres";
     }
     return null;
 }
@@ -116,7 +184,8 @@ const registrarReposicion = `
             jsonb_build_object('talla', $2::numeric, 'anadidos', $3::int, 'total', $4::int),
             NULLIF(current_setting('app.id_usuario', true), '')::INTEGER)`;
 
-const consultaPedidos = `
+function consultaPedidos(where) {
+    return `
     SELECT p.id_pedido, p.ref_odoo AS referencia, p.tipo, p.estado,
         to_char(p.fecha_pedido, 'DD/MM/YYYY HH24:MI') AS fecha,
         p.total::float AS total, c.nombre AS cliente,
@@ -126,8 +195,85 @@ const consultaPedidos = `
     LEFT JOIN linea_pedido l ON l.id_pedido = p.id_pedido
     LEFT JOIN variante v ON v.id_variante = l.id_variante
     LEFT JOIN modelo m ON m.id_modelo = v.id_modelo
+    ${where}
     GROUP BY p.id_pedido, c.nombre
     ORDER BY p.fecha_pedido DESC`;
+}
+
+const estadosValidos = ["BORRADOR", "CONFIRMADO", "CANCELADO"];
+const formatoFecha = /^\d{4}-\d{2}-\d{2}$/;
+
+function filtrosPedidos(consulta) {
+    const condiciones = [];
+    const valores = [];
+    const descripcion = [];
+
+    if (consulta.cliente) {
+        valores.push("%" + consulta.cliente + "%");
+        condiciones.push(`c.nombre ILIKE $${valores.length}`);
+        descripcion.push("cliente=" + consulta.cliente);
+    }
+
+    if (estadosValidos.includes(consulta.estado)) {
+        valores.push(consulta.estado);
+        condiciones.push(`p.estado = $${valores.length}`);
+        descripcion.push("estado=" + consulta.estado);
+    }
+
+    if (formatoFecha.test(consulta.desde || "")) {
+        valores.push(consulta.desde);
+        condiciones.push(`p.fecha_pedido >= $${valores.length}::date`);
+        descripcion.push("desde=" + consulta.desde);
+    }
+
+    if (formatoFecha.test(consulta.hasta || "")) {
+        valores.push(consulta.hasta);
+        condiciones.push(`p.fecha_pedido < $${valores.length}::date + 1`);
+        descripcion.push("hasta=" + consulta.hasta);
+    }
+
+    const where = condiciones.length > 0 ? "WHERE " + condiciones.join(" AND ") : "";
+    const filtros = descripcion.length > 0 ? descripcion.join(", ") : "sin filtros";
+    return { where, valores, filtros };
+}
+
+const consultaIndicadores = `
+    SELECT
+        (SELECT COUNT(*) FROM pedido)::int AS total_pedidos,
+        (SELECT COALESCE(SUM(l.cantidad), 0)
+        FROM linea_pedido l
+        JOIN pedido p ON p.id_pedido = l.id_pedido
+        WHERE p.estado <> 'CANCELADO')::int AS pares_solicitados,
+        (SELECT COALESCE(SUM(total), 0)
+        FROM pedido
+        WHERE estado = 'CONFIRMADO')::float AS importe_ventas`;
+
+const consultaPorEstado = `SELECT estado, COUNT(*)::int AS num_pedidos FROM pedido GROUP BY estado`;
+
+function pedidosACsv(filas) {
+    const columnas = ["referencia", "fecha", "cliente", "tipo", "estado", "total", "articulos"];
+    const escapar = (valor) => `"${String(valor ?? "").replace(/"/g, '""')}"`;
+    const lineas = filas.map((fila) => columnas.map((columna) => escapar(fila[columna])).join(";"));
+
+    return "\uFEFF" + [columnas.join(";"), ...lineas].join("\r\n");
+}
+
+const consultaUsuarios = `
+    SELECT u.id_usuario, u.username, u.nombre_completo, u.activo, u.id_rol, r.nombre AS rol,
+        to_char(u.ultimo_acceso, 'DD/MM/YYYY HH24:MI') AS ultimo_acceso
+    FROM usuario u
+    JOIN rol r ON r.id_rol = u.id_rol
+    ORDER BY u.id_usuario`;
+
+const insertarUsuario = `
+    INSERT INTO usuario (username, password_hash, nombre_completo, id_rol)
+    VALUES ($1, crypt($2, gen_salt('bf')), $3, $4)
+    RETURNING id_usuario, username`;
+
+const registrarComercial = `
+    INSERT INTO usuario (username, password_hash, nombre_completo, id_rol)
+    SELECT $1, crypt($2, gen_salt('bf')), $3, id_rol FROM rol WHERE nombre = 'Comercial'
+    RETURNING id_usuario, username`;
 
 app.post("/api/login", async (peticion, respuesta) => {
     const { username, password } = peticion.body || {};
@@ -136,6 +282,7 @@ app.post("/api/login", async (peticion, respuesta) => {
         const resultado = await pool.query(consultaLogin, [username, password]);
 
         if (resultado.rows.length === 0) {
+            registrarActividad(username || "anónimo", "LOGIN", "FALLIDO - usuario o contraseña incorrectos");
             respuesta.status(401).json({ error: "Usuario o contraseña incorrectos" });
             return;
         }
@@ -143,12 +290,16 @@ app.post("/api/login", async (peticion, respuesta) => {
         const usuario = resultado.rows[0];
         if (usuario.activo) {
             await pool.query("UPDATE usuario SET ultimo_acceso = now() WHERE username = $1", [username]);
-            peticion.session.usuario = { id_usuario: usuario.id_usuario };
+            peticion.session.usuario = { id_usuario: usuario.id_usuario, username: usuario.username };
+            registrarActividad(usuario.username, "LOGIN", "OK - rol " + usuario.rol);
+        } else {
+            registrarActividad(usuario.username, "LOGIN", "DENEGADO - usuario desactivado");
         }
 
         respuesta.json(usuario);
     } catch (error) {
         console.error(error.message);
+        registrarActividad(username || "anónimo", "LOGIN", "ERROR - " + error.message);
         respuesta.status(500).json({ error: "No se pudo comprobar el usuario" });
     }
 });
@@ -159,7 +310,38 @@ app.post("/api/logout", (peticion, respuesta) => {
     });
 });
 
-app.post("/api/stock", exigirPermisos(["STOCK_REPONER"], false), async (peticion, respuesta) => {
+app.post("/api/registro", async (peticion, respuesta) => {
+    const usuario = peticion.body || {};
+    const errorValidacion = validarUsuario(usuario);
+
+    if (errorValidacion) {
+        respuesta.status(400).json({ error: errorValidacion });
+        return;
+    }
+
+    try {
+        const resultado = await pool.query(registrarComercial,
+            [usuario.username, usuario.password, usuario.nombre_completo.trim()]);
+
+        if (resultado.rows.length === 0) {
+            respuesta.status(500).json({ error: "No existe el rol Comercial en la base de datos" });
+            return;
+        }
+
+        await exportarUsuarios(resultado.rows[0].username, "registro de " + resultado.rows[0].username);
+        respuesta.status(201).json(resultado.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+
+        if (error.code === "23505") {
+            respuesta.status(409).json({ error: "Ese nombre de usuario ya está cogido" });
+        } else {
+            respuesta.status(500).json({ error: "No se pudo crear la cuenta" });
+        }
+    }
+});
+
+app.post("/api/stock",exigirPermisos(["STOCK_REPONER"], false), async (peticion, respuesta) => {
     const { id, talla, cantidad } = peticion.body || {};
 
     if (!Number.isInteger(id) || !(talla >= 30 && talla <= 48)
@@ -203,6 +385,7 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
     const errorValidacion = validarCustom(solicitud, observaciones);
 
     if (errorValidacion) {
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO CUSTOM", "RECHAZADO - " + errorValidacion);
         respuesta.status(400).json({ error: errorValidacion });
         return;
     }
@@ -236,10 +419,12 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
         const pedido = await conexion.query("SELECT total::float AS total FROM pedido WHERE id_pedido = $1", [idPedido]);
 
         await conexion.query("COMMIT");
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO CUSTOM", "OK - " + referencia + " por " + pedido.rows[0].total + " €");
         respuesta.status(201).json({ referencia: referencia, total: pedido.rows[0].total });
     } catch (error) {
         await conexion.query("ROLLBACK");
         console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO CUSTOM", "ERROR - " + error.message);
 
         if (error.code === "23514") {
             respuesta.status(400).json({ error: "Revisa la fecha deseada: no puede ser anterior a hoy" });
@@ -258,6 +443,7 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
 
     if (!cliente || !cliente.nombre || !cliente.email || !cliente.telefono || !cliente.direccion
         || !Array.isArray(articulos) || articulos.length === 0) {
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO", "RECHAZADO - faltan datos del pedido");
         respuesta.status(400).json({ error: "Faltan datos del pedido" });
         return;
     }
@@ -289,10 +475,12 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
         const pedido = await conexion.query("SELECT total::float AS total FROM pedido WHERE id_pedido = $1", [idPedido]);
 
         await conexion.query("COMMIT");
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO", "OK - " + referencia + " por " + pedido.rows[0].total + " €");
         respuesta.status(201).json({ referencia: referencia, total: pedido.rows[0].total });
     } catch (error) {
         await conexion.query("ROLLBACK");
         console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CREAR PEDIDO", "ERROR - " + error.message);
 
         if (error.message.includes("Stock insuficiente")) {
             respuesta.status(409).json({ error: "Alguno de los artículos ya no está disponible en esa talla" });
@@ -305,19 +493,62 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
 });
 
 app.get("/api/pedidos", exigirPermisos(["PEDIDO_VER"]), async (peticion, respuesta) => {
+    const { where, valores, filtros } = filtrosPedidos(peticion.query);
+
     try {
-        const resultado = await pool.query(consultaPedidos);
+        const resultado = await pool.query(consultaPedidos(where), valores);
+        registrarActividad(usuarioDe(peticion), "CONSULTA PEDIDOS (" + filtros + ")", "OK - " + resultado.rows.length + " pedidos");
         respuesta.json(resultado.rows);
     } catch (error) {
         console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CONSULTA PEDIDOS (" + filtros + ")", "ERROR - " + error.message);
         respuesta.status(500).json({ error: "No se pudieron cargar los pedidos" });
+    }
+});
+
+app.get("/api/pedidos/csv", exigirPermisos(["EXPORTAR_CSV"]), async (peticion, respuesta) => {
+    const { where, valores, filtros } = filtrosPedidos(peticion.query);
+
+    try {
+        const resultado = await pool.query(consultaPedidos(where), valores);
+        registrarActividad(usuarioDe(peticion), "EXPORTAR CSV (" + filtros + ")", "OK - " + resultado.rows.length + " pedidos");
+        respuesta.setHeader("Content-Type", "text/csv; charset=utf-8");
+        respuesta.setHeader("Content-Disposition", 'attachment; filename="pedidos_filtrados.csv"');
+        respuesta.send(pedidosACsv(resultado.rows));
+    } catch (error) {
+        console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "EXPORTAR CSV (" + filtros + ")", "ERROR - " + error.message);
+        respuesta.status(500).json({ error: "No se pudo exportar el CSV" });
+    }
+});
+
+app.get("/api/indicadores", exigirPermisos(["INDICADORES_VER"]), async (peticion, respuesta) => {
+    try {
+        const indicadores = await pool.query(consultaIndicadores);
+        const porEstado = await pool.query(consultaPorEstado);
+        const datos = indicadores.rows[0];
+
+        datos.por_estado = {};
+        porEstado.rows.forEach((fila) => {
+            datos.por_estado[fila.estado] = fila.num_pedidos;
+        });
+
+        registrarActividad(usuarioDe(peticion), "CONSULTA INDICADORES", "OK - " + datos.total_pedidos + " pedidos, "
+            + datos.pares_solicitados + " pares, " + datos.importe_ventas + " €");
+        respuesta.json(datos);
+    } catch (error) {
+        console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CONSULTA INDICADORES", "ERROR - " + error.message);
+        respuesta.status(500).json({ error: "No se pudieron cargar los indicadores" });
     }
 });
 
 async function cambiarEstado(peticion, respuesta, estado) {
     const id = Number(peticion.params.id);
+    const accion = (estado === "CONFIRMADO" ? "APROBAR PEDIDO " : "CANCELAR PEDIDO ") + peticion.params.id;
 
     if (!Number.isInteger(id)) {
+        registrarActividad(usuarioDe(peticion), accion, "RECHAZADO - el pedido no es válido");
         respuesta.status(400).json({ error: "El pedido no es válido" });
         return;
     }
@@ -334,15 +565,18 @@ async function cambiarEstado(peticion, respuesta, estado) {
 
         if (resultado.rows.length === 0) {
             await conexion.query("ROLLBACK");
+            registrarActividad(usuarioDe(peticion), accion, "RECHAZADO - el pedido ya no está pendiente");
             respuesta.status(409).json({ error: "Este pedido ya no está pendiente" });
             return;
         }
 
         await conexion.query("COMMIT");
+        registrarActividad(usuarioDe(peticion), accion, "OK - " + resultado.rows[0].ref_odoo + " pasa a " + estado);
         respuesta.json({ referencia: resultado.rows[0].ref_odoo, estado: estado });
     } catch (error) {
         await conexion.query("ROLLBACK");
         console.error(error.message);
+        registrarActividad(usuarioDe(peticion), accion, "ERROR - " + error.message);
 
         if (error.message.includes("Stock insuficiente")) {
             respuesta.status(409).json({ error: "No hay stock suficiente para aprobar este pedido" });
@@ -360,6 +594,148 @@ app.post("/api/pedidos/:id/aprobar", exigirPermisos(["PEDIDO_CONFIRMAR"]), (peti
 
 app.post("/api/pedidos/:id/cancelar", exigirPermisos(["PEDIDO_CANCELAR"]), (peticion, respuesta) => {
     cambiarEstado(peticion, respuesta, "CANCELADO");
+});
+
+app.get("/api/roles", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
+    try {
+        const resultado = await pool.query("SELECT id_rol, nombre FROM rol ORDER BY id_rol");
+        registrarActividad(usuarioDe(peticion), "CONSULTA ROLES", "OK - " + resultado.rows.length + " roles");
+        respuesta.json(resultado.rows);
+    } catch (error) {
+        console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CONSULTA ROLES", "ERROR - " + error.message);
+        respuesta.status(500).json({ error: "No se pudieron cargar los roles" });
+    }
+});
+
+app.get("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
+    try {
+        const resultado = await pool.query(consultaUsuarios);
+        registrarActividad(usuarioDe(peticion), "CONSULTA USUARIOS", "OK - " + resultado.rows.length + " usuarios");
+        respuesta.json(resultado.rows);
+    } catch (error) {
+        console.error(error.message);
+        registrarActividad(usuarioDe(peticion), "CONSULTA USUARIOS", "ERROR - " + error.message);
+        respuesta.status(500).json({ error: "No se pudieron cargar los usuarios" });
+    }
+});
+
+app.post("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
+    const usuario = peticion.body || {};
+    const errorValidacion = validarUsuario(usuario);
+
+    if (errorValidacion) {
+        respuesta.status(400).json({ error: errorValidacion });
+        return;
+    }
+
+    if (!Number.isInteger(usuario.id_rol)) {
+        respuesta.status(400).json({ error: "Elige un rol" });
+        return;
+    }
+
+    try {
+        const resultado = await pool.query(insertarUsuario,
+            [usuario.username, usuario.password, usuario.nombre_completo.trim(), usuario.id_rol]);
+        await exportarUsuarios(usuarioDe(peticion), "alta de " + resultado.rows[0].username);
+        respuesta.status(201).json(resultado.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+
+        if (error.code === "23505") {
+            respuesta.status(409).json({ error: "Ya existe un usuario con ese nombre" });
+        } else if (error.code === "23503") {
+            respuesta.status(400).json({ error: "Ese rol no existe" });
+        } else {
+            respuesta.status(500).json({ error: "No se pudo crear el usuario" });
+        }
+    }
+});
+
+function leerIdUsuario(peticion, respuesta) {
+    const id = Number(peticion.params.id);
+
+    if (!Number.isInteger(id)) {
+        respuesta.status(400).json({ error: "El usuario no es válido" });
+        return null;
+    }
+
+    if (id === peticion.session.usuario.id_usuario) {
+        respuesta.status(400).json({ error: "No puedes modificar tu propio usuario" });
+        return null;
+    }
+
+    return id;
+}
+
+app.post("/api/usuarios/:id/rol", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
+    const id = leerIdUsuario(peticion, respuesta);
+    const { id_rol } = peticion.body || {};
+
+    if (id === null) {
+        return;
+    }
+
+    if (!Number.isInteger(id_rol)) {
+        respuesta.status(400).json({ error: "Elige un rol" });
+        return;
+    }
+
+    try {
+        const resultado = await pool.query(
+            "UPDATE usuario SET id_rol = $2 WHERE id_usuario = $1 RETURNING id_rol", [id, id_rol]);
+
+        if (resultado.rows.length === 0) {
+            respuesta.status(404).json({ error: "Ese usuario no existe" });
+            return;
+        }
+
+        await exportarUsuarios(usuarioDe(peticion), "cambio de rol del usuario " + id);
+        respuesta.json(resultado.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+
+        if (error.code === "23503") {
+            respuesta.status(400).json({ error: "Ese rol no existe" });
+        } else {
+            respuesta.status(500).json({ error: "No se pudo cambiar el rol" });
+        }
+    }
+});
+
+app.post("/api/usuarios/:id/desactivar", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
+    const id = leerIdUsuario(peticion, respuesta);
+
+    if (id === null) {
+        return;
+    }
+
+    try {
+        const resultado = await pool.query(
+            "UPDATE usuario SET activo = false WHERE id_usuario = $1 RETURNING activo", [id]);
+
+        if (resultado.rows.length === 0) {
+            respuesta.status(404).json({ error: "Ese usuario no existe" });
+            return;
+        }
+
+        await exportarUsuarios(usuarioDe(peticion), "desactivación del usuario " + id);
+        respuesta.json(resultado.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+        respuesta.status(500).json({ error: "No se pudo desactivar el usuario" });
+    }
+});
+
+app.post("/api/usuarios/exportar", exigirPermisos(["USUARIOS_EXPORTAR"]), async (peticion, respuesta) => {
+    const datos = await exportarUsuarios(usuarioDe(peticion), "exportación manual");
+
+    if (!datos) {
+        respuesta.status(500).json({ error: "No se pudieron exportar los usuarios" });
+        return;
+    }
+
+    respuesta.json(datos);
 });
 
 app.listen(3000, () => sincronizador.arrancar());

@@ -1,0 +1,7 @@
+17/11/2026, 14:06:40 | admin | LOGIN | OK - rol Administrador
+17/11/2026, 14:06:42 | admin | CONSULTA PEDIDOS (sin filtros) | OK - 14 pedidos
+17/11/2026, 14:06:42 | admin | CONSULTA INDICADORES | OK - 14 pedidos, 153 pares, 9358.67 €
+17/11/2026, 14:06:51 | admin | EXPORTAR CSV (sin filtros) | OK - 14 pedidos
+17/11/2026, 14:08:54 | admin | CONSULTA ROLES | OK - 3 roles
+17/11/2026, 14:08:54 | admin | CONSULTA USUARIOS | OK - 3 usuarios
+17/11/2026, 14:08:55 | admin | EXPORTAR USUARIOS | OK - 3 usuarios (exportación manual)

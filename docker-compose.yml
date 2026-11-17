@@ -6,3 +6,5 @@ services:
     env_file: .env
     volumes:
       - ./desarrollo_de_interfaces:/app/web:ro
+      - ./api/logs:/app/logs
+      - ./api/exportaciones:/app/exportaciones

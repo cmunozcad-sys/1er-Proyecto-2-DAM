@@ -1,6 +1,8 @@
 const cuerpoPedidos = document.querySelector(".panel__pedidos");
 const mensajePedidos = document.querySelector(".panel__mensaje--pedidos");
-const botonesFiltro = document.querySelectorAll(".panel__filtro");
+const formularioBusqueda = document.querySelector(".panel__busqueda");
+const botonLimpiar = document.querySelector(".panel__limpiar");
+const botonExportar = document.querySelector(".panel__exportar");
 const formularioReponer = document.querySelector(".panel__reponer");
 const selectReponerModelo = document.querySelector("#reponer-modelo");
 const selectReponerTalla = document.querySelector("#reponer-talla");
@@ -15,7 +17,6 @@ const nombresEstado = {
 
 let pedidos = [];
 let modelos = [];
-let filtroActual = "BORRADOR";
 
 function precioEnEuros(precio) {
     return precio.toFixed(2).replace(".", ",") + " €";
@@ -39,27 +40,47 @@ function crearFila(pedido) {
 }
 
 function pintarPedidos() {
-    const visibles = filtroActual === "TODOS"
-        ? pedidos
-        : pedidos.filter((pedido) => pedido.estado === filtroActual);
-
-    document.querySelectorAll(".panel__numero").forEach((numero) => {
-        numero.textContent = pedidos.filter((pedido) => pedido.estado === numero.dataset.estado).length;
-    });
-
-    if (visibles.length === 0) {
-        cuerpoPedidos.innerHTML = '<tr><td class="panel__vacio" colspan="6">No hay pedidos en este estado</td></tr>';
+    if (pedidos.length === 0) {
+        cuerpoPedidos.innerHTML = '<tr><td class="panel__vacio" colspan="6">No hay resultados con estos filtros</td></tr>';
         return;
     }
 
-    cuerpoPedidos.innerHTML = visibles.map(crearFila).join("");
+    cuerpoPedidos.innerHTML = pedidos.map(crearFila).join("");
+}
+
+function parametrosBusqueda() {
+    const parametros = new URLSearchParams();
+
+    new FormData(formularioBusqueda).forEach((valor, clave) => {
+        if (valor.trim() !== "") {
+            parametros.append(clave, valor.trim());
+        }
+    });
+
+    return parametros.toString();
+}
+
+function fechasCorrectas() {
+    const desde = formularioBusqueda.desde.value;
+    const hasta = formularioBusqueda.hasta.value;
+
+    if (desde && hasta && desde > hasta) {
+        mensajePedidos.textContent = "La fecha «Desde» no puede ser posterior a «Hasta»";
+        return false;
+    }
+
+    return true;
 }
 
 async function cargarPedidos() {
     mensajePedidos.textContent = "";
 
+    if (!fechasCorrectas()) {
+        return;
+    }
+
     try {
-        const respuesta = await fetch("/api/pedidos");
+        const respuesta = await fetch("/api/pedidos?" + parametrosBusqueda());
         const datos = await respuesta.json();
 
         if (!respuesta.ok) {
@@ -72,6 +93,67 @@ async function cargarPedidos() {
     } catch (error) {
         console.error("No se pudieron cargar los pedidos:", error);
         mensajePedidos.textContent = "No se ha podido conectar. Inténtalo más tarde";
+    }
+}
+
+async function cargarIndicadores() {
+    if (!tienePermiso("INDICADORES_VER")) {
+        document.querySelectorAll(".panel__resumen").forEach((seccion) => {
+            seccion.style.display = "none";
+        });
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("/api/indicadores");
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+            mensajePedidos.textContent = datos.error;
+            return;
+        }
+
+        document.querySelector('[data-indicador="total_pedidos"]').textContent = datos.total_pedidos;
+        document.querySelector('[data-indicador="pares_solicitados"]').textContent = datos.pares_solicitados;
+        document.querySelector('[data-indicador="importe_ventas"]').textContent = precioEnEuros(datos.importe_ventas);
+
+        document.querySelectorAll(".panel__numero[data-estado]").forEach((numero) => {
+            numero.textContent = datos.por_estado[numero.dataset.estado] || 0;
+        });
+    } catch (error) {
+        console.error("No se pudieron cargar los indicadores:", error);
+    }
+}
+
+async function exportarCsv() {
+    mensajePedidos.textContent = "";
+
+    if (!fechasCorrectas()) {
+        return;
+    }
+
+    botonExportar.disabled = true;
+
+    try {
+        const respuesta = await fetch("/api/pedidos/csv?" + parametrosBusqueda());
+
+        if (!respuesta.ok) {
+            const datos = await respuesta.json();
+            mensajePedidos.textContent = datos.error;
+            return;
+        }
+
+        const enlace = document.createElement("a");
+        enlace.href = URL.createObjectURL(await respuesta.blob());
+        enlace.download = "pedidos_filtrados.csv";
+        enlace.click();
+        URL.revokeObjectURL(enlace.href);
+        mensajePedidos.textContent = "CSV exportado con los filtros actuales";
+    } catch (error) {
+        console.error("No se pudo exportar el CSV:", error);
+        mensajePedidos.textContent = "No se ha podido conectar. Inténtalo más tarde";
+    } finally {
+        botonExportar.disabled = false;
     }
 }
 
@@ -96,25 +178,14 @@ async function cambiarEstadoPedido(boton) {
             return;
         }
 
-        pedido.estado = datos.estado;
+        await cargarPedidos();
+        cargarIndicadores();
         mensajePedidos.textContent = `Pedido ${pedido.referencia} ${accion === "aprobar" ? "aprobado" : "cancelado"}`;
-        pintarPedidos();
     } catch (error) {
         console.error("No se pudo cambiar el estado del pedido:", error);
         mensajePedidos.textContent = "No se ha podido conectar. Inténtalo más tarde";
         boton.disabled = false;
     }
-}
-
-function elegirFiltro(botonElegido) {
-    filtroActual = botonElegido.dataset.estado;
-
-    botonesFiltro.forEach((boton) => {
-        boton.classList.toggle("boton--principal", boton === botonElegido);
-        boton.classList.toggle("boton--secundario", boton !== botonElegido);
-    });
-
-    pintarPedidos();
 }
 
 function cargarSelectModelos() {
@@ -185,12 +256,13 @@ async function reponerStock(evento) {
     }
 }
 
-if (!esAdmin(usuarioSesion)) {
+if (!tienePermiso("PEDIDO_VER")) {
     window.location.href = "login.html";
 } else {
-    document.querySelector(".panel__saludo").textContent = "Hola, " + usuarioSesion.nombre;
+    document.querySelector(".panel__saludo").textContent = "Hola, " + usuarioSesion.nombre + " (" + usuarioSesion.rol + ")";
 
     cargarPedidos();
+    cargarIndicadores();
     cargarModelosReponer();
 
     cuerpoPedidos.addEventListener("click", (evento) => {
@@ -199,11 +271,23 @@ if (!esAdmin(usuarioSesion)) {
         }
     });
 
-    botonesFiltro.forEach((boton) => {
-        boton.addEventListener("click", () => elegirFiltro(boton));
+    formularioBusqueda.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+        cargarPedidos();
     });
 
-    document.querySelector(".panel__actualizar").addEventListener("click", cargarPedidos);
+    botonLimpiar.addEventListener("click", () => {
+        formularioBusqueda.reset();
+        cargarPedidos();
+    });
+
+    botonExportar.addEventListener("click", exportarCsv);
+
+    document.querySelector(".panel__actualizar").addEventListener("click", () => {
+        cargarPedidos();
+        cargarIndicadores();
+    });
+
     selectReponerModelo.addEventListener("change", cargarSelectTallas);
     formularioReponer.addEventListener("submit", reponerStock);
 }
