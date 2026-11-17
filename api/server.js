@@ -5,7 +5,8 @@ const session = require("express-session");
 const pool = require("./db");
 const sincronizador = require("./sincronizador");
 
-const archivoActividad = path.join(__dirname, "logs", "actividad_sneaker.txt");
+const carpetaLogs = process.env.LOG_DIR || path.join(__dirname, "logs");
+const archivoActividad = path.join(carpetaLogs, "actividad_sneaker.txt");
 fs.mkdirSync(path.dirname(archivoActividad), { recursive: true });
 
 function registrarActividad(usuario, accion, resultado) {
@@ -19,11 +20,17 @@ function registrarActividad(usuario, accion, resultado) {
     }
 }
 
-function usuarioDe(peticion) {
-    return peticion.session.usuario ? peticion.session.usuario.username : "anónimo";
+function identidad(username, rol) {
+    return (username || "anónimo") + " | " + (rol || "sin rol");
 }
 
-const archivoUsuarios = path.join(__dirname, "exportaciones", "usuarios_sneaker.json");
+function usuarioDe(peticion) {
+    const usuario = peticion.session.usuario;
+    return usuario ? identidad(usuario.username, usuario.rol) : identidad();
+}
+
+const carpetaExportaciones = process.env.EXPORT_DIR || path.join(__dirname, "exportaciones");
+const archivoUsuarios = path.join(carpetaExportaciones, "usuarios_sneaker.json");
 fs.mkdirSync(path.dirname(archivoUsuarios), { recursive: true });
 
 const consultaExportarUsuarios = `
@@ -44,7 +51,10 @@ async function exportarUsuarios(usuario, motivo) {
             usuarios: resultado.rows
         };
 
-        fs.writeFileSync(archivoUsuarios, JSON.stringify(datos, null, 4));
+        const temporal = archivoUsuarios + ".tmp";
+        fs.writeFileSync(temporal, JSON.stringify(datos, null, 4), "utf8");
+        JSON.parse(fs.readFileSync(temporal, "utf8"));
+        fs.renameSync(temporal, archivoUsuarios);
         registrarActividad(usuario, "EXPORTAR USUARIOS", "OK - " + datos.total + " usuarios (" + motivo + ")");
         return datos;
     } catch (error) {
@@ -79,7 +89,7 @@ function exigirPermisos(codigos) {
         const ruta = peticion.method + " " + peticion.originalUrl;
 
         if (!usuario) {
-            registrarActividad("anónimo", "PERMISO DENEGADO " + ruta, "SIN SESIÓN");
+            registrarActividad(identidad(), "PERMISO DENEGADO " + ruta, "RECHAZADO - sin sesión");
             respuesta.status(401).json({ error: "Tienes que iniciar sesión. Si ya la tenías, ciérrala y vuelve a entrar" });
             return;
         }
@@ -88,7 +98,7 @@ function exigirPermisos(codigos) {
             const resultado = await pool.query(consultaPermisos, [usuario.id_usuario, codigos]);
 
             if (resultado.rows[0].concedidos < codigos.length) {
-                registrarActividad(usuario.username, "PERMISO DENEGADO " + ruta, "FALTA " + codigos.join(", "));
+                registrarActividad(usuarioDe(peticion), "PERMISO DENEGADO " + ruta, "RECHAZADO - falta " + codigos.join(", "));
                 respuesta.status(403).json({ error: "No tienes permiso para hacer esto" });
                 return;
             }
@@ -282,7 +292,7 @@ app.post("/api/login", async (peticion, respuesta) => {
         const resultado = await pool.query(consultaLogin, [username, password]);
 
         if (resultado.rows.length === 0) {
-            registrarActividad(username || "anónimo", "LOGIN", "FALLIDO - usuario o contraseña incorrectos");
+            registrarActividad(identidad(username), "LOGIN", "RECHAZADO - usuario o contraseña incorrectos");
             respuesta.status(401).json({ error: "Usuario o contraseña incorrectos" });
             return;
         }
@@ -290,16 +300,16 @@ app.post("/api/login", async (peticion, respuesta) => {
         const usuario = resultado.rows[0];
         if (usuario.activo) {
             await pool.query("UPDATE usuario SET ultimo_acceso = now() WHERE username = $1", [username]);
-            peticion.session.usuario = { id_usuario: usuario.id_usuario, username: usuario.username };
-            registrarActividad(usuario.username, "LOGIN", "OK - rol " + usuario.rol);
+            peticion.session.usuario = { id_usuario: usuario.id_usuario, username: usuario.username, rol: usuario.rol };
+            registrarActividad(identidad(usuario.username, usuario.rol), "LOGIN", "OK");
         } else {
-            registrarActividad(usuario.username, "LOGIN", "DENEGADO - usuario desactivado");
+            registrarActividad(identidad(usuario.username, usuario.rol), "LOGIN", "RECHAZADO - usuario desactivado");
         }
 
         respuesta.json(usuario);
     } catch (error) {
         console.error(error.message);
-        registrarActividad(username || "anónimo", "LOGIN", "ERROR - " + error.message);
+        registrarActividad(identidad(username), "LOGIN", "ERROR - " + error.message);
         respuesta.status(500).json({ error: "No se pudo comprobar el usuario" });
     }
 });
@@ -328,7 +338,7 @@ app.post("/api/registro", async (peticion, respuesta) => {
             return;
         }
 
-        await exportarUsuarios(resultado.rows[0].username, "registro de " + resultado.rows[0].username);
+        await exportarUsuarios(identidad(resultado.rows[0].username, "Comercial"), "registro de " + resultado.rows[0].username);
         respuesta.status(201).json(resultado.rows[0]);
     } catch (error) {
         console.error(error.message);
@@ -495,13 +505,15 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
 app.get("/api/pedidos", exigirPermisos(["PEDIDO_VER"]), async (peticion, respuesta) => {
     const { where, valores, filtros } = filtrosPedidos(peticion.query);
 
+    const accion = peticion.query.limpiar ? "LIMPIAR FILTROS" : "CONSULTA PEDIDOS (" + filtros + ")";
+
     try {
         const resultado = await pool.query(consultaPedidos(where), valores);
-        registrarActividad(usuarioDe(peticion), "CONSULTA PEDIDOS (" + filtros + ")", "OK - " + resultado.rows.length + " pedidos");
+        registrarActividad(usuarioDe(peticion), accion, "OK - " + resultado.rows.length + " pedidos");
         respuesta.json(resultado.rows);
     } catch (error) {
         console.error(error.message);
-        registrarActividad(usuarioDe(peticion), "CONSULTA PEDIDOS (" + filtros + ")", "ERROR - " + error.message);
+        registrarActividad(usuarioDe(peticion), accion, "ERROR - " + error.message);
         respuesta.status(500).json({ error: "No se pudieron cargar los pedidos" });
     }
 });

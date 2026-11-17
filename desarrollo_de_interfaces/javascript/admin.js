@@ -72,7 +72,7 @@ function fechasCorrectas() {
     return true;
 }
 
-async function cargarPedidos() {
+async function cargarPedidos(limpiar) {
     mensajePedidos.textContent = "";
 
     if (!fechasCorrectas()) {
@@ -80,7 +80,7 @@ async function cargarPedidos() {
     }
 
     try {
-        const respuesta = await fetch("/api/pedidos?" + parametrosBusqueda());
+        const respuesta = await fetch("/api/pedidos?" + (limpiar ? "limpiar=1" : parametrosBusqueda()));
         const datos = await respuesta.json();
 
         if (!respuesta.ok) {
@@ -261,6 +261,10 @@ if (!tienePermiso("PEDIDO_VER")) {
 } else {
     document.querySelector(".panel__saludo").textContent = "Hola, " + usuarioSesion.nombre + " (" + usuarioSesion.rol + ")";
 
+    if (!tienePermiso("USUARIOS_GESTIONAR")) {
+        document.querySelector('.header__boton[href="usuarios.html"]').remove();
+    }
+
     cargarPedidos();
     cargarIndicadores();
     cargarModelosReponer();
@@ -273,12 +277,12 @@ if (!tienePermiso("PEDIDO_VER")) {
 
     formularioBusqueda.addEventListener("submit", (evento) => {
         evento.preventDefault();
-        cargarPedidos();
+        cargarPedidos(false);
     });
 
     botonLimpiar.addEventListener("click", () => {
         formularioBusqueda.reset();
-        cargarPedidos();
+        cargarPedidos(true);
     });
 
     botonExportar.addEventListener("click", exportarCsv);

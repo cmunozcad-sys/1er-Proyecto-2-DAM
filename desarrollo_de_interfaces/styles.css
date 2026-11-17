@@ -1831,6 +1831,20 @@ body{
     gap: 10px;
 }
 
+.panel__buscar,
+.panel__limpiar,
+.panel__exportar{
+    padding: 12px 22px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.panel__limpiar,
+.panel__exportar{
+    background: none;
+    border-width: 1px;
+}
+
 @media (max-width: 1024px){
     .panel__busqueda{
         grid-template-columns: repeat(2, 1fr);

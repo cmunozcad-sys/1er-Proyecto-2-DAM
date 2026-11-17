@@ -57,9 +57,9 @@ BEGIN
         IF EXISTS (
             SELECT 1
             FROM (SELECT id_variante, talla, SUM(cantidad) AS pedidas
-                  FROM linea_pedido
-                  WHERE id_pedido = NEW.id_pedido
-                  GROUP BY id_variante, talla) l
+                FROM linea_pedido
+                WHERE id_pedido = NEW.id_pedido
+                GROUP BY id_variante, talla) l
             JOIN stock s ON s.id_variante = l.id_variante AND s.talla = l.talla
             WHERE s.cantidad < l.pedidas
         ) THEN
@@ -71,9 +71,9 @@ BEGIN
         SET cantidad = s.cantidad - l.pedidas,
             ultima_actualizacion = now()
         FROM (SELECT id_variante, talla, SUM(cantidad) AS pedidas
-              FROM linea_pedido
-              WHERE id_pedido = NEW.id_pedido
-              GROUP BY id_variante, talla) l
+            FROM linea_pedido
+            WHERE id_pedido = NEW.id_pedido
+            GROUP BY id_variante, talla) l
         WHERE s.id_variante = l.id_variante AND s.talla = l.talla;
 
         NEW.fecha_confirmacion := now();
@@ -85,9 +85,9 @@ BEGIN
         SET cantidad = s.cantidad + l.pedidas,
             ultima_actualizacion = now()
         FROM (SELECT id_variante, talla, SUM(cantidad) AS pedidas
-              FROM linea_pedido
-              WHERE id_pedido = NEW.id_pedido
-              GROUP BY id_variante, talla) l
+            FROM linea_pedido
+            WHERE id_pedido = NEW.id_pedido
+            GROUP BY id_variante, talla) l
         WHERE s.id_variante = l.id_variante AND s.talla = l.talla;
 
         NEW.fecha_cancelacion := now();
@@ -163,7 +163,7 @@ $$ LANGUAGE plpgsql;
 DROP TRIGGER IF EXISTS trg_auditoria_ped ON pedido;
 CREATE TRIGGER trg_auditoria_ped
 AFTER INSERT OR DELETE
-   OR UPDATE OF estado, id_cliente, fecha_entrega_prevista, observaciones
+OR UPDATE OF estado, id_cliente, fecha_entrega_prevista, observaciones
 ON pedido
 FOR EACH ROW
 EXECUTE FUNCTION fn_auditoria();
