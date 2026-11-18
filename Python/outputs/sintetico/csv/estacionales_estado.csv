@@ -1,0 +1,2 @@
+estado,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+CALCULADO con 15 modelos: 15 son estacionales (su mes pico vende al menos 1.3 veces su media mensual).,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,1,productos_estacionales

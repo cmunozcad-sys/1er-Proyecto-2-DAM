@@ -1,5 +1,8 @@
+# Gráficos PNG del análisis con matplotlib
+
 import matplotlib
 
+# Backend sin ventana para guardar los gráficos en fichero
 matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
@@ -12,12 +15,14 @@ import analiticas
 import config
 from utils.trazas import guardar_csv
 
+# Colores de los gráficos
 COLOR_PRINCIPAL = (0.93, 0.27, 0.45)
 COLOR_SECUNDARIO = (0.15, 0.17, 0.25)
 COLOR_APOYO = (0.98, 0.65, 0.20)
 COLOR_SUAVE = (0.80, 0.82, 0.86)
 PALETA = [COLOR_PRINCIPAL, COLOR_SECUNDARIO, COLOR_APOYO, (0.30, 0.65, 0.80), (0.45, 0.75, 0.45), (0.60, 0.45, 0.80), (0.55, 0.55, 0.55)]
 
+# Estilo común de todas las figuras
 plt.rcParams.update({
     "figure.figsize": (11, 6),
     "figure.dpi": 110,
@@ -33,25 +38,24 @@ plt.rcParams.update({
 })
 
 
+# Formato de euros para los ejes
 def euros(valor, _=None):
     return f"{valor:,.0f} €".replace(",", ".")
 
 
-def periodo(datos):
-    fechas = datos["pedidos"]["fecha_pedido"]
-    return f"{fechas.min():%Y-%m} a {fechas.max():%Y-%m}"
-
-
+# Crea la figura con el título y un subtítulo con origen, primer y último mes y fecha de corte
 def preparar_figura(titulo, datos, nota=""):
     figura, eje = plt.subplots()
     eje.set_title(titulo, pad=28)
-    subtitulo = f"Datos {datos['origen']} · {periodo(datos)} · corte {datos['fecha_corte']:%Y-%m-%d}"
+    fechas = datos["pedidos"]["fecha_pedido"]
+    subtitulo = f"Datos {datos['origen']} · {fechas.min():%Y-%m} a {fechas.max():%Y-%m} · corte {datos['fecha_corte']:%Y-%m-%d}"
     if nota:
         subtitulo += f" · {nota}"
     eje.text(0, 1.02, subtitulo, transform=eje.transAxes, fontsize=10, color="0.4")
     return figura, eje
 
 
+# Figura 01: ingresos válidos por mes
 def serie_ingresos(datos):
     df = analiticas.ventas_por_periodo(datos)
     figura, eje = preparar_figura("Ingresos válidos por mes", datos, "solo pedidos CONFIRMADOS")
@@ -74,6 +78,7 @@ def serie_ingresos(datos):
     return figura, df, lectura
 
 
+# Figura 02: modelos con más pares vendidos
 def ranking_modelos(datos, maximo=12):
     df = analiticas.modelos_abc(datos)
     top = df[df["pares"] > 0].sort_values("pares", ascending=False).head(maximo).iloc[::-1]
@@ -92,6 +97,7 @@ def ranking_modelos(datos, maximo=12):
     return figura, top.iloc[::-1], lectura
 
 
+# Figura 03: Pareto de ingresos por modelo
 def pareto_modelos(datos):
     df = analiticas.modelos_abc(datos)
     df = df[df["ingresos"] > 0]
@@ -119,6 +125,7 @@ def pareto_modelos(datos):
     return figura, df, lectura
 
 
+# Figura 04: histograma del importe por pedido
 def histograma_ticket(datos):
     pedidos, _ = analiticas.ventas(datos)
     figura, eje = preparar_figura("Distribución del importe por pedido", datos, "solo pedidos CONFIRMADOS · eje X logarítmico")
@@ -142,6 +149,7 @@ def histograma_ticket(datos):
     return figura, pedidos[["id_pedido", "tipo_pedido", "importe"]], lectura
 
 
+# Figura 05: pares por pedido según el tipo
 def boxplot_pares_tipo(datos):
     pedidos, _ = analiticas.ventas(datos)
     figura, eje = preparar_figura("Pares por pedido según tipo de pedido", datos, "solo pedidos CONFIRMADOS")
@@ -159,6 +167,7 @@ def boxplot_pares_tipo(datos):
     return figura, pedidos[["id_pedido", "tipo_pedido", "pares"]], lectura
 
 
+# Figura 06: mapa de calor modelo × talla
 def mapa_calor_tallas(datos):
     df = analiticas.matriz_modelo_talla(datos, proporcion=True).set_index("modelo")
     figura, eje = preparar_figura("Reparto de tallas dentro de cada modelo", datos, "% de pares de cada modelo")
@@ -177,6 +186,7 @@ def mapa_calor_tallas(datos):
     return figura, df.reset_index(), lectura
 
 
+# Figura 07: clientes por pedidos y gasto
 def dispersion_rfm(datos):
     df = analiticas.clientes_rfm(datos)
     figura, eje = preparar_figura("Clientes: frecuencia frente a gasto", datos, "segmentos RFM")
@@ -197,6 +207,7 @@ def dispersion_rfm(datos):
     return figura, df[["id_cliente", "frequency", "monetary", "recency_dias", "segmento"]], lectura
 
 
+# Figura 08: Custom frente a estándar
 def comparativa_tipos(datos):
     df = analiticas.custom_vs_estandar(datos)
     figura, eje = preparar_figura("Peso de Custom y estándar", datos, "% sobre el total de ventas válidas")
@@ -221,6 +232,7 @@ def comparativa_tipos(datos):
     return figura, df, lectura
 
 
+# Nombre del fichero de cada figura y la función que la crea
 FIGURAS = {
     "01_serie_ingresos_mensuales": serie_ingresos,
     "02_ranking_modelos_pares": ranking_modelos,
@@ -233,6 +245,7 @@ FIGURAS = {
 }
 
 
+# Genera y guarda todas las figuras y un CSV con la lectura de cada una
 def guardar_figuras(datos, carpeta):
     carpeta.mkdir(parents=True, exist_ok=True)
     lecturas = []

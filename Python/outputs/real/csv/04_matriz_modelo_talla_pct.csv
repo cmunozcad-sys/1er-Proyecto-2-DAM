@@ -1,8 +1,11 @@
-modelo,38,39,40,41,42,43,44,45,46,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-Bólido,0.0,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Coloso,0.0,0.0,30.0,0.0,40.0,0.0,30.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Cometa,5.0,10.0,15.0,20.0,17.5,15.0,10.0,5.0,2.5,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Granito,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Impulso,0.0,0.0,50.0,0.0,50.0,0.0,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Relámpago,0.0,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
-Remolino IC,0.0,28.57,42.86,28.57,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-04,2026-11-12 09:58:14,sin filtros,20,matriz_modelo_talla
+modelo,30,35,37,38,39,40,41,42,43,44,45,46,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+Acero,0.0,0.0,0.0,0.0,0.0,0.0,0.0,50.0,50.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Bólido,0.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Chispa,30.0,20.0,50.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Coloso,0.0,0.0,0.0,0.0,0.0,30.0,0.0,40.0,0.0,30.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Cometa,0.0,0.0,0.0,4.35,8.7,13.04,23.91,22.83,13.04,8.7,4.35,1.09,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Furia FG,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Granito,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Impulso,0.0,0.0,0.0,0.0,0.0,50.0,0.0,50.0,0.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Relámpago,0.0,0.0,0.0,0.0,0.0,20.0,40.0,20.0,20.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Remolino IC,0.0,0.0,0.0,0.0,28.57,42.86,28.57,0.0,0.0,0.0,0.0,0.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla

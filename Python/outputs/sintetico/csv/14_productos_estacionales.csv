@@ -1,0 +1,16 @@
+id_modelo,modelo,meses_historico,mes_pico,indice_pico,mes_valle,indice_valle,es_estacional,ene,feb,mar,abr,may,jun,jul,ago,sep,oct,nov,dic,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
+15,Ciclón Mid,24,abr,3.5,ene,0.05,True,0.05,0.05,1.75,3.5,1.05,0.05,1.0,1.02,0.15,0.8,1.6,0.98,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+12,Halcón SG,24,mar,3.21,jun,0.2,True,1.14,0.48,3.21,1.14,0.22,0.2,0.96,0.84,0.76,1.8,0.66,0.6,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+3,Impulso,24,nov,2.82,feb,0.1,True,0.57,0.1,1.81,0.5,0.65,1.19,2.23,0.45,1.21,0.1,2.82,0.35,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+16,Vértigo,24,nov,2.57,abr,0.08,True,1.26,0.59,0.76,0.08,0.49,0.67,0.61,0.75,1.69,1.48,2.57,1.04,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+10,Furia FG,24,jul,2.41,jun,0.11,True,1.34,0.47,1.18,1.28,0.94,0.11,2.41,0.92,0.42,1.06,1.2,0.67,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+7,Granito,24,sep,2.37,ago,0.09,True,1.6,1.07,0.1,1.11,0.65,0.74,0.47,0.09,2.37,0.91,2.23,0.67,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+1,Cometa,24,jun,2.2,oct,0.34,True,0.6,0.59,0.67,0.52,1.47,2.2,0.76,1.23,1.14,0.34,1.81,0.68,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+9,Pantera GK,24,sep,2.14,mar,0.47,True,1.0,0.93,0.47,0.82,0.78,0.72,1.02,1.25,2.14,0.73,1.14,0.99,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+4,Lince,24,may,2.1,ago,0.12,True,0.85,0.29,1.13,1.62,2.1,1.17,0.95,0.12,0.15,1.54,1.91,0.16,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+6,Titán,24,feb,1.98,jun,0.02,True,1.5,1.98,0.84,0.51,0.44,0.02,0.61,1.13,0.94,1.95,0.76,1.31,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+5,Nova Run,14,may,1.96,mar,0.23,True,1.58,1.27,0.23,0.96,1.96,1.37,0.78,1.13,0.44,0.45,1.0,0.82,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+13,Coloso,24,ago,1.91,jul,0.37,True,0.81,0.64,1.47,0.56,1.87,0.43,0.37,1.91,0.52,1.25,1.12,1.06,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+14,Rayo X,24,feb,1.65,dic,0.09,True,0.48,1.65,0.84,0.69,0.83,1.1,0.81,1.18,1.34,1.59,1.4,0.09,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+11,Saeta 3,24,ene,1.64,ago,0.24,True,1.64,1.45,0.77,0.62,0.36,0.55,0.66,0.24,1.55,1.02,1.57,1.58,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales
+2,Relámpago,24,ene,1.47,sep,0.16,True,1.47,1.06,1.23,1.02,1.22,1.22,0.65,1.01,0.16,0.68,1.33,0.96,SINTETICO,2026-11-01,2026-11-18 13:01:52,sin filtros,350,productos_estacionales

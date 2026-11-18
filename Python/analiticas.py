@@ -1,3 +1,5 @@
+# Cálculos del análisis: filtros, KPIs, ABC, RFM, stock, anomalías, hipótesis, clustering y conciliación con SQL
+
 import numpy as np
 import pandas as pd
 
@@ -9,8 +11,10 @@ import config
 from pipeline import resumir_por_pedido
 
 
+# KPIs que se comparan con el periodo anterior
 KPIS_COMPARABLES = ["ingresos_validos", "pares_vendidos", "pedidos_confirmados", "ticket_medio"]
 
+# Filtros por defecto: vacío significa sin restricción
 FILTROS_VACIOS = {
     "fecha_desde": None,
     "fecha_hasta": None,
@@ -22,10 +26,12 @@ FILTROS_VACIOS = {
 }
 
 
+# División que devuelve NaN si el denominador es 0
 def dividir(numerador, denominador):
     return numerador / denominador if denominador else np.nan
 
 
+# Guarda en df.attrs los metadatos del resultado para después añadir el linaje
 def con_metadatos(df, nombre, datos, filtros, filas_origen, funcion):
     fecha_corte = datos.get("fecha_corte")
     ejecucion = datos.get("ejecucion") or pd.Timestamp.now()
@@ -42,6 +48,7 @@ def con_metadatos(df, nombre, datos, filtros, filas_origen, funcion):
     return df
 
 
+# Junta todo lo necesario para el análisis. La fecha de corte es el día siguiente al último pedido
 def preparar_datos(validas, lineas_enriquecidas, pedidos_unicos, origen, ejecucion=None):
     fecha_corte = pedidos_unicos["fecha_pedido"].max().normalize() + pd.Timedelta(days=1)
     return {
@@ -56,6 +63,7 @@ def preparar_datos(validas, lineas_enriquecidas, pedidos_unicos, origen, ejecuci
     }
 
 
+# Aplica los filtros a pedidos y líneas. Con filtro de modelo o talla se recalculan los totales de cada pedido
 def aplicar_filtros(datos, filtros=None):
     filtros = {**FILTROS_VACIOS, **(filtros or {})}
     pedidos = datos["pedidos"]
@@ -89,6 +97,7 @@ def aplicar_filtros(datos, filtros=None):
     return {**datos, "pedidos": pedidos, "lineas": lineas, "filtros": filtros}
 
 
+# Añade año, mes, trimestre, día de la semana, periodo y antigüedad a partir de la fecha del pedido
 def anadir_calendario(df, fecha_corte):
     df = df.copy()
     fecha = df["fecha_pedido"]
@@ -101,6 +110,7 @@ def anadir_calendario(df, fecha_corte):
     return df
 
 
+# Añade el ticket y el precio medio por par de cada pedido
 def anadir_variables_pedido(pedidos):
     pedidos = pedidos.copy()
     pedidos["ticket_pedido"] = pedidos["importe"]
@@ -108,26 +118,12 @@ def anadir_variables_pedido(pedidos):
     return pedidos
 
 
+# Solo los pedidos y líneas que cuentan como venta (CONFIRMADO)
 def ventas(datos):
     return datos["pedidos"][datos["pedidos"]["es_venta"]], datos["lineas"][datos["lineas"]["es_venta"]]
 
 
-def variables_cliente(datos):
-    pedidos, _ = ventas(datos)
-    pedidos = pedidos.sort_values(["id_cliente", "fecha_pedido"])
-    intervalo = pedidos.groupby("id_cliente")["fecha_pedido"].diff().dt.days
-
-    df = pedidos.assign(intervalo=intervalo, es_custom=pedidos["tipo_pedido"] == "CUSTOM").groupby(
-        "id_cliente").agg(
-        frecuencia_cliente=("id_pedido", "nunique"),
-        porcentaje_custom=("es_custom", "mean"),
-        intervalo_medio_dias=("intervalo", "mean"),
-    ).reset_index()
-    df["porcentaje_custom"] = (df["porcentaje_custom"] * 100).round(2)
-    df["intervalo_medio_dias"] = df["intervalo_medio_dias"].round(1)
-    return df
-
-
+# Pares por modelo y mes (con ceros) y la demanda de meses anteriores para la predicción
 def demanda_modelo_mes(datos):
     _, lineas = ventas(datos)
     meses = pd.period_range(datos["lineas"]["fecha_pedido"].min(), datos["fecha_corte"] - pd.Timedelta(days=1),
@@ -146,6 +142,7 @@ def demanda_modelo_mes(datos):
     return df
 
 
+# Talla con más pares vendidos de cada modelo
 def talla_mas_solicitada(datos):
     _, lineas = ventas(datos)
     por_talla = lineas.groupby(["id_modelo", "talla"])["cantidad"].sum().reset_index()
@@ -154,6 +151,7 @@ def talla_mas_solicitada(datos):
         columns={"talla": "talla_mas_solicitada", "cantidad": "pares_talla"})
 
 
+# Tabla que describe las variables que se crean
 def catalogo_variables():
     filas = [
         ("anio", "Calendario", "año", "línea y pedido", "Fecha del pedido"),
@@ -175,11 +173,13 @@ def catalogo_variables():
     return pd.DataFrame(filas, columns=["variable", "familia", "unidad", "nivel", "disponible"])
 
 
+# Resultado 01: un pedido por fila
 def pedidos_unicos(datos):
     df = datos["pedidos"].copy()
     return con_metadatos(df, "01_pedidos_unicos", datos, datos.get("filtros", {}), len(datos["lineas"]), "pedidos_unicos")
 
 
+# Resultado 02: ingresos, pares y pedidos por mes con variación mensual, media móvil e interanual
 def ventas_por_periodo(datos):
     pedidos, _ = ventas(datos)
     meses = pd.period_range(datos["pedidos"]["fecha_pedido"].min(), datos["pedidos"]["fecha_pedido"].max(),
@@ -204,6 +204,7 @@ def ventas_por_periodo(datos):
     return con_metadatos(df, "02_ventas_por_periodo", datos, datos.get("filtros", {}), len(pedidos), "ventas_por_periodo")
 
 
+# Ranking por ingresos con el peso y el % acumulado
 def ranking(lineas, columna, etiqueta=None):
     df = lineas.groupby(columna).agg(
         ingresos=("importe_linea", "sum"),
@@ -223,6 +224,7 @@ def ranking(lineas, columna, etiqueta=None):
     return df
 
 
+# Resultado 03: clasificación ABC por ingresos acumulados (A hasta el 80 %, B hasta el 95 %)
 def modelos_abc(datos):
     _, lineas = ventas(datos)
     df = ranking(lineas, "id_modelo", "modelo")
@@ -238,6 +240,7 @@ def modelos_abc(datos):
     return con_metadatos(df, "03_modelos_abc", datos, datos.get("filtros", {}), len(lineas), "modelos_abc")
 
 
+# Resultado 04: pares por modelo y talla, o % de cada talla dentro del modelo
 def matriz_modelo_talla(datos, proporcion=False):
     _, lineas = ventas(datos)
     df = lineas.pivot_table(index="modelo", columns="talla", values="cantidad", aggfunc="sum", fill_value=0)
@@ -250,9 +253,11 @@ def matriz_modelo_talla(datos, proporcion=False):
     return con_metadatos(df, nombre, datos, datos.get("filtros", {}), len(lineas), "matriz_modelo_talla")
 
 
+# Abreviaturas de los meses para las tablas
 MESES_DEL_ANIO = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
 
+# Resultado 13: pares por modelo y mes
 def matriz_modelo_mes(datos):
     demanda = demanda_modelo_mes(datos)
     demanda["modelo"] = demanda["id_modelo"].map(datos["modelos"].set_index("id_modelo")["nombre"])
@@ -263,6 +268,7 @@ def matriz_modelo_mes(datos):
     return con_metadatos(df, "13_matriz_modelo_mes", datos, datos.get("filtros", {}), len(demanda), "matriz_modelo_mes")
 
 
+# Resultado 14: índice de cada mes (media del mes / media de todos). Es estacional si el pico llega al umbral
 def productos_estacionales(datos):
     demanda = demanda_modelo_mes(datos)
     demanda = demanda[pd.PeriodIndex(demanda["mes"], freq="M").end_time < datos["fecha_corte"]]
@@ -295,6 +301,7 @@ def productos_estacionales(datos):
     return df
 
 
+# Resultado 15: % de cada talla en los últimos 6 meses frente a los 6 anteriores
 def cambios_mezcla_tallas(datos):
     _, lineas = ventas(datos)
     completos = [m for m in sorted(lineas["periodo"].unique()) if pd.Period(m, freq="M").end_time < datos["fecha_corte"]]
@@ -306,6 +313,7 @@ def cambios_mezcla_tallas(datos):
 
     anteriores, recientes = completos[-2 * n:-n], completos[-n:]
 
+    # % de pares de cada talla en esos meses
     def reparto(periodos):
         pares = lineas[lineas["periodo"].isin(periodos)].groupby("talla")["cantidad"].sum()
         return pares / pares.sum() * 100
@@ -321,6 +329,7 @@ def cambios_mezcla_tallas(datos):
     return df
 
 
+# Resultado 05: pedidos, pares, ingresos y cancelaciones de cada tipo de pedido
 def custom_vs_estandar(datos):
     pedidos = datos["pedidos"]
     filas = []
@@ -345,6 +354,7 @@ def custom_vs_estandar(datos):
     return con_metadatos(df, "05_custom_vs_estandar", datos, datos.get("filtros", {}), len(pedidos), "custom_vs_estandar")
 
 
+# % de ingresos que se lleva el 20 % de elementos que más facturan
 def participacion_top(serie, fraccion=0.2):
     serie = serie.sort_values(ascending=False)
     total = serie.sum()
@@ -354,6 +364,7 @@ def participacion_top(serie, fraccion=0.2):
     return round(serie.iloc[:cuantos].sum() / total * 100, 2)
 
 
+# Tabla de KPIs con su valor, unidad y fórmula
 def calcular_kpis(datos):
     pedidos = datos["pedidos"]
     venta, lineas_venta = ventas(datos)
@@ -382,6 +393,7 @@ def calcular_kpis(datos):
     df = pd.DataFrame(filas, columns=["kpi", "valor", "unidad", "formula", "denominador"])
     return con_metadatos(df, "kpis", datos, datos.get("filtros", {}), len(pedidos), "calcular_kpis")
 
+# Puntúa del 1 al 5 por percentiles. Invertido para recency, porque menos días es mejor
 def puntuar(serie, invertir=False):
     if serie.empty:
         return serie
@@ -390,6 +402,7 @@ def puntuar(serie, invertir=False):
     return 6 - puntos if invertir else puntos
 
 
+# Segmento del cliente según sus puntos de recency y frequency
 def segmento_rfm(fila):
     r, f = fila["r"], fila["f"]
     if r >= 4 and f >= 4:
@@ -405,6 +418,7 @@ def segmento_rfm(fila):
     return "Potenciales"
 
 
+# Resultado 06: RFM de cada cliente. Los que no han comprado salen como 'Sin compras válidas'
 def clientes_rfm(datos):
     pedidos, _ = ventas(datos)
     df = pedidos.groupby("id_cliente").agg(
@@ -421,7 +435,18 @@ def clientes_rfm(datos):
     df["m"] = puntuar(df["monetary"])
     df["puntuacion_rfm"] = df["r"].astype(str) + df["f"].astype(str) + df["m"].astype(str)
     df["segmento"] = df.apply(segmento_rfm, axis=1) if not df.empty else []
-    df = df.merge(variables_cliente(datos), on="id_cliente", how="left", validate="one_to_one")
+
+    ordenados = pedidos.sort_values(["id_cliente", "fecha_pedido"])
+    intervalo = ordenados.groupby("id_cliente")["fecha_pedido"].diff().dt.days
+    comportamiento = ordenados.assign(intervalo=intervalo, es_custom=ordenados["tipo_pedido"] == "CUSTOM").groupby(
+        "id_cliente").agg(
+        frecuencia_cliente=("id_pedido", "nunique"),
+        porcentaje_custom=("es_custom", "mean"),
+        intervalo_medio_dias=("intervalo", "mean"),
+    ).reset_index()
+    comportamiento["porcentaje_custom"] = (comportamiento["porcentaje_custom"] * 100).round(2)
+    comportamiento["intervalo_medio_dias"] = comportamiento["intervalo_medio_dias"].round(1)
+    df = df.merge(comportamiento, on="id_cliente", how="left", validate="one_to_one")
 
     sin_compras = datos["clientes"][~datos["clientes"]["id_cliente"].isin(df["id_cliente"])]
     if not sin_compras.empty:
@@ -431,6 +456,7 @@ def clientes_rfm(datos):
     return con_metadatos(df, "06_clientes_rfm", datos, datos.get("filtros", {}), len(pedidos), "clientes_rfm")
 
 
+# Resultado 07: % de clientes de cada mes de primera compra que vuelven en los meses siguientes
 def cohortes(datos):
     pedidos, _ = ventas(datos)
     meses = pedidos.assign(mes=pedidos["fecha_pedido"].dt.to_period("M"))[["id_cliente", "mes"]].drop_duplicates()
@@ -456,9 +482,11 @@ def cohortes(datos):
     return df
 
 
+# Orden de gravedad de las alertas de stock
 ORDEN_ALERTAS = ["BAJO MÍNIMO", "RIESGO DE ROTURA", "DESCATALOGADO CON STOCK", "SIN DEMANDA", "DESCATALOGADO", "OK"]
 
 
+# Alerta de una variante y talla según su stock, su mínimo y su cobertura
 def alerta_stock(fila):
     if not fila["modelo_activo"]:
         return "DESCATALOGADO CON STOCK" if fila["stock"] > 0 else "DESCATALOGADO"
@@ -471,6 +499,7 @@ def alerta_stock(fila):
     return "OK"
 
 
+# Resultado 08: stock, demanda de los últimos 28 días y días de cobertura de cada variante y talla
 def stock_cobertura(datos):
     _, lineas = ventas(datos)
     inicio = datos["fecha_corte"] - pd.Timedelta(days=config.DIAS_DEMANDA_RECIENTE)
@@ -498,6 +527,7 @@ def stock_cobertura(datos):
     return con_metadatos(df, "08_stock_cobertura", datos, datos.get("filtros", {}), len(datos["stock"]), "stock_cobertura")
 
 
+# Resultado 09: semáforo de calidad por tabla
 def calidad_datos(resumen, incidencias):
     conteo = incidencias.pivot_table(index="tabla", columns="gravedad", values="regla", aggfunc="count", fill_value=0)
     df = resumen.merge(conteo, left_on="tabla", right_index=True, how="left")
@@ -508,23 +538,20 @@ def calidad_datos(resumen, incidencias):
     return df[["tabla", "filas_entrada", "filas_validas", "filas_rechazadas", "porcentaje_calidad", "bloqueante", "recuperable", "advertencia", "estado"]]
 
 
+# Cuenta las incidencias por regla, gravedad y tabla
 def incidencias_por_regla(incidencias):
     return incidencias.groupby(["regla", "gravedad", "tabla", "descripcion"]).size().rename(
         "registros").reset_index().sort_values(["regla", "tabla"])
 
 
+# Límites inferior y superior para atípicos con el método IQR
 def limites_iqr(serie):
     q1, q3 = serie.quantile(0.25), serie.quantile(0.75)
     rango = q3 - q1
     return q1 - config.FACTOR_IQR * rango, q3 + config.FACTOR_IQR * rango
 
 
-def explicar_pedido(fila):
-    if fila["tipo_pedido"] == "CUSTOM" and fila["tipo_cliente"] in ("CLUB", "EQUIPO"):
-        return "Pedido Custom de club o equipo: volumen grande esperable"
-    return "Revisar con negocio"
-
-
+# Resultado 10: pedidos con importe o pares atípicos y líneas con un precio atípico para su modelo
 def anomalias(datos):
     pedidos, lineas = ventas(datos)
     filas = []
@@ -535,7 +562,11 @@ def anomalias(datos):
         inferior, superior = limites_iqr(pedidos[variable])
         atipicos = pedidos[(pedidos[variable] < inferior) | (pedidos[variable] > superior)]
         for _, fila in atipicos.iterrows():
-            filas.append({"nivel": "pedido", "registro": fila["id_pedido"], "variable": variable, "valor": fila[variable], "limite_inferior": round(inferior, 2), "limite_superior": round(superior, 2), "explicacion": explicar_pedido(fila)})
+            if fila["tipo_pedido"] == "CUSTOM" and fila["tipo_cliente"] in ("CLUB", "EQUIPO"):
+                explicacion = "Pedido Custom de club o equipo: volumen grande esperable"
+            else:
+                explicacion = "Revisar con negocio"
+            filas.append({"nivel": "pedido", "registro": fila["id_pedido"], "variable": variable, "valor": fila[variable], "limite_inferior": round(inferior, 2), "limite_superior": round(superior, 2), "explicacion": explicacion})
 
     for id_modelo, grupo in lineas.groupby("id_modelo"):
         if len(grupo) < 4:
@@ -552,6 +583,7 @@ def anomalias(datos):
     return con_metadatos(df, "10_anomalias", datos, datos.get("filtros", {}), len(lineas), "anomalias")
 
 
+# Resultado 11: el margen no se puede calcular porque no hay coste unitario
 def margen(datos):
     _, lineas = ventas(datos)
     df = ranking(lineas, "id_modelo", "modelo")[["id_modelo", "modelo", "ingresos", "pares"]]
@@ -561,22 +593,7 @@ def margen(datos):
     return con_metadatos(df, "11_margen", datos, datos.get("filtros", {}), len(lineas), "margen")
 
 
-def indicadores_conciliacion(datos):
-    pedidos, lineas = datos["pedidos"], datos["lineas"]
-    venta, lineas_venta = ventas(datos)
-    del_mes = venta[venta["fecha_pedido"].dt.to_period("M").astype(str) == config.MES_CONCILIACION]
-    de_talla = lineas_venta[lineas_venta["talla"] == config.TALLA_CONCILIACION]
-    return {
-        "pedidos_totales": len(pedidos),
-        "lineas_totales": len(lineas),
-        "pedidos_confirmados": len(venta),
-        "pares_vendidos": int(venta["pares"].sum()),
-        "ingresos_validos": round(venta["importe"].sum(), 2),
-        f"ingresos_{config.MES_CONCILIACION}": round(del_mes["importe"].sum(), 2),
-        f"pares_talla_{config.TALLA_CONCILIACION}": int(de_talla["cantidad"].sum()),
-    }
-
-
+# Resultado 12: compara cada indicador con referencia_sql.csv (OK si la diferencia es menor de 0,01)
 def reconciliacion_sql(datos, carpeta):
     ruta = carpeta / config.FICHERO_REFERENCIA_SQL
     referencia = {}
@@ -584,8 +601,21 @@ def reconciliacion_sql(datos, carpeta):
         tabla = pd.read_csv(ruta, dtype={"indicador": str})
         referencia = dict(zip(tabla["indicador"], tabla["valor_sql"]))
 
+    venta, lineas_venta = ventas(datos)
+    del_mes = venta[venta["fecha_pedido"].dt.to_period("M").astype(str) == config.MES_CONCILIACION]
+    de_talla = lineas_venta[lineas_venta["talla"] == config.TALLA_CONCILIACION]
+    indicadores = {
+        "pedidos_totales": len(datos["pedidos"]),
+        "lineas_totales": len(datos["lineas"]),
+        "pedidos_confirmados": len(venta),
+        "pares_vendidos": int(venta["pares"].sum()),
+        "ingresos_validos": round(venta["importe"].sum(), 2),
+        f"ingresos_{config.MES_CONCILIACION}": round(del_mes["importe"].sum(), 2),
+        f"pares_talla_{config.TALLA_CONCILIACION}": int(de_talla["cantidad"].sum()),
+    }
+
     filas = []
-    for indicador, valor in indicadores_conciliacion(datos).items():
+    for indicador, valor in indicadores.items():
         sql = referencia.get(indicador)
         if sql is None:
             estado, diferencia = "SIN REFERENCIA", np.nan
@@ -596,6 +626,7 @@ def reconciliacion_sql(datos, carpeta):
     df = pd.DataFrame(filas)
     return con_metadatos(df, "12_reconciliacion_sql", datos, {}, len(datos["pedidos"]), "reconciliacion_sql")
 
+# Estadísticos de una serie: media, mediana, moda, desviación, percentiles e IQR
 def describir(serie):
     serie = serie.dropna()
     if serie.empty:
@@ -619,6 +650,7 @@ def describir(serie):
     }
 
 
+# Estadísticos de importe, pares y precio por par, en total y por tipo de pedido
 def estadisticos(datos):
     pedidos, _ = ventas(datos)
     variables = {"importe": "EUR por pedido", "pares": "pares por pedido", "precio_medio_par": "EUR por par"}
@@ -633,6 +665,7 @@ def estadisticos(datos):
     return con_metadatos(df, "estadisticos", datos, datos.get("filtros", {}), len(pedidos), "estadisticos")
 
 
+# Intervalo de confianza del 95 % de la diferencia entre dos grupos por bootstrap
 def bootstrap_diferencia(a, b, estadistico, semilla=config.SEMILLA, repeticiones=config.REPETICIONES_BOOTSTRAP):
     rng = np.random.default_rng(semilla)
     a, b = np.asarray(a, dtype=float), np.asarray(b, dtype=float)
@@ -642,6 +675,7 @@ def bootstrap_diferencia(a, b, estadistico, semilla=config.SEMILLA, repeticiones
     return np.percentile(diferencias, [2.5, 97.5])
 
 
+# Contrasta una hipótesis: si el intervalo no incluye el 0 se apoya; si lo incluye no hay evidencia
 def contrastar(hipotesis, metrica, grupo_a, a, grupo_b, b, estadistico, sentido="mayor"):
     fila = {"hipotesis": hipotesis, "metrica": metrica, "grupo_a": grupo_a, "n_a": len(a), "grupo_b": grupo_b,
             "n_b": len(b)}
@@ -666,6 +700,7 @@ def contrastar(hipotesis, metrica, grupo_a, a, grupo_b, b, estadistico, sentido=
             "ic95_superior": round(superior, 4), "conclusion": conclusion, "explicacion": explicacion}
 
 
+# Las tres hipótesis: importe Custom, cancelaciones Custom y crecimiento frente al año anterior
 def hipotesis(datos):
     pedidos = datos["pedidos"]
     venta, _ = ventas(datos)
@@ -697,6 +732,7 @@ def hipotesis(datos):
     return con_metadatos(df, "hipotesis", datos, datos.get("filtros", {}), len(pedidos), "hipotesis")
 
 
+# Frases con lo que no se puede afirmar con estos datos
 def limitaciones(datos):
     venta, _ = ventas(datos)
     meses = datos["pedidos"]["periodo"].nunique()
@@ -715,18 +751,16 @@ def limitaciones(datos):
     return con_metadatos(df, "limitaciones", datos, datos.get("filtros", {}), len(venta), "limitaciones")
 
 
-def ventana_actual(datos, filtros):
-    if filtros.get("fecha_desde") is not None and filtros.get("fecha_hasta") is not None:
-        return pd.Timestamp(filtros["fecha_desde"]), pd.Timestamp(filtros["fecha_hasta"])
-    meses = ventas_por_periodo(datos)
-    completos = meses[meses["mes_completo"]]
-    ultimo = pd.Period(completos["mes"].iloc[-1] if not completos.empty else meses["mes"].iloc[-1], freq="M")
-    return ultimo.start_time, ultimo.end_time.normalize()
-
-
+# Compara los KPIs del periodo actual (el de los filtros o, si no hay, el último mes completo) con los del periodo anterior de la misma duración
 def comparar_periodo_anterior(datos, filtros=None):
     filtros = {**FILTROS_VACIOS, **(filtros or {})}
-    desde, hasta = ventana_actual(datos, filtros)
+    if filtros["fecha_desde"] is not None and filtros["fecha_hasta"] is not None:
+        desde, hasta = pd.Timestamp(filtros["fecha_desde"]), pd.Timestamp(filtros["fecha_hasta"])
+    else:
+        mensual = ventas_por_periodo(datos)
+        completos = mensual[mensual["mes_completo"]]
+        ultimo = pd.Period(completos["mes"].iloc[-1] if not completos.empty else mensual["mes"].iloc[-1], freq="M")
+        desde, hasta = ultimo.start_time, ultimo.end_time.normalize()
     meses_completos = desde.is_month_start and (hasta + pd.Timedelta(days=1)).is_month_start
     if meses_completos:
         meses = (hasta.to_period("M") - desde.to_period("M")).n + 1
@@ -746,9 +780,11 @@ def comparar_periodo_anterior(datos, filtros=None):
     df["periodo_anterior"] = f"{previo_desde:%Y-%m-%d} a {previo_hasta:%Y-%m-%d}"
     return con_metadatos(df, "comparacion_periodo_anterior", datos, filtros, len(datos["pedidos"]), "comparar_periodo_anterior")
 
+# Variables con las que se agrupan los clientes
 VARIABLES_CLUSTER = ["recency_dias", "frequency", "monetary", "porcentaje_custom"]
 
 
+# Nombre de un clúster según su centro (variables escaladas: mayor que 0 es por encima de la media)
 def nombrar_cluster(centro):
     if centro["recency_dias"] > 0.5:
         return "Inactivos o en riesgo"
@@ -763,6 +799,7 @@ def nombrar_cluster(centro):
     return "Regulares"
 
 
+# KMeans de clientes: prueba k de 2 a 5, se queda con el de mayor silhouette y describe cada grupo
 def clustering_clientes(datos):
     rfm = clientes_rfm(datos)
     compradores = rfm[rfm["frequency"] > 0].dropna(subset=VARIABLES_CLUSTER).reset_index(drop=True)
@@ -774,11 +811,13 @@ def clustering_clientes(datos):
         estado = (f"NO CALCULABLE: hay {len(compradores)} clientes con compras y hacen falta al menos " f"{config.MINIMO_CLIENTES_CLUSTER}. Usar el histórico sintético para demostrar el método.")
         return {**vacio, "estado": estado}
 
+    # Logaritmo en pedidos y gasto para que los clientes grandes no dominen, y escalado
     variables = compradores[VARIABLES_CLUSTER].copy()
     variables["frequency"] = np.log1p(variables["frequency"])
     variables["monetary"] = np.log1p(variables["monetary"])
     escaladas = StandardScaler().fit_transform(variables)
 
+    # Probar cada k y medir la silhouette
     evaluacion = []
     for k in config.VALORES_K:
         if k >= len(compradores):
@@ -789,6 +828,7 @@ def clustering_clientes(datos):
     mejor_k = int(evaluacion.loc[evaluacion["silhouette"].idxmax(), "k"])
     evaluacion["elegido"] = evaluacion["k"] == mejor_k
 
+    # Modelo final con el mejor k y nombre de cada grupo
     modelo = KMeans(n_clusters=mejor_k, n_init=10, random_state=config.SEMILLA).fit(escaladas)
     compradores["cluster"] = modelo.labels_
     centros = pd.DataFrame(modelo.cluster_centers_, columns=VARIABLES_CLUSTER)
@@ -799,6 +839,7 @@ def clustering_clientes(datos):
         nombres[cluster] = nombre if not repetidos else f"{nombre} {repetidos + 1}"
     compradores["nombre_cluster"] = compradores["cluster"].map(nombres)
 
+    # Perfil medio de cada grupo
     total_ingresos = compradores["monetary"].sum()
     perfil = compradores.groupby(["cluster", "nombre_cluster"]).agg(
         clientes=("id_cliente", "count"),

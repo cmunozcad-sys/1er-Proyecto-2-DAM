@@ -1,3 +1,5 @@
+# Dashboard de Streamlit: origen de los datos, filtros, vistas, descargas y refresco automático
+
 import streamlit as st
 
 import analiticas
@@ -6,14 +8,17 @@ import refresco
 from dashboard import interfaz, vistas
 from utils.trazas import con_linaje
 
+# Si todavía no existe prediccion.py, el dashboard funciona igual
 try:
     import prediccion
 except ImportError:
     prediccion = None
 
+# Título, icono y ancho de la página
 st.set_page_config(page_title="Sneaker Factory · Panel de datos", page_icon=str(interfaz.RECURSOS / "logo.png"),
                    layout="wide")
 
+# Orígenes de datos, vistas y filtros del panel
 ORIGENES = {
     "Datos reales": (config.ENTRADA_REAL, "REAL"),
     "Histórico sintético": (config.ENTRADA_SINTETICA, "SINTETICO"),
@@ -23,34 +28,41 @@ VISTAS = ["01 · Dirección", "02 · Producto y ventas", "03 · Clientes", "04 �
 FILTROS = ["periodo", "modelos", "tallas", "tipos", "estados", "clientes"]
 
 
+# Caché de la predicción con datos sintéticos para no reentrenar en cada ciclo si los CSV no cambian
 @st.cache_data(show_spinner="Entrenando el modelo de predicción…")
 def predecir_sintetico(origen, huella_ficheros, _datos):
     return prediccion.evaluar_prediccion(_datos)
 
 
+# Con datos reales se calcula siempre; con sintéticos se usa la caché
 def predecir(ciclo):
     if ciclo["origen"] == "REAL":
         return prediccion.evaluar_prediccion(ciclo["datos"])
     return predecir_sintetico(ciclo["origen"], ciclo["huella"], ciclo["datos"])
 
 
+# Clave del filtro en session_state, distinta para cada origen
 def clave(filtro):
     return f"filtro_{filtro}_{st.session_state.get('origen', '')}"
 
 
+# Borra todos los filtros
 def restablecer_filtros():
     for filtro in FILTROS + ["periodo_elegido"]:
         st.session_state.pop(clave(filtro), None)
 
 
+# Marca que se ha cambiado el periodo; si no, no se filtra por fechas
 def marcar_periodo():
     st.session_state[clave("periodo_elegido")] = True
 
 
+# Botón Actualizar ahora: fuerza un ciclo
 def actualizar_ahora():
     st.session_state["actualizar_ahora"] = True
 
 
+# Lee los filtros elegidos en la barra lateral
 def filtros_guardados():
     filtros = {filtro: st.session_state.get(clave(filtro), []) for filtro in FILTROS if filtro != "periodo"}
     periodo = st.session_state.get(clave("periodo"), ())
@@ -59,6 +71,7 @@ def filtros_guardados():
     return filtros
 
 
+# Pinta los filtros de la barra lateral
 def filtros_laterales(datos):
     pedidos, lineas = datos["pedidos"], datos["lineas"]
     nombres_modelo = datos["modelos"].set_index("id_modelo")["nombre"]
@@ -79,6 +92,7 @@ def filtros_laterales(datos):
     st.button("Restablecer filtros", on_click=restablecer_filtros, width="stretch")
 
 
+# Botones para descargar en CSV los datos filtrados con su linaje
 def descargas(filtrados, origen):
     interfaz.titulo_lateral("Descargas", "CSV con los filtros aplicados.")
     tablas = {
@@ -94,15 +108,7 @@ def descargas(filtrados, origen):
                            mime="text/csv", width="stretch", key=f"descarga_{nombre}")
 
 
-def ejecutar_refresco(carpeta, origen):
-    anterior = st.session_state.get(f"refresco_{origen}", {})
-    ultimo = anterior.get("ultimo")
-    ciclo = refresco.ejecutar_ciclo(carpeta, origen, ultimo["huella"] if ultimo else None)
-    estado = {"ultimo": ciclo, "valido": refresco.publicar(ciclo, anterior.get("valido"))}
-    st.session_state[f"refresco_{origen}"] = estado
-    return estado
-
-
+# Pinta la cabecera, la barra de estado y la vista elegida
 def pintar(estado, carpeta, origen):
     ultimo, valido = estado["ultimo"], estado["valido"]
     if valido:
@@ -136,18 +142,24 @@ def pintar(estado, carpeta, origen):
         vistas.direccion(datos, filtrados, filtros)
 
 
+# Fragmento que Streamlit vuelve a ejecutar cada INTERVALO_REFRESCO. Si toca, ejecuta un ciclo y guarda el último ciclo y el último válido
 @st.fragment(run_every=config.INTERVALO_REFRESCO)
 def panel(carpeta, origen):
     completa = st.session_state.pop("ejecucion_completa", False)
     pedido = st.session_state.pop("actualizar_ahora", False)
     estado = st.session_state.get(f"refresco_{origen}")
     if pedido or refresco.toca_ciclo(estado["ultimo"]["comprobado"] if estado else None):
-        estado = ejecutar_refresco(carpeta, origen)
+        anterior = estado or {}
+        ultimo = anterior.get("ultimo")
+        ciclo = refresco.ejecutar_ciclo(carpeta, origen, ultimo["huella"] if ultimo else None)
+        estado = {"ultimo": ciclo, "valido": refresco.publicar(ciclo, anterior.get("valido"))}
+        st.session_state[f"refresco_{origen}"] = estado
         if not completa and estado["valido"] is estado["ultimo"]:
             st.rerun()
     pintar(estado, carpeta, origen)
 
 
+# Página principal: origen en la barra lateral, panel, filtros y descargas
 def main():
     interfaz.cargar_estilos()
 
@@ -170,4 +182,5 @@ def main():
             descargas(filtrados, origen)
 
 
+# Streamlit ejecuta el archivo entero en cada interacción
 main()

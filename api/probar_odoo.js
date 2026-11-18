@@ -1,10 +1,14 @@
+// Comprueba la conexión con Odoo: docker compose exec api node probar_odoo.js
+
 const odoo = require("./odoo");
 
+// Busca hasta 3 registros de un modelo y los enseña por consola
 async function mostrar(titulo, modelo, condiciones, campos) {
     const filas = await odoo.ejecutar(modelo, "search_read", [condiciones], { fields: campos, limit: 3 });
     console.log(titulo, filas);
 }
 
+// Se conecta y prueba a leer clientes y la Cometa en talla 41 de varias formas
 async function probar() {
     await odoo.conectar();
     console.log("Conexión correcta con Odoo");
@@ -21,4 +25,5 @@ async function probar() {
         ["display_name", "default_code"]);
 }
 
+// Si algo falla se muestra el mensaje
 probar().catch((error) => console.error("Error: " + error.message));

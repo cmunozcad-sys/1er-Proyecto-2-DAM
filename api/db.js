@@ -1,3 +1,5 @@
+// Conexión con PostgreSQL. Los datos de acceso salen del .env
+
 const { Pool } = require("pg");
 
 const pool = new Pool({
@@ -8,4 +10,5 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD
 });
 
+// Se usa en server.js y en sincronizador.js
 module.exports = pool;

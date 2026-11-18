@@ -1,3 +1,5 @@
+# Las seis vistas del dashboard y la barra de estado del refresco
+
 import plotly.graph_objects as go
 import streamlit as st
 
@@ -6,6 +8,7 @@ import config
 import refresco
 from dashboard import interfaz
 
+# Nombres y formatos de los KPIs que se comparan
 ETIQUETAS_KPI = {
     "ingresos_validos": "Ingresos válidos",
     "pares_vendidos": "Pares vendidos",
@@ -13,11 +16,13 @@ ETIQUETAS_KPI = {
     "ticket_medio": "Ticket medio",
 }
 FORMATOS_KPI = {"ingresos_validos": interfaz.euros, "ticket_medio": interfaz.euros}
+# Color del semáforo de calidad y tipo de aviso según el estado del refresco
 ESTADO_CALIDAD = {"CORRECTO": "correcto", "CON RECHAZOS": "alerta", "BLOQUEADO": "error"}
 AVISO_REFRESCO = {refresco.CORRECTO: "info", refresco.SIN_CAMBIOS: "info", refresco.DATOS_INVALIDOS: "error",
                   refresco.ERROR_CARGA: "error"}
 
 
+# Barra de arriba con el estado del último ciclo y la última actualización válida
 def barra_refresco(ultimo, valido):
     actualizado = f"{valido['comprobado']:%d/%m/%Y %H:%M:%S}" if valido else "ninguna"
     filas = interfaz.numero(valido["filas_validas"]) if valido else "0"
@@ -27,6 +32,7 @@ def barra_refresco(ultimo, valido):
                    f"{interfaz.numero(ultimo['duracion'], 2)} s", AVISO_REFRESCO[ultimo["estado"]])
 
 
+# Aviso cuando un ciclo falla; si había datos válidos se marcan como desactualizados
 def ciclo_fallido(ultimo, valido):
     interfaz.aviso("No se publican resultados de este ciclo",
                    f"{ultimo['estado'].capitalize()}: {ultimo['explicacion']}. Revisa la tabla de incidencias.",
@@ -38,11 +44,13 @@ def ciclo_fallido(ultimo, valido):
                        "vuelvan a estar bien.", "error")
 
 
+# Interruptor para enseñar la tabla de datos de un gráfico
 def ver_datos(df, clave):
     if st.toggle("Ver los datos de este gráfico", key=f"ver_{clave}"):
         st.dataframe(df, width="stretch", hide_index=True)
 
 
+# Vista 01 Dirección: KPIs, evolución mensual y comparación con el periodo anterior
 def direccion(datos, filtrados, filtros):
     kpis = analiticas.calcular_kpis(filtrados).set_index("kpi")["valor"]
     interfaz.seccion("Resumen del periodo", "Ventas válidas = pedidos CONFIRMADOS. Borradores y cancelados solo "
@@ -85,6 +93,7 @@ def direccion(datos, filtrados, filtros):
         interfaz.comparativa(comparacion, ETIQUETAS_KPI, FORMATOS_KPI)
 
 
+# Vista 02 Producto y ventas: ABC, tallas por modelo y Custom frente a estándar
 def producto(filtrados):
     abc = analiticas.modelos_abc(filtrados)
     con_ventas = abc[abc["ingresos"] > 0]
@@ -146,6 +155,7 @@ def producto(filtrados):
                             "tasa_cancelacion_pct"]], width="stretch", hide_index=True)
 
 
+# Vista 03 Clientes: los que más compran, RFM, cohortes y KMeans
 def clientes(datos, filtrados):
     rfm = analiticas.clientes_rfm(filtrados)
     compradores = rfm[rfm["frequency"] > 0]
@@ -232,6 +242,7 @@ def clientes(datos, filtrados):
         interfaz.grafico(figura, "Calidad de cada k")
 
 
+# Vista 04 Almacén: stock frente a demanda y alertas
 def almacen(datos, filtrados):
     stock = analiticas.stock_cobertura(filtrados)
     interfaz.aviso("El stock es una foto, no un histórico",
@@ -279,6 +290,7 @@ def almacen(datos, filtrados):
                         "alerta"]], width="stretch", hide_index=True)
 
 
+# Vista 05 Calidad y auditoría: semáforo, incidencias, conciliación con PostgreSQL y ficheros leídos
 def calidad(carga, datos, carpeta):
     resumen = analiticas.calidad_datos(carga["resumen"], carga["incidencias"])
     interfaz.seccion("Semáforo por fichero", "Verde: todo válido · naranja: algún registro rechazado · rojo: "
@@ -323,6 +335,7 @@ def calidad(carga, datos, carpeta):
     interfaz.lista_limitaciones(analiticas.limitaciones(datos)["no_puede_afirmarse"])
 
 
+# Vista 06 Modelos predictivos: real frente a predicción y error por modelo
 def prediccion(resultado, origen):
     interfaz.laboratorio("La predicción necesita al menos un año de histórico. Con datos reales aún no hay meses "
                          "suficientes, así que el método se demuestra con el histórico SINTÉTICO, que no representa "

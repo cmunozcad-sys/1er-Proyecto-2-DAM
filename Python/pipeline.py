@@ -1,13 +1,17 @@
+# Pipeline de datos: carga los CSV, convierte los tipos, valida las reglas y une las tablas
+
 from pathlib import Path
 
 import pandas as pd
 
 import config
 from utils.trazas import (BLOQUEANTE, RECUPERABLE, ADVERTENCIA, RegistroIncidencias, crear_logger,fila_manifiesto, guardar_csv)
+# Textos que se aceptan como verdadero o falso
 VALORES_VERDADERO = {"true", "t", "1", "si", "sí"}
 VALORES_FALSO = {"false", "f", "0", "no"}
 
 
+# Lee un CSV como texto. Si no existe, está vacío o le faltan columnas, apunta una incidencia bloqueante
 def leer_tabla(tabla, carpeta, registro):
     ruta = Path(carpeta) / config.FICHEROS[tabla]
 
@@ -35,21 +39,7 @@ def leer_tabla(tabla, carpeta, registro):
     return df, ruta
 
 
-def anotar_fallos(tabla, df, columna, original, convertido, registro):
-    fallos = original.notna() & convertido.isna()
-    for indice in df.index[fallos]:
-        registro.anadir(tabla, df.at[indice, config.CLAVES[tabla][0]], "CONV", ADVERTENCIA,
-                        f"{columna}: no se pudo convertir '{original[indice]}'", "Valor tratado como nulo")
-
-
-def convertir_booleano(serie):
-    texto = serie.str.strip().str.lower()
-    resultado = pd.Series(pd.NA, index=serie.index, dtype="boolean")
-    resultado[texto.isin(VALORES_VERDADERO)] = True
-    resultado[texto.isin(VALORES_FALSO)] = False
-    return resultado
-
-
+# Quita espacios y convierte números, fechas y booleanos según config. Lo que no se puede convertir queda nulo y se avisa
 def convertir_tipos(tabla, df, registro):
     df = df.copy()
 
@@ -57,24 +47,29 @@ def convertir_tipos(tabla, df, registro):
         if df[columna].dtype == object or pd.api.types.is_string_dtype(df[columna]):
             df[columna] = df[columna].str.strip()
 
-    for columna in config.COLUMNAS_NUMERICAS[tabla]:
-        convertido = pd.to_numeric(df[columna], errors="coerce")
-        anotar_fallos(tabla, df, columna, df[columna], convertido, registro)
-        df[columna] = convertido
+    columnas = config.COLUMNAS_NUMERICAS[tabla] + config.COLUMNAS_FECHA[tabla] + config.COLUMNAS_BOOLEANAS[tabla]
+    for columna in columnas:
+        original = df[columna]
+        if columna in config.COLUMNAS_NUMERICAS[tabla]:
+            convertido = pd.to_numeric(original, errors="coerce")
+        elif columna in config.COLUMNAS_FECHA[tabla]:
+            convertido = pd.to_datetime(original, errors="coerce", format="ISO8601")
+        else:
+            texto = original.str.strip().str.lower()
+            convertido = pd.Series(pd.NA, index=original.index, dtype="boolean")
+            convertido[texto.isin(VALORES_VERDADERO)] = True
+            convertido[texto.isin(VALORES_FALSO)] = False
 
-    for columna in config.COLUMNAS_FECHA[tabla]:
-        convertido = pd.to_datetime(df[columna], errors="coerce", format="ISO8601")
-        anotar_fallos(tabla, df, columna, df[columna], convertido, registro)
-        df[columna] = convertido
-
-    for columna in config.COLUMNAS_BOOLEANAS[tabla]:
-        convertido = convertir_booleano(df[columna])
-        anotar_fallos(tabla, df, columna, df[columna], convertido, registro)
+        fallos = original.notna() & convertido.isna()
+        for indice in df.index[fallos]:
+            registro.anadir(tabla, df.at[indice, config.CLAVES[tabla][0]], "CONV", ADVERTENCIA,
+                            f"{columna}: no se pudo convertir '{original[indice]}'", "Valor tratado como nulo")
         df[columna] = convertido
 
     return df
 
 
+# Carga las cinco tablas y devuelve las tablas, el manifiesto y el registro de incidencias
 def cargar_datos(carpeta, origen):
     logger = crear_logger("pipeline", config.LOGS / "pipeline.log")
     registro = RegistroIncidencias()
@@ -100,17 +95,16 @@ def cargar_datos(carpeta, origen):
     return tablas, pd.DataFrame(manifiesto), registro
 
 
-def id_registro(df, tabla, indice):
-    return "-".join(str(df.at[indice, c]) for c in config.CLAVES[tabla])
-
-
+# Apunta una incidencia por cada fila que cumple la máscara (identificada por su clave unida con guiones) y devuelve la máscara
 def marcar(tabla, df, mascara, regla, gravedad, descripcion, tratamiento, registro):
     mascara = mascara.fillna(False).astype(bool)
     for indice in df.index[mascara]:
-        registro.anadir(tabla, id_registro(df, tabla, indice), regla, gravedad, descripcion, tratamiento)
+        clave = "-".join(str(df.at[indice, c]) for c in config.CLAVES[tabla])
+        registro.anadir(tabla, clave, regla, gravedad, descripcion, tratamiento)
     return mascara
 
 
+# Claves repetidas: si la fila es idéntica se queda una copia y si tiene datos distintos se rechazan todas
 def duplicados_clave(tabla, df, registro, regla="02"):
     claves = config.CLAVES[tabla]
     repetidos = df.duplicated(subset=claves, keep=False)
@@ -126,6 +120,7 @@ def duplicados_clave(tabla, df, registro, regla="02"):
     return identicos | conflictivos
 
 
+# Reglas de clientes: duplicados, sin id, tipo y fecha de alta
 def validar_clientes(df, registro):
     rechazar = duplicados_clave("clientes", df, registro)
     rechazar |= marcar("clientes", df, df["id_cliente"].isna(), "09", RECUPERABLE, "Cliente sin identificador", "Registro rechazado", registro)
@@ -134,6 +129,7 @@ def validar_clientes(df, registro):
     return df[~rechazar]
 
 
+# Reglas de modelos: duplicados, sin id, precio base y categoría
 def validar_modelos(df, registro):
     rechazar = duplicados_clave("modelos", df, registro)
     rechazar |= marcar("modelos", df, df["id_modelo"].isna(), "09", RECUPERABLE, "Modelo sin identificador", "Registro rechazado", registro)
@@ -142,19 +138,18 @@ def validar_modelos(df, registro):
     return df[~rechazar]
 
 
+# Talla dentro del rango y entera o media talla
 def talla_valida(serie):
     return serie.between(config.TALLA_MIN, config.TALLA_MAX) & ((serie * 2) % 1 == 0)
 
 
-def existe_en(df, columnas, destino):
-    cruce = df[columnas].merge(destino[columnas].drop_duplicates(), on=columnas, how="left", indicator=True)
-    return pd.Series((cruce["_merge"] == "both").to_numpy(), index=df.index)
-
-
+# Clave ajena: si no existe en el CSV es bloqueante y si existe pero se rechazó es recuperable
 def comprobar_referencia(tabla, df, pendiente, columnas, destino_csv, destino_valido, fichero, registro):
     con_valor = df[columnas].notna().all(axis=1)
-    en_csv = existe_en(df, columnas, destino_csv)
-    en_validos = existe_en(df, columnas, destino_valido)
+    cruce_csv = df[columnas].merge(destino_csv[columnas].drop_duplicates(), on=columnas, how="left", indicator=True)
+    en_csv = pd.Series((cruce_csv["_merge"] == "both").to_numpy(), index=df.index)
+    cruce_validos = df[columnas].merge(destino_valido[columnas].drop_duplicates(), on=columnas, how="left", indicator=True)
+    en_validos = pd.Series((cruce_validos["_merge"] == "both").to_numpy(), index=df.index)
     referencia = " y ".join(columnas)
 
     no_existe = marcar(tabla, df, pendiente & con_valor & ~en_csv, "03", BLOQUEANTE, f"{referencia} no existe en {fichero}", "Registro rechazado", registro)
@@ -162,6 +157,7 @@ def comprobar_referencia(tabla, df, pendiente, columnas, destino_csv, destino_va
     return no_existe | rechazada
 
 
+# Reglas de stock: duplicados, talla, cantidad y modelo
 def validar_stock(df, modelos_csv, modelos, registro):
     rechazar = duplicados_clave("stock", df, registro, regla="11")
     rechazar |= marcar("stock", df, ~talla_valida(df["talla"]), "08", RECUPERABLE, f"Talla fuera de {config.TALLA_MIN}-{config.TALLA_MAX}", "Registro rechazado", registro)
@@ -171,6 +167,7 @@ def validar_stock(df, modelos_csv, modelos, registro):
     return df[~rechazar]
 
 
+# Reglas de pedidos: fecha, estado, tipo y cliente. Las fechas incoherentes solo avisan
 def validar_pedidos(df, clientes_csv, clientes, registro, ahora):
     rechazar = duplicados_clave("pedidos", df, registro)
     rechazar |= marcar("pedidos", df, df["fecha_pedido"].isna() | (df["fecha_pedido"] > ahora), "04", RECUPERABLE, "Fecha de pedido nula, imposible o futura", "Registro rechazado", registro)
@@ -187,6 +184,7 @@ def validar_pedidos(df, clientes_csv, clientes, registro, ahora):
     return df[~rechazar]
 
 
+# Reglas de líneas: cantidad, precio, talla y referencias a pedido, modelo y stock
 def validar_lineas(df, tablas, validas, registro):
     rechazar = duplicados_clave("lineas", df, registro)
     rechazar |= marcar("lineas", df, df["cantidad"].isna() | (df["cantidad"] <= 0), "05", RECUPERABLE, "Cantidad nula, cero o negativa", "Registro rechazado", registro)
@@ -210,6 +208,7 @@ def validar_lineas(df, tablas, validas, registro):
     return df[~rechazar]
 
 
+# Compara el total de cada pedido con la suma de sus líneas
 def comprobar_totales(pedidos, lineas, registro):
     importe = (lineas["cantidad"] * lineas["precio_unitario"]).groupby(lineas["id_pedido"]).sum()
     calculado = pedidos["id_pedido"].map(importe).fillna(0).round(2)
@@ -219,6 +218,7 @@ def comprobar_totales(pedidos, lineas, registro):
     marcar("pedidos", pedidos, sin_lineas, "12", ADVERTENCIA, "Pedido sin líneas válidas", "Se conserva en actividad", registro)
 
 
+# Filas de entrada, válidas, rechazadas e incidencias de cada tabla
 def resumen_calidad(tablas, validas, registro):
     incidencias = registro.a_dataframe()
     filas = []
@@ -238,6 +238,7 @@ def resumen_calidad(tablas, validas, registro):
     return pd.DataFrame(filas)
 
 
+# Valida todas las tablas en orden, porque las líneas dependen de pedidos, modelos y stock
 def validar_datos(tablas, registro):
     if len(tablas) < len(config.FICHEROS):
         return {}, resumen_calidad(tablas, {}, registro)
@@ -253,6 +254,7 @@ def validar_datos(tablas, registro):
 
     return validas, resumen_calidad(tablas, validas, registro)
 
+# Merge controlado: si cambia el número de filas o faltan parejas, apunta un bloqueante y devuelve None
 def unir(nombre, izquierda, derecha, clave, validacion, registro, exigir_pareja=True):
     try:
         cruce = izquierda.merge(derecha, on=clave, how="left", validate=validacion, indicator=True)
@@ -275,27 +277,7 @@ def unir(nombre, izquierda, derecha, clave, validacion, registro, exigir_pareja=
     return cruce.drop(columns="_merge")
 
 
-def construir_lineas_enriquecidas(validas, registro):
-    pedidos = validas["pedidos"][["id_pedido", "tipo", "estado", "fecha_pedido", "fecha_confirmacion", "fecha_cancelacion", "id_cliente"]].rename(columns={"tipo": "tipo_pedido"})
-    clientes = validas["clientes"][["id_cliente", "tipo", "ciudad"]].rename(columns={"tipo": "tipo_cliente"})
-    modelos = validas["modelos"][["id_modelo", "nombre", "categoria", "precio_base"]].rename(
-        columns={"nombre": "modelo"})
-
-    df = unir("lineas-pedidos", validas["lineas"], pedidos, "id_pedido", "many_to_one", registro)
-    if df is None:
-        return None
-    df = unir("lineas-clientes", df, clientes, "id_cliente", "many_to_one", registro)
-    if df is None:
-        return None
-    df = unir("lineas-modelos", df, modelos, "id_modelo", "many_to_one", registro)
-    if df is None:
-        return None
-
-    df["importe_linea"] = (df["cantidad"] * df["precio_unitario"]).round(2)
-    df["es_venta"] = df["estado"].isin(config.ESTADOS_VENTA)
-    return df
-
-
+# Suma pares, importe, líneas y modelos de cada pedido
 def resumir_por_pedido(lineas):
     return lineas.groupby("id_pedido").agg(
         pares=("cantidad", "sum"),
@@ -305,41 +287,53 @@ def resumir_por_pedido(lineas):
     ).reset_index()
 
 
-def construir_pedidos_unicos(lineas_enriquecidas, validas, registro):
-    por_pedido = resumir_por_pedido(lineas_enriquecidas)
+# Construye las dos vistas de trabajo: líneas enriquecidas y pedidos únicos
+def integrar_datos(validas, registro):
+    if not validas:
+        return None, None
 
+    # Líneas enriquecidas: cada línea con su pedido, cliente y modelo, su importe y si es venta
+    pedidos = validas["pedidos"][["id_pedido", "tipo", "estado", "fecha_pedido", "fecha_confirmacion", "fecha_cancelacion", "id_cliente"]].rename(columns={"tipo": "tipo_pedido"})
+    clientes = validas["clientes"][["id_cliente", "tipo", "ciudad"]].rename(columns={"tipo": "tipo_cliente"})
+    modelos = validas["modelos"][["id_modelo", "nombre", "categoria", "precio_base"]].rename(
+        columns={"nombre": "modelo"})
+
+    lineas = unir("lineas-pedidos", validas["lineas"], pedidos, "id_pedido", "many_to_one", registro)
+    if lineas is None:
+        return None, None
+    lineas = unir("lineas-clientes", lineas, clientes, "id_cliente", "many_to_one", registro)
+    if lineas is None:
+        return None, None
+    lineas = unir("lineas-modelos", lineas, modelos, "id_modelo", "many_to_one", registro)
+    if lineas is None:
+        return None, None
+
+    lineas["importe_linea"] = (lineas["cantidad"] * lineas["precio_unitario"]).round(2)
+    lineas["es_venta"] = lineas["estado"].isin(config.ESTADOS_VENTA)
+
+    # Pedidos únicos: una fila por pedido con sus totales, comprobando que los importes cuadran con las líneas
+    por_pedido = resumir_por_pedido(lineas)
     pedidos = validas["pedidos"].drop(columns=["ref_odoo", "total"]).rename(columns={"tipo": "tipo_pedido"})
     clientes = validas["clientes"][["id_cliente", "tipo"]].rename(columns={"tipo": "tipo_cliente"})
 
     df = unir("pedidos-lineas", pedidos, por_pedido, "id_pedido", "one_to_one", registro, exigir_pareja=False)
     if df is None:
-        return None
+        return lineas, None
     df = unir("pedidos-clientes", df, clientes, "id_cliente", "many_to_one", registro)
     if df is None:
-        return None
+        return lineas, None
 
     df[["pares", "num_lineas", "num_modelos"]] = df[["pares", "num_lineas", "num_modelos"]].fillna(0).astype(int)
     df["importe"] = df["importe"].fillna(0).round(2)
     df["es_venta"] = df["estado"].isin(config.ESTADOS_VENTA)
 
-    if round(df["importe"].sum(), 2) != round(lineas_enriquecidas["importe_linea"].sum(), 2):
+    if round(df["importe"].sum(), 2) != round(lineas["importe_linea"].sum(), 2):
         registro.anadir("pedidos-unicos", "-", "CRUCE", BLOQUEANTE,
                         "La suma de importes no coincide con la de las líneas", "Vista descartada")
-        return None
-    return df
+        return lineas, None
+    return lineas, df
 
-
-def integrar_datos(validas, registro):
-    if not validas:
-        return None, None
-
-    lineas_enriquecidas = construir_lineas_enriquecidas(validas, registro)
-    if lineas_enriquecidas is None:
-        return None, None
-
-    pedidos_unicos = construir_pedidos_unicos(lineas_enriquecidas, validas, registro)
-    return lineas_enriquecidas, pedidos_unicos
-
+# Prueba rápida del pipeline con los datos reales
 if __name__ == "__main__":
     tablas, manifiesto, registro = cargar_datos(config.ENTRADA_REAL, "REAL")
     validas, resumen = validar_datos(tablas, registro)

@@ -1,3 +1,5 @@
+# Análisis por consola: carga, valida, filtra, calcula la fase elegida y guarda los CSV y los gráficos
+
 import argparse
 import sys
 import time
@@ -13,50 +15,28 @@ import visualizaciones
 from utils.trazas import con_linaje, crear_logger, guardar_csv
 from pathlib import Path
 
+# Cada modo: carpeta de entrada, origen de los datos y subcarpeta de salida
 MODOS = {
     "real": (config.ENTRADA_REAL, "REAL", "real"),
     "sintetico": (config.ENTRADA_SINTETICA, "SINTETICO", "sintetico"),
     "errores": (config.ENTRADA_SINTETICA_ERRORES, "SINTETICO", "sintetico_errores"),
 }
+# Fases que se pueden ejecutar con --fase
 FASES = ["calidad", "descriptivo", "segmentacion", "prediccion", "completo"]
 
 
-def calcular_resultados(datos, completos, carpeta_entrada):
-    return {
-        "01_pedidos_unicos": analiticas.pedidos_unicos(datos),
-        "02_ventas_por_periodo": analiticas.ventas_por_periodo(datos),
-        "03_modelos_abc": analiticas.modelos_abc(datos),
-        "04_matriz_modelo_talla": analiticas.matriz_modelo_talla(datos),
-        "04_matriz_modelo_talla_pct": analiticas.matriz_modelo_talla(datos, proporcion=True),
-        "05_custom_vs_estandar": analiticas.custom_vs_estandar(datos),
-        "06_clientes_rfm": analiticas.clientes_rfm(datos),
-        "07_cohortes": analiticas.cohortes(datos),
-        "08_stock_cobertura": analiticas.stock_cobertura(datos),
-        "10_anomalias": analiticas.anomalias(datos),
-        "11_margen": analiticas.margen(datos),
-        "12_reconciliacion_sql": analiticas.reconciliacion_sql(completos, carpeta_entrada),
-        "13_matriz_modelo_mes": analiticas.matriz_modelo_mes(datos),
-        "14_productos_estacionales": analiticas.productos_estacionales(datos),
-        "15_cambios_mezcla_tallas": analiticas.cambios_mezcla_tallas(datos),
-        "kpis": analiticas.calcular_kpis(datos),
-        "comparacion_periodo_anterior": analiticas.comparar_periodo_anterior(datos),
-        "estadisticos": analiticas.estadisticos(datos),
-        "hipotesis": analiticas.hipotesis(datos),
-        "limitaciones": analiticas.limitaciones(datos),
-        "demanda_modelo_mes": analiticas.demanda_modelo_mes(datos),
-        "catalogo_variables": analiticas.con_metadatos(analiticas.catalogo_variables(), "catalogo_variables", datos, {}, 0, "catalogo_variables"),
-    }
-
-
+# Tabla de una fila con el estado de un análisis (calculado o no calculable)
 def tabla_estado(estado, nombre, datos, funcion):
     return analiticas.con_metadatos(pd.DataFrame({"estado": [estado]}), nombre, datos, datos.get("filtros", {}), 1, funcion)
 
 
+# Ejecución completa: devuelve True si se publican resultados y False si no
 def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None, fase="completo"):
     logger = crear_logger("pipeline", config.LOGS / "pipeline.log")
     inicio = time.perf_counter()
     carpeta_csv = carpeta_salida / "csv"
 
+    # Carga, validación e integración
     tablas, manifiesto, registro = pipeline.cargar_datos(carpeta_entrada, origen)
     validas, resumen = pipeline.validar_datos(tablas, registro)
     lineas, pedidos = pipeline.integrar_datos(validas, registro)
@@ -64,6 +44,7 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
 
     contexto = {"origen": origen, "fecha_corte": None, "ejecucion": pd.Timestamp.now()}
     filas_entrada = int(resumen["filas_entrada"].sum())
+    # Los CSV de calidad se guardan siempre, aunque luego haya bloqueantes
     calidad = {
         "manifiesto": (manifiesto, "cargar_datos"),
         "resumen_calidad": (resumen, "validar_datos"),
@@ -78,18 +59,21 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
     print(resumen.to_string(index=False))
     print(f"\nIncidencias: {len(incidencias)}")
 
+    # Con incidencias bloqueantes no se publica nada más
     if registro.hay_bloqueantes() or pedidos is None:
         logger.error(f"Ejecución bloqueada | origen={origen} | no se publican resultados")
         print("\nHay incidencias BLOQUEANTES: no se publican KPIs ni gráficos.")
         print(f"Revisa {carpeta_csv / 'incidencias.csv'}")
         return False
 
+    # La fase calidad termina aquí
     if fase == "calidad":
         duracion = time.perf_counter() - inicio
         logger.info(f"Ejecución correcta | origen={origen} | fase=calidad | resultados={len(calidad)} | duracion={duracion:.2f}s")
         print(f"\nFase calidad: resultados guardados en {carpeta_csv} ({duracion:.1f} s)")
         return True
 
+    # Preparar los datos y aplicar los filtros de la consola
     completos = analiticas.preparar_datos(validas, lineas, pedidos, origen, contexto["ejecucion"])
     datos = analiticas.aplicar_filtros(completos, filtros)
     if datos["pedidos"].empty:
@@ -97,13 +81,38 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
         print("\nNingún pedido cumple los filtros elegidos: no se publican KPIs ni gráficos. Prueba a quitar alguno.")
         return False
 
+    # Fase descriptiva. La conciliación usa los datos sin filtrar
     resultados = {}
     if fase in ("descriptivo", "completo"):
-        resultados.update(calcular_resultados(datos, completos, carpeta_entrada))
+        resultados.update({
+            "01_pedidos_unicos": analiticas.pedidos_unicos(datos),
+            "02_ventas_por_periodo": analiticas.ventas_por_periodo(datos),
+            "03_modelos_abc": analiticas.modelos_abc(datos),
+            "04_matriz_modelo_talla": analiticas.matriz_modelo_talla(datos),
+            "04_matriz_modelo_talla_pct": analiticas.matriz_modelo_talla(datos, proporcion=True),
+            "05_custom_vs_estandar": analiticas.custom_vs_estandar(datos),
+            "06_clientes_rfm": analiticas.clientes_rfm(datos),
+            "07_cohortes": analiticas.cohortes(datos),
+            "08_stock_cobertura": analiticas.stock_cobertura(datos),
+            "10_anomalias": analiticas.anomalias(datos),
+            "11_margen": analiticas.margen(datos),
+            "12_reconciliacion_sql": analiticas.reconciliacion_sql(completos, carpeta_entrada),
+            "13_matriz_modelo_mes": analiticas.matriz_modelo_mes(datos),
+            "14_productos_estacionales": analiticas.productos_estacionales(datos),
+            "15_cambios_mezcla_tallas": analiticas.cambios_mezcla_tallas(datos),
+            "kpis": analiticas.calcular_kpis(datos),
+            "comparacion_periodo_anterior": analiticas.comparar_periodo_anterior(datos),
+            "estadisticos": analiticas.estadisticos(datos),
+            "hipotesis": analiticas.hipotesis(datos),
+            "limitaciones": analiticas.limitaciones(datos),
+            "demanda_modelo_mes": analiticas.demanda_modelo_mes(datos),
+            "catalogo_variables": analiticas.con_metadatos(analiticas.catalogo_variables(), "catalogo_variables", datos, {}, 0, "catalogo_variables"),
+        })
         resultados["cohortes_estado"] = tabla_estado(resultados["07_cohortes"].attrs["estado"], "cohortes_estado", datos, "cohortes")
         resultados["estacionales_estado"] = tabla_estado(resultados["14_productos_estacionales"].attrs["estado"], "estacionales_estado", datos, "productos_estacionales")
         resultados["mezcla_tallas_estado"] = tabla_estado(resultados["15_cambios_mezcla_tallas"].attrs["estado"], "mezcla_tallas_estado", datos, "cambios_mezcla_tallas")
 
+    # Fase de segmentación: RFM y clustering
     if fase in ("segmentacion", "completo"):
         if "06_clientes_rfm" not in resultados:
             resultados["06_clientes_rfm"] = analiticas.clientes_rfm(datos)
@@ -112,6 +121,7 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
             resultados[f"clusters_{nombre}"] = clusters[nombre]
         resultados["clusters_estado"] = tabla_estado(clusters["estado"], "clusters_estado", datos, "clustering_clientes")
 
+    # Fase de predicción
     predicho = None
     if fase in ("prediccion", "completo"):
         if "demanda_modelo_mes" not in resultados:
@@ -121,12 +131,14 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
             resultados[f"prediccion_{nombre}"] = predicho[nombre]
         resultados["prediccion_estado"] = tabla_estado(predicho["estado"], "prediccion_estado", datos, "evaluar_prediccion")
 
+    # Guardar cada resultado con su linaje y el índice de resultados
     indice = []
     for nombre, df in resultados.items():
         guardar_csv(con_linaje(df), carpeta_csv / f"{nombre}.csv")
         indice.append({"fichero": f"{nombre}.csv", "filas": len(df), "origen": origen, "fecha_corte": str(datos["fecha_corte"].date()), "funcion": df.attrs.get("funcion", nombre)})
     guardar_csv(pd.DataFrame(indice), carpeta_csv / "indice_resultados.csv")
 
+    # Gráficos PNG
     if figuras and fase in ("descriptivo", "completo"):
         visualizaciones.guardar_figuras(datos, carpeta_salida / "figuras")
     if figuras and predicho is not None and not predicho["serie"].empty:
@@ -134,6 +146,7 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
         figura = prediccion.figura_real_vs_prediccion(predicho, datos)
         figura.savefig(carpeta_salida / "figuras" / "09_real_frente_prediccion.png", bbox_inches="tight")
 
+    # Log y resumen por pantalla
     duracion = time.perf_counter() - inicio
     logger.info(f"Ejecución correcta | origen={origen} | fase={fase} | resultados={len(resultados)} | duracion={duracion:.2f}s")
 
@@ -147,6 +160,7 @@ def ejecutar(carpeta_entrada, origen, carpeta_salida, figuras=True, filtros=None
     return True
 
 
+# Comprueba que una fecha de --desde o --hasta tenga formato AAAA-MM-DD
 def fecha(texto):
     try:
         date.fromisoformat(texto)
@@ -155,6 +169,7 @@ def fecha(texto):
     return texto
 
 
+# Opciones de la línea de comandos
 def leer_argumentos(argv=None):
     argumentos = argparse.ArgumentParser(description="Análisis de datos de Sneaker Factory")
     argumentos.add_argument("--modo", choices=MODOS, default="real",  help="real: CSV de Acceso a Datos · sintetico: histórico simulado · " "errores: copia sintética con errores introducidos")
@@ -171,6 +186,7 @@ def leer_argumentos(argv=None):
     argumentos.add_argument("--cliente", nargs="+", default=[], help="id_cliente")
     return argumentos.parse_args(argv)
 
+# Pasa las opciones de la consola al diccionario de filtros de analiticas.aplicar_filtros
 def filtros_de(opciones):
     return {
         "fecha_desde": opciones.desde,
@@ -183,6 +199,7 @@ def filtros_de(opciones):
     }
 
 
+# Punto de entrada: lee las opciones, ejecuta y sale con 0 si todo va bien o 1 si no
 if __name__ == "__main__":
     opciones = leer_argumentos()
     carpeta, origen, subcarpeta = MODOS[opciones.modo]

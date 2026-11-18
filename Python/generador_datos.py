@@ -18,6 +18,7 @@ import pandas as pd
 import config
 from utils.trazas import guardar_csv
 
+# Parámetros del histórico: periodo, clientes, pedidos por mes, recargo Custom y subida de precios
 FECHA_INICIO = pd.Timestamp("2024-11-01")
 MESES = 24
 NUM_CLIENTES = 60
@@ -28,6 +29,7 @@ RECARGO_CUSTOM = 12.00
 SUBIDA_ANUAL = 0.03
 PROB_PEDIDO_GRANDE = 0.03
 
+# Modelos: nombre, categoría, precio, mes de lanzamiento y mes de retirada
 MODELOS = [
     ("Cometa", "correr", 69.99, None, None),
     ("Relámpago", "correr", 119.99, None, None),
@@ -48,20 +50,25 @@ MODELOS = [
 ]
 COLORES = ["negro", "blanco"]
 
+# Peso de cada mes, de enero a diciembre, por categoría
 ESTACIONALIDAD = {
     "correr": [1.0, 0.9, 1.0, 1.2, 1.4, 1.3, 1.0, 0.8, 0.8, 0.9, 0.9, 0.8],
     "botas": [1.3, 0.9, 0.8, 0.7, 0.7, 0.6, 0.6, 0.7, 1.5, 1.4, 1.1, 1.0],
     "futbol": [1.3, 0.9, 0.8, 0.7, 0.7, 0.6, 0.6, 0.7, 1.5, 1.4, 1.1, 1.0],
     "baloncesto": [0.9, 0.9, 0.9, 0.8, 0.8, 0.7, 0.7, 0.9, 1.2, 1.4, 1.3, 1.2],
 }
+# Black Friday en noviembre y rebajas en enero
 FACTOR_CAMPANA = {11: 1.35, 1: 1.15}
+# Reparto de tipos de cliente y probabilidad de pedido Custom y de cancelación
 TIPOS_CLIENTE = {"CLUB": 0.30, "EQUIPO": 0.20, "EMPRESA": 0.15, "PARTICULAR": 0.35}
 PROB_CUSTOM = {"CLUB": 0.70, "EQUIPO": 0.60, "EMPRESA": 0.40, "PARTICULAR": 0.05}
 PROB_CANCELACION = {"CUSTOM": 0.12, "ESTANDAR": 0.08}
+# Ciudades de los clientes
 CIUDADES = ["Madrid", "Getafe", "Alcalá de Henares", "Toledo", "Segovia", "Guadalajara", "Leganés", "Móstoles",
             "Fuenlabrada", "Ávila"]
 
 
+# Número de mes desde el inicio del histórico
 def indice_mes(texto):
     if texto is None:
         return None
@@ -69,12 +76,14 @@ def indice_mes(texto):
     return (periodo - pd.Period(FECHA_INICIO, freq="M")).n
 
 
+# Tallas de cada categoría (correr tiene medias tallas)
 def tallas_de(categoria):
     if categoria == "correr":
         return np.arange(35, 46.5, 0.5)
     return np.arange(35, 47, 1.0)
 
 
+# Tabla de modelos con una popularidad aleatoria
 def generar_modelos(rng):
     filas = []
     for i, (nombre, categoria, precio, lanzamiento, retirada) in enumerate(MODELOS, start=1):
@@ -89,6 +98,7 @@ def generar_modelos(rng):
     return modelos
 
 
+# Una variante negra y otra blanca por modelo
 def generar_variantes(modelos):
     filas = []
     for _, modelo in modelos.iterrows():
@@ -97,6 +107,7 @@ def generar_variantes(modelos):
     return pd.DataFrame(filas)
 
 
+# Clientes con alta escalonada, abandono y un peso de compra desigual
 def generar_clientes(rng):
     tipos = rng.choice(list(TIPOS_CLIENTE), size=NUM_CLIENTES, p=list(TIPOS_CLIENTE.values()))
     mes_alta = np.zeros(NUM_CLIENTES, dtype=int)
@@ -118,34 +129,7 @@ def generar_clientes(rng):
     return clientes
 
 
-def elegir_tallas(rng, categoria, cantidad, distintas):
-    tallas = tallas_de(categoria)
-    probabilidades = np.exp(-0.5 * ((tallas - 41) / 2.2) ** 2)
-    probabilidades /= probabilidades.sum()
-    cantidad = min(cantidad, len(tallas))
-    return rng.choice(tallas, size=cantidad, replace=not distintas, p=probabilidades)
-
-
-def precio_linea(precio_actual, fecha, custom):
-    precio = precio_actual / (1 + SUBIDA_ANUAL) ** (pd.Timestamp("2026-01-01").year - fecha.year)
-    if not custom and fecha.month == 11 and fecha.day >= 24:
-        precio *= 0.75
-    elif not custom and fecha.month == 1 and fecha.day <= 15:
-        precio *= 0.80
-    if custom:
-        precio += RECARGO_CUSTOM
-    return round(precio, 2)
-
-
-def minutos_del_mes(rng, inicio, num_pedidos):
-    dias = inicio.days_in_month
-    minutos = rng.integers(0, dias * 24 * 60, num_pedidos)
-    if inicio.month == 11:
-        black_friday = rng.random(num_pedidos) < 0.35
-        minutos[black_friday] = rng.integers(23 * 24 * 60, dias * 24 * 60, black_friday.sum())
-    return np.sort(minutos)
-
-
+# Genera los pedidos y sus líneas mes a mes
 def generar_pedidos(rng, clientes, modelos, variantes):
     pedidos, lineas = [], []
     fin = FECHA_INICIO + pd.DateOffset(months=MESES)
@@ -155,6 +139,7 @@ def generar_pedidos(rng, clientes, modelos, variantes):
         disponibles = modelos[(modelos["mes_alta"] <= mes) & (modelos["mes_baja"] > mes)]
         activos = clientes[(clientes["mes_alta"] <= mes) & (clientes["mes_baja"] > mes)]
 
+        # Número de pedidos del mes según estacionalidad, campaña, tendencia y clientes activos
         factor_mes = np.mean([ESTACIONALIDAD[c][inicio.month - 1] for c in disponibles["categoria"]])
         factor_mes *= FACTOR_CAMPANA.get(inicio.month, 1.0)
         tendencia = 1 + 0.015 * mes
@@ -165,7 +150,15 @@ def generar_pedidos(rng, clientes, modelos, variantes):
         peso_modelos = peso_modelos / peso_modelos.sum()
         peso_clientes = (activos["peso"] / activos["peso"].sum()).to_numpy()
 
-        for minuto in minutos_del_mes(rng, inicio, num_pedidos):
+        # Momento de cada pedido dentro del mes, con más pedidos en la semana de Black Friday
+        dias = inicio.days_in_month
+        minutos = rng.integers(0, dias * 24 * 60, num_pedidos)
+        if inicio.month == 11:
+            black_friday = rng.random(num_pedidos) < 0.35
+            minutos[black_friday] = rng.integers(23 * 24 * 60, dias * 24 * 60, black_friday.sum())
+
+        # Cada pedido: cliente, tipo, modelos, tallas y cantidades
+        for minuto in np.sort(minutos):
             id_pedido = len(pedidos) + 1
             cliente = activos.iloc[rng.choice(len(activos), p=peso_clientes)]
             custom = rng.random() < PROB_CUSTOM[cliente["tipo"]]
@@ -184,8 +177,21 @@ def generar_pedidos(rng, clientes, modelos, variantes):
                 modelo = disponibles.loc[indice]
                 opciones = variantes[variantes["id_modelo"] == modelo["id_modelo"]]["id_variante"].to_numpy()
                 id_variante = int(rng.choice(opciones))
-                precio = precio_linea(modelo["precio_base"], fecha, custom)
-                for talla in elegir_tallas(rng, modelo["categoria"], num_tallas, distintas=custom):
+
+                precio = modelo["precio_base"] / (1 + SUBIDA_ANUAL) ** (2026 - fecha.year)
+                if not custom and fecha.month == 11 and fecha.day >= 24:
+                    precio *= 0.75
+                elif not custom and fecha.month == 1 and fecha.day <= 15:
+                    precio *= 0.80
+                if custom:
+                    precio += RECARGO_CUSTOM
+                precio = round(precio, 2)
+
+                tallas = tallas_de(modelo["categoria"])
+                probabilidades = np.exp(-0.5 * ((tallas - 41) / 2.2) ** 2)
+                probabilidades /= probabilidades.sum()
+                elegidas = rng.choice(tallas, size=min(num_tallas, len(tallas)), replace=not custom, p=probabilidades)
+                for talla in elegidas:
                     if (id_variante, talla) in usadas:
                         continue
                     usadas.add((id_variante, talla))
@@ -202,6 +208,7 @@ def generar_pedidos(rng, clientes, modelos, variantes):
                         "logo_club": custom and cliente["tipo"] in ("CLUB", "EQUIPO"), "personalizada": custom,
                     })
 
+            # Estado y fechas del pedido
             tipo = "CUSTOM" if custom else "ESTANDAR"
             reciente = (fin - fecha).days <= 21
             prob_borrador = 0.35 if reciente else 0.06
@@ -225,6 +232,7 @@ def generar_pedidos(rng, clientes, modelos, variantes):
                 "id_cliente": int(cliente["id_cliente"]),
             })
 
+    # El total de cada pedido es la suma de sus líneas
     pedidos = pd.DataFrame(pedidos)
     lineas = pd.DataFrame(lineas)
     importes = (lineas["cantidad"] * lineas["precio_unitario"]).groupby(lineas["id_pedido"]).sum().round(2)
@@ -232,6 +240,7 @@ def generar_pedidos(rng, clientes, modelos, variantes):
     return pedidos, lineas
 
 
+# Stock por variante y talla; los modelos retirados se quedan a 0
 def generar_stock(rng, modelos, variantes):
     filas = []
     modelos = modelos.set_index("id_modelo")
@@ -243,6 +252,7 @@ def generar_stock(rng, modelos, variantes):
     return pd.DataFrame(filas)
 
 
+# Genera todas las tablas con una semilla. La fecha de alta queda antes de la primera compra
 def generar(semilla=config.SEMILLA):
     rng = np.random.default_rng(semilla)
     modelos = generar_modelos(rng)
@@ -265,11 +275,13 @@ def generar(semilla=config.SEMILLA):
     }
 
 
+# Copia del histórico con un error de cada regla, apuntado en errores_introducidos.csv
 def introducir_errores(tablas):
     tablas = {nombre: df.copy().astype(object) for nombre, df in tablas.items()}
     pedidos, lineas, stock = tablas["pedidos"], tablas["lineas"], tablas["stock"]
     errores = []
 
+    # Apunta qué error se ha metido y dónde
     def anotar(tabla, registro, regla, texto):
         errores.append({"tabla": tabla, "registro": registro, "regla": regla, "error_introducido": texto})
 
@@ -314,6 +326,7 @@ def introducir_errores(tablas):
     return tablas, pd.DataFrame(errores)
 
 
+# Guarda las tablas en CSV con las fechas en texto y NULL en los vacíos
 def guardar(tablas, carpeta):
     for nombre, df in tablas.items():
         salida = df.copy()
@@ -325,6 +338,7 @@ def guardar(tablas, carpeta):
         guardar_csv(salida, carpeta / config.FICHEROS[nombre])
 
 
+# Resumen de lo que se ha generado
 def resumen(tablas, semilla):
     pedidos, lineas = tablas["pedidos"], tablas["lineas"]
     meses = pedidos["fecha_pedido"].dt.to_period("M")
@@ -345,6 +359,7 @@ def resumen(tablas, semilla):
     return pd.DataFrame(filas, columns=["parametro", "valor"])
 
 
+# Genera el histórico normal y la copia con errores
 if __name__ == "__main__":
     argumentos = argparse.ArgumentParser(description="Genera el histórico sintético de Sneaker Factory")
     argumentos.add_argument("--semilla", type=int, default=config.SEMILLA)

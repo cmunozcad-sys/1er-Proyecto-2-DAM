@@ -1,5 +1,8 @@
+# Predicción de demanda por modelo y mes: RandomForest comparado con repetir el mes anterior
+
 import matplotlib
 
+# Backend sin ventana para guardar los gráficos en fichero
 matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
@@ -14,11 +17,13 @@ from sklearn.preprocessing import OneHotEncoder
 import analiticas
 import config
 
+# Variables de entrada y variable a predecir
 PREDICTORES_NUMERICOS = ["demanda_mes_anterior", "media_3_meses_previos", "mes_seno", "mes_coseno"]
 PREDICTOR_MODELO = ["id_modelo"]
 OBJETIVO = "unidades_modelo_mes"
 
 
+# Dataset de meses completos con la demanda anterior y el mes codificado con seno y coseno
 def construir_dataset(datos):
     df = analiticas.demanda_modelo_mes(datos)
     periodo = pd.PeriodIndex(df["mes"], freq="M")
@@ -34,25 +39,19 @@ def construir_dataset(datos):
     return df.sort_values(["mes", "id_modelo"]).reset_index(drop=True)
 
 
+# Los últimos 3 meses son la prueba y el resto el entrenamiento, sin mezclar el orden temporal
 def separar_por_fecha(df):
     meses = sorted(df["mes"].unique())
     prueba = meses[-config.MESES_PRUEBA:]
     return df[~df["mes"].isin(prueba)], df[df["mes"].isin(prueba)]
 
 
-def crear_regresor():
-    preparacion = ColumnTransformer([
-        ("numericas", "passthrough", PREDICTORES_NUMERICOS),
-        ("modelo", OneHotEncoder(handle_unknown="ignore"), PREDICTOR_MODELO),
-    ])
-    bosque = RandomForestRegressor(n_estimators=300, max_depth=6, min_samples_leaf=3, random_state=config.SEMILLA)
-    return Pipeline([("preparacion", preparacion), ("bosque", bosque)])
-
-
+# MAE y RMSE
 def errores(real, estimado):
     return mean_absolute_error(real, estimado), float(np.sqrt(mean_squared_error(real, estimado)))
 
 
+# Añade los metadatos a cada tabla de la predicción
 def con_metadatos(resultado, datos, filas_origen):
     for nombre in ("metricas", "por_modelo", "serie", "detalle"):
         analiticas.con_metadatos(resultado[nombre], f"prediccion_{nombre}", datos, datos.get("filtros", {}),
@@ -60,6 +59,7 @@ def con_metadatos(resultado, datos, filas_origen):
     return resultado
 
 
+# Entrena, predice los meses de prueba y compara con el baseline. Sin 12 meses no se calcula
 def evaluar_prediccion(datos):
     df = construir_dataset(datos)
     meses = df["mes"].nunique()
@@ -71,14 +71,21 @@ def evaluar_prediccion(datos):
                   f"{config.MESES_MINIMOS_PREDICCION}. Usar el histórico sintético para demostrar el método.")
         return con_metadatos({**vacio, "estado": estado}, datos, len(df))
 
+    # Entrenar y predecir: numéricas tal cual, modelo en one-hot y RandomForest
     entrenamiento, prueba = separar_por_fecha(df)
-    regresor = crear_regresor().fit(entrenamiento[PREDICTORES_NUMERICOS + PREDICTOR_MODELO],
-                                    entrenamiento[OBJETIVO])
+    preparacion = ColumnTransformer([
+        ("numericas", "passthrough", PREDICTORES_NUMERICOS),
+        ("modelo", OneHotEncoder(handle_unknown="ignore"), PREDICTOR_MODELO),
+    ])
+    bosque = RandomForestRegressor(n_estimators=300, max_depth=6, min_samples_leaf=3, random_state=config.SEMILLA)
+    regresor = Pipeline([("preparacion", preparacion), ("bosque", bosque)])
+    regresor.fit(entrenamiento[PREDICTORES_NUMERICOS + PREDICTOR_MODELO], entrenamiento[OBJETIVO])
 
     prueba = prueba.copy()
     prueba["baseline"] = prueba["demanda_mes_anterior"]
     prueba["prediccion"] = regresor.predict(prueba[PREDICTORES_NUMERICOS + PREDICTOR_MODELO]).round(1)
 
+    # Métricas generales
     mae_base, rmse_base = errores(prueba[OBJETIVO], prueba["baseline"])
     mae_modelo, rmse_modelo = errores(prueba[OBJETIVO], prueba["prediccion"])
     metricas = pd.DataFrame([
@@ -90,6 +97,7 @@ def evaluar_prediccion(datos):
     metricas["mejora_mae_pct"] = (mae_base - metricas["mae"]) / mae_base * 100 if mae_base else np.nan
     metricas = metricas.round(2)
 
+    # Error de cada modelo de zapatilla
     por_modelo = prueba.groupby(["id_modelo", "modelo"]).apply(
         lambda g: pd.Series({
             "unidades_reales": int(g[OBJETIVO].sum()),
@@ -99,11 +107,13 @@ def evaluar_prediccion(datos):
     por_modelo["mejor"] = np.where(por_modelo["mae_modelo"] < por_modelo["mae_baseline"], "modelo", "baseline")
     por_modelo = por_modelo.sort_values("mae_modelo", ascending=False).reset_index(drop=True)
 
+    # Serie mensual real y prevista para el gráfico
     historico = df.groupby("mes")[OBJETIVO].sum().rename("real")
     previsto = prueba.groupby("mes")[["baseline", "prediccion"]].sum()
     serie = historico.to_frame().join(previsto).reset_index()
     serie["conjunto"] = np.where(serie["mes"].isin(prueba["mes"]), "prueba", "entrenamiento")
 
+    # Texto de estado con el resultado
     peor = por_modelo.iloc[0]
     if mae_modelo < mae_base:
         resumen = (f"El modelo mejora al baseline: MAE {mae_modelo:.1f} frente a {mae_base:.1f} pares por modelo y "
@@ -122,6 +132,7 @@ def evaluar_prediccion(datos):
                           "detalle": detalle}, datos, len(df))
 
 
+# Pares reales frente a baseline y predicción, con los meses de prueba sombreados
 def figura_real_vs_prediccion(resultado, datos):
     serie = resultado["serie"]
     figura, eje = plt.subplots(figsize=(11, 6))

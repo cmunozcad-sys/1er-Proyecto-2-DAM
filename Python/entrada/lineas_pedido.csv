@@ -31,12 +31,24 @@ id_linea,id_pedido,id_variante,id_modelo,color,talla,cantidad,precio_unitario,lo
 30,9,23,23,negro y azul,41.0,2,59.99,f,f
 31,10,18,18,negro,42.0,5,84.99,f,f
 32,10,18,18,negro,43.0,5,84.99,f,f
-33,7,5,5,blanco y azul,43.0,1,74.99,f,f
-37,13,1,1,negro y blanco,38.0,4,69.99,t,t
-38,13,1,1,negro y blanco,39.0,6,69.99,t,t
-39,13,1,1,negro y blanco,40.0,8,69.99,t,t
-40,13,1,1,negro y blanco,41.0,8,69.99,t,t
-41,13,1,1,negro y blanco,42.0,6,69.99,t,t
-42,13,1,1,negro y blanco,43.0,4,69.99,t,t
-43,13,1,1,negro y blanco,44.0,4,69.99,t,t
-44,14,19,19,"blanco, gris y azul",42.0,5,109.99,f,f
+33,11,2,2,negro y naranja,43.0,1,119.99,f,f
+34,11,1,1,negro y blanco,42.0,1,69.99,f,f
+35,12,2,2,negro y naranja,42.0,1,119.99,f,f
+36,13,1,1,negro y blanco,38.0,2,69.99,f,t
+37,13,1,1,negro y blanco,39.0,4,69.99,f,t
+38,13,1,1,negro y blanco,40.0,6,69.99,f,t
+39,13,1,1,negro y blanco,41.0,8,69.99,f,t
+40,13,1,1,negro y blanco,42.0,7,69.99,f,t
+41,13,1,1,negro y blanco,43.0,6,69.99,f,t
+42,13,1,1,negro y blanco,44.0,4,69.99,f,t
+43,13,1,1,negro y blanco,45.0,2,69.99,f,t
+44,14,10,10,negro y blanco,30.0,3,39.99,t,t
+45,14,10,10,negro y blanco,35.0,2,39.99,t,t
+46,14,10,10,negro y blanco,37.0,5,39.99,t,t
+47,15,2,2,negro y naranja,46.0,31,119.99,f,f
+48,16,2,2,negro y naranja,40.0,1,119.99,f,f
+49,16,2,2,negro y naranja,41.0,1,119.99,f,f
+50,17,21,21,negro y azul,42.0,1,89.99,f,f
+51,18,22,22,negro y verde,42.0,1,74.99,f,f
+52,19,1,1,negro y blanco,41.0,6,69.99,f,t
+53,19,1,1,negro y blanco,42.0,6,69.99,f,t

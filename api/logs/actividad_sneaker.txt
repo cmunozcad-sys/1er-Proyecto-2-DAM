@@ -5,3 +5,10 @@
 17/11/2026, 14:08:54 | admin | CONSULTA ROLES | OK - 3 roles
 17/11/2026, 14:08:54 | admin | CONSULTA USUARIOS | OK - 3 usuarios
 17/11/2026, 14:08:55 | admin | EXPORTAR USUARIOS | OK - 3 usuarios (exportación manual)
+18/11/2026, 12:31:21 | comercial | Comercial | LOGIN | OK
+18/11/2026, 12:32:24 | comercial | Comercial | CREAR PEDIDO CUSTOM | OK - CUS-1795001543728 por 839.88 €
+18/11/2026, 12:32:41 | comercial | Comercial | CONSULTA INDICADORES | OK - 19 pedidos, 199 pares, 9688.64 €
+18/11/2026, 12:32:42 | comercial | Comercial | CONSULTA PEDIDOS (sin filtros) | OK - 19 pedidos
+18/11/2026, 12:37:11 | comercial | Comercial | APROBAR PEDIDO 19 | OK - CUS-1795001543728 pasa a CONFIRMADO
+18/11/2026, 12:37:12 | comercial | Comercial | CONSULTA PEDIDOS (sin filtros) | OK - 19 pedidos
+18/11/2026, 12:37:12 | comercial | Comercial | CONSULTA INDICADORES | OK - 19 pedidos, 199 pares, 10528.52 €

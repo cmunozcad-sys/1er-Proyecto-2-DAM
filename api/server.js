@@ -1,3 +1,5 @@
+// Servidor de la web: sirve las páginas, gestiona las sesiones, comprueba los permisos y guarda pedidos, stock y usuarios
+
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
@@ -5,10 +7,12 @@ const session = require("express-session");
 const pool = require("./db");
 const sincronizador = require("./sincronizador");
 
+// Fichero donde se apunta la actividad de los usuarios
 const carpetaLogs = process.env.LOG_DIR || path.join(__dirname, "logs");
 const archivoActividad = path.join(carpetaLogs, "actividad_sneaker.txt");
 fs.mkdirSync(path.dirname(archivoActividad), { recursive: true });
 
+// Añade una línea al log: fecha | usuario | rol | acción | resultado
 function registrarActividad(usuario, accion, resultado) {
     const fecha = new Date().toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
     const linea = `${fecha} | ${usuario} | ${accion} | ${resultado}\n`;
@@ -20,19 +24,23 @@ function registrarActividad(usuario, accion, resultado) {
     }
 }
 
+// Texto 'usuario | rol' para el log
 function identidad(username, rol) {
     return (username || "anónimo") + " | " + (rol || "sin rol");
 }
 
+// Identidad del usuario que tiene la sesión iniciada
 function usuarioDe(peticion) {
     const usuario = peticion.session.usuario;
     return usuario ? identidad(usuario.username, usuario.rol) : identidad();
 }
 
+// Fichero JSON donde se exportan los usuarios
 const carpetaExportaciones = process.env.EXPORT_DIR || path.join(__dirname, "exportaciones");
 const archivoUsuarios = path.join(carpetaExportaciones, "usuarios_sneaker.json");
 fs.mkdirSync(path.dirname(archivoUsuarios), { recursive: true });
 
+// Usuarios con su rol para la exportación
 const consultaExportarUsuarios = `
     SELECT u.id_usuario, u.username, u.nombre_completo, r.nombre AS rol, u.activo,
         to_char(u.fecha_creacion, 'YYYY-MM-DD HH24:MI:SS') AS fecha_creacion,
@@ -41,6 +49,7 @@ const consultaExportarUsuarios = `
     JOIN rol r ON r.id_rol = u.id_rol
     ORDER BY u.id_usuario`;
 
+// Exporta los usuarios a JSON. Escribe un .tmp, comprueba que el JSON es válido y lo renombra para no dejar el fichero a medias
 async function exportarUsuarios(usuario, motivo) {
     try {
         const resultado = await pool.query(consultaExportarUsuarios);
@@ -64,6 +73,7 @@ async function exportarUsuarios(usuario, motivo) {
     }
 }
 
+// Express con JSON, sesiones y la carpeta web servida como estática
 const app = express();
 
 app.use(express.json());
@@ -75,6 +85,7 @@ app.use(session({
 }));
 app.use(express.static("web"));
 
+// Cuántos de los permisos pedidos tiene el usuario, si está activo
 const consultaPermisos = `
     SELECT count(*)::int AS concedidos
     FROM usuario u
@@ -82,6 +93,7 @@ const consultaPermisos = `
     JOIN permiso p ON p.id_permiso = rp.id_permiso
     WHERE u.id_usuario = $1 AND u.activo AND p.codigo = ANY($2)`;
 
+// Middleware: sin sesión devuelve 401 y sin los permisos 403. Si todo va bien, deja pasar a la ruta
 function exigirPermisos(codigos) {
     return async (peticion, respuesta, siguiente) => {
         const usuario = peticion.session.usuario;
@@ -112,10 +124,12 @@ function exigirPermisos(codigos) {
     };
 }
 
+// Guarda el id del usuario en la transacción para que el trigger de auditoría sepa quién hizo el cambio
 async function identificarUsuario(conexion, peticion) {
     await conexion.query("SELECT set_config('app.id_usuario', $1, true)", [String(peticion.session.usuario.id_usuario)]);
 }
 
+// Valida el formulario de pedido personalizado; devuelve el error o null
 function validarCustom(solicitud, observaciones) {
     if (!solicitud.club || !solicitud.contacto || !solicitud.email || !solicitud.telefono) {
         return "Faltan los datos del club";
@@ -139,6 +153,7 @@ function validarCustom(solicitud, observaciones) {
     return null;
 }
 
+// Valida el usuario, el nombre y la contraseña de una cuenta nueva
 function validarUsuario(usuario) {
     if (!usuario.username || !/^[a-zA-Z0-9._-]{3,40}$/.test(usuario.username)) {
         return "El usuario debe tener entre 3 y 40 letras, números, puntos o guiones";
@@ -152,6 +167,7 @@ function validarUsuario(usuario) {
     return null;
 }
 
+// Busca el usuario comprobando la contraseña con crypt y saca sus permisos
 const consultaLogin = `
     SELECT u.id_usuario, u.username, u.nombre_completo, u.activo, r.nombre AS rol,
         array_remove(array_agg(p.codigo), NULL) AS permisos
@@ -162,12 +178,14 @@ const consultaLogin = `
     WHERE u.username = $1 AND u.password_hash = crypt($2, u.password_hash)
     GROUP BY u.id_usuario, r.nombre`;
 
+// Inserta el cliente o, si ya existe ese email, devuelve el que hay
 const insertarCliente = `
     INSERT INTO cliente (ref_odoo, nombre, tipo, email, telefono, direccion)
     VALUES ($1, $2, $6, $3, $4, $5)
     ON CONFLICT (email) DO UPDATE SET email = EXCLUDED.email
     RETURNING id_cliente`;
 
+// Inserta una línea con el precio del modelo más el extra de la variante, solo si existe esa talla
 const insertarLinea = `
     INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario,
                             personalizacion, texto_bordado, logo_club)
@@ -179,6 +197,7 @@ const insertarLinea = `
     WHERE m.id_modelo = $2 AND s.talla = $3 AND m.activo AND v.activo
     LIMIT 1`;
 
+// Suma pares al stock de la primera variante activa del modelo en esa talla
 const sumarStock = `
     UPDATE stock
     SET cantidad = cantidad + $3, ultima_actualizacion = now()
@@ -188,12 +207,14 @@ const sumarStock = `
                         ORDER BY id_variante LIMIT 1)
     RETURNING id_variante, cantidad`;
 
+// Apunta la reposición en log_eventos
 const registrarReposicion = `
     INSERT INTO log_eventos (tabla, operacion, registro_id, accion, resumen, id_usuario)
     VALUES ('stock', 'UPDATE', $1, 'REPOSICION STOCK',
             jsonb_build_object('talla', $2::numeric, 'anadidos', $3::int, 'total', $4::int),
             NULLIF(current_setting('app.id_usuario', true), '')::INTEGER)`;
 
+// Pedidos con cliente y artículos; el WHERE depende de los filtros
 function consultaPedidos(where) {
     return `
     SELECT p.id_pedido, p.ref_odoo AS referencia, p.tipo, p.estado,
@@ -210,9 +231,11 @@ function consultaPedidos(where) {
     ORDER BY p.fecha_pedido DESC`;
 }
 
+// Valores permitidos en los filtros
 const estadosValidos = ["BORRADOR", "CONFIRMADO", "CANCELADO"];
 const formatoFecha = /^\d{4}-\d{2}-\d{2}$/;
 
+// Construye el WHERE con parámetros ($1, $2...) a partir de los filtros de la URL, para evitar inyección SQL
 function filtrosPedidos(consulta) {
     const condiciones = [];
     const valores = [];
@@ -247,6 +270,7 @@ function filtrosPedidos(consulta) {
     return { where, valores, filtros };
 }
 
+// Indicadores del panel: total de pedidos, pares solicitados sin contar cancelados e importe de ventas confirmadas
 const consultaIndicadores = `
     SELECT
         (SELECT COUNT(*) FROM pedido)::int AS total_pedidos,
@@ -258,8 +282,10 @@ const consultaIndicadores = `
         FROM pedido
         WHERE estado = 'CONFIRMADO')::float AS importe_ventas`;
 
+// Número de pedidos de cada estado
 const consultaPorEstado = `SELECT estado, COUNT(*)::int AS num_pedidos FROM pedido GROUP BY estado`;
 
+// Convierte los pedidos a CSV separado por ; con BOM para que Excel lea bien los acentos
 function pedidosACsv(filas) {
     const columnas = ["referencia", "fecha", "cliente", "tipo", "estado", "total", "articulos"];
     const escapar = (valor) => `"${String(valor ?? "").replace(/"/g, '""')}"`;
@@ -268,6 +294,7 @@ function pedidosACsv(filas) {
     return "\uFEFF" + [columnas.join(";"), ...lineas].join("\r\n");
 }
 
+// Lista de usuarios para la gestión
 const consultaUsuarios = `
     SELECT u.id_usuario, u.username, u.nombre_completo, u.activo, u.id_rol, r.nombre AS rol,
         to_char(u.ultimo_acceso, 'DD/MM/YYYY HH24:MI') AS ultimo_acceso
@@ -275,16 +302,19 @@ const consultaUsuarios = `
     JOIN rol r ON r.id_rol = u.id_rol
     ORDER BY u.id_usuario`;
 
+// Crea un usuario con la contraseña cifrada (bcrypt)
 const insertarUsuario = `
     INSERT INTO usuario (username, password_hash, nombre_completo, id_rol)
     VALUES ($1, crypt($2, gen_salt('bf')), $3, $4)
     RETURNING id_usuario, username`;
 
+// Registro desde la web: la cuenta nueva siempre es Comercial
 const registrarComercial = `
     INSERT INTO usuario (username, password_hash, nombre_completo, id_rol)
     SELECT $1, crypt($2, gen_salt('bf')), $3, id_rol FROM rol WHERE nombre = 'Comercial'
     RETURNING id_usuario, username`;
 
+// POST /api/login: comprueba usuario y contraseña y, si está activo, guarda la sesión
 app.post("/api/login", async (peticion, respuesta) => {
     const { username, password } = peticion.body || {};
 
@@ -314,12 +344,14 @@ app.post("/api/login", async (peticion, respuesta) => {
     }
 });
 
+// POST /api/logout: cierra la sesión
 app.post("/api/logout", (peticion, respuesta) => {
     peticion.session.destroy(() => {
         respuesta.json({ estado: "ok" });
     });
 });
 
+// POST /api/registro: crea una cuenta Comercial y actualiza el JSON de usuarios
 app.post("/api/registro", async (peticion, respuesta) => {
     const usuario = peticion.body || {};
     const errorValidacion = validarUsuario(usuario);
@@ -351,6 +383,7 @@ app.post("/api/registro", async (peticion, respuesta) => {
     }
 });
 
+// POST /api/stock: repone stock en una transacción y lo apunta en la auditoría (permiso STOCK_REPONER)
 app.post("/api/stock",exigirPermisos(["STOCK_REPONER"], false), async (peticion, respuesta) => {
     const { id, talla, cantidad } = peticion.body || {};
 
@@ -388,6 +421,7 @@ app.post("/api/stock",exigirPermisos(["STOCK_REPONER"], false), async (peticion,
     }
 });
 
+// POST /api/pedidos/custom: guarda un pedido personalizado (cliente, pedido CUS- y líneas) en una sola transacción
 app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, respuesta) => {
     const solicitud = peticion.body || {};
     const contacto = "Contacto: " + solicitud.contacto;
@@ -416,6 +450,7 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
             [referencia, solicitud.fecha || null, observaciones, nuevoCliente.rows[0].id_cliente, peticion.session.usuario.id_usuario]);
         const idPedido = nuevoPedido.rows[0].id_pedido;
 
+        // Una línea por talla; si alguna no existe se deshace todo
         for (const linea of solicitud.tallas) {
             const nuevaLinea = await conexion.query(insertarLinea,
                 [idPedido, solicitud.modelo, linea.talla, linea.cantidad,
@@ -448,6 +483,7 @@ app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticio
     }
 });
 
+// POST /api/pedidos: guarda el pedido del carrito (WEB-) en una transacción
 app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, respuesta) => {
     const { cliente, articulos } = peticion.body || {};
 
@@ -502,6 +538,7 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
     }
 });
 
+// GET /api/pedidos: lista los pedidos con los filtros del panel
 app.get("/api/pedidos", exigirPermisos(["PEDIDO_VER"]), async (peticion, respuesta) => {
     const { where, valores, filtros } = filtrosPedidos(peticion.query);
 
@@ -518,6 +555,7 @@ app.get("/api/pedidos", exigirPermisos(["PEDIDO_VER"]), async (peticion, respues
     }
 });
 
+// GET /api/pedidos/csv: descarga en CSV los pedidos filtrados
 app.get("/api/pedidos/csv", exigirPermisos(["EXPORTAR_CSV"]), async (peticion, respuesta) => {
     const { where, valores, filtros } = filtrosPedidos(peticion.query);
 
@@ -534,6 +572,7 @@ app.get("/api/pedidos/csv", exigirPermisos(["EXPORTAR_CSV"]), async (peticion, r
     }
 });
 
+// GET /api/indicadores: datos del panel de indicadores
 app.get("/api/indicadores", exigirPermisos(["INDICADORES_VER"]), async (peticion, respuesta) => {
     try {
         const indicadores = await pool.query(consultaIndicadores);
@@ -555,6 +594,7 @@ app.get("/api/indicadores", exigirPermisos(["INDICADORES_VER"]), async (peticion
     }
 });
 
+// Aprueba o cancela un pedido. Solo cambia si está en BORRADOR; el trigger de stock lo rechaza si no hay pares suficientes
 async function cambiarEstado(peticion, respuesta, estado) {
     const id = Number(peticion.params.id);
     const accion = (estado === "CONFIRMADO" ? "APROBAR PEDIDO " : "CANCELAR PEDIDO ") + peticion.params.id;
@@ -600,6 +640,7 @@ async function cambiarEstado(peticion, respuesta, estado) {
     }
 }
 
+// POST /api/pedidos/:id/aprobar y /cancelar
 app.post("/api/pedidos/:id/aprobar", exigirPermisos(["PEDIDO_CONFIRMAR"]), (peticion, respuesta) => {
     cambiarEstado(peticion, respuesta, "CONFIRMADO");
 });
@@ -608,6 +649,7 @@ app.post("/api/pedidos/:id/cancelar", exigirPermisos(["PEDIDO_CANCELAR"]), (peti
     cambiarEstado(peticion, respuesta, "CANCELADO");
 });
 
+// GET /api/roles: roles para el desplegable de usuarios
 app.get("/api/roles", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
     try {
         const resultado = await pool.query("SELECT id_rol, nombre FROM rol ORDER BY id_rol");
@@ -620,6 +662,7 @@ app.get("/api/roles", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, r
     }
 });
 
+// GET /api/usuarios: lista de usuarios
 app.get("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
     try {
         const resultado = await pool.query(consultaUsuarios);
@@ -632,6 +675,7 @@ app.get("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion
     }
 });
 
+// POST /api/usuarios: crea un usuario con el rol elegido
 app.post("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
     const usuario = peticion.body || {};
     const errorValidacion = validarUsuario(usuario);
@@ -664,6 +708,7 @@ app.post("/api/usuarios", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticio
     }
 });
 
+// Lee el id de la URL y no deja que un usuario se modifique a sí mismo
 function leerIdUsuario(peticion, respuesta) {
     const id = Number(peticion.params.id);
 
@@ -680,6 +725,7 @@ function leerIdUsuario(peticion, respuesta) {
     return id;
 }
 
+// POST /api/usuarios/:id/rol: cambia el rol
 app.post("/api/usuarios/:id/rol", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
     const id = leerIdUsuario(peticion, respuesta);
     const { id_rol } = peticion.body || {};
@@ -715,6 +761,7 @@ app.post("/api/usuarios/:id/rol", exigirPermisos(["USUARIOS_GESTIONAR"]), async 
     }
 });
 
+// POST /api/usuarios/:id/desactivar: desactiva el usuario sin borrarlo
 app.post("/api/usuarios/:id/desactivar", exigirPermisos(["USUARIOS_GESTIONAR"]), async (peticion, respuesta) => {
     const id = leerIdUsuario(peticion, respuesta);
 
@@ -739,6 +786,7 @@ app.post("/api/usuarios/:id/desactivar", exigirPermisos(["USUARIOS_GESTIONAR"]),
     }
 });
 
+// POST /api/usuarios/exportar: exportación manual a JSON
 app.post("/api/usuarios/exportar", exigirPermisos(["USUARIOS_EXPORTAR"]), async (peticion, respuesta) => {
     const datos = await exportarUsuarios(usuarioDe(peticion), "exportación manual");
 
@@ -750,4 +798,5 @@ app.post("/api/usuarios/exportar", exigirPermisos(["USUARIOS_EXPORTAR"]), async 
     respuesta.json(datos);
 });
 
+// Arranca en el puerto 3000 y pone en marcha el sincronizador con Odoo
 app.listen(3000, () => sincronizador.arrancar());

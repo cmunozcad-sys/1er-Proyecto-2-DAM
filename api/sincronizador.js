@@ -1,9 +1,13 @@
+// Envía a Odoo como presupuestos los pedidos de la web que se confirman o se cancelan
+
 const pool = require("./db");
 const odoo = require("./odoo");
 
+// Intentos máximos por pedido y bandera para que no se solapen dos pasadas
 const MAX_INTENTOS = 5;
 let trabajando = false;
 
+// Pedidos confirmados o cancelados pendientes de enviar o con error, con menos de 5 intentos
 const consultaPendientes = `
     SELECT p.id_pedido, p.ref_odoo, p.estado, p.observaciones,
         c.ref_odoo AS ref_cliente, c.nombre, c.email, c.telefono, c.direccion, c.tipo
@@ -14,6 +18,7 @@ const consultaPendientes = `
     AND p.intentos_odoo < $1
     ORDER BY p.id_pedido`;
 
+// Líneas de un pedido con la referencia y el nombre del modelo
 const consultaLineas = `
     SELECT l.talla::float AS talla, l.cantidad, l.precio_unitario::float AS precio,
         l.personalizacion, l.texto_bordado, m.ref_odoo AS ref_modelo, m.nombre AS modelo
@@ -23,6 +28,7 @@ const consultaLineas = `
     WHERE l.id_pedido = $1
     ORDER BY l.id_linea`;
 
+// Busca el cliente en Odoo por referencia y luego por email; si no está, lo crea
 async function buscarOCrearCliente(pedido) {
     let idCliente = await odoo.buscarUno("res.partner", [["ref", "=", pedido.ref_cliente]]);
 
@@ -42,6 +48,7 @@ async function buscarOCrearCliente(pedido) {
     return idCliente;
 }
 
+// Busca la variante por código o nombre del modelo y la talla; si el producto no tiene tallas, sin ella
 async function buscarProducto(linea) {
     const porCodigo = ["product_tmpl_id.default_code", "=", linea.ref_modelo];
     const porNombre = ["product_tmpl_id.name", "=", linea.modelo];
@@ -60,6 +67,7 @@ async function buscarProducto(linea) {
     throw new Error("El producto " + linea.ref_modelo + " talla " + linea.talla + " no existe en Odoo");
 }
 
+// Descripción de la línea con modelo, talla, personalización y bordado
 function descripcionLinea(linea) {
     const partes = [linea.modelo + " (talla " + linea.talla + ")"];
 
@@ -72,12 +80,14 @@ function descripcionLinea(linea) {
     return partes.join(" | ");
 }
 
+// Crea el presupuesto (sale.order) en Odoo con todas sus líneas
 async function crearPedido(pedido) {
     const idCliente = await buscarOCrearCliente(pedido);
     const lineas = (await pool.query(consultaLineas, [pedido.id_pedido])).rows;
     const lineasOdoo = [];
 
     for (const linea of lineas) {
+        // [0, 0, {...}] es la forma de Odoo de crear una línea nueva dentro del pedido
         lineasOdoo.push([0, 0, {
             product_id: await buscarProducto(linea),
             name: descripcionLinea(linea),
@@ -95,6 +105,7 @@ async function crearPedido(pedido) {
     }]);
 }
 
+// Envía un pedido sin duplicarlo: si ya existe con esa referencia lo reutiliza; después lo confirma o lo cancela
 async function enviarPedido(pedido) {
     const referencia = ["client_order_ref", "=", pedido.ref_odoo];
     let idOdoo = await odoo.buscarUno("sale.order", [referencia]);
@@ -119,6 +130,7 @@ async function enviarPedido(pedido) {
     return idOdoo;
 }
 
+// Una pasada: coge los pendientes, se conecta a Odoo y envía cada uno guardando el resultado en PostgreSQL
 async function sincronizar() {
     if (trabajando) {
         return;
@@ -133,6 +145,7 @@ async function sincronizar() {
         }
 
         try {
+            // Si Odoo no responde no cuenta como intento y se vuelve a probar en la siguiente pasada
             await odoo.conectar();
         } catch (error) {
             console.error("Odoo no disponible, se reintentará: " + error.message);
@@ -141,6 +154,7 @@ async function sincronizar() {
 
         for (const pedido of pendientes) {
             try {
+                // Si va bien se marca SINCRONIZADO con el id de Odoo; si falla, ERROR con el mensaje
                 const idOdoo = await enviarPedido(pedido);
                 await pool.query(
                     `UPDATE pedido SET estado_odoo = 'SINCRONIZADO', odoo_id = $2, error_odoo = NULL,
@@ -164,10 +178,12 @@ async function sincronizar() {
     }
 }
 
+// Hace una pasada al arrancar y luego una cada SINCRONIZACION_SEGUNDOS
 function arrancar() {
     const segundos = Number(process.env.SINCRONIZACION_SEGUNDOS) || 30;
     sincronizar();
     setInterval(sincronizar, segundos * 1000);
 }
 
+// Lo arranca server.js
 module.exports = { arrancar, sincronizar };
