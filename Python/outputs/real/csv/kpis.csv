@@ -1,17 +1,17 @@
 kpi,valor,unidad,formula,denominador,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-pedidos_totales,19.0,pedidos,nº de pedidos únicos en cualquier estado,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pedidos_confirmados,13.0,pedidos,estado = CONFIRMADO,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pedidos_pendientes,3.0,pedidos,estado = BORRADOR,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pedidos_cancelados,3.0,pedidos,estado = CANCELADO,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-tasa_cancelacion_pct,15.79,%,cancelados / pedidos totales,pedidos totales,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pares_vendidos,148.0,pares,Σ cantidad de líneas de pedidos de venta,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-ingresos_validos,10528.52,EUR,Σ cantidad × precio_unitario de pedidos de venta,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-ticket_medio,809.89,EUR,ingresos / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pares_por_pedido,11.38,pares,pares / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-precio_medio_par,71.14,EUR,ingresos / pares vendidos,pares vendidos,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-peso_custom_pedidos_pct,38.46,%,pedidos Custom de venta / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-peso_custom_pares_pct,75.0,%,pares Custom / pares vendidos,pares vendidos,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-peso_custom_ingresos_pct,73.79,%,ingresos Custom / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-clientes_compradores,7.0,clientes,clientes distintos con algún pedido de venta,-,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pareto_top20_modelos_pct,70.66,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
-pareto_top20_clientes_pct,62.39,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,19,calcular_kpis
+pedidos_totales,19.0,pedidos,nº de pedidos únicos en cualquier estado,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pedidos_confirmados,13.0,pedidos,estado = CONFIRMADO,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pedidos_pendientes,3.0,pedidos,estado = BORRADOR,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pedidos_cancelados,3.0,pedidos,estado = CANCELADO,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+tasa_cancelacion_pct,15.79,%,cancelados / pedidos totales,pedidos totales,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pares_vendidos,148.0,pares,Σ cantidad de líneas de pedidos de venta,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+ingresos_validos,10528.52,EUR,Σ cantidad × precio_unitario de pedidos de venta,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+ticket_medio,809.89,EUR,ingresos / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pares_por_pedido,11.38,pares,pares / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+precio_medio_par,71.14,EUR,ingresos / pares vendidos,pares vendidos,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+peso_custom_pedidos_pct,38.46,%,pedidos Custom de venta / pedidos de venta,pedidos de venta,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+peso_custom_pares_pct,75.0,%,pares Custom / pares vendidos,pares vendidos,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+peso_custom_ingresos_pct,73.79,%,ingresos Custom / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+clientes_compradores,7.0,clientes,clientes distintos con algún pedido de venta,-,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pareto_top20_modelos_pct,70.66,%,ingresos del 20 % de modelos que más facturan / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis
+pareto_top20_clientes_pct,62.39,%,ingresos del 20 % de clientes que más compran / ingresos válidos,ingresos válidos,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,19,calcular_kpis

@@ -1,11 +1,11 @@
 modelo,30,35,37,38,39,40,41,42,43,44,45,46,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-Acero,0,0,0,0,0,0,0,5,5,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Bólido,0,0,0,0,0,0,3,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Chispa,3,2,5,0,0,0,0,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Coloso,0,0,0,0,0,3,0,4,0,3,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Cometa,0,0,0,4,8,12,22,21,12,8,4,1,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Furia FG,0,0,0,0,0,0,0,1,0,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Granito,0,0,0,0,0,0,0,0,2,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Impulso,0,0,0,0,0,4,0,4,0,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Relámpago,0,0,0,0,0,1,2,1,1,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
-Remolino IC,0,0,0,0,2,3,2,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,matriz_modelo_talla
+Acero,0,0,0,0,0,0,0,5,5,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Bólido,0,0,0,0,0,0,3,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Chispa,3,2,5,0,0,0,0,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Coloso,0,0,0,0,0,3,0,4,0,3,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Cometa,0,0,0,4,8,12,22,21,12,8,4,1,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Furia FG,0,0,0,0,0,0,0,1,0,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Granito,0,0,0,0,0,0,0,0,2,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Impulso,0,0,0,0,0,4,0,4,0,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Relámpago,0,0,0,0,0,1,2,1,1,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla
+Remolino IC,0,0,0,0,2,3,2,0,0,0,0,0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,matriz_modelo_talla

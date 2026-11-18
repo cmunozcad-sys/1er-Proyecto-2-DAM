@@ -1,11 +1,11 @@
 id_cliente,tipo_cliente,ultima_compra,frequency,monetary,recency_dias,r,f,m,puntuacion_rfm,segmento,frecuencia_cliente,porcentaje_custom,intervalo_medio_dias,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-8,PARTICULAR,2026-11-18 10:16:17.415472,6,3769.45,0.0,4.0,5.0,5.0,455,Campeones,6.0,33.33,2.4,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-1,CLUB,2026-10-01 10:00:00.000000,1,2799.6,48.0,2.0,3.0,5.0,235,En riesgo,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-5,EMPRESA,2026-10-22 13:00:00.000000,2,1579.77,27.0,3.0,5.0,4.0,354,Leales,2.0,0.0,34.0,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-4,CLUB,2026-09-25 09:15:00.000000,1,999.9,54.0,1.0,3.0,3.0,133,En riesgo,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-16,CLUB,2026-11-18 12:32:23.750300,1,839.88,0.0,4.0,3.0,3.0,433,Potenciales,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-2,CLUB,2026-10-08 10:30:00.000000,1,419.93,41.0,3.0,3.0,2.0,332,Potenciales,1.0,0.0,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-6,PARTICULAR,2026-09-05 18:20:00.000000,1,119.99,74.0,1.0,3.0,1.0,131,En riesgo,1.0,0.0,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-7,PARTICULAR,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
-12,PARTICULAR,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,clientes_rfm
+8,PARTICULAR,2026-11-18 10:16:17.415472,6,3769.45,0.0,4.0,5.0,5.0,455,Campeones,6.0,33.33,2.4,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+1,CLUB,2026-10-01 10:00:00.000000,1,2799.6,48.0,2.0,3.0,5.0,235,En riesgo,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+5,EMPRESA,2026-10-22 13:00:00.000000,2,1579.77,27.0,3.0,5.0,4.0,354,Leales,2.0,0.0,34.0,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+4,CLUB,2026-09-25 09:15:00.000000,1,999.9,54.0,1.0,3.0,3.0,133,En riesgo,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+16,CLUB,2026-11-18 12:32:23.750300,1,839.88,0.0,4.0,3.0,3.0,433,Potenciales,1.0,100.0,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+2,CLUB,2026-10-08 10:30:00.000000,1,419.93,41.0,3.0,3.0,2.0,332,Potenciales,1.0,0.0,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+6,PARTICULAR,2026-09-05 18:20:00.000000,1,119.99,74.0,1.0,3.0,1.0,131,En riesgo,1.0,0.0,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+3,CLUB,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+7,PARTICULAR,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm
+12,PARTICULAR,,0,0.0,,,,,,Sin compras válidas,,,,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,clientes_rfm

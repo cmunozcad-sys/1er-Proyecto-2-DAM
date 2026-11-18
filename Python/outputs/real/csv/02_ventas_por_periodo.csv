@@ -1,4 +1,4 @@
 mes,ingresos,pares,pedidos,ticket_medio,variacion_mensual_pct,media_movil_3_previos,variacion_interanual_pct,mes_completo,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-2026-09,1849.76,24,3,616.59,,,,True,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,ventas_por_periodo
-2026-10,4069.43,57,3,1356.48,120.0,,,True,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,ventas_por_periodo
-2026-11,4609.33,67,7,658.48,13.27,,,False,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,ventas_por_periodo
+2026-09,1849.76,24,3,616.59,,,,True,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,ventas_por_periodo
+2026-10,4069.43,57,3,1356.48,120.0,,,True,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,ventas_por_periodo
+2026-11,4609.33,67,7,658.48,13.27,,,False,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,ventas_por_periodo

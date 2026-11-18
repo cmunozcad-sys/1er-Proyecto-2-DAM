@@ -1,5 +1,5 @@
 nivel,registro,variable,valor,limite_inferior,limite_superior,explicacion,decision,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-pedido,1,importe,2799.6,-799.9,1839.78,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,anomalias
-pedido,13,importe,2729.61,-799.9,1839.78,Revisar con negocio,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,anomalias
-pedido,1,pares,40.0,-13.0,27.0,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,anomalias
-pedido,13,pares,39.0,-13.0,27.0,Revisar con negocio,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,41,anomalias
+pedido,1,importe,2799.6,-799.9,1839.78,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,anomalias
+pedido,13,importe,2729.61,-799.9,1839.78,Revisar con negocio,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,anomalias
+pedido,1,pares,40.0,-13.0,27.0,Pedido Custom de club o equipo: volumen grande esperable,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,anomalias
+pedido,13,pares,39.0,-13.0,27.0,Revisar con negocio,Se conserva y se marca,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,41,anomalias

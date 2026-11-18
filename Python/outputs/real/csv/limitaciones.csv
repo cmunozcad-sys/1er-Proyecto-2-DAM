@@ -1,6 +1,6 @@
 no_puede_afirmarse,linaje_origen,linaje_fecha_corte,linaje_ejecucion,linaje_filtros,linaje_filas_origen,linaje_funcion
-Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,limitaciones
-No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,limitaciones
-El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,limitaciones
-Con solo 13 pedidos de venta no se pueden generalizar tendencias ni comparar grupos con fiabilidad.,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,limitaciones
-Con 3 meses de histórico no se puede medir estacionalidad ni comparar con el año anterior.,REAL,2026-11-19,2026-11-18 13:01:48,sin filtros,13,limitaciones
+Una diferencia entre grupos no demuestra que una variable cause la otra: solo describe lo observado.,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,limitaciones
+No puede calcularse beneficio ni margen: el contrato de datos no incluye coste unitario.,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,limitaciones
+El stock es una foto en la fecha de corte; no permite saber cuánto stock hubo en meses anteriores.,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,limitaciones
+Con solo 13 pedidos de venta no se pueden generalizar tendencias ni comparar grupos con fiabilidad.,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,limitaciones
+Con 3 meses de histórico no se puede medir estacionalidad ni comparar con el año anterior.,REAL,2026-11-19,2026-11-18 13:14:32,sin filtros,13,limitaciones
