@@ -185,7 +185,8 @@ const insertarCliente = `
     ON CONFLICT (email) DO UPDATE SET email = EXCLUDED.email
     RETURNING id_cliente`;
 
-// Inserta una línea con el precio del modelo más el extra de la variante, solo si existe esa talla
+// Inserta una línea con el precio del modelo más el extra de la variante, solo si existe esa talla.
+// ORDER BY id_variante hace que elija siempre la misma variante que consultaStock
 const insertarLinea = `
     INSERT INTO linea_pedido (id_pedido, id_variante, talla, cantidad, precio_unitario,
                             personalizacion, texto_bordado, logo_club)
@@ -540,6 +541,7 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
         const idPedido = nuevoPedido.rows[0].id_pedido;
 
         for (const articulo of articulos) {
+            // Antes de guardar la línea se comprueba que haya pares suficientes; si no, se deshace todo el pedido
             const stock = await conexion.query(consultaStock, [articulo.id, articulo.talla]);
 
             if (stock.rows.length === 0 || stock.rows[0].cantidad < articulo.cantidad) {

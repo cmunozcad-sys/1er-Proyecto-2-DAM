@@ -1479,6 +1479,7 @@ body{
     cursor: pointer;
 }
 
+/* Botón Comprar desactivado cuando no hay stock suficiente */
 .carrito__comprar:disabled{
     opacity: 0.5;
     cursor: not-allowed;
@@ -1524,19 +1525,41 @@ body{
     color: inherit;
 }
 
-.carrito__quitar{
+/* Botones más, menos y papelera de cada artículo del carrito */
+.carrito__botones{
+    display: flex;
+    gap: 6px;
     margin-left: auto;
-    padding: 0;
-    background: none;
-    border: none;
-    font-size: 13px;
-    color: gray;
-    cursor: pointer;
-    transition: color 0.3s;
 }
 
-.carrito__quitar:hover{
+.carrito__boton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--color-terciario);
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.carrito__boton:hover{
     color: var(--color-naranja);
+    border-color: var(--color-naranja);
+}
+
+/* Icono de la papelera: solo líneas, del mismo color que el botón */
+.carrito__papelera{
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
 }
 
 .cuenta__panel{

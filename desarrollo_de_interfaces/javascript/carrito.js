@@ -59,7 +59,14 @@ function pintarCarrito() {
                     <p class="cuenta__dato">Talla ${articulo.talla} · ${articulo.cantidad} ud.</p>
                     <p class="cuenta__dato"><strong>${formatearPrecio(articulo.precio * articulo.cantidad)}</strong></p>
                 </div>
-                <button class="carrito__quitar" type="button" data-indice="${indice}">Quitar</button>
+                <!-- Botones de cada artículo: data-accion dice qué hace y data-indice a qué artículo afecta -->
+                <div class="carrito__botones">
+                    <button class="carrito__boton" type="button" data-accion="menos" data-indice="${indice}" aria-label="Quitar uno">−</button>
+                    <button class="carrito__boton" type="button" data-accion="mas" data-indice="${indice}" aria-label="Añadir uno">+</button>
+                    <button class="carrito__boton" type="button" data-accion="borrar" data-indice="${indice}" aria-label="Eliminar">
+                        <svg class="carrito__papelera" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M9 7V4h6v3"></path><path d="M6 7l1 13h10l1-13"></path></svg>
+                    </button>
+                </div>
             </div>`;
     });
 
@@ -75,11 +82,14 @@ function pintarCarrito() {
 
     botonComprar.hidden = carrito.length === 0 || formularioCompra.classList.contains("carrito__formulario--abierto");
 
+    // Cada vez que cambia el carrito se vuelve a mirar si hay stock suficiente
     if (carrito.length > 0) {
         comprobarStock();
     }
 }
 
+// Pregunta al servidor cuántos pares quedan de cada artículo en su talla.
+// Si en el carrito hay más pares que stock, desactiva el botón Comprar y avisa de cuáles faltan
 async function comprobarStock() {
     const sinStock = [];
     botonComprar.disabled = true;
@@ -109,19 +119,28 @@ function guardarCarrito() {
     pintarCarrito();
 }
 
-function quitarDelCarrito(indice) {
-    carrito[indice].cantidad--;
+// Botones del artículo: "mas" suma un par, "menos" resta uno y "borrar" lo quita entero.
+// Si la cantidad llega a 0 también se quita del carrito
+function cambiarCantidad(indice, accion) {
+    if (accion === "mas") {
+        carrito[indice].cantidad++;
+    } else if (accion === "menos") {
+        carrito[indice].cantidad--;
+    }
 
-    if (carrito[indice].cantidad === 0) {
+    if (accion === "borrar" || carrito[indice].cantidad === 0) {
         carrito.splice(indice, 1);
     }
 
     guardarCarrito();
 }
 
+// Un solo listener para toda la lista; closest encuentra el botón aunque se pulse el dibujo de la papelera
 listaCarrito.addEventListener("click", (evento) => {
-    if (evento.target.classList.contains("carrito__quitar")) {
-        quitarDelCarrito(Number(evento.target.dataset.indice));
+    const boton = evento.target.closest(".carrito__boton");
+
+    if (boton) {
+        cambiarCantidad(Number(boton.dataset.indice), boton.dataset.accion);
     }
 });
 

@@ -238,7 +238,8 @@ def resumen_calidad(tablas, validas, registro):
     return pd.DataFrame(filas)
 
 
-# Valida todas las tablas en orden, porque las líneas dependen de pedidos, modelos y stock
+# Valida todas las tablas en orden, porque las líneas dependen de pedidos, modelos y stock.
+# Al terminar escribe en el log un WARNING por cada incidencia recuperable
 def validar_datos(tablas, registro):
     if len(tablas) < len(config.FICHEROS):
         return {}, resumen_calidad(tablas, {}, registro)
