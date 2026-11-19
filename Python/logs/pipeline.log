@@ -2433,3 +2433,40 @@
 2026-11-18 13:14:32 | INFO | stock: 358 filas leídas
 2026-11-18 13:14:32 | INFO | Fin de carga | incidencias=0
 2026-11-18 13:14:37 | INFO | Ejecución correcta | origen=REAL | fase=completo | resultados=35 | duracion=5.70s
+2026-11-19 17:41:35 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-19 17:41:35 | INFO | clientes: 10 filas leídas
+2026-11-19 17:41:35 | INFO | modelos: 40 filas leídas
+2026-11-19 17:41:35 | INFO | pedidos: 19 filas leídas
+2026-11-19 17:41:35 | INFO | lineas: 53 filas leídas
+2026-11-19 17:41:35 | INFO | stock: 358 filas leídas
+2026-11-19 17:41:35 | INFO | Fin de carga | incidencias=0
+2026-11-19 17:42:37 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-19 17:42:37 | INFO | clientes: 10 filas leídas
+2026-11-19 17:42:37 | INFO | modelos: 40 filas leídas
+2026-11-19 17:42:37 | INFO | pedidos: 19 filas leídas
+2026-11-19 17:42:37 | INFO | lineas: 53 filas leídas
+2026-11-19 17:42:37 | INFO | stock: 358 filas leídas
+2026-11-19 17:42:37 | INFO | Fin de carga | incidencias=0
+2026-11-19 17:42:49 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-19 17:42:49 | INFO | clientes: 10 filas leídas
+2026-11-19 17:42:49 | INFO | modelos: 40 filas leídas
+2026-11-19 17:42:49 | INFO | pedidos: 19 filas leídas
+2026-11-19 17:42:49 | INFO | lineas: 53 filas leídas
+2026-11-19 17:42:49 | INFO | stock: 358 filas leídas
+2026-11-19 17:42:49 | INFO | Fin de carga | incidencias=0
+2026-11-19 17:42:49 | WARNING | lineas: incidencia recuperable | registro=1 | regla=05 | Cantidad nula, cero o negativa | Registro rechazado
+2026-11-19 17:43:49 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-19 17:43:50 | INFO | clientes: 10 filas leídas
+2026-11-19 17:43:50 | INFO | modelos: 40 filas leídas
+2026-11-19 17:43:50 | INFO | pedidos: 19 filas leídas
+2026-11-19 17:43:50 | INFO | lineas: 53 filas leídas
+2026-11-19 17:43:50 | INFO | stock: 358 filas leídas
+2026-11-19 17:43:50 | INFO | Fin de carga | incidencias=0
+2026-11-19 17:43:50 | WARNING | lineas: incidencia recuperable | registro=1 | regla=05 | Cantidad nula, cero o negativa | Registro rechazado
+2026-11-19 17:44:11 | INFO | Inicio de carga | origen=REAL | carpeta=C:\Users\carlos\Desktop\Proyecto\1er-Proyecto-2-DAM\Python\entrada
+2026-11-19 17:44:11 | ERROR | clientes: carga abortada
+2026-11-19 17:44:11 | INFO | modelos: 40 filas leídas
+2026-11-19 17:44:11 | INFO | pedidos: 19 filas leídas
+2026-11-19 17:44:11 | INFO | lineas: 53 filas leídas
+2026-11-19 17:44:11 | INFO | stock: 358 filas leídas
+2026-11-19 17:44:11 | INFO | Fin de carga | incidencias=1

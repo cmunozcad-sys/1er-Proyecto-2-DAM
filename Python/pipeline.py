@@ -252,6 +252,13 @@ def validar_datos(tablas, registro):
     validas["lineas"] = validar_lineas(tablas["lineas"], tablas, validas, registro)
     comprobar_totales(validas["pedidos"], validas["lineas"], registro)
 
+    # Cada incidencia recuperable se apunta también en logs/pipeline.log
+    logger = crear_logger("pipeline", config.LOGS / "pipeline.log")
+    for incidencia in registro.incidencias:
+        if incidencia["gravedad"] == RECUPERABLE:
+            logger.warning(f"{incidencia['tabla']}: incidencia recuperable | registro={incidencia['registro']} | regla={incidencia['regla']} | "
+                           f"{incidencia['descripcion']} | {incidencia['tratamiento']}")
+
     return validas, resumen_calidad(tablas, validas, registro)
 
 # Merge controlado: si cambia el número de filas o faltan parejas, apunta un bloqueante y devuelve None

@@ -12,3 +12,4 @@
 18/11/2026, 12:37:11 | comercial | Comercial | APROBAR PEDIDO 19 | OK - CUS-1795001543728 pasa a CONFIRMADO
 18/11/2026, 12:37:12 | comercial | Comercial | CONSULTA PEDIDOS (sin filtros) | OK - 19 pedidos
 18/11/2026, 12:37:12 | comercial | Comercial | CONSULTA INDICADORES | OK - 19 pedidos, 199 pares, 10528.52 €
+19/11/2026, 17:50:02 | comercial | Comercial | LOGIN | OK

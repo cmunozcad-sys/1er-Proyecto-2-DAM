@@ -40,3 +40,8 @@
 2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.17s | estado=correcto | anomalia=-
 2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.16s | estado=correcto | anomalia=-
 2026-11-12 11:07:13 | INFO | origen=PRUEBA | filas clientes=2/2 modelos=2/2 pedidos=2/2 lineas=3/3 stock=3/3 | duracion=0.15s | estado=correcto | anomalia=-
+2026-11-19 17:41:35 | INFO | origen=REAL | filas clientes=10/10 modelos=40/40 pedidos=19/19 lineas=53/53 stock=358/358 | duracion=0.41s | estado=correcto | anomalia=-
+2026-11-19 17:42:37 | INFO | origen=REAL | filas clientes=10/10 modelos=40/40 pedidos=19/19 lineas=53/53 stock=358/358 | duracion=0.47s | estado=sin cambios | anomalia=-
+2026-11-19 17:42:49 | INFO | origen=REAL | filas clientes=10/10 modelos=40/40 pedidos=19/19 lineas=52/53 stock=358/358 | duracion=0.36s | estado=correcto | anomalia=-
+2026-11-19 17:43:50 | INFO | origen=REAL | filas clientes=10/10 modelos=40/40 pedidos=19/19 lineas=52/53 stock=358/358 | duracion=0.54s | estado=sin cambios | anomalia=-
+2026-11-19 17:44:11 | WARNING | origen=REAL | filas clientes=0/0 modelos=0/40 pedidos=0/19 lineas=0/53 stock=0/358 | duracion=0.09s | estado=error de carga | anomalia=No existe clientes.csv

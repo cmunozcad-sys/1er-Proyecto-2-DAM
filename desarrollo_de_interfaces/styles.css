@@ -1479,6 +1479,11 @@ body{
     cursor: pointer;
 }
 
+.carrito__comprar:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .carrito__comprar[hidden]{
     display: none;
 }

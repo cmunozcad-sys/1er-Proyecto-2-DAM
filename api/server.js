@@ -195,6 +195,17 @@ const insertarLinea = `
     JOIN variante v ON v.id_variante = s.id_variante
     JOIN modelo m ON m.id_modelo = v.id_modelo
     WHERE m.id_modelo = $2 AND s.talla = $3 AND m.activo AND v.activo
+    ORDER BY s.id_variante
+    LIMIT 1`;
+
+// Pares que quedan de un modelo en una talla, en la misma variante que elige insertarLinea
+const consultaStock = `
+    SELECT s.cantidad
+    FROM stock s
+    JOIN variante v ON v.id_variante = s.id_variante
+    JOIN modelo m ON m.id_modelo = v.id_modelo
+    WHERE m.id_modelo = $1 AND s.talla = $2 AND m.activo AND v.activo
+    ORDER BY s.id_variante
     LIMIT 1`;
 
 // Suma pares al stock de la primera variante activa del modelo en esa talla
@@ -421,6 +432,25 @@ app.post("/api/stock",exigirPermisos(["STOCK_REPONER"], false), async (peticion,
     }
 });
 
+// GET /api/stock: pares que quedan de un modelo en una talla (lo usa el carrito antes de comprar)
+app.get("/api/stock", async (peticion, respuesta) => {
+    const id = Number(peticion.query.id);
+    const talla = Number(peticion.query.talla);
+
+    if (!Number.isInteger(id) || !(talla >= 30 && talla <= 48)) {
+        respuesta.status(400).json({ error: "Los datos no son válidos" });
+        return;
+    }
+
+    try {
+        const resultado = await pool.query(consultaStock, [id, talla]);
+        respuesta.json({ cantidad: resultado.rows.length > 0 ? resultado.rows[0].cantidad : 0 });
+    } catch (error) {
+        console.error(error.message);
+        respuesta.status(500).json({ error: "No se pudo consultar el stock" });
+    }
+});
+
 // POST /api/pedidos/custom: guarda un pedido personalizado (cliente, pedido CUS- y líneas) en una sola transacción
 app.post("/api/pedidos/custom", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, respuesta) => {
     const solicitud = peticion.body || {};
@@ -510,6 +540,12 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
         const idPedido = nuevoPedido.rows[0].id_pedido;
 
         for (const articulo of articulos) {
+            const stock = await conexion.query(consultaStock, [articulo.id, articulo.talla]);
+
+            if (stock.rows.length === 0 || stock.rows[0].cantidad < articulo.cantidad) {
+                throw new Error("Stock insuficiente: no hay pares suficientes de esa talla");
+            }
+
             const linea = await conexion.query(insertarLinea,
                 [idPedido, articulo.id, articulo.talla, articulo.cantidad, null, null, false]);
 
@@ -529,7 +565,7 @@ app.post("/api/pedidos", exigirPermisos(["PEDIDO_CREAR"]), async (peticion, resp
         registrarActividad(usuarioDe(peticion), "CREAR PEDIDO", "ERROR - " + error.message);
 
         if (error.message.includes("Stock insuficiente")) {
-            respuesta.status(409).json({ error: "Alguno de los artículos ya no está disponible en esa talla" });
+            respuesta.status(409).json({ error: "No hay stock suficiente de alguno de los artículos en esa talla" });
         } else {
             respuesta.status(500).json({ error: "No se pudo guardar el pedido" });
         }

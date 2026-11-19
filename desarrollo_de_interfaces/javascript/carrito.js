@@ -74,6 +74,34 @@ function pintarCarrito() {
     }
 
     botonComprar.hidden = carrito.length === 0 || formularioCompra.classList.contains("carrito__formulario--abierto");
+
+    if (carrito.length > 0) {
+        comprobarStock();
+    }
+}
+
+async function comprobarStock() {
+    const sinStock = [];
+    botonComprar.disabled = true;
+
+    try {
+        for (const articulo of carrito) {
+            const respuesta = await fetch(`/api/stock?id=${articulo.id}&talla=${articulo.talla}`);
+            const datos = await respuesta.json();
+
+            if (articulo.cantidad > datos.cantidad) {
+                sinStock.push(`${articulo.nombre} talla ${articulo.talla} (quedan ${datos.cantidad})`);
+            }
+        }
+    } catch (error) {
+        console.error("No se pudo comprobar el stock:", error);
+    }
+
+    botonComprar.disabled = sinStock.length > 0;
+
+    if (sinStock.length > 0) {
+        mensajeCompra.textContent = "No hay stock suficiente de: " + sinStock.join(", ");
+    }
 }
 
 function guardarCarrito() {
